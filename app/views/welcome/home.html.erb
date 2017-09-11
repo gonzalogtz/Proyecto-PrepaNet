@@ -1,1 +1,156 @@
-<h1>Home Page</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Generar Reporte</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/bootstrap/css/sst.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="../lib/bootstrap/css/dashboard.css" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../lib/bootstrap-select/css/bootstrap-select.min.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <img class="logo-brand" src="../images/logo_bw.png" alt="Logo de Prepanet"/>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="perfil.html">Juan Pérez</a></li>
+            <li><a href="../login.html">Cerrar Sesión</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Roles Asignados <span class="sr-only">(current)</span></a></li>
+            <li><h4 style="margin-left: 10px;">Explorar Reportes</h4></li>
+            <li><a href="reporteQ.html">Quincenales</a></li>
+            <li><a href="reporteS.html">Evaluación de Desempeño Semanal</a></li>
+            <li><a href="reporteC.html">Concentrados de Reportes Quincenales </a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><h4 style="margin-left: 10px;">Generar Reportes</h4></li>
+            <li><a href="generar_reporteQ.html">Reporte Quincenal</a></li>
+            <li><a href="generar_reporteS.html">Evaluación de Desempeño Semanal</a></li>
+            <li><a href="generar_reporteC.html">Concentrado de Reportes Quincenales</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header"> Reporte Quincenal de Actividad y Desempeño del Alumno</h1>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="row">
+                <h2>Alumno a Evaluar</h2>
+              </div>
+              <div class="row">
+                <!-- Tutores DD -->
+                <select class="selectpicker">
+                  <option value="" selected disabled>Seleccionar Alumno a Evaluar</option>
+                  <option>Perenganito Suarez</option>
+                  <option>Fulano de Tal</option>
+                  <option>Memín Pingüín</option>
+                  <option>Juan Camaney</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div id="table-cursos" class="" style="margin-top: 20px;">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <center>Evaluación del Alumno</center>
+                </div>
+                <div class="panel-body">
+                <!-- Pregunta 1-->
+                  <h4>1.- Estatus del Alumno:</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped" style="text-align: center;">
+                      <thead>
+                        <tr>
+                          <th style="text-align: center;">Activo</th>
+                          <th style="text-align: center;">Inactivo</th>
+                          <th style="text-align: center;">Parcialmente Activo</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="radio" name="1"></td>
+                          <td><input type="radio" name="1"></td>
+                          <td><input type="radio" name="1"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <!-- Termina Pregunta 1 -->
+                <!-- Pregunta 2-->
+                  <h4>2.- Localizado:</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped" style="text-align: center;">
+                      <thead>
+                        <tr>
+                          <th style="text-align: center;">Sí</th>
+                          <th style="text-align: center;">No</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="radio" name="2"></td>
+                          <td><input type="radio" name="2"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                <!-- Termina Pregunta 2 -->
+                <!-- Comentarios -->
+                  <h4>6.- Comentarios:</h4>
+                  <textarea class="form-control" name="comentarios" rows="5"></textarea>
+                  <div class="row"> 
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                     <a href="reporte_exito.html"><button type="button" class="btn btn-primary btn-lg" style= "width: 100%; margin-top: 30px;">Enviar Reporte</button></a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../lib/bootstrap/js/vendor/holder.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="../lib/bootstrap-select/js/bootstrap-select.min.js"></script>
+  </body>
+</html>
+w
