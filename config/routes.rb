@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :reportes
-	root 'welcome#home'
+  
+  resources :reportes, :path => '/'
+  
+  get 'mainlayout/navsidebar', to: 'mainlayout#navsidebar'
 
 
 
