@@ -119,3 +119,29 @@ body {
 
 
 }
+
+.navbar-inverse{
+  background-color: #4183D7;
+}
+.navbar-inverse .navbar-nav > li > a{
+  color: white;
+}
+.navbar-inverse .navbar-brand{
+  color: white;
+}
+.logo-brand{
+  width: 15%;
+}
+.navbar-right > li > a{
+  font-size: 1.2em;
+  width: 100%;
+}
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #4183D7;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+}
+
