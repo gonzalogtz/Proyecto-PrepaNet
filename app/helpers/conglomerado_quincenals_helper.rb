@@ -1,0 +1,2 @@
+module ConglomeradoQuincenalsHelper
+end

@@ -1,0 +1,54 @@
+
+
+<%= render 'topsidebar/navsidebar' %>
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Conglomerado Quincenals</h1>
+          <div id="table-cursos">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <center>Reportes Quincenales Registrados</center>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-striped"style="text-align: center;">
+                  <thead>
+                    <tr>
+                      <th style="text-align: center;">Materia</th>
+                      <th style="text-align: center;">Tutor</th>
+                      <th style="text-align: center;">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @conglomerado_quincenals.each do |conglomerado_quincenal| %>
+                      <tr >
+                        <td><%= conglomerado_quincenal.materia %></td>
+                        <td><%= conglomerado_quincenal.tutor %></td>
+                        <td><%= link_to 'Show', conglomerado_quincenal %> <%= link_to 'Edit', edit_conglomerado_quincenal_path(conglomerado_quincenal) %> <%= link_to 'Destroy', conglomerado_quincenal, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+                      
+                      
+                      </tr>
+                    
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+
+
+              <div class="row"> 
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <%= link_to "Crear Reporte", new_conglomerado_quincenal_path, class: 'btn btn-primary btn-lg', :id => "btnCongloQuinc"%>
+                     
+                      
+                    </div>
+              </div>
+            </div>
+
+          </div>
+</div>
+    
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  materia: MyString
+  tutor: MyString
+  invito: MyString
+  rparcial: MyString
+  rfinal: MyString
+  resumen: MyText
+  cierre: MyString
+  reingresar: MyString
+  recomendacion: MyString
+
+two:
+  materia: MyString
+  tutor: MyString
+  invito: MyString
+  rparcial: MyString
+  rfinal: MyString
+  resumen: MyText
+  cierre: MyString
+  reingresar: MyString
+  recomendacion: MyString
