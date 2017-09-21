@@ -20220,3 +20220,31 @@ Processing by ConglomeradoQuincenalsController#edit as HTML
 Completed 200 OK in 65ms (Views: 62.4ms | ActiveRecord: 0.1ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateReporteQuincenals (20170920202736)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "reporte_quincenals" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "estatus" varchar, "localizado" varchar, "comentarios" varchar, "tutor" varchar, "alumno" varchar, "fecha" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170920202736"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-20 21:44:33 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  [1m[36mReporteQuincenal Load (0.5ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 685ms (Views: 665.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-20 21:44:42 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.8ms)
+  Rendered reporte_quincenals/_form.html.erb (35.6ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (47.7ms)
+Completed 200 OK in 155ms (Views: 150.1ms | ActiveRecord: 0.0ms)
+
+

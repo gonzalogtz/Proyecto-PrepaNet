@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @reporte_quincenal.estatus %>
+</p>
+
+<p>
+  <strong>Localizado:</strong>
+  <%= @reporte_quincenal.localizado %>
+</p>
+
+<p>
+  <strong>Comentarios:</strong>
+  <%= @reporte_quincenal.comentarios %>
+</p>
+
+<p>
+  <strong>Tutor:</strong>
+  <%= @reporte_quincenal.tutor %>
+</p>
+
+<p>
+  <strong>Alumno:</strong>
+  <%= @reporte_quincenal.alumno %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @reporte_quincenal.fecha %>
+</p>
+
+<%= link_to 'Edit', edit_reporte_quincenal_path(@reporte_quincenal) %> |
+<%= link_to 'Back', reporte_quincenals_path %>

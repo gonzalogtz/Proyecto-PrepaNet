@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estatus: MyString
+  localizado: MyString
+  comentarios: MyString
+  tutor: MyString
+  alumno: MyString
+  fecha: 2017-09-20 15:27:36
+
+two:
+  estatus: MyString
+  localizado: MyString
+  comentarios: MyString
+  tutor: MyString
+  alumno: MyString
+  fecha: 2017-09-20 15:27:36

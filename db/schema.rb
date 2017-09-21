@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920143134) do
+ActiveRecord::Schema.define(version: 20170920202736) do
 
   create_table "conglomerado_quincenals", force: :cascade do |t|
     t.string   "materia"
@@ -26,6 +26,22 @@ ActiveRecord::Schema.define(version: 20170920143134) do
     t.datetime "updated_at",    null: false
   end
 
-  
+  create_table "reporte_quincenals", force: :cascade do |t|
+    t.string   "estatus"
+    t.string   "localizado"
+    t.string   "comentarios"
+    t.string   "tutor"
+    t.string   "alumno"
+    t.datetime "fecha"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "reportesQuincenales", force: :cascade do |t|
+    t.string   "titulo"
+    t.text     "descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end

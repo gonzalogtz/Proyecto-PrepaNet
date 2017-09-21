@@ -1,0 +1,2 @@
+class ReporteQuincenal < ApplicationRecord
+end
