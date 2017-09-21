@@ -19,10 +19,7 @@
                 <h2>Alumno a evaluar</h2>
             </div>
             <div class="row">
-                <!-- Tutores DD -->
-                <select class="selectpicker">
-                    <option value="" selected disabled>Seleccionar alumno a evaluar</option>
-                </select>
+                <%= f.select :alumno, options_for_select(ReporteQuincenalsController::ALUMNOS), class:"selectpicker"%>
             </div>
         </div>
     </div>
@@ -39,16 +36,16 @@
                     <table class="table table-striped" style="text-align: center;">
                         <thead>
                             <tr>
-                                <th style="text-align: center;">Activo</th>
                                 <th style="text-align: center;">Inactivo</th>
                                 <th style="text-align: center;">Parcialmente Activo</th>
+                                <th style="text-align: center;">Activo</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="width: 33.33%"><%= f.radio_button :estatus, "Activo", id: '' %></td>
-                                <td style="width: 33.33%"><%= f.radio_button :estatus, "Inactivo", id: '' %></td>
-                                <td style="width: 33.33%"><%= f.radio_button :estatus, "Parcialmente Activo", id: '' %></td>
+                                <td style="width: 33.33%"><%= f.radio_button :estatus, 0%></td>
+                                <td style="width: 33.33%"><%= f.radio_button :estatus, 1%></td>
+                                <td style="width: 33.33%"><%= f.radio_button :estatus, 2%></td>
                             </tr>
                         </tbody>
                     </table>
@@ -61,14 +58,14 @@
                     <table class="table table-striped" style="text-align: center;">
                         <thead>
                         <tr>
-                            <th style="text-align: center;">Sí</th>
                             <th style="text-align: center;">No</th>
+                            <th style="text-align: center;">Sí</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><%= f.radio_button :localizado, "Si", id: '' %></td>
-                                <td><%= f.radio_button :localizado, "No", id: '' %></td>
+                                <td><%= f.radio_button :localizado, 0%></td>
+                                <td><%= f.radio_button :localizado, 1%></td>
                             </tr>
                         </tbody>
                     </table>
@@ -77,12 +74,12 @@
         
                 <!-- Pregunta 3 -->
                 <h4>3.- Comentarios:</h4>
-                <%= f.text_area :comentarios %>
+                <%= f.text_area :comentarios, class:"txtArea"%>
                 <!-- Termina pregunta 3 -->
 
                 <div class="row"> 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <%= f.submit "Enviar reporte", class:"btn btn-primary btn-lg"  %>
+                        <%= f.submit "Enviar reporte", class:"btn btn-primary btn-lg btnSubmit"  %>
                     </div>
                 </div>
             </div>

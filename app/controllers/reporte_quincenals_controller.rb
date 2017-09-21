@@ -71,4 +71,6 @@ class ReporteQuincenalsController < ApplicationController
     def reporte_quincenal_params
       params.require(:reporte_quincenal).permit(:estatus, :localizado, :comentarios, :tutor, :alumno, :fecha)
     end
+    
+    ALUMNOS  = [["Gonzalo Gutierrez", 1], ["David Valles", 2], ["Armando Galvan", 3]]
 end
