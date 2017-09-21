@@ -68,7 +68,7 @@
                   <h4>Resumen de observaciones sobre el desempeño del tutor y el seguimiento a sus alumnos</h4>
                   <div class="field">
                     
-                    <%= f.text_area :resumen %>
+                    <%= f.text_area :resumen, class:"form-control", id:"txtArea"%>
                   </div>
 
                   </textarea>
@@ -102,7 +102,7 @@
 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                       <div class="actions">
-                        <%= f.submit class:"btn btn-primary btn-lg"  %>
+                        <%= f.submit "Enviar Reporte", class:"btn btn-primary btn-lg", id:"btnSubmit"  %>
                       </div>
                     </div>
                   </div>
