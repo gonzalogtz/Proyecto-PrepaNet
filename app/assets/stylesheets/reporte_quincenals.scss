@@ -1,10 +1,23 @@
-.btnSubmit{
+.btnSubmit {
 	width: 100%; 
 	margin-top: 50px;
 	color: white;
 }
 
-.txtArea{
+.txtArea {
     height: 150px;
-    width: 100%;
+	width: 100%;
+	resize: none;
+}
+
+.inactivo {
+	color: red;
+}
+
+.parc_activo {
+	color: #F9BF3B;
+}
+
+.activo {
+	color: green;
 }

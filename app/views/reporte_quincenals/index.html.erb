@@ -29,7 +29,7 @@
                   <td><%= reporte_quincenal.tutor %></td>
                   <td>Coordinador generico</td>
                   <td><%= reporte_quincenal.fecha %></td>
-                  <td><%= reporte_quincenal.estatus %></td>
+                  <%= get_estatus_tag(reporte_quincenal.estatus)%>
                   <td><%= reporte_quincenal.localizado %></td>
                   <td><%= link_to 'Ver reporte', reporte_quincenal %></td>
                 </tr>
