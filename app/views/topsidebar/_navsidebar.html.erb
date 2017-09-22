@@ -12,7 +12,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <img id="logoPrepa" src="<%= asset_path("logoPrepa.png")%>" />
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="perfil.html">Juan Pérez</a></li>
+            <li><a href="perfil.html"><%= ApplicationController::USUARIO%></a></li>
             <li><a href="../login.html">Cerrar Sesión</a></li>
           </ul>
         </div>
@@ -24,7 +24,7 @@
           <ul class="nav nav-sidebar">
             
             <li><h4 style="margin-left: 10px;">Reportes</h4></li>
-            <li><a href="reporteS.html">Quincenales</a></li>
+            <li><%= link_to 'Reportes Quincenales', reporte_quincenals_path %></li>
             <li><a href="reporteS.html">Evaluación de Desempeño Semanal</a></li>
             <li><%= link_to 'Concentrados de Reportes Quincenales', conglomerado_quincenals_path %></li>
           </ul>
