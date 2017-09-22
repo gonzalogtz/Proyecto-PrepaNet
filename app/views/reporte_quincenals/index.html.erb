@@ -11,9 +11,8 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Alumno</th>
-                <th>Número del Alumno</th>
-                <th>Tutor</th>
+                <th>Matrícula</th>
+                <th>Nombre</th>
                 <th>Coordinador de Tutores</th>
                 <th>Fecha del Reporte</th>
                 <th>Estatus del Alumno</th>
@@ -24,13 +23,12 @@
             <tbody>
               <% @reporte_quincenals.each do |reporte_quincenal| %>
                 <tr>
-                  <td>Nombre generico</td>
                   <td><%= reporte_quincenal.alumno %></td>
-                  <td><%= reporte_quincenal.tutor %></td>
+                  <td>Nombre generico</td>
                   <td>Coordinador generico</td>
                   <td><%= reporte_quincenal.fecha %></td>
                   <%= get_estatus_tag(reporte_quincenal.estatus)%>
-                  <td><%= reporte_quincenal.localizado %></td>
+                  <%= get_localizado_tag(reporte_quincenal.localizado)%>
                   <td><%= link_to 'Ver reporte', reporte_quincenal %></td>
                 </tr>
               <% end %>

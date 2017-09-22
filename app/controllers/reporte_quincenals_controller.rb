@@ -25,6 +25,8 @@ class ReporteQuincenalsController < ApplicationController
   # POST /reporte_quincenals.json
   def create
     @reporte_quincenal = ReporteQuincenal.new(reporte_quincenal_params)
+    @reporte_quincenal[:tutor] = ID
+    @reporte_quincenal[:fecha] = Date.today
 
     respond_to do |format|
       if @reporte_quincenal.save
@@ -72,16 +74,25 @@ class ReporteQuincenalsController < ApplicationController
       params.require(:reporte_quincenal).permit(:estatus, :localizado, :comentarios, :tutor, :alumno, :fecha)
     end
     
-    ALUMNOS  = [["Gonzalo Gutierrez", 1], ["David Valles", 2], ["Armando Galvan", 3]]
+    ALUMNOS  = [["Gonzalo Gutierrez", 1], ["David Valles", 2], ["Armando Galvan", 3], ["Adriana Montecarlo Ramirez", 4]]
     
     def get_estatus_tag(estatus)
       if estatus == '0'
-        return "<td class='inactivo'>Inactivo</td>".html_safe
+        return "<td class='texto_negativo'>Inactivo</td>".html_safe
       elsif estatus == '1'
-        return "<td class='parc_activo'>Parcialmente Activo</td>".html_safe
+        return "<td class='texto_amarillo'>Parcialmente Activo</td>".html_safe
       else estatus == '2'
-        return "<td class='activo'>Activo</td>".html_safe
+        return "<td class='texto_positivo'>Activo</td>".html_safe
       end
     end
     helper_method :get_estatus_tag
+    
+    def get_localizado_tag(localizado)
+      if localizado == '0'
+        return "<td class='texto_negativo'>No</td>".html_safe
+      elsif localizado == '1'
+        return "<td class='texto_positivo'>Sí</td>".html_safe
+      end
+    end
+    helper_method :get_localizado_tag
 end

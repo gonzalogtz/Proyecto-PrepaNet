@@ -2,7 +2,6 @@
   <% if reporte_quincenal.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(reporte_quincenal.errors.count, "error") %> prohibited this reporte_quincenal from being saved:</h2>
-
       <ul>
       <% reporte_quincenal.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,13 +11,13 @@
   <% end %>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header"> Reporte Quincenal de Actividad y Desempeño del Alumno</h1>
+    <h1 class="page-header titulo"> Reporte Quincenal de Actividad y Desempeño del Alumno</h1>
     <div class="row">
         <div class="col-sm-6">
-            <div class="row">
-                <h2>Alumno a evaluar</h2>
+            <div class="select-label">
+                <h4>Alumno a evaluar:</h4>
             </div>
-            <div class="row">
+            <div class="select-input">
                 <%= f.select :alumno, options_for_select(ReporteQuincenalsController::ALUMNOS), class:"selectpicker"%>
             </div>
         </div>

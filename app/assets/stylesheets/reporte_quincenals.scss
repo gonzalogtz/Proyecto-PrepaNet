@@ -10,14 +10,28 @@
 	resize: none;
 }
 
-.inactivo {
+.texto_negativo {
 	color: red;
 }
 
-.parc_activo {
+.texto_amarillo {
 	color: #F9BF3B;
 }
 
-.activo {
+.texto_positivo {
 	color: green;
+}
+
+.titulo {
+	font-size: 30px;
+}
+
+.select-label > h4{
+	margin: 0px 10px 0px 0px;
+	float: left;
+}
+
+.select-input {
+	float: left;
+	margin: auto;
 }

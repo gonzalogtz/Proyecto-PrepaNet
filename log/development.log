@@ -20870,3 +20870,1764 @@ Processing by ReporteQuincenalsController#index as HTML
 Completed 200 OK in 82ms (Views: 79.0ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:20:39 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered reporte_quincenals/index.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:32: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+ctivo; class="inactivo"; end');@output_buffer.safe_append='>
+                              ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:36: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;               end 
+                           ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:54: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/reporte_quincenals/index.html.erb:32: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+app/views/reporte_quincenals/index.html.erb:36: syntax error, unexpected keyword_end, expecting ')'
+app/views/reporte_quincenals/index.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/reporte_quincenals/index.html.erb:54: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.1ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (81.5ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:21:05 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered reporte_quincenals/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_then or ';' or '\n'
+ = 'Inactivo; "class='inactivo'"; end');@output_buffer.safe_
+                              ^):
+  
+app/views/reporte_quincenals/index.html.erb:32: syntax error, unexpected tIDENTIFIER, expecting keyword_then or ';' or '\n'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.4ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:22:02 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered reporte_quincenals/index.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:32: syntax error, unexpected tSTRING_BEG, expecting ')'
+ivo"; "class='inactivo'"; end');@output_buffer.safe_append='
+                              ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:33: unknown regexp options - td
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:34: syntax error, unexpected '<'
+                  <td>'.freeze;@output_buffer.app
+                   ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:34: syntax error, unexpected tCONSTANT, expecting ')'
+t_buffer.append=( link_to 'Ver reporte', reporte_quincenal )
+                              ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:35: unknown regexp options - tr
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:38: unknown regexp options - tabl
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:39: syntax error, unexpected '<'
+        </div>
+         ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:43: unknown regexp options - dv
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:44: syntax error, unexpected '<'
+        </div>
+         ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:45: unknown regexp options - dv
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:46: syntax error, unexpected '<'
+    </div>
+     ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:47: unknown regexp options - dv
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:48: syntax error, unexpected '<'
+</div>
+ ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/views/reporte_quincenals/index.html.erb:48: unterminated regexp meets end of file):
+  
+app/views/reporte_quincenals/index.html.erb:32: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/reporte_quincenals/index.html.erb:33: unknown regexp options - td
+app/views/reporte_quincenals/index.html.erb:34: syntax error, unexpected '<'
+app/views/reporte_quincenals/index.html.erb:34: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/reporte_quincenals/index.html.erb:35: unknown regexp options - tr
+app/views/reporte_quincenals/index.html.erb:38: unknown regexp options - tabl
+app/views/reporte_quincenals/index.html.erb:39: syntax error, unexpected '<'
+app/views/reporte_quincenals/index.html.erb:43: unknown regexp options - dv
+app/views/reporte_quincenals/index.html.erb:44: syntax error, unexpected '<'
+app/views/reporte_quincenals/index.html.erb:45: unknown regexp options - dv
+app/views/reporte_quincenals/index.html.erb:46: syntax error, unexpected '<'
+app/views/reporte_quincenals/index.html.erb:47: unknown regexp options - dv
+app/views/reporte_quincenals/index.html.erb:48: syntax error, unexpected '<'
+app/views/reporte_quincenals/index.html.erb:48: unterminated regexp meets end of file
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.2ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:22:50 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (426.6ms)
+  [1m[36mReporteQuincenal Load (1.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (446.8ms)
+Completed 200 OK in 578ms (Views: 573.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:25:00 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.6ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 79ms (Views: 75.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:25:34 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.6ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 73ms (Views: 69.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:27:46 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.7ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 84ms (Views: 81.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:32:49 -0500
+  
+SyntaxError (/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/controllers/reporte_quincenals_controller.rb:85: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/reporte_quincenals_controller.rb:85: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.1ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:33:11 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.6ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 93ms (Views: 87.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:38:21 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.7ms)
+  [1m[36mReporteQuincenal Load (0.4ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 88ms (Views: 80.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:39:41 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 62ms (Views: 60.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:44:27 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.7ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendering html template
+  Rendered html template (0.0ms)
+  Rendered reporte_quincenals/index.html.erb within layouts/application (18.2ms)
+Completed 500 Internal Server Error in 28ms (Views: 2.6ms | ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+    30:                   <td>Coordinador generico</td>
+    31:                   <td><%= reporte_quincenal.fecha %></td>
+    32:                   <%#= if reporte_quincenal.estatus == "Inactivo"; "class=inactivo"; end%>><%= reporte_quincenal.estatus %></td>
+    33:                   <%= get_estatus_tag(reporte_quincenal.estatus)%>
+    34:                   <td><%= reporte_quincenal.localizado %></td>
+    35:                   <td><%= link_to 'Ver reporte', reporte_quincenal %></td>
+    36:                 </tr>
+  
+app/controllers/reporte_quincenals_controller.rb:83:in `get_estatus_tag'
+app/views/reporte_quincenals/index.html.erb:33:in `block in _app_views_reporte_quincenals_index_html_erb___381139018371162698_70311832927020'
+app/views/reporte_quincenals/index.html.erb:25:in `_app_views_reporte_quincenals_index_html_erb___381139018371162698_70311832927020'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.0ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.3ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:45:19 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.5ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendering html template
+  Rendered html template (0.0ms)
+  Rendered reporte_quincenals/index.html.erb within layouts/application (13.8ms)
+Completed 500 Internal Server Error in 28ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+    30:                   <td>Coordinador generico</td>
+    31:                   <td><%= reporte_quincenal.fecha %></td>
+    32:                   <%#= if reporte_quincenal.estatus == "Inactivo"; "class=inactivo"; end%>><%= reporte_quincenal.estatus %></td>
+    33:                   <%= get_estatus_tag(reporte_quincenal.estatus)%>
+    34:                   <td><%= reporte_quincenal.localizado %></td>
+    35:                   <td><%= link_to 'Ver reporte', reporte_quincenal %></td>
+    36:                 </tr>
+  
+app/controllers/reporte_quincenals_controller.rb:86:in `get_estatus_tag'
+app/views/reporte_quincenals/index.html.erb:33:in `block in _app_views_reporte_quincenals_index_html_erb___381139018371162698_70311828720520'
+app/views/reporte_quincenals/index.html.erb:25:in `_app_views_reporte_quincenals_index_html_erb___381139018371162698_70311828720520'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.2ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.1ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:45:38 -0500
+  
+SyntaxError (/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/controllers/reporte_quincenals_controller.rb:79: syntax error, unexpected '<'
+        render html: <td class='inactivo'>Inactivo</
+                      ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/controllers/reporte_quincenals_controller.rb:81: unknown regexp options - td
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/controllers/reporte_quincenals_controller.rb:82: syntax error, unexpected keyword_else
+      else @estatus == 2
+          ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/controllers/reporte_quincenals_controller.rb:83: syntax error, unexpected '<'
+        render html: <td class='activo'>Activo</td>
+                      ^
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/controllers/reporte_quincenals_controller.rb:83: unterminated regexp meets end of file
+/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/controllers/reporte_quincenals_controller.rb:83: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/reporte_quincenals_controller.rb:79: syntax error, unexpected '<'
+app/controllers/reporte_quincenals_controller.rb:81: unknown regexp options - td
+app/controllers/reporte_quincenals_controller.rb:82: syntax error, unexpected keyword_else
+app/controllers/reporte_quincenals_controller.rb:83: syntax error, unexpected '<'
+app/controllers/reporte_quincenals_controller.rb:83: unterminated regexp meets end of file
+app/controllers/reporte_quincenals_controller.rb:83: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.7ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 10:46:02 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.6ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendering html template
+  Rendered html template (0.0ms)
+  Rendered reporte_quincenals/index.html.erb within layouts/application (14.9ms)
+Completed 500 Internal Server Error in 24ms (Views: 0.5ms | ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+    30:                   <td>Coordinador generico</td>
+    31:                   <td><%= reporte_quincenal.fecha %></td>
+    32:                   <%#= if reporte_quincenal.estatus == "Inactivo"; "class=inactivo"; end%>><%= reporte_quincenal.estatus %></td>
+    33:                   <%= get_estatus_tag(reporte_quincenal.estatus)%>
+    34:                   <td><%= reporte_quincenal.localizado %></td>
+    35:                   <td><%= link_to 'Ver reporte', reporte_quincenal %></td>
+    36:                 </tr>
+  
+app/controllers/reporte_quincenals_controller.rb:83:in `get_estatus_tag'
+app/views/reporte_quincenals/index.html.erb:33:in `block in _app_views_reporte_quincenals_index_html_erb___381139018371162698_70311861764400'
+app/views/reporte_quincenals/index.html.erb:25:in `_app_views_reporte_quincenals_index_html_erb___381139018371162698_70311861764400'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.3ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (65.8ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 11:41:57 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (248.4ms)
+  [1m[36mReporteQuincenal Load (0.5ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (280.9ms)
+Completed 200 OK in 437ms (Views: 416.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 11:49:00 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.1ms)
+  [1m[36mReporteQuincenal Load (0.7ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 221ms (Views: 214.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 11:51:33 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.8ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 70ms (Views: 68.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 11:51:53 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.7ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 74ms (Views: 72.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/1" for 127.0.0.1 at 2017-09-21 11:53:04 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReporteQuincenal Load (1.3ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 95ms (Views: 83.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 11:54:22 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 72ms (Views: 67.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 11:54:53 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 98ms (Views: 92.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 11:54:56 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 75ms (Views: 72.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 11:55:03 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.6ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 80ms (Views: 74.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 11:55:41 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.6ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 85ms (Views: 79.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 11:57:09 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.6ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 71ms (Views: 68.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 11:59:39 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.6ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (11.2ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `estatus' for nil:NilClass):
+    30:                   <td>Coordinador generico</td>
+    31:                   <td><%= reporte_quincenal.fecha %></td>
+    32:                   <td><%= reporte_quincenal.estatus %></td>
+    33:                   <%= get_estatus_tag(@reporte_quincenal.estatus)%>
+    34:                   <td><%= reporte_quincenal.localizado %></td>
+    35:                   <td><%= link_to 'Ver reporte', reporte_quincenal %></td>
+    36:                 </tr>
+  
+app/views/reporte_quincenals/index.html.erb:33:in `block in _app_views_reporte_quincenals_index_html_erb__1110762348990980795_70124387037740'
+app/views/reporte_quincenals/index.html.erb:25:in `_app_views_reporte_quincenals_index_html_erb__1110762348990980795_70124387037740'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.6ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (83.3ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:00:34 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (13.9ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `estatus' for nil:NilClass):
+    30:                   <td>Coordinador generico</td>
+    31:                   <td><%= reporte_quincenal.fecha %></td>
+    32:                   <td><%= reporte_quincenal.estatus %></td>
+    33:                   <%= get_estatus_tag(@reporte_quincenal.estatus)%>
+    34:                   <td><%= reporte_quincenal.localizado %></td>
+    35:                   <td><%= link_to 'Ver reporte', reporte_quincenal %></td>
+    36:                 </tr>
+  
+app/views/reporte_quincenals/index.html.erb:33:in `block in _app_views_reporte_quincenals_index_html_erb__1110762348990980795_70124426458520'
+app/views/reporte_quincenals/index.html.erb:25:in `_app_views_reporte_quincenals_index_html_erb__1110762348990980795_70124426458520'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (68.2ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:00:41 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.5ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 76ms (Views: 74.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:00:49 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.5ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 87ms (Views: 83.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:01:47 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (4.1ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 121ms (Views: 117.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-21 12:02:05 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.7ms)
+  Rendered reporte_quincenals/_form.html.erb (140.4ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (152.2ms)
+Completed 200 OK in 218ms (Views: 212.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-21 12:02:56 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.2ms)
+  Rendered reporte_quincenals/_form.html.erb (1.8ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 129ms (Views: 127.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/reporteS.html" for 127.0.0.1 at 2017-09-21 12:03:56 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"reporteS"}
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find ReporteQuincenal with 'id'=reporteS):
+  
+app/controllers/reporte_quincenals_controller.rb:67:in `set_reporte_quincenal'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.7ms)
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-21 12:04:00 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.3ms)
+  Rendered reporte_quincenals/_form.html.erb (1.8ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 91ms (Views: 88.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/conglomerado_quincenals" for 127.0.0.1 at 2017-09-21 12:04:02 -0500
+Processing by ConglomeradoQuincenalsController#index as HTML
+  Rendering conglomerado_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.9ms)
+  [1m[36mConglomeradoQuincenal Load (0.6ms)[0m  [1m[34mSELECT "conglomerado_quincenals".* FROM "conglomerado_quincenals"[0m
+  Rendered conglomerado_quincenals/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 98ms (Views: 91.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/conglomerado_quincenals" for 127.0.0.1 at 2017-09-21 12:04:53 -0500
+Processing by ConglomeradoQuincenalsController#index as HTML
+  Rendering conglomerado_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.5ms)
+  [1m[36mConglomeradoQuincenal Load (0.2ms)[0m  [1m[34mSELECT "conglomerado_quincenals".* FROM "conglomerado_quincenals"[0m
+  Rendered conglomerado_quincenals/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 70ms (Views: 67.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/conglomerado_quincenals" for 127.0.0.1 at 2017-09-21 12:05:14 -0500
+Processing by ConglomeradoQuincenalsController#index as HTML
+  Rendering conglomerado_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.8ms)
+  [1m[36mConglomeradoQuincenal Load (0.2ms)[0m  [1m[34mSELECT "conglomerado_quincenals".* FROM "conglomerado_quincenals"[0m
+  Rendered conglomerado_quincenals/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 74ms (Views: 71.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporteS.html" for 127.0.0.1 at 2017-09-21 12:05:15 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/reporteS.html"):
+  
+actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.6) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered collection of /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb [17 times] (9.9ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.3ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (91.2ms)
+Started GET "/conglomerado_quincenals" for 127.0.0.1 at 2017-09-21 12:05:17 -0500
+Processing by ConglomeradoQuincenalsController#index as HTML
+  Rendering conglomerado_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.8ms)
+  [1m[36mConglomeradoQuincenal Load (0.2ms)[0m  [1m[34mSELECT "conglomerado_quincenals".* FROM "conglomerado_quincenals"[0m
+  Rendered conglomerado_quincenals/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 76ms (Views: 74.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/conglomerado_quincenals" for 127.0.0.1 at 2017-09-21 12:05:18 -0500
+Processing by ConglomeradoQuincenalsController#index as HTML
+  Rendering conglomerado_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.9ms)
+  [1m[36mConglomeradoQuincenal Load (0.2ms)[0m  [1m[34mSELECT "conglomerado_quincenals".* FROM "conglomerado_quincenals"[0m
+  Rendered conglomerado_quincenals/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 99ms (Views: 96.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:05:19 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.4ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 108ms (Views: 101.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-21 12:06:14 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.7ms)
+  Rendered reporte_quincenals/_form.html.erb (3.7ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 94ms (Views: 90.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:09:23 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (9.2ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 134ms (Views: 131.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:09:29 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.5ms)
+  [1m[36mReporteQuincenal Load (0.4ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 126ms (Views: 123.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:14:10 -0500
+  
+SyntaxError (/Users/Debml/Dropbox/Carrera/Noveno Semestre/Proyecto Integrador/Proyecto-PrepaNet/app/controllers/reporte_quincenals_controller.rb:95: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/reporte_quincenals_controller.rb:95: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.3ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:14:21 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.1ms)
+  [1m[36mReporteQuincenal Load (0.5ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (242.7ms)
+Completed 500 Internal Server Error in 257ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_localizado_tag' for #<#<Class:0x007f8e38e931a8>:0x007f8e38e8bb10>):
+    30:                   <td>Coordinador generico</td>
+    31:                   <td><%= reporte_quincenal.fecha %></td>
+    32:                   <%= get_estatus_tag(reporte_quincenal.estatus)%>
+    33:                   <%= get_localizado_tag(reporte_quincenal.localizado)%>
+    34:                   <td><%= link_to 'Ver reporte', reporte_quincenal %></td>
+    35:                 </tr>
+    36:               <% end %>
+  
+app/views/reporte_quincenals/index.html.erb:33:in `block in _app_views_reporte_quincenals_index_html_erb__1110762348990980795_70124408457180'
+app/views/reporte_quincenals/index.html.erb:25:in `_app_views_reporte_quincenals_index_html_erb__1110762348990980795_70124408457180'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (12.6ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (75.1ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:14:41 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.3ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 185ms (Views: 177.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:15:39 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.7ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 71ms (Views: 68.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/1" for 127.0.0.1 at 2017-09-21 12:19:29 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 109ms (Views: 103.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/edit/1" for 127.0.0.1 at 2017-09-21 12:19:33 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/reporte_quincenals/edit/1"):
+  
+actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.6) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered collection of /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb [17 times] (4.1ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (78.6ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:19:37 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.7ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 126ms (Views: 123.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:20:11 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (9.8ms)
+  [1m[36mReporteQuincenal Load (0.4ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 118ms (Views: 115.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/reporteS.html" for 127.0.0.1 at 2017-09-21 12:20:13 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/reporteS.html"):
+  
+actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.6) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered collection of /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb [17 times] (4.6ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.8ms)
+  Rendering /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Debml/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (107.2ms)
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:20:15 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.1ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 83ms (Views: 80.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/conglomerado_quincenals" for 127.0.0.1 at 2017-09-21 12:20:16 -0500
+Processing by ConglomeradoQuincenalsController#index as HTML
+  Rendering conglomerado_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.1ms)
+  [1m[36mConglomeradoQuincenal Load (0.5ms)[0m  [1m[34mSELECT "conglomerado_quincenals".* FROM "conglomerado_quincenals"[0m
+  Rendered conglomerado_quincenals/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 110ms (Views: 102.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/conglomerado_quincenals/10/edit" for 127.0.0.1 at 2017-09-21 12:20:18 -0500
+Processing by ConglomeradoQuincenalsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mConglomeradoQuincenal Load (0.2ms)[0m  [1m[34mSELECT  "conglomerado_quincenals".* FROM "conglomerado_quincenals" WHERE "conglomerado_quincenals"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering conglomerado_quincenals/edit.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.6ms)
+  Rendered conglomerado_quincenals/_form.html.erb (34.1ms)
+  Rendered conglomerado_quincenals/edit.html.erb within layouts/application (45.7ms)
+Completed 200 OK in 149ms (Views: 141.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:20:22 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.9ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 114ms (Views: 109.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/1" for 127.0.0.1 at 2017-09-21 12:20:24 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 104ms (Views: 96.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/reporte_quincenals/1/edit" for 127.0.0.1 at 2017-09-21 12:20:27 -0500
+Processing by ReporteQuincenalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reporte_quincenals/edit.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (9.5ms)
+  Rendered reporte_quincenals/_form.html.erb (1.9ms)
+  Rendered reporte_quincenals/edit.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 110ms (Views: 103.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/reporte_quincenals/1" for 127.0.0.1 at 2017-09-21 12:20:33 -0500
+Processing by ReporteQuincenalsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1BLqrrTffgtNshFPTF58XcgN0aQUpA7f02cxPJze0+NQehvVgtllEJrNjke+eZ5q0emsc1lhLU43XkPrPEA9Ww==", "reporte_quincenal"=>{"alumno"=>"1", "estatus"=>"0", "localizado"=>"0", "comentarios"=>"Si"}, "commit"=>"Enviar reporte", "id"=>"1"}
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[33mUPDATE "reporte_quincenals" SET "estatus" = ?, "localizado" = ?, "alumno" = ?, "updated_at" = ? WHERE "reporte_quincenals"."id" = ?[0m  [["estatus", "0"], ["localizado", "0"], ["alumno", "1"], ["updated_at", "2017-09-21 17:20:33.725737"], ["id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/1
+Completed 302 Found in 13ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/reporte_quincenals/1" for 127.0.0.1 at 2017-09-21 12:20:33 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReporteQuincenal Load (0.4ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 110ms (Views: 99.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:20:35 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.1ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 98ms (Views: 96.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:20:40 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.8ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 86ms (Views: 84.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/2" for 127.0.0.1 at 2017-09-21 12:21:12 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 86ms (Views: 80.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/2/edit" for 127.0.0.1 at 2017-09-21 12:21:13 -0500
+Processing by ReporteQuincenalsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_quincenals/edit.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (5.3ms)
+  Rendered reporte_quincenals/_form.html.erb (5.3ms)
+  Rendered reporte_quincenals/edit.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 146ms (Views: 141.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/reporte_quincenals/2" for 127.0.0.1 at 2017-09-21 12:21:19 -0500
+Processing by ReporteQuincenalsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WLWrhkHUb6FlnMzKfVSsQDZeR4uNhNATxM+0pz2vWtyJvo0RInorUddvOjScYBpMhEE3tPjNf8kzjfEzwyGdOg==", "reporte_quincenal"=>{"alumno"=>"1", "estatus"=>"1", "localizado"=>"1", "comentarios"=>""}, "commit"=>"Enviar reporte", "id"=>"2"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "reporte_quincenals" SET "estatus" = ?, "localizado" = ?, "comentarios" = ?, "alumno" = ?, "updated_at" = ? WHERE "reporte_quincenals"."id" = ?[0m  [["estatus", "1"], ["localizado", "1"], ["comentarios", ""], ["alumno", "1"], ["updated_at", "2017-09-21 17:21:19.111679"], ["id", 2]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/2
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/reporte_quincenals/2" for 127.0.0.1 at 2017-09-21 12:21:19 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 98ms (Views: 94.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/2/edit" for 127.0.0.1 at 2017-09-21 12:21:20 -0500
+Processing by ReporteQuincenalsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_quincenals/edit.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.4ms)
+  Rendered reporte_quincenals/_form.html.erb (3.6ms)
+  Rendered reporte_quincenals/edit.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 114ms (Views: 109.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:21:22 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.7ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 102ms (Views: 100.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals/3" for 127.0.0.1 at 2017-09-21 12:21:24 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 91ms (Views: 85.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/reporte_quincenals/3/edit" for 127.0.0.1 at 2017-09-21 12:21:26 -0500
+Processing by ReporteQuincenalsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reporte_quincenals/edit.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.0ms)
+  Rendered reporte_quincenals/_form.html.erb (5.9ms)
+  Rendered reporte_quincenals/edit.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 132ms (Views: 128.2ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/reporte_quincenals/3" for 127.0.0.1 at 2017-09-21 12:21:30 -0500
+Processing by ReporteQuincenalsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MFhakLkVu+4RVDdcFUI+AJ5rBPod1NUWy/C/52iLnccOmOi7QL/4bEo/+9bkedFj7T1A85E/EYSAqYKp9blPSg==", "reporte_quincenal"=>{"alumno"=>"1", "estatus"=>"2", "localizado"=>"0", "comentarios"=>"jaj"}, "commit"=>"Enviar reporte", "id"=>"3"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "reporte_quincenals" SET "estatus" = ?, "localizado" = ?, "alumno" = ?, "updated_at" = ? WHERE "reporte_quincenals"."id" = ?[0m  [["estatus", "2"], ["localizado", "0"], ["alumno", "1"], ["updated_at", "2017-09-21 17:21:30.953067"], ["id", 3]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/3
+Completed 302 Found in 5ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/reporte_quincenals/3" for 127.0.0.1 at 2017-09-21 12:21:30 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 109ms (Views: 103.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:21:32 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.5ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 102ms (Views: 93.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals/4" for 127.0.0.1 at 2017-09-21 12:21:33 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 101ms (Views: 95.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/reporte_quincenals/4/edit" for 127.0.0.1 at 2017-09-21 12:21:34 -0500
+Processing by ReporteQuincenalsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering reporte_quincenals/edit.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.9ms)
+  Rendered reporte_quincenals/_form.html.erb (3.6ms)
+  Rendered reporte_quincenals/edit.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 114ms (Views: 109.5ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/reporte_quincenals/4" for 127.0.0.1 at 2017-09-21 12:21:39 -0500
+Processing by ReporteQuincenalsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/Y7FmSfPPfWJxPSk/8MVb6YkFQX+gyaSjnBiRXBotPliTrctCkO5rdfMOdGOQ/3wGhNivB2y+Xms7FFVrLmDUw==", "reporte_quincenal"=>{"alumno"=>"1", "estatus"=>"1", "localizado"=>"0", "comentarios"=>"muy buenas calificaciones"}, "commit"=>"Enviar reporte", "id"=>"4"}
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "reporte_quincenals" SET "estatus" = ?, "localizado" = ?, "alumno" = ?, "updated_at" = ? WHERE "reporte_quincenals"."id" = ?[0m  [["estatus", "1"], ["localizado", "0"], ["alumno", "1"], ["updated_at", "2017-09-21 17:21:39.423897"], ["id", 4]]
+  [1m[35m (15.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/4
+Completed 302 Found in 29ms (ActiveRecord: 16.2ms)
+
+
+Started GET "/reporte_quincenals/4" for 127.0.0.1 at 2017-09-21 12:21:39 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 112ms (Views: 108.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/reporte_quincenals/4/edit" for 127.0.0.1 at 2017-09-21 12:21:41 -0500
+Processing by ReporteQuincenalsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering reporte_quincenals/edit.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.0ms)
+  Rendered reporte_quincenals/_form.html.erb (3.8ms)
+  Rendered reporte_quincenals/edit.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 97ms (Views: 91.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:21:43 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.1ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 105ms (Views: 102.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-21 12:22:01 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.5ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 80ms (Views: 77.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-22 10:11:30 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MainmenututorController#MenuTutor as HTML
+  Rendering mainmenututor/MenuTutor.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (335.5ms)
+  Rendered mainmenututor/MenuTutor.html.erb within layouts/application (339.4ms)
+Completed 200 OK in 491ms (Views: 478.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 10:11:35 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.7ms)
+  [1m[36mReporteQuincenal Load (1.5ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 122ms (Views: 105.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:12:09 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (4.8ms)
+  Rendered reporte_quincenals/_form.html.erb (166.0ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (181.1ms)
+Completed 200 OK in 264ms (Views: 258.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:24:26 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (264.6ms)
+  Rendered reporte_quincenals/_form.html.erb (181.0ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (452.3ms)
+Completed 200 OK in 635ms (Views: 609.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:30:38 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.1ms)
+  Rendered reporte_quincenals/_form.html.erb (1.7ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 156ms (Views: 153.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:32:32 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.6ms)
+  Rendered reporte_quincenals/_form.html.erb (1.5ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 64ms (Views: 61.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:39:01 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.9ms)
+  Rendered reporte_quincenals/_form.html.erb (1.8ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 75ms (Views: 72.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:42:39 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.0ms)
+  Rendered reporte_quincenals/_form.html.erb (1.8ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 129ms (Views: 125.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:43:13 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.0ms)
+  Rendered reporte_quincenals/_form.html.erb (3.5ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 140ms (Views: 136.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:43:27 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  Rendered reporte_quincenals/_form.html.erb (1.6ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 117ms (Views: 113.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:43:55 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.5ms)
+  Rendered reporte_quincenals/_form.html.erb (2.0ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 74ms (Views: 70.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:44:04 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.5ms)
+  Rendered reporte_quincenals/_form.html.erb (1.8ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 72ms (Views: 69.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:45:38 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.8ms)
+  Rendered reporte_quincenals/_form.html.erb (2.2ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 109ms (Views: 105.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:47:09 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.7ms)
+  Rendered reporte_quincenals/_form.html.erb (1.8ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 126ms (Views: 123.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:47:27 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.7ms)
+  Rendered reporte_quincenals/_form.html.erb (1.7ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 130ms (Views: 128.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:47:36 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  Rendered reporte_quincenals/_form.html.erb (2.2ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 119ms (Views: 115.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:47:48 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  Rendered reporte_quincenals/_form.html.erb (1.6ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 65ms (Views: 62.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:48:24 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  Rendered reporte_quincenals/_form.html.erb (2.0ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 126ms (Views: 122.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:50:19 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  Rendered reporte_quincenals/_form.html.erb (2.3ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 120ms (Views: 118.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:53:14 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.5ms)
+  Rendered reporte_quincenals/_form.html.erb (2.4ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 115ms (Views: 111.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:53:50 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.0ms)
+  Rendered reporte_quincenals/_form.html.erb (2.0ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 81ms (Views: 79.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:54:38 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  Rendered reporte_quincenals/_form.html.erb (2.4ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 66ms (Views: 62.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:54:51 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.8ms)
+  Rendered reporte_quincenals/_form.html.erb (3.4ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 75ms (Views: 70.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:55:21 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.9ms)
+  Rendered reporte_quincenals/_form.html.erb (1.9ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 127ms (Views: 124.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:55:41 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.9ms)
+  Rendered reporte_quincenals/_form.html.erb (1.9ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 72ms (Views: 70.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 10:57:25 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.8ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 73ms (Views: 66.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 10:59:41 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.0ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 68ms (Views: 61.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 10:59:44 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.1ms)
+  Rendered reporte_quincenals/_form.html.erb (3.7ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 94ms (Views: 90.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 10:59:51 -0500
+Processing by ReporteQuincenalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BDehlVRtWIo4G+LuhQUACLkUQVdj4Rnu+MYhMNJxAimiUYKVZQy9ZbvrD2sygBaRWhTHTtPlLveAdZgC+qK55Q==", "reporte_quincenal"=>{"alumno"=>"2", "estatus"=>"1", "localizado"=>"0", "comentarios"=>"jaja"}, "commit"=>"Enviar reporte"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "reporte_quincenals" ("estatus", "localizado", "comentarios", "alumno", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["estatus", "1"], ["localizado", "0"], ["comentarios", "jaja"], ["alumno", "2"], ["created_at", "2017-09-22 15:59:51.327273"], ["updated_at", "2017-09-22 15:59:51.327273"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/9
+Completed 302 Found in 6ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/reporte_quincenals/9" for 127.0.0.1 at 2017-09-22 10:59:51 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 83ms (Views: 77.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 10:59:59 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.9ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 74ms (Views: 68.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:00:05 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 61ms (Views: 58.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/9" for 127.0.0.1 at 2017-09-22 11:00:08 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 67ms (Views: 61.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 11:05:04 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.3ms)
+  Rendered reporte_quincenals/_form.html.erb (3.0ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 91ms (Views: 78.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:05:11 -0500
+Processing by ReporteQuincenalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7y4pWph4OSKso1ba7cPOjNuDWAkWStw5Q2/ztCxXd+5JSApaqRnczS9Tu19aRtgVOIPeEKZO6yA73EqGBITMIg==", "reporte_quincenal"=>{"alumno"=>"1", "estatus"=>"0", "localizado"=>"0", "comentarios"=>"11233"}, "commit"=>"Enviar reporte"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.1ms)[0m  [1m[32mINSERT INTO "reporte_quincenals" ("estatus", "localizado", "comentarios", "alumno", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["estatus", "0"], ["localizado", "0"], ["comentarios", "11233"], ["alumno", "1"], ["created_at", "2017-09-22 16:05:11.051840"], ["updated_at", "2017-09-22 16:05:11.051840"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/10
+Completed 302 Found in 11ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/reporte_quincenals/10" for 127.0.0.1 at 2017-09-22 11:05:11 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 82ms (Views: 77.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:09:15 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.6ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 86ms (Views: 76.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:09:18 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.5ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 73ms (Views: 70.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 11:09:21 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.3ms)
+  Rendered reporte_quincenals/_form.html.erb (3.4ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 90ms (Views: 86.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:09:26 -0500
+Processing by ReporteQuincenalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xb+EHT460HLLxaUtTyOISGs087P9uuzpYZ0RfTzOkXlj2acdD1s1nUg1SKj4pp7RiDR1qk2+2/AZLqhPFB0qtQ==", "reporte_quincenal"=>{"alumno"=>"1", "estatus"=>"0", "localizado"=>"0", "comentarios"=>"1"}, "commit"=>"Enviar reporte"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "reporte_quincenals" ("estatus", "localizado", "comentarios", "alumno", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["estatus", "0"], ["localizado", "0"], ["comentarios", "1"], ["alumno", "1"], ["created_at", "2017-09-22 16:09:26.700678"], ["updated_at", "2017-09-22 16:09:26.700678"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/11
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/reporte_quincenals/11" for 127.0.0.1 at 2017-09-22 11:09:26 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 67ms (Views: 61.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:09:32 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.9ms)
+  [1m[36mReporteQuincenal Load (0.4ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 73ms (Views: 70.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:13:05 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.5ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 80ms (Views: 73.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 11:13:06 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.2ms)
+  Rendered reporte_quincenals/_form.html.erb (3.4ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 117ms (Views: 112.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:13:16 -0500
+Processing by ReporteQuincenalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fMQDPfZfDxm92vMF6A326wquhy9MdtWv6y+LRx/muafaoiA9xz7q9j4qHoBfiOBy6a4BNvxy4raTnDJ1NzUCaw==", "reporte_quincenal"=>{"alumno"=>"3", "estatus"=>"0", "localizado"=>"1", "comentarios"=>"1"}, "commit"=>"Enviar reporte"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "reporte_quincenals" ("estatus", "localizado", "comentarios", "tutor", "alumno", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["estatus", "0"], ["localizado", "1"], ["comentarios", "1"], ["tutor", "David B"], ["alumno", "3"], ["created_at", "2017-09-22 16:13:16.331607"], ["updated_at", "2017-09-22 16:13:16.331607"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/12
+Completed 302 Found in 6ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/reporte_quincenals/12" for 127.0.0.1 at 2017-09-22 11:13:16 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mReporteQuincenal Load (0.6ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 76ms (Views: 69.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:13:24 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.6ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 119ms (Views: 113.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:15:09 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.8ms)
+  [1m[36mReporteQuincenal Load (0.5ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 95ms (Views: 87.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 11:15:11 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.1ms)
+  Rendered reporte_quincenals/_form.html.erb (3.3ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 81ms (Views: 76.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:15:18 -0500
+Processing by ReporteQuincenalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K8cBsqFwGauKSb6jtL2gjSZvzvEc2hAKqeMHFmbJ7I2NoSKykBH8RAm5UyYDOLYUxW9I6KzeJxPRUL4kThpXQQ==", "reporte_quincenal"=>{"alumno"=>"2", "estatus"=>"1", "localizado"=>"1", "comentarios"=>"1"}, "commit"=>"Enviar reporte"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "reporte_quincenals" ("estatus", "localizado", "comentarios", "tutor", "alumno", "fecha", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["estatus", "1"], ["localizado", "1"], ["comentarios", "1"], ["tutor", "David B"], ["alumno", "2"], ["fecha", "2017-09-22 00:00:00"], ["created_at", "2017-09-22 16:15:18.873311"], ["updated_at", "2017-09-22 16:15:18.873311"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/13
+Completed 302 Found in 11ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/reporte_quincenals/13" for 127.0.0.1 at 2017-09-22 11:15:18 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 78ms (Views: 74.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:15:31 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.7ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 80ms (Views: 76.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:16:26 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.1ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 86ms (Views: 77.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 11:16:28 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.7ms)
+  Rendered reporte_quincenals/_form.html.erb (3.3ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 94ms (Views: 88.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:16:33 -0500
+Processing by ReporteQuincenalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WU0T9g/ESVgJWEHbif3g13RBqf67azNsM6soEULYxEj/KzD2PqWst4qorF4+ePZOl0Ev5wtvBHVLGJEjagt/hA==", "reporte_quincenal"=>{"alumno"=>"1", "estatus"=>"2", "localizado"=>"0", "comentarios"=>""}, "commit"=>"Enviar reporte"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "reporte_quincenals" ("estatus", "localizado", "comentarios", "tutor", "alumno", "fecha", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["estatus", "2"], ["localizado", "0"], ["comentarios", ""], ["tutor", "A00"], ["alumno", "1"], ["fecha", "2017-09-22 00:00:00"], ["created_at", "2017-09-22 16:16:33.218166"], ["updated_at", "2017-09-22 16:16:33.218166"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/14
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/reporte_quincenals/14" for 127.0.0.1 at 2017-09-22 11:16:33 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mReporteQuincenal Load (0.4ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 78ms (Views: 69.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:17:46 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (4.6ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 80ms (Views: 75.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:18:54 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.4ms)
+  [1m[36mReporteQuincenal Load (0.4ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 83ms (Views: 75.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 11:18:57 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.9ms)
+  Rendered reporte_quincenals/_form.html.erb (3.9ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 100ms (Views: 94.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:19:01 -0500
+Processing by ReporteQuincenalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LU+pyo0LZk1L4cIsZSZ5+6hlnKCgx79ZoqCGsD15rT2LKYrKvGqDosgRL6nSo29iS2UauRDDiEDaEz+CFaoW8Q==", "reporte_quincenal"=>{"alumno"=>"1", "estatus"=>"1", "localizado"=>"0", "comentarios"=>""}, "commit"=>"Enviar reporte"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "reporte_quincenals" ("estatus", "localizado", "comentarios", "tutor", "alumno", "fecha", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["estatus", "1"], ["localizado", "0"], ["comentarios", ""], ["tutor", "A00"], ["alumno", "1"], ["fecha", "2017-09-22 00:00:00"], ["created_at", "2017-09-22 16:19:01.503762"], ["updated_at", "2017-09-22 16:19:01.503762"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/15
+Completed 302 Found in 6ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/reporte_quincenals/15" for 127.0.0.1 at 2017-09-22 11:19:01 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 60ms (Views: 54.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:19:44 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (4.1ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 73ms (Views: 69.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals/1" for 127.0.0.1 at 2017-09-22 11:19:47 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 78ms (Views: 73.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/reporte_quincenals/1/edit" for 127.0.0.1 at 2017-09-22 11:19:49 -0500
+Processing by ReporteQuincenalsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reporte_quincenals/edit.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.8ms)
+  Rendered reporte_quincenals/_form.html.erb (2.5ms)
+  Rendered reporte_quincenals/edit.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 77ms (Views: 68.7ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/reporte_quincenals/1" for 127.0.0.1 at 2017-09-22 11:19:52 -0500
+Processing by ReporteQuincenalsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VC6mKK2s+zmoxPKAf2A10lk0gfsCC4UL9C3WEsNqQqX0KSKUrqovuoQKZIiYm6dS2T5et1XC/nPeZ3tsh/T0Bg==", "reporte_quincenal"=>{"alumno"=>"1", "estatus"=>"0", "localizado"=>"0", "comentarios"=>"Si"}, "commit"=>"Enviar reporte", "id"=>"1"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/reporte_quincenals/1
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/1" for 127.0.0.1 at 2017-09-22 11:19:52 -0500
+Processing by ReporteQuincenalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReporteQuincenal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_quincenals".* FROM "reporte_quincenals" WHERE "reporte_quincenals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reporte_quincenals/show.html.erb within layouts/application
+  Rendered reporte_quincenals/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 57ms (Views: 54.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:20:02 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.1ms)
+  [1m[36mReporteQuincenal Load (0.3ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 82ms (Views: 75.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:29:32 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.5ms)
+  [1m[36mReporteQuincenal Load (0.2ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 86ms (Views: 84.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 11:30:22 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.1ms)
+  Rendered reporte_quincenals/_form.html.erb (3.7ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 87ms (Views: 82.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_quincenals/new" for 127.0.0.1 at 2017-09-22 11:30:52 -0500
+Processing by ReporteQuincenalsController#new as HTML
+  Rendering reporte_quincenals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.7ms)
+  Rendered reporte_quincenals/_form.html.erb (2.2ms)
+  Rendered reporte_quincenals/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 77ms (Views: 62.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:35:40 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.1ms)
+  [1m[36mReporteQuincenal Load (0.4ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 104ms (Views: 99.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/reporte_quincenals" for 127.0.0.1 at 2017-09-22 11:36:56 -0500
+Processing by ReporteQuincenalsController#index as HTML
+  Rendering reporte_quincenals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.5ms)
+  [1m[36mReporteQuincenal Load (0.4ms)[0m  [1m[34mSELECT "reporte_quincenals".* FROM "reporte_quincenals"[0m
+  Rendered reporte_quincenals/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 84ms (Views: 80.8ms | ActiveRecord: 0.4ms)
+
+
