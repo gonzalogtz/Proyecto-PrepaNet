@@ -13,10 +13,9 @@
               <tr>
                 <th>Matrícula</th>
                 <th>Nombre</th>
-                <th>Coordinador de Tutores</th>
-                <th>Fecha del Reporte</th>
-                <th>Estatus del Alumno</th>
+                <th>Estatus</th>
                 <th>Localizado</th>
+                <th>Fecha</th>
                 <th>Reporte Completo</th>
               </tr>
             </thead>
@@ -25,10 +24,9 @@
                 <tr>
                   <td><%= reporte_quincenal.alumno %></td>
                   <td>Nombre generico</td>
-                  <td>Coordinador generico</td>
-                  <td><%= reporte_quincenal.fecha %></td>
                   <%= get_estatus_tag(reporte_quincenal.estatus)%>
                   <%= get_localizado_tag(reporte_quincenal.localizado)%>
+                  <td><%= reporte_quincenal.fecha%></td>
                   <td><%= link_to 'Ver reporte', reporte_quincenal %></td>
                 </tr>
               <% end %>
@@ -47,3 +45,4 @@
 
 <%#= link_to 'Edit', edit_reporte_quincenal_path(reporte_quincenal) %>
 <%#= link_to 'Destroy', reporte_quincenal, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%#= reporte_quincenal.fecha.strftime('%m-%d-%Y')%>

@@ -4,7 +4,7 @@ class ReporteQuincenalsController < ApplicationController
   # GET /reporte_quincenals
   # GET /reporte_quincenals.json
   def index
-    @reporte_quincenals = ReporteQuincenal.all
+    @reporte_quincenals = ReporteQuincenal.all.order('fecha desc, alumno')
   end
 
   # GET /reporte_quincenals/1
@@ -80,7 +80,7 @@ class ReporteQuincenalsController < ApplicationController
       if estatus == '0'
         return "<td class='texto_negativo'>Inactivo</td>".html_safe
       elsif estatus == '1'
-        return "<td class='texto_amarillo'>Parcialmente Activo</td>".html_safe
+        return "<td class='texto_amarillo'>Parcialmente activo</td>".html_safe
       else estatus == '2'
         return "<td class='texto_positivo'>Activo</td>".html_safe
       end
