@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   
   
+  resources :users
   resources :reporte_quincenals
   resources :conglomerado_quincenals
   root 'mainmenututor#MenuTutor'
