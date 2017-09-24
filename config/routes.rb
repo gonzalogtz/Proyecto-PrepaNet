@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   
   
+  resources :reporte_semanals
   root 'mainmenututor#MenuTutor'
 
 

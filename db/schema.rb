@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170918154640) do
+ActiveRecord::Schema.define(version: 20170921165114) do
 
-  create_table "reportes", force: :cascade do |t|
+  create_table "reporte_semanals", force: :cascade do |t|
+    t.string   "tutor"
+    t.string   "califPlazo"
+    t.string   "califRubrica"
+    t.string   "retro"
+    t.string   "responde"
+    t.string   "errores"
+    t.text     "comentarios"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "reportesQuincenales", force: :cascade do |t|
     t.string   "titulo"
     t.text     "descripcion"
     t.datetime "created_at",  null: false

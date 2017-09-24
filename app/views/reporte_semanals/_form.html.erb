@@ -1,0 +1,98 @@
+<%= render 'topsidebar/navsidebar' %>
+<%= form_for(reporte_semanal) do |f| %>
+  <% if reporte_semanal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reporte_semanal.errors.count, "error") %> prohibited this reporte_semanal from being saved:</h2>
+
+      <ul>
+      <% reporte_semanal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Generar Concentrado de Reportes Semanales</h1>
+    <div class="row">
+
+      <div class="row">
+        <div id="table-cursos" class="" style="margin-top: 20px;">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading">
+              <center>Evaluación del Tutor</center>
+            </div>
+
+            <div class="panel-body">
+              <div class="field">
+              <h4>Nombre del Tutor</h4>
+              <%= f.text_field :tutor %>
+            </div>
+
+            <h4>Calificar en un plazo no mayor a 48 horas actividades y/o exámenes:</h4>
+            <div class="field">          
+              <%= f.radio_button :califPlazo, "Si", id: '' %>
+              <%= f.label :"Si"%>
+              <%= f.radio_button :califPlazo, "Casi Siempre", id: '' %>
+              <%= f.label :"Casi Siempre"%>
+              <%= f.radio_button :califPlazo, "Algunas Veces", id: '' %>
+              <%= f.label :"Algunas Veces"%>
+              <%= f.radio_button :califPlazo, "No", id: '' %>
+              <%= f.label :"No"%>
+            </div>
+
+            <h4>Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</h4>
+            <div class="field">          
+              <%= f.radio_button :califRubrica, "Si", id: '' %>
+              <%= f.label :"Si"%>
+              <%= f.radio_button :califRubrica, "No", id: '' %>
+              <%= f.label :"No"%>
+            </div>
+
+            <h4>Da retroalimentación clara y especifica de actividades y/o exámenes:</h4>
+            <div class="field">          
+              <%= f.radio_button :retro, "Si", id: '' %>
+              <%= f.label :"Si"%>
+              <%= f.radio_button :retro, "No", id: '' %>
+              <%= f.label :"No"%>
+            </div>
+
+            <h4>Responde mensajes en un lapso no mayor a 24 horas:</h4>
+            <div class="field">          
+              <%= f.radio_button :responde, "Si", id: '' %>
+              <%= f.label :"Si"%>
+              <%= f.radio_button :responde, "Casi Siempre", id: '' %>
+              <%= f.label :"Casi Siempre"%>
+              <%= f.radio_button :responde, "Algunas Veces", id: '' %>
+              <%= f.label :"Algunas Veces"%>
+              <%= f.radio_button :responde, "No", id: '' %>
+              <%= f.label :"No"%>
+            </div>
+
+            <h4>Errores de ortografía en mensaje, reportes y retroalimentaciones:</h4>
+            <div class="field">          
+              <%= f.radio_button :responde, "Ninguno", id: '' %>
+              <%= f.label :"Ninguno"%>
+              <%= f.radio_button :responde, "Pocos", id: '' %>
+              <%= f.label :"Pocos"%>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>  
+  </div>
+
+
+
+  <div class="field">
+    <%= f.label :comentarios %>
+    <%= f.text_area :comentarios %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,109 @@
+<%= render 'topsidebar/navsidebar' %>
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<h1 class="page-header">Reporte Semanal del Desempeño del Tutor</h1>
+<div id="table-cursos">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <center>Reporte Semanal del Desempeño del Tutor</center>
+    </div>
+    <div class="panel-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>Tutor:</h4>
+            <h4 style="font-weight: normal">Juan Camaney</h4>
+            <h4>Coordinador de Tutores:</h4>
+            <h4 style="font-weight: normal">Juan Pérez</h4>
+            <h4>Semana:</h4>
+            <h4>Fecha del reporte:</h4>
+            <h4 style="font-weight: normal">02/04/2016 12:06:33</h4>
+          </div>
+          <div class="col-sm-5">
+            <div class="table-responsive">
+              <table class ="table table-striped">
+                <thead>
+                  <th>Criterio</th>
+                  <th>Calificación</th>
+                </thead>
+                <tr>
+                  <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
+                  <td> 3/3</td>
+                </tr>
+                <tr>
+                  <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
+                  <td>1/1</td>
+                </tr>
+                <tr>
+                  <td> Da retroalimentación clara y específica de actividades y/o exámenes:</td>
+                  <td>2/2</td>
+                </tr>
+                <tr>
+                  <td> Responde mensajes en un lapso no mayor a 24 horas:</td>
+                  <td>3/3</td>
+                </tr>
+                <tr>
+                  <td>Errores de ortografía en mensajes, reportes y retroalimentaciones:</td>
+                  <td>1/1</td>
+                </tr>
+                <tr>
+                  <td><strong>Total:</strong></td>
+                  <strong><td>10/10</td></strong>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="row col-sm-8">
+          <h4>Comentarios:</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu lectus ligula. Praesent quis tempus nisl.
+            Sed sagittis aliquam suscipit. Morbi nisl diam, pharetra sed tellus vel, facilisis aliquam nisl. Donec dictum
+            quam at risus vulputate, ac facilisis ante gravida. Fusce ultricies egestas vulputate. Nullam volutpat luctus
+            dolor, sit amet fermentum massa imperdiet eu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<p>
+  <strong>Tutor:</strong>
+  <%= @reporte_semanal.tutor %>
+</p>
+
+<p>
+  <strong>Califplazo:</strong>
+  <%= @reporte_semanal.califPlazo %>
+</p>
+
+<p>
+  <strong>Califrubrica:</strong>
+  <%= @reporte_semanal.califRubrica %>
+</p>
+
+<p>
+  <strong>Retro:</strong>
+  <%= @reporte_semanal.retro %>
+</p>
+
+<p>
+  <strong>Responde:</strong>
+  <%= @reporte_semanal.responde %>
+</p>
+
+<p>
+  <strong>Errores:</strong>
+  <%= @reporte_semanal.errores %>
+</p>
+
+<p>
+  <strong>Comentarios:</strong>
+  <%= @reporte_semanal.comentarios %>
+</p>
+
+<%= link_to 'Edit', edit_reporte_semanal_path(@reporte_semanal) %> |
+<%= link_to 'Back', reporte_semanals_path %>
