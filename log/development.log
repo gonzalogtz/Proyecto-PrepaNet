@@ -15271,7 +15271,6 @@ Processing by MainmenututorController#MenuTutor as HTML
 Completed 200 OK in 1633ms (Views: 1630.7ms | ActiveRecord: 0.0ms)
 
 
-<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2017-09-18 14:11:58 -0500
 Processing by MainmenututorController#MenuTutor as HTML
   Rendering mainmenututor/MenuTutor.html.erb within layouts/application
@@ -15385,7 +15384,7 @@ Started GET "/reporteS.html" for 127.0.0.1 at 2017-09-20 21:59:06 -0500
 ActionController::RoutingError (No route matches [GET] "/reporteS.html"):
   
 actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
->>>>>>> reporteSemanal
+
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
 web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
@@ -15411,7 +15410,7 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-<<<<<<< HEAD
+
   Rendering /Users/gonzalogutierrez/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
   Rendering /Users/gonzalogutierrez/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
   Rendered /Users/gonzalogutierrez/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
@@ -15441,7 +15440,7 @@ actionpack (5.0.6) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
 actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
 actionpack (5.0.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
 actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
-=======
+
   Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
@@ -15463,7 +15462,7 @@ Started GET "/reporteC.html" for 127.0.0.1 at 2017-09-20 21:59:10 -0500
 ActionController::RoutingError (No route matches [GET] "/reporteC.html"):
   
 actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
->>>>>>> reporteSemanal
+
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
 web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
@@ -15489,7 +15488,7 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-<<<<<<< HEAD
+
   Rendering /Users/gonzalogutierrez/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
   Rendering /Users/gonzalogutierrez/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
   Rendered /Users/gonzalogutierrez/.rvm/gems/ruby-2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
@@ -22268,3 +22267,18 @@ Completed 200 OK in 56ms (Views: 54.4ms | ActiveRecord: 0.2ms)
 >>>>>>> reporteSemanal
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateConglomeradoQuincenals (20170920143134)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "conglomerado_quincenals" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "materia" varchar, "tutor" varchar, "invito" varchar, "rparcial" varchar, "rfinal" varchar, "resumen" text, "cierre" varchar, "reingresar" varchar, "recomendacion" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170920143134"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReporteQuincenals (20170920202736)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "reporte_quincenals" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "estatus" varchar, "localizado" varchar, "comentarios" varchar, "tutor" varchar, "alumno" varchar, "fecha" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170920202736"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m

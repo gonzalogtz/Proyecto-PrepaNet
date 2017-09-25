@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170920202736) do
+ActiveRecord::Schema.define(version: 20170921165114) do
 
   create_table "conglomerado_quincenals", force: :cascade do |t|
     t.string   "materia"
@@ -36,8 +35,7 @@ ActiveRecord::Schema.define(version: 20170920202736) do
     t.datetime "fecha"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-=======
-ActiveRecord::Schema.define(version: 20170921165114) do
+  end
 
   create_table "reporte_semanals", force: :cascade do |t|
     t.string   "tutor"
@@ -49,7 +47,6 @@ ActiveRecord::Schema.define(version: 20170921165114) do
     t.text     "comentarios"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
->>>>>>> reporteSemanal
   end
 
   create_table "reportesQuincenales", force: :cascade do |t|
