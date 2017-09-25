@@ -16304,3 +16304,473 @@ Processing by ReporteSemanalsController#show as HTML
 Completed 200 OK in 48ms (Views: 45.0ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/reporte_semanals" for 127.0.0.1 at 2017-09-24 18:11:03 -0500
+Processing by ReporteSemanalsController#index as HTML
+  Rendering reporte_semanals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (10.7ms)
+  [1m[36mReporteSemanal Load (0.8ms)[0m  [1m[34mSELECT "reporte_semanals".* FROM "reporte_semanals"[0m
+  Rendered reporte_semanals/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 139ms (Views: 129.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 18:11:05 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.4ms)
+  Rendered reporte_semanals/_form.html.erb (20.6ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 99ms (Views: 94.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals" for 127.0.0.1 at 2017-09-24 18:33:32 -0500
+Processing by ReporteSemanalsController#index as HTML
+  Rendering reporte_semanals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.3ms)
+  [1m[36mReporteSemanal Load (0.7ms)[0m  [1m[34mSELECT "reporte_semanals".* FROM "reporte_semanals"[0m
+  Rendered reporte_semanals/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 101ms (Views: 92.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/reporte_semanals/2" for 127.0.0.1 at 2017-09-24 18:33:35 -0500
+Processing by ReporteSemanalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteSemanal Load (0.5ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.4ms)
+  Rendered reporte_semanals/show.html.erb within layouts/application (216.3ms)
+Completed 500 Internal Server Error in 226ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_calif_califPlazo' for #<#<Class:0x007ff9b543bf50>:0x007ff9b516ac68>):
+    31:                 </thead>
+    32:                 <tr>
+    33:                   <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
+    34:                   <td> <%= get_calif_califPlazo(@reporte_semanal.califPlazo) %>/3</td>
+    35:                 </tr>
+    36:                 <tr>
+    37:                   <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
+  
+app/views/reporte_semanals/show.html.erb:34:in `_app_views_reporte_semanals_show_html_erb___2795288222071121407_70355230874780'
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (68.1ms)
+Started GET "/reporte_semanals/2" for 127.0.0.1 at 2017-09-24 18:34:14 -0500
+Processing by ReporteSemanalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteSemanal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.0ms)
+  Rendered reporte_semanals/show.html.erb within layouts/application (202.5ms)
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_calif_califPlazo' for #<#<Class:0x007ff9af382740>:0x007ff9af3815c0>):
+    31:                 </thead>
+    32:                 <tr>
+    33:                   <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
+    34:                   <td> <%= get_calif_califPlazo(@reporte_semanal.califPlazo) %>/3</td>
+    35:                 </tr>
+    36:                 <tr>
+    37:                   <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
+  
+app/views/reporte_semanals/show.html.erb:34:in `_app_views_reporte_semanals_show_html_erb___2795288222071121407_70355181639680'
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.1ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (73.4ms)
+Started GET "/reporte_semanals/2" for 127.0.0.1 at 2017-09-24 18:38:16 -0500
+Processing by ReporteSemanalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteSemanal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.7ms)
+  Rendered reporte_semanals/show.html.erb within layouts/application (357.7ms)
+Completed 500 Internal Server Error in 367ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_calif_califPlazo' for #<#<Class:0x007ff9af382740>:0x007ff9b5191f98>):
+    31:                 </thead>
+    32:                 <tr>
+    33:                   <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
+    34:                   <td> <%= get_calif_califPlazo(@reporte_semanal.califPlazo) %>/3</td>
+    35:                 </tr>
+    36:                 <tr>
+    37:                   <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
+  
+app/views/reporte_semanals/show.html.erb:34:in `_app_views_reporte_semanals_show_html_erb___2795288222071121407_70355230954680'
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (78.5ms)
+Started GET "/reporte_semanals/2" for 127.0.0.1 at 2017-09-24 18:40:29 -0500
+Processing by ReporteSemanalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteSemanal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.6ms)
+  Rendered reporte_semanals/show.html.erb within layouts/application (151.2ms)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_calif_califPlazo' for #<#<Class:0x007ff9af1a7718>:0x007ff9af1a6548>):
+    31:                 </thead>
+    32:                 <tr>
+    33:                   <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
+    34:                   <td> <%= get_calif_califPlazo(@reporte_semanal.califPlazo) %>/3</td>
+    35:                 </tr>
+    36:                 <tr>
+    37:                   <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
+  
+app/views/reporte_semanals/show.html.erb:34:in `_app_views_reporte_semanals_show_html_erb___2795288222071121407_70355180666840'
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.9ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.9ms)
+Started GET "/reporte_semanals/2" for 127.0.0.1 at 2017-09-24 18:41:03 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ReporteSemanalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteSemanal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (482.0ms)
+  Rendered reporte_semanals/show.html.erb within layouts/application (728.8ms)
+Completed 500 Internal Server Error in 775ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_calif_califPlazo' for #<#<Class:0x007feec4615020>:0x007feec460cb28>):
+    31:                 </thead>
+    32:                 <tr>
+    33:                   <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
+    34:                   <td> <%= get_calif_califPlazo(@reporte_semanal.califPlazo) %>/3</td>
+    35:                 </tr>
+    36:                 <tr>
+    37:                   <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
+  
+app/views/reporte_semanals/show.html.erb:34:in `_app_views_reporte_semanals_show_html_erb___702187623571388545_70331736830000'
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (36.2ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (164.3ms)
+Started GET "/reporte_semanals/2" for 127.0.0.1 at 2017-09-24 18:42:27 -0500
+Processing by ReporteSemanalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteSemanal Load (0.3ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.8ms)
+  Rendered reporte_semanals/show.html.erb within layouts/application (18.7ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `get_calif_califPlazo' for #<ReporteSemanal:0x007feec667c818>):
+    31:                 </thead>
+    32:                 <tr>
+    33:                   <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
+    34:                   <td> <%= @reporte_semanal.get_calif_califPlazo(@reporte_semanal.califPlazo) %>/3</td>
+    35:                 </tr>
+    36:                 <tr>
+    37:                   <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
+  
+app/views/reporte_semanals/show.html.erb:34:in `_app_views_reporte_semanals_show_html_erb___702187623571388545_70331753503100'
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (67.7ms)
+Started GET "/reporte_semanals" for 127.0.0.1 at 2017-09-24 18:47:30 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ReporteSemanalsController#index as HTML
+  Rendering reporte_semanals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (275.3ms)
+  [1m[36mReporteSemanal Load (0.9ms)[0m  [1m[34mSELECT "reporte_semanals".* FROM "reporte_semanals"[0m
+  Rendered reporte_semanals/index.html.erb within layouts/application (291.9ms)
+Completed 200 OK in 413ms (Views: 397.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 18:47:34 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered reporte_semanals/_form.html.erb (111.8ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (115.9ms)
+Completed 200 OK in 189ms (Views: 184.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/2" for 127.0.0.1 at 2017-09-24 18:53:01 -0500
+Started GET "/reporte_semanals/2" for 127.0.0.1 at 2017-09-24 18:53:11 -0500
+Started GET "/reporte_semanals/2" for 127.0.0.1 at 2017-09-24 18:53:11 -0500
+Started GET "/reporte_semanals" for 127.0.0.1 at 2017-09-24 18:53:11 -0500
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 18:53:11 -0500
+Processing by ReporteSemanalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteSemanal Load (0.4ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.5ms)
+  Rendered reporte_semanals/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 89ms (Views: 70.2ms | ActiveRecord: 1.1ms)
+
+
+Processing by ReporteSemanalsController#show as HTML
+Processing by ReporteSemanalsController#index as HTML
+Processing by ReporteSemanalsController#new as HTML
+Processing by ReporteSemanalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteSemanal Load (0.3ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReporteSemanal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendering reporte_semanals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.4ms)
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendered reporte_semanals/_form.html.erb (7.5ms)
+  Rendered reporte_semanals/show.html.erb within layouts/application (20.3ms)
+  Rendered topsidebar/_navsidebar.html.erb (2.9ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (17.1ms)
+  Rendered topsidebar/_navsidebar.html.erb (2.7ms)
+  [1m[36mReporteSemanal Load (0.5ms)[0m  [1m[34mSELECT "reporte_semanals".* FROM "reporte_semanals"[0m
+  Rendered reporte_semanals/show.html.erb within layouts/application (22.0ms)
+  Rendered reporte_semanals/index.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 308ms (Views: 285.7ms | ActiveRecord: 0.5ms)
+
+
+Completed 200 OK in 310ms (Views: 287.3ms | ActiveRecord: 0.2ms)
+
+
+Completed 200 OK in 318ms (Views: 292.2ms | ActiveRecord: 0.7ms)
+
+
+Completed 200 OK in 323ms (Views: 301.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_semanals/2" for 127.0.0.1 at 2017-09-24 18:53:14 -0500
+Processing by ReporteSemanalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mReporteSemanal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.7ms)
+  Rendered reporte_semanals/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 53ms (Views: 48.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_semanals" for 127.0.0.1 at 2017-09-24 18:55:10 -0500
+Processing by ReporteSemanalsController#index as HTML
+  Rendering reporte_semanals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.2ms)
+  [1m[36mReporteSemanal Load (0.2ms)[0m  [1m[34mSELECT "reporte_semanals".* FROM "reporte_semanals"[0m
+  Rendered reporte_semanals/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 79ms (Views: 74.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_semanals/1" for 127.0.0.1 at 2017-09-24 18:55:11 -0500
+Processing by ReporteSemanalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReporteSemanal Load (0.2ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.1ms)
+  Rendered reporte_semanals/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 92ms (Views: 87.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/reporte_semanals" for 127.0.0.1 at 2017-09-24 18:55:42 -0500
+Processing by ReporteSemanalsController#index as HTML
+  Rendering reporte_semanals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (3.2ms)
+  [1m[36mReporteSemanal Load (0.3ms)[0m  [1m[34mSELECT "reporte_semanals".* FROM "reporte_semanals"[0m
+  Rendered reporte_semanals/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 69ms (Views: 65.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 18:55:46 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered reporte_semanals/_form.html.erb (12.1ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 83ms (Views: 77.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 18:59:45 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered reporte_semanals/_form.html.erb (6.5ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 72ms (Views: 69.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:04:49 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered reporte_semanals/_form.html.erb (3.2ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 70ms (Views: 67.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:06:15 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered reporte_semanals/_form.html.erb (3.8ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 59ms (Views: 57.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:06:47 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.0ms)
+  Rendered reporte_semanals/_form.html.erb (6.6ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 60ms (Views: 57.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:07:22 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.3ms)
+  Rendered reporte_semanals/_form.html.erb (6.3ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 60ms (Views: 58.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:07:24 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.5ms)
+  Rendered reporte_semanals/_form.html.erb (6.3ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 62ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:07:36 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.5ms)
+  Rendered reporte_semanals/_form.html.erb (5.5ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 54ms (Views: 51.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:07:39 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  Rendered reporte_semanals/_form.html.erb (6.3ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 58ms (Views: 55.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:08:05 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered reporte_semanals/_form.html.erb (2.2ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (3.9ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/dvalles/Desktop/Proyecto_Integrador/Proyecto-PrepaNet/app/views/reporte_semanals/_form.html.erb:190: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/reporte_semanals/_form.html.erb:190: syntax error, unexpected keyword_ensure, expecting end-of-input
+app/views/reporte_semanals/new.html.erb:3:in `_app_views_reporte_semanals_new_html_erb___3710418670143285583_70272096514700'
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.1ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.4.0/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (75.3ms)
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:08:18 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.9ms)
+  Rendered reporte_semanals/_form.html.erb (9.2ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 58ms (Views: 55.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:08:38 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.4ms)
+  Rendered reporte_semanals/_form.html.erb (6.4ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 65ms (Views: 62.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:09:41 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.8ms)
+  Rendered reporte_semanals/_form.html.erb (8.9ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 71ms (Views: 69.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reporte_semanals/new" for 127.0.0.1 at 2017-09-24 19:11:16 -0500
+Processing by ReporteSemanalsController#new as HTML
+  Rendering reporte_semanals/new.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.7ms)
+  Rendered reporte_semanals/_form.html.erb (7.4ms)
+  Rendered reporte_semanals/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 74ms (Views: 71.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/reporte_semanals" for 127.0.0.1 at 2017-09-24 19:11:46 -0500
+Processing by ReporteSemanalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d9P62P8+mE/FZ9BS4h8iD6dJ9OHqGPyc16BzICyr6m2gOLIHAtA3ZWAyzB2Tvnj8orSmomg7FK7jYkDm1rsCFQ==", "reporte_semanal"=>{"tutor"=>"Pancho Pantera", "califPlazo"=>"Si", "califRubrica"=>"Si", "retro"=>"Si", "responde"=>"Si", "errores"=>"Ninguno", "comentarios"=>"Prueba"}, "commit"=>"Create Reporte semanal"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "reporte_semanals" ("tutor", "califPlazo", "califRubrica", "retro", "responde", "errores", "comentarios", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["tutor", "Pancho Pantera"], ["califPlazo", "Si"], ["califRubrica", "Si"], ["retro", "Si"], ["responde", "Si"], ["errores", "Ninguno"], ["comentarios", "Prueba"], ["created_at", "2017-09-25 00:11:46.370839"], ["updated_at", "2017-09-25 00:11:46.370839"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/reporte_semanals/3
+Completed 302 Found in 6ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/reporte_semanals/3" for 127.0.0.1 at 2017-09-24 19:11:46 -0500
+Processing by ReporteSemanalsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mReporteSemanal Load (0.1ms)[0m  [1m[34mSELECT  "reporte_semanals".* FROM "reporte_semanals" WHERE "reporte_semanals"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering reporte_semanals/show.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (1.5ms)
+  Rendered reporte_semanals/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 58ms (Views: 55.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/reporte_semanals" for 127.0.0.1 at 2017-09-24 19:11:56 -0500
+Processing by ReporteSemanalsController#index as HTML
+  Rendering reporte_semanals/index.html.erb within layouts/application
+  Rendered topsidebar/_navsidebar.html.erb (2.1ms)
+  [1m[36mReporteSemanal Load (0.2ms)[0m  [1m[34mSELECT "reporte_semanals".* FROM "reporte_semanals"[0m
+  Rendered reporte_semanals/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 56ms (Views: 54.4ms | ActiveRecord: 0.2ms)
+
+
