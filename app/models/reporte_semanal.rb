@@ -1,0 +1,2 @@
+class ReporteSemanal < ApplicationRecord
+end

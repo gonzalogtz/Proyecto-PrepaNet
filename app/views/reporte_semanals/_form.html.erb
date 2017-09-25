@@ -1,0 +1,188 @@
+<%= render 'topsidebar/navsidebar' %>
+<%= form_for(reporte_semanal) do |f| %>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Generar Concentrado de Reportes Semanales</h1>
+    <div class="row">
+
+      <div class="row">
+        <div id="table-cursos" class="" style="margin-top: 20px;">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading">
+              <center>Evaluación del Tutor</center>
+            </div>
+
+            <div class="panel-body">
+              <div class="field">
+              <h4>Nombre del Tutor</h4>
+              <%= f.text_field :tutor %>
+            </div>
+
+            <h4>1.- Calificar en un plazo no mayor a 48 horas actividades y/o exámenes:</h4>
+            <div class="table-responsive">
+              <table class="table table-striped" style="text-align: center;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center;">Sí</th>
+                    <th style="text-align: center;">Casi siempre</th>
+                    <th style="text-align: center;">Algunas veces</th>
+                    <th style="text-align: center;">No</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>Se asignarán 3 puntos únicamente si el tutor SIEMPRE califica en el plazo</td>
+                    <td>Se asignarán 2 puntos cuando el tutor califique en el plazo más del 50% de las actividades y/o exámenes </td>
+                    <td>Se asignará 1 punto cuando el tutor califique en el  plazo menos del 50% de las actividades y/o exámenes</td>
+                    <td>Se asignarán 0 puntos si el tutor nunca califica dentro  del plazo</td>
+                  </tr>
+                  <tr>
+                    <td><%= f.radio_button :califPlazo, "Si"%></td>
+                    <td><%= f.radio_button :califPlazo, "Casi Siempre"%></td>
+                    <td><%= f.radio_button :califPlazo, "Algunas Veces"%></td>
+                    <td><%= f.radio_button :califPlazo, "No"%></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4>2.- Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</h4>
+            <div class="table-responsive">
+              <table class="table table-striped" style="text-align: center;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center;">Sí</th>
+                    <th style="text-align: center;">No</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>Se asignará 1 punto únicamente si el tutor SIEMPRE califica con base en la rúbrica y envía al alumno cómo se compone su calificación.</td>
+                    <td>Se asignarán 0 puntos si al menos una vez el tutor no califica con base en la rúbrica.</td>
+                  </tr>
+                  <tr>
+                    <td><%= f.radio_button :califRubrica, "Si"%></td>
+                    <td><%= f.radio_button :califRubrica, "No"%></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4>3.- Da retroalimentación clara y específica de actividades y/o exámenes:</h4>
+            <div class="table-responsive">
+              <table class="table table-striped" style="text-align: center;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center;">Sí</th>
+                    <th style="text-align: center;">Incompleta</th>
+                    <th style="text-align: center;">No</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>Se asignarán 2 puntos únicamente si el tutor SIEMPRE da retroalimentación clara y específica.</td>
+                    <td>Se asignará 1 punto si en al menos 1 ocasión el tutor no envía retroalimentación o si las retroalimentaciones no cumplen con los requisitos.</td>
+                    <td>Se asignarán 0 puntos si el tutor no envía retroalimentaciones o si éstas no cumplen con los requisitos.</td>
+                  </tr>
+                  <tr>
+                    <td><%= f.radio_button :retro, "Si"%></td>
+                    <td><%= f.radio_button :retro, "Incompleta"%></td>
+                    <td><%= f.radio_button :retro, "No"%></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4>4.- Responde mensajes en un lapso no mayor a 24 horas:</h4>
+            <div class="table-responsive">
+              <table class="table table-striped" style="text-align: center;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center;">Sí</th>
+                    <th style="text-align: center;">Casi siempre</th>
+                    <th style="text-align: center;">Algunas veces</th>
+                    <th style="text-align: center;">No</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>Se asignarán 3 puntos únicamente si el tutor SIEMPRE responde en el plazo.</td>
+                    <td>Se asignarán 2 puntos cuando el tutor responda en el plazo más del 50% de los mensajes.</td>
+                    <td>Se asignará 1 punto cuando el tutor responda en el  plazo menos del 50% de los mensajes.</td>
+                    <td>Se asignarán 0 puntos si el tutor nunca responde dentro  del plazo.</td>
+                  </tr>
+                  <tr>
+                    <td><%= f.radio_button :responde, "Si"%></td>
+                    <td><%= f.radio_button :responde, "Casi Siempre"%></td>
+                    <td><%= f.radio_button :responde, "Algunas Veces"%></td>
+                    <td><%= f.radio_button :responde, "No"%></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4>5.- Errores de ortografía en mensajes, reportes y retroalimentaciones:</h4>
+            <div class="table-responsive">
+              <table class="table table-striped" style="text-align: center;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center;">Ninguno</th>
+                    <th style="text-align: center;">Pocos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>Se asignará 1 punto únicamente si el tutor no presenta errores de ortografía.</td>
+                    <td>Se asignarán 0 puntos si el tutor presenta errores de ortografía.</td>
+                  </tr>
+                  <tr>
+                    <td><%= f.radio_button :errores, "Ninguno"%></td>
+                    <td><%= f.radio_button :errores, "Pocos"%></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+            <h4>6.- Comentarios:</h4>
+            <%= f.text_area :comentarios %>
+            <div class="row"> 
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+               <div class="actions">
+               <%= f.submit %>
+               </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>  
+  </div>
+<% end %>

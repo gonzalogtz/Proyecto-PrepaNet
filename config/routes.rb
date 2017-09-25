@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   
   
   
+<<<<<<< HEAD
   resources :reporte_quincenals
   resources :conglomerado_quincenals
+=======
+  resources :reporte_semanals
+>>>>>>> reporteSemanal
   root 'mainmenututor#MenuTutor'
 
 
