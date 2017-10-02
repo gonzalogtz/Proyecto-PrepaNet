@@ -20,7 +20,7 @@
                   </thead>
                   <tbody>
                     <% @conglomerado_quincenals.each do |conglomerado_quincenal| %>
-                      <tr >
+                      <tr class="pickHover" >
                         <td><%= conglomerado_quincenal.materia %></td>
                         <td><%= conglomerado_quincenal.tutor %></td>
                         <td><%= link_to 'Show', conglomerado_quincenal %> <%= link_to 'Edit', edit_conglomerado_quincenal_path(conglomerado_quincenal) %> <%= link_to 'Destroy', conglomerado_quincenal, method: :delete, data: { confirm: 'Are you sure?' } %> </td>

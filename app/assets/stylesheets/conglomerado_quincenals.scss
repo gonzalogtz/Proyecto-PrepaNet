@@ -8,7 +8,11 @@
 	margin-top: 50px;
 	color: white;
 }
-
+.pickHover:hover { 
+    background-color: #4183D7 !important ;
+    color: white;
+    cursor: pointer;
+}
 
 #txtArea{
 	height: 150px;
