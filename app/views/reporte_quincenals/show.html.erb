@@ -27,7 +27,7 @@
 
 <p>
   <strong>Fecha:</strong>
-  <%= @reporte_quincenal.fecha %>
+  <%= @reporte_quincenal.fecha.to_date %>
 </p>
 
 <%= link_to 'Edit', edit_reporte_quincenal_path(@reporte_quincenal) %> |

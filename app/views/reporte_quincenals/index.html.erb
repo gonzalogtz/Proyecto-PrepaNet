@@ -8,15 +8,15 @@
           <center>Reportes Quincenales Registrados</center>
         </div>
         <div class="table-responsive">
-          <table class="table table-striped">
+          <table class="table table-striped txtCenter">
             <thead>
               <tr>
-                <th>Matrícula</th>
-                <th>Nombre</th>
-                <th>Estatus</th>
-                <th>Localizado</th>
-                <th>Fecha</th>
-                <th>Reporte Completo</th>
+                <th class="txtCenter">Matrícula</th>
+                <th class="txtCenter">Nombre</th>
+                <th class="txtCenter">Estatus</th>
+                <th class="txtCenter">Localizado</th>
+                <th class="txtCenter">Fecha</th>
+                <th class="txtCenter">Reporte Completo</th>
               </tr>
             </thead>
             <tbody>
@@ -26,8 +26,8 @@
                   <td>Nombre generico</td>
                   <%= get_estatus_tag(reporte_quincenal.estatus)%>
                   <%= get_localizado_tag(reporte_quincenal.localizado)%>
-                  <td><%= reporte_quincenal.fecha%></td>
-                  <td><%= link_to 'Ver reporte', reporte_quincenal %></td>
+                  <td><%= reporte_quincenal.fecha.to_date%></td>
+                  <td><%= link_to 'Show', reporte_quincenal %> <%= link_to 'Edit', edit_reporte_quincenal_path(reporte_quincenal) %> <%= link_to 'Destroy', reporte_quincenal, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
                 </tr>
               <% end %>
             </tbody>

@@ -28,7 +28,7 @@ class ConglomeradoQuincenalsController < ApplicationController
 
     respond_to do |format|
       if @conglomerado_quincenal.save
-        format.html { redirect_to @conglomerado_quincenal, notice: 'Conglomerado quincenal was successfully created.' }
+       format.html { redirect_to conglomerado_quincenals_path, notice: 'Conglomerado quincenal was successfully created.' }
         format.json { render :show, status: :created, location: @conglomerado_quincenal }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ConglomeradoQuincenalsController < ApplicationController
   def update
     respond_to do |format|
       if @conglomerado_quincenal.update(conglomerado_quincenal_params)
-        format.html { redirect_to @conglomerado_quincenal, notice: 'Conglomerado quincenal was successfully updated.' }
+        format.html { redirect_to conglomerado_quincenals_path, notice: 'Conglomerado quincenal was successfully updated.' }
         format.json { render :show, status: :ok, location: @conglomerado_quincenal }
       else
         format.html { render :edit }

@@ -170,11 +170,12 @@
 
 
             <h4>6.- Comentarios:</h4>
-            <%= f.text_area :comentarios %>
+            <%= f.text_area :comentarios, class:"txtArea" %>
             <div class="row"> 
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                <div class="actions">
-               <%= f.submit %>
+               <%= f.submit "Enviar Reporte", class:"btn btn-primary btn-lg", id:"btnSubmit"  %>
+               <%= link_to 'Back', reporte_semanals_path, class:"btn btn-primary btn-lg btnBack"  %>
                </div>
               </div>
             </div>
