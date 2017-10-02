@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :flname
       t.string :slname
       t.string :email
-      t.integer :phone
+      t.string :phone
       t.string :status
 
       t.timestamps
