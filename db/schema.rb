@@ -37,11 +37,4 @@ ActiveRecord::Schema.define(version: 20170920202736) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "reportesQuincenales", force: :cascade do |t|
-    t.string   "titulo"
-    t.text     "descripcion"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
 end

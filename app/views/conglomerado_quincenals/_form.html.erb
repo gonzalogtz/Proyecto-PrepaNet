@@ -1,116 +1,162 @@
-
-
 <%= form_for(conglomerado_quincenal) do |f| %>
   <% if conglomerado_quincenal.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(conglomerado_quincenal.errors.count, "error") %> prohibited this conglomerado_quincenal from being saved:</h2>
-
       <ul>
-      <% conglomerado_quincenal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% conglomerado_quincenal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
+  
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Generar Concentrado de Reportes Quincenales</h1>
+    <div class="row">
+      <div class="row">
+        <div id="table-cursos" class="" style="margin-top: 20px;">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <center>Evaluación del Tutor</center>
+            </div>
 
+            <div class="panel-body">
+              <div class="field">
+                <h4>Nombre del Tutor</h4>
+                <%= f.text_field :tutor %>
+              </div>
 
+              <div class="field">
+                <h4>Nombre de la Materia</h4>
+                <%= f.text_field :materia %>
+              </div>
 
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Generar Concentrado de Reportes Quincenales</h1>
-          <div class="row">
-            
-      
-          <div class="row">
-            <div id="table-cursos" class="" style="margin-top: 20px;">
-              <div class="panel panel-primary">
-                <div class="panel-heading">
-                  <center>Evaluación del Tutor</center>
-                </div>
-                <div class="panel-body">
+              <h4>¿El tutor invitó a sus alumnos a sus asesorías presenciales?</h4>
+              <div class="table-responsive">
+                  <table class="table table-striped" style="text-align: center;">
+                      <thead>
+                      <tr>
+                          <th style="text-align: center;">No</th>
+                          <th style="text-align: center;">Sí</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td><%= f.radio_button :invito, 0%></td>
+                              <td><%= f.radio_button :invito, 1%></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
 
-                  <div class="field">
-                    <h4>Nombre del Tutor</h4>
-                    <%= f.text_field :tutor %>
-                  </div>
+              <h4>¿El tutor realizó los reportes parciales de desempeño de alumnos, reflejando seguimiento a los mismos?</h4>
+              <div class="table-responsive">
+                  <table class="table table-striped" style="text-align: center;">
+                      <thead>
+                      <tr>
+                          <th style="text-align: center;">No</th>
+                          <th style="text-align: center;">Sí</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td><%= f.radio_button :rparcial, 0%></td>
+                              <td><%= f.radio_button :rparcial, 1%></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
 
-                  <div class="field">
-                    <h4>Nombre de la Materia</h4>
-                    <%= f.text_field :materia %>
-                  </div>
+              <h4>¿El tutor realizó el reporte final de alumno?</h4>
+              <div class="table-responsive">
+                  <table class="table table-striped" style="text-align: center;">
+                      <thead>
+                      <tr>
+                          <th style="text-align: center;">No</th>
+                          <th style="text-align: center;">Sí</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td><%= f.radio_button :rfinal, 0%></td>
+                              <td><%= f.radio_button :rfinal, 1%></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
 
-                  <h4>¿El tutor invitó a sus alumnos a sus asesorías presenciales?</h4>
-                  <div class="field">
-                    
-                    <%= f.radio_button :invito, "Si", id: '' %>
-                    <%= f.label :Si%><br>
-                    <%= f.radio_button :invito, "No", id: '' %>
-                    <%= f.label :No%>
-                  </div>
+              <h4>¿Envió actividad de cierre?</h4>
+              <div class="table-responsive">
+                  <table class="table table-striped" style="text-align: center;">
+                      <thead>
+                      <tr>
+                          <th style="text-align: center;">No</th>
+                          <th style="text-align: center;">Sí</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td><%= f.radio_button :cierre, 0%></td>
+                              <td><%= f.radio_button :cierre, 1%></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
 
-                  <h4>¿El tutor realizó los reportes parciales de desempeño de alumnos, reflejando seguimiento a los mismos?</h4>
-                  <div class="field">
-                    <%= f.radio_button :rparcial, "Si", id: '' %>
-                    <%= f.label :Si%><br>
-                    <%= f.radio_button :rparcial, "No", id: '' %>
-                    <%= f.label :No%>
-                  </div>
-                  
+              <h4>¿Lo recomiendo para reingresar?</h4>
+              <div class="table-responsive">
+                  <table class="table table-striped" style="text-align: center;">
+                      <thead>
+                      <tr>
+                          <th style="text-align: center;">No</th>
+                          <th style="text-align: center;">Sí</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td><%= f.radio_button :reingresar, 0%></td>
+                              <td><%= f.radio_button :reingresar, 1%></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
 
-                  <h4>¿El tutor realizó el reporte final de alumno?</h4>
-                  <div class="field">
-                    <%= f.radio_button :rfinal, "Si", id: '' %>
-                    <%= f.label :Si%><br>
-                    <%= f.radio_button :rfinal, "No", id: '' %>
-                    <%= f.label :No%>
-                  </div>
+              <h4>¿Lo recomendaría como coordinador de tutores?</h4>
+              <div class="table-responsive">
+                  <table class="table table-striped" style="text-align: center;">
+                      <thead>
+                      <tr>
+                          <th style="text-align: center;">No</th>
+                          <th style="text-align: center;">Sí</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td><%= f.radio_button :recomendacion, 0%></td>
+                              <td><%= f.radio_button :recomendacion, 1%></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
 
+              <h4>Resumen de observaciones sobre el desempeño del tutor y el seguimiento a sus alumnos</h4>
+              <div class="field">
+                <%= f.text_area :resumen, class:"form-control", id:"txtArea"%>
+              </div>
+              <i>*Justificación de la cantidad de horas que el coordinador considera que el tutor debe acreditar. Cualquier comentario que ayude a entender lo que el tutor aportó a su grupo y si realizó esfuerzos adicionales que merezcan ser considerados.
 
-                  <h4>Resumen de observaciones sobre el desempeño del tutor y el seguimiento a sus alumnos</h4>
-                  <div class="field">
-                    
-                    <%= f.text_area :resumen %>
-                  </div>
-
-                  </textarea>
-                  <i>*Justificación de la cantidad de horas que el coordinador considera que el tutor debe acreditar. Cualquier comentario que ayude a entender lo que el tutor aportó a su grupo y si realizó esfuerzos adicionales que merezcan ser considerados.
-
-                  <h4>Envió actividad de cierre</h4>
-                  <div class="field">
-                    <%= f.radio_button :cierre, "Si", id: '' %>
-                    <%= f.label :Si%><br>
-                    <%= f.radio_button :cierre, "No", id: '' %>
-                    <%= f.label :No%>
-                  </div>
-
-                  <h4>¿Lo recomiendo para reingresar?</h4>
-                  <div class="field">
-                    <%= f.radio_button :reingresar, "Si", id: '' %>
-                    <%= f.label :Si%><br>
-                    <%= f.radio_button :reingresar, "No", id: '' %>
-                    <%= f.label :No%>
-                  </div>
-
-                  <h4>¿Lo recomendaría como coordinador de tutores?</h4>
-                  <div class="field">
-                    <%= f.radio_button :recomendacion, "Si", id: '' %>
-                    <%= f.label :Si%><br>
-                    <%= f.radio_button :recomendacion, "No", id: '' %>
-                    <%= f.label :No%>
-                  </div>
-
-                  <div class="row">
-
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                      <div class="actions">
-                        <%= f.submit class:"btn btn-primary btn-lg"  %>
-                      </div>
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="actions">
+                      <%= f.submit "Enviar Reporte", class:"btn btn-primary btn-lg", id:"btnSubmit"  %>
+                      <%= link_to 'Back', conglomerado_quincenals_path, class:"btn btn-primary btn-lg btnBack"  %>
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
-
+  </div>
 <% end %>
