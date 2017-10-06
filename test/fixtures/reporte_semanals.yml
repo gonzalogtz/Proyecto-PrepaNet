@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tutor: MyString
+  califPlazo: MyString
+  califRubrica: MyString
+  retro: MyString
+  responde: MyString
+  errores: MyString
+  comentarios: MyText
+
+two:
+  tutor: MyString
+  califPlazo: MyString
+  califRubrica: MyString
+  retro: MyString
+  responde: MyString
+  errores: MyString
+  comentarios: MyText

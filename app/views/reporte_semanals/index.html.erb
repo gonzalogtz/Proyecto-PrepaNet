@@ -1,0 +1,44 @@
+<%= render 'topsidebar/navsidebar' %>
+
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Explorar Reportes de Evaluación de Desempeño Semanal de Tutores</h1>
+    <div id="table-cursos">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <center>Reportes Semanales Registrados</center>
+        </div>
+
+        <div class="table-resposive">
+          <table class="table table-striped txtCenter">
+            <thead>
+              <tr>
+                <th class="txtCenter">Tutor</th>
+                <th class="txtCenter">Coordinador de Tutores</th>
+                <th class="txtCenter">Fecha de Reporte</th>
+                <th class="txtCenter">Reporte Completo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @reporte_semanals.each do |reporte_semanal| %>
+                <tr class="pickHover">
+                  <td><%= reporte_semanal.tutor %></td>
+                  <td>Nombre de Coordinador</td>
+                  <td>Fecha</td>
+                  <td><%= link_to 'Show', reporte_semanal %> <%= link_to 'Edit', edit_reporte_semanal_path(reporte_semanal) %> <%= link_to 'Destroy', reporte_semanal, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%= link_to "Crear Reporte", new_reporte_semanal_path, class: 'btn btn-primary btn-lg', :id => "btnSubmit"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -30,7 +30,7 @@ class ReporteQuincenalsController < ApplicationController
 
     respond_to do |format|
       if @reporte_quincenal.save
-        format.html { redirect_to @reporte_quincenal, notice: 'Reporte quincenal was successfully created.' }
+        format.html { redirect_to reporte_quincenals_path, notice: 'Reporte quincenal was successfully created.' }
         format.json { render :show, status: :created, location: @reporte_quincenal }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ReporteQuincenalsController < ApplicationController
   def update
     respond_to do |format|
       if @reporte_quincenal.update(reporte_quincenal_params)
-        format.html { redirect_to @reporte_quincenal, notice: 'Reporte quincenal was successfully updated.' }
+        format.html { redirect_to reporte_quincenals_path, notice: 'Reporte quincenal was successfully updated.' }
         format.json { render :show, status: :ok, location: @reporte_quincenal }
       else
         format.html { render :edit }

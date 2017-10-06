@@ -10,17 +10,17 @@
                 <center>Reportes Quincenales Registrados</center>
               </div>
               <div class="table-responsive">
-                <table class="table table-striped"style="text-align: center;">
+                <table class="table table-striped txtCenter">
                   <thead>
                     <tr>
-                      <th style="text-align: center;">Materia</th>
-                      <th style="text-align: center;">Tutor</th>
-                      <th style="text-align: center;">Acciones</th>
+                      <th class="txtCenter">Materia</th>
+                      <th class="txtCenter">Tutor</th>
+                      <th class="txtCenter">Acciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <% @conglomerado_quincenals.each do |conglomerado_quincenal| %>
-                      <tr >
+                      <tr class="pickHover" >
                         <td><%= conglomerado_quincenal.materia %></td>
                         <td><%= conglomerado_quincenal.tutor %></td>
                         <td><%= link_to 'Show', conglomerado_quincenal %> <%= link_to 'Edit', edit_conglomerado_quincenal_path(conglomerado_quincenal) %> <%= link_to 'Destroy', conglomerado_quincenal, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
@@ -36,7 +36,7 @@
 
               <div class="row"> 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                      <%= link_to "Crear Reporte", new_conglomerado_quincenal_path, class: 'btn btn-primary btn-lg', :id => "btnCongloQuinc"%>
+                      <%= link_to "Crear Reporte", new_conglomerado_quincenal_path, class: 'btn btn-primary btn-lg', :id => "btnSubmit"%>
                      
                       
                     </div>

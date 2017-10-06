@@ -1,0 +1,72 @@
+<%= render 'topsidebar/navsidebar' %>
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<h1 class="page-header">Reporte Semanal del Desempeño del Tutor</h1>
+<div id="table-cursos">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <center>Reporte Semanal del Desempeño del Tutor</center>
+    </div>
+    <div class="panel-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>Tutor:</h4>
+            <h4 style="font-weight: normal">
+              <%= @reporte_semanal.tutor %>
+            </h4>
+            <h4>Coordinador de Tutores:</h4>
+            <h4 style="font-weight: normal">
+              
+            </h4>
+            <h4>Fecha del reporte:</h4>
+            <h4 style="font-weight: normal"></h4>
+          </div>
+          <div class="col-sm-5">
+            <div class="table-responsive">
+              <table class ="table table-striped">
+                <thead>
+                  <th>Criterio</th>
+                  <th>Calificación</th>
+                </thead>
+                <tr>
+                  <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
+                  <td> <%= get_calif_califPlazo(@reporte_semanal.califPlazo) %>/3</td>
+                </tr>
+                <tr>
+                  <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
+                  <td> <%= get_calif_califRubrica(@reporte_semanal.califRubrica) %>/1</td>
+                </tr>
+                <tr>
+                  <td> Da retroalimentación clara y específica de actividades y/o exámenes:</td>
+                  <td><%= get_calif_retro(@reporte_semanal.retro) %>/2</td>
+                </tr>
+                <tr>
+                  <td> Responde mensajes en un lapso no mayor a 24 horas:</td>
+                  <td>  <%= get_calif_responde(@reporte_semanal.responde) %>/3</td>
+                </tr>
+                <tr>
+                  <td>Errores de ortografía en mensajes, reportes y retroalimentaciones:</td>
+                  <td><%= get_calif_errores(@reporte_semanal.errores) %>/1</td>
+                </tr>
+                <tr>
+                  <td><strong>Total:</strong></td>
+                  <strong><td><%=get_calif_total(@reporte_semanal)%>/10</td></strong>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="row col-sm-8">
+          <h4>Comentarios:</h4>
+            <%= @reporte_semanal.comentarios %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<%= link_to 'Edit', edit_reporte_semanal_path(@reporte_semanal) %> |
+<%= link_to 'Back', reporte_semanals_path %>
