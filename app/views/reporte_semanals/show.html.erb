@@ -8,21 +8,33 @@
       <center>Reporte Semanal del Desempeño del Tutor</center>
     </div>
     <div class="panel-body">
-      <div class="container">
+      <div class="">
         <div class="row">
-          <div class="col-sm-4">
-            <h4>Tutor:</h4>
+          <div style="padding-bottom: .5%;" class="col-sm-8">
+            <h4 style="float: left; padding-right: 2%;">Tutor:</h4>
             <h4 style="font-weight: normal">
               <%= @reporte_semanal.tutor %>
             </h4>
-            <h4>Coordinador de Tutores:</h4>
-            <h4 style="font-weight: normal">
-              
-            </h4>
-            <h4>Fecha del reporte:</h4>
-            <h4 style="font-weight: normal"></h4>
+            
           </div>
-          <div class="col-sm-5">
+
+          <div class="col-sm-3">
+          
+            <h4 style="float: left; padding-right: 2%;">Fecha del reporte:</h4>
+            <h4 style="font-weight: normal">
+              <%= @reporte_semanal.created_at.to_date %>
+            </h4>
+          </div>
+
+
+
+
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-7">
             <div class="table-responsive">
               <table class ="table table-striped">
                 <thead>
@@ -57,11 +69,39 @@
               </table>
             </div>
           </div>
+
+          <div class="row col-sm-3">
+            <h4 style="margin-left: 15%">Comentarios:</h4>
+            <textarea readonly rows="10" cols="50" style="resize: none; margin-left: 15%">
+              <%= @reporte_semanal.comentarios %>  
+            </textarea>
+            
+          </div>
+
+
         </div>
-        <div class="row col-sm-8">
-          <h4>Comentarios:</h4>
-            <%= @reporte_semanal.comentarios %>
+        <div class="row ">
+          <div class="col-sm-2">
+            <%= link_to 'Atras', reporte_semanals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %>
+              
+          </div>
+          <div class="col-sm-2">
+              
+              <%= link_to 'Eliminar', @reporte_semanal, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
+          </div>
+          <div class="col-sm-2">
+            <%= link_to 'Editar', edit_reporte_semanal_path(@reporte_semanal), class:"btn btn-lg btn-warning" ,id:"btnChico" %>
+              
+          </div>
+
+                    
+
+
+
         </div>
+          
+        
+        
       </div>
     </div>
   </div>

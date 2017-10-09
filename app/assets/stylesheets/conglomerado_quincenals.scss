@@ -21,3 +21,20 @@
 .txtCenter{
 	text-align: center;
 }
+
+.mainContainer {
+	height: calc(100vh - 50px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+textarea {	
+
+width: 100%;
+}
+
+
+
+
+
