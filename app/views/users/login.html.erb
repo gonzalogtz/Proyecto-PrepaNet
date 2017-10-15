@@ -33,16 +33,17 @@
         <div class="cover-container">
           <div class="inner cover">
             <img class="logo-cover" src="<%= asset_path("logoPrepa.png")%>" alt="Logo de Prepanet" />
-            <form class="form-signin">
+
+
+            <%= form_tag("/search", method: "get", class: "form-signin") do %>
               <h2 class="form-signin-heading">Iniciar Sesión</h2>
-              <label for="inputUser" class="sr-only">Clave de Usuario</label>
-              <input type="text" id="inputUser" class="form-control" placeholder="Clave de Usuario" required autofocus>
+              <%= text_field_tag :inputUser, "", class: "form-control", placeholder: "Clave de Usuario", required: true  %>
               <br>
-              <label for="inputPassword" class="sr-only">Contraseña</label>
-              <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+              <%= text_field_tag :inputPassword, "", class: "form-control", placeholder: "Contraseña", required: true  %>
               <br>
-              <button class="btn btn-lg btn-default btn-block" type="submit">Iniciar Sesión</button>
-            </form>
+              <%= submit_tag "Iniciar Sesión", class: "btn btn-lg btn-default btn-block" %>
+            <% end %>
+
           </div>
 
           <div class="mastfoot">
