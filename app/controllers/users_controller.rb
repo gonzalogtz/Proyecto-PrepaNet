@@ -21,6 +21,16 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def login
+    @user = User.new(user_login_params)
+
+    if @user.find(:userid => user.userid, :password => user.password)
+      #do something
+    else
+      #tell it is 
+    end
+  end
+
   # POST /users
   # POST /users.json
   def create
@@ -68,6 +78,11 @@ class UsersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    def user_login_params
+      params.require(:user, :password)
+    end
+
+
     def user_params
       params.require(:user).permit(:userid, :password, :campus, :role, :names, :flname, :slname, :email, :phone, :status)
     end
