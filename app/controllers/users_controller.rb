@@ -22,12 +22,14 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.new(user_login_params)
-
-    if @user.find(:userid => user.userid, :password => user.password)
+    user = User.find_by(userid: params[:userid])
+    puts "#{user}"
+    if user != nil
       #do something
+      
     else
       #tell it is 
+      
     end
   end
 
@@ -79,7 +81,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_login_params
-      params.require(:user, :password)
+      params.require(:user).permit(:userid, :password)
     end
 
 

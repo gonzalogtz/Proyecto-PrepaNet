@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   
   resources :users
+  post 'submit_login', to: 'users#login', as: :submit_login
   resources :reporte_quincenals
   resources :conglomerado_quincenals
   root 'users#login.html'
