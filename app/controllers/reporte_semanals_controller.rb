@@ -25,6 +25,7 @@ class ReporteSemanalsController < ApplicationController
   # POST /reporte_semanals.json
   def create
     @reporte_semanal = ReporteSemanal.new(reporte_semanal_params)
+    @reporte_semanal[:total] = get_calif_total(@reporte_semanal)
 
     respond_to do |format|
       if @reporte_semanal.save
@@ -72,64 +73,11 @@ class ReporteSemanalsController < ApplicationController
       params.require(:reporte_semanal).permit(:tutor, :califPlazo, :califRubrica, :retro, :responde, :errores, :comentarios)
     end
 
-    def get_calif_califPlazo(calificacion)
-      if calificacion == "Si"
-        return 3
-      elsif calificacion == "Casi Siempre"
-        return 2
-      elsif calificacion == "Algunas Veces"
-        return 1
-      else
-        return 0
-      end
-    end
-    helper_method :get_calif_califPlazo
-
-    def get_calif_califRubrica(calificacion)
-      if calificacion == "Si"
-        return 1
-      else
-        return 0
-      end
-    end
-    helper_method :get_calif_califRubrica
-
-    def get_calif_retro(calificacion)
-      if calificacion == "Si"
-        return 2
-      elsif calificacion == "Incompleta"
-        return 1
-      else
-        return 0
-      end
-    end
-    helper_method :get_calif_retro
-
-    def get_calif_responde(calificacion)
-      if calificacion == "Si"
-        return 3
-      elsif calificacion == "Casi Siempre"
-        return 2
-      elsif calificacion == "Algunas Veces"
-        return 1
-      else
-        return 0
-      end
-    end
-    helper_method :get_calif_responde
-
-    def get_calif_errores(calificacion)
-      if calificacion == "Ninguno"
-        return 1
-      else
-        return 0
-      end
-    end
-    helper_method :get_calif_errores
-
+    # Hace la sumatoria de puntos de la rubrica para conseguir una calificacion total
     def get_calif_total(reporte)
-      return get_calif_califPlazo(reporte.califPlazo) + get_calif_califRubrica(reporte.califRubrica) + get_calif_retro(reporte.retro) + get_calif_errores(reporte.errores) + get_calif_responde(reporte.responde)
+      return reporte.califPlazo + reporte.califRubrica + reporte.retro + reporte.errores + reporte.responde
     end
     helper_method :get_calif_total
 
+    TUTORES  = [["Gonzalo Gutierrez", 1], ["David Valles", 2], ["Armando Galvan", 3], ["Adriana Montecarlo Ramirez", 4]]
 end

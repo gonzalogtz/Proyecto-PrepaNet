@@ -13,23 +13,52 @@
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">Generar Concentrado de Reportes Quincenales</h1>
     <div class="row">
+
       <div class="row">
         <div id="table-cursos" class="" style="margin-top: 20px;">
           <div class="panel panel-primary">
             <div class="panel-heading">
               <center>Evaluación del Tutor</center>
             </div>
-
             <div class="panel-body">
-              <div class="field">
-                <h4>Nombre del Tutor</h4>
-                <%= f.text_field :tutor %>
+
+              <div class="select-input">
+                <%= f.select :tutor, options_for_select(ConglomeradoQuincenalsController::TUTORES), class:"selectpicker"%>
               </div>
 
-              <div class="field">
-                <h4>Nombre de la Materia</h4>
-                <%= f.text_field :materia %>
+              <div class="select-input">
+                <%= f.select :materia, options_for_select(ConglomeradoQuincenalsController::MATERIAS), class:"selectpicker"%>
               </div>
+
+              <table class="table table-striped" style="text-align: center;">
+                <thead>
+                  <tr>
+                    <th style="text-align: center;">Semana</th>
+                    <th style="text-align: center;">1</th>
+                    <th style="text-align: center;">2</th>
+                    <th style="text-align: center;">3</th>
+                    <th style="text-align: center;">4</th>
+                    <th style="text-align: center;">5</th>
+                    <th style="text-align: center;">6</th>
+                    <th style="text-align: center;">7</th>
+                    <th style="text-align: center;">8</th>
+                    <th style="text-align: center;">9</th>
+                    <th style="text-align: center;">10</th>
+                    <th style="text-align: center;">11</th>
+                    <th style="text-align: center;">12</th>
+                    <th style="text-align: center;">13</th>
+                    <th style="text-align: center;">14</th>
+                    <th style="text-align: center;">15</th>
+                    <th style="text-align: center;">Promedio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Calificación</td>
+                    <%= get_calificaciones()%>
+                  </tr>
+                </tbody>
+              </table>
 
               <h4>¿El tutor invitó a sus alumnos a sus asesorías presenciales?</h4>
               <div class="table-responsive">
@@ -145,14 +174,14 @@
               </div>
               <i>*Justificación de la cantidad de horas que el coordinador considera que el tutor debe acreditar. Cualquier comentario que ayude a entender lo que el tutor aportó a su grupo y si realizó esfuerzos adicionales que merezcan ser considerados.
 
-                <div class="row">
-                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="actions">
-                      <%= f.submit "Enviar Reporte", class:"btn btn-primary btn-lg", id:"btnSubmit"  %>
-                      <%= link_to 'Back', conglomerado_quincenals_path, class:"btn btn-primary btn-lg btnBack"  %>
-                    </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="actions">
+                    <%= f.submit "Crear reporte", class:"btn btn-primary btn-lg", id:"btnSubmit"  %>
+                    <%= link_to 'Atrás', conglomerado_quincenals_path, class:"btn btn-primary btn-lg btnBack"  %>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
         </div>

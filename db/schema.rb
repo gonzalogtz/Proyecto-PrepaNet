@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921165114) do
+ActiveRecord::Schema.define(version: 20171016175224) do
 
   create_table "conglomerado_quincenals", force: :cascade do |t|
     t.string   "materia"
@@ -22,8 +22,15 @@ ActiveRecord::Schema.define(version: 20170921165114) do
     t.string   "cierre"
     t.string   "reingresar"
     t.string   "recomendacion"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "calificaciones"
+    t.integer  "promedio"
+    t.integer  "horas_desemp"
+    t.integer  "alumnos_acabaron"
+    t.integer  "horas_reportes"
+    t.integer  "total_horas"
+    t.integer  "total_horas_sugerido"
   end
 
   create_table "reporte_quincenals", force: :cascade do |t|
@@ -39,14 +46,15 @@ ActiveRecord::Schema.define(version: 20170921165114) do
 
   create_table "reporte_semanals", force: :cascade do |t|
     t.string   "tutor"
-    t.string   "califPlazo"
-    t.string   "califRubrica"
-    t.string   "retro"
-    t.string   "responde"
-    t.string   "errores"
+    t.integer  "califPlazo"
+    t.integer  "califRubrica"
+    t.integer  "retro"
+    t.integer  "responde"
+    t.integer  "errores"
     t.text     "comentarios"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "total"
   end
 
   create_table "reportesQuincenales", force: :cascade do |t|
