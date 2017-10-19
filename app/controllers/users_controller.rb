@@ -22,14 +22,17 @@ class UsersController < ApplicationController
   end
 
   def login
-    user = User.find_by(userid: params[:userid])
-    puts "#{user}"
+    user = User.find_by(userid: params[:userid], password: params[:password])
+    puts "#{user.role}"
     if user != nil
-      #do something
-      
+      #Change this to redirect to main page
+      #@USUARIO = "a"
+      redirect_to conglomerado_quincenals_url
     else
       #tell it is 
-      
+      puts 'error'
+      flash.now[:alert] = 'Error en las credenciales, intenta de nuevo.'
+
     end
   end
 
