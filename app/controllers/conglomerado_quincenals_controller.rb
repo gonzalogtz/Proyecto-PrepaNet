@@ -91,24 +91,23 @@ class ConglomeradoQuincenalsController < ApplicationController
     def conglomerado_quincenal_params
       params.require(:conglomerado_quincenal).permit(:materia, :tutor, :invito, :rparcial, :rfinal, :resumen, :cierre, :reingresar, :recomendacion, :alumnos_acabaron, :alumnos_aprobaron, :alumnos_final_concluyeron, :total_horas_sugerido)
     end
+
+    def get_valor(valor)
+      if valor == "1"
+        return "Sí".html_safe
+      else valor == "0"
+        return "No".html_safe
+      end
+    end
+    helper_method :get_valor
     
-    def get_calificaciones()
-      return '<td class="calif">90</td>
-              <td class="calif">88</td>
-              <td class="calif">90</td>
-              <td class="calif">90</td>
-              <td class="calif">91</td>
-              <td class="calif">96</td>
-              <td class="calif">91</td>
-              <td class="calif">95</td>
-              <td class="calif">92</td>
-              <td class="calif">95</td>
-              <td class="calif">92</td>
-              <td class="calif">93</td>
-              <td class="calif">96</td>
-              <td class="calif">94</td>
-              <td class="calif">92</td>
-              <td id="promedio">90</td>'.html_safe
+    def get_calificaciones(calif)
+      @califi = JSON.parse(calif)
+      @tabla = "";
+      @califi.each do |calificacion|
+        @tabla += '<td class="calif">'+calificacion.to_s+'</td>' 
+      end
+      return @tabla.html_safe
     end
     helper_method :get_calificaciones
     
