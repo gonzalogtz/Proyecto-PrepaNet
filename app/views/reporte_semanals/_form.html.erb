@@ -15,7 +15,7 @@
             <div class="panel-body">
               <div class="field">
               <h4>Nombre del Tutor</h4>
-              <%= f.text_field :tutor %>
+              <%= f.text_field :tutor ,required: true%>
             </div>
 
             <h4>1.- Calificar en un plazo no mayor a 48 horas actividades y/o exámenes:</h4>
@@ -43,10 +43,10 @@
                     <td>Se asignarán 0 puntos si el tutor nunca califica dentro  del plazo</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :califPlazo, "Si"%></td>
-                    <td><%= f.radio_button :califPlazo, "Casi Siempre"%></td>
-                    <td><%= f.radio_button :califPlazo, "Algunas Veces"%></td>
-                    <td><%= f.radio_button :califPlazo, "No"%></td>
+                    <td><%= f.radio_button :califPlazo, "Si",required: true%></td>
+                    <td><%= f.radio_button :califPlazo, "Casi Siempre",required: true%></td>
+                    <td><%= f.radio_button :califPlazo, "Algunas Veces",required: true%></td>
+                    <td><%= f.radio_button :califPlazo, "No",required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -71,8 +71,8 @@
                     <td>Se asignarán 0 puntos si al menos una vez el tutor no califica con base en la rúbrica.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :califRubrica, "Si"%></td>
-                    <td><%= f.radio_button :califRubrica, "No"%></td>
+                    <td><%= f.radio_button :califRubrica, "Si",required: true%></td>
+                    <td><%= f.radio_button :califRubrica, "No",required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -100,9 +100,9 @@
                     <td>Se asignarán 0 puntos si el tutor no envía retroalimentaciones o si éstas no cumplen con los requisitos.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :retro, "Si"%></td>
-                    <td><%= f.radio_button :retro, "Incompleta"%></td>
-                    <td><%= f.radio_button :retro, "No"%></td>
+                    <td><%= f.radio_button :retro, "Si",required: true%></td>
+                    <td><%= f.radio_button :retro, "Incompleta",required: true%></td>
+                    <td><%= f.radio_button :retro, "No",required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -133,10 +133,10 @@
                     <td>Se asignarán 0 puntos si el tutor nunca responde dentro  del plazo.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :responde, "Si"%></td>
-                    <td><%= f.radio_button :responde, "Casi Siempre"%></td>
-                    <td><%= f.radio_button :responde, "Algunas Veces"%></td>
-                    <td><%= f.radio_button :responde, "No"%></td>
+                    <td><%= f.radio_button :responde, "Si",required: true%></td>
+                    <td><%= f.radio_button :responde, "Casi Siempre",required: true%></td>
+                    <td><%= f.radio_button :responde, "Algunas Veces",required: true%></td>
+                    <td><%= f.radio_button :responde, "No",required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -161,8 +161,8 @@
                     <td>Se asignarán 0 puntos si el tutor presenta errores de ortografía.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :errores, "Ninguno"%></td>
-                    <td><%= f.radio_button :errores, "Pocos"%></td>
+                    <td><%= f.radio_button :errores, "Ninguno",required: true%></td>
+                    <td><%= f.radio_button :errores, "Pocos",required: true%></td>
                   </tr>
                 </tbody>
               </table>
