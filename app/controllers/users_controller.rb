@@ -22,11 +22,13 @@ class UsersController < ApplicationController
   end
 
   def login
-    user = User.find_by(userid: params[:userid], password: params[:password])
-    puts "#{user.role}"
+    user = User.where(userid: params[:userid], password: params[:password]).first
+    
     if user != nil
       #Change this to redirect to main page
-      #@USUARIO = "a"
+      USUARIO.replace user.names
+      ID.replace user.userid
+      ROLE.replace user.role
       redirect_to conglomerado_quincenals_url
     else
       #tell it is 
