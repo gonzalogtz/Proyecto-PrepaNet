@@ -21,45 +21,15 @@
               <center>Evaluación del Tutor</center>
             </div>
             <div class="panel-body">
-
-              <div class="select-input">
-                <%= f.select :tutor, options_for_select(ConglomeradoQuincenalsController::TUTORES), class:"selectpicker"%>
-              </div>
-
-              <div class="select-input">
-                <%= f.select :materia, options_for_select(ConglomeradoQuincenalsController::MATERIAS), class:"selectpicker"%>
-              </div>
-
-              <table class="table table-striped" style="text-align: center;">
-                <thead>
-                  <tr>
-                    <th style="text-align: center;">Semana</th>
-                    <th style="text-align: center;">1</th>
-                    <th style="text-align: center;">2</th>
-                    <th style="text-align: center;">3</th>
-                    <th style="text-align: center;">4</th>
-                    <th style="text-align: center;">5</th>
-                    <th style="text-align: center;">6</th>
-                    <th style="text-align: center;">7</th>
-                    <th style="text-align: center;">8</th>
-                    <th style="text-align: center;">9</th>
-                    <th style="text-align: center;">10</th>
-                    <th style="text-align: center;">11</th>
-                    <th style="text-align: center;">12</th>
-                    <th style="text-align: center;">13</th>
-                    <th style="text-align: center;">14</th>
-                    <th style="text-align: center;">15</th>
-                    <th style="text-align: center;">Promedio</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Calificación</td>
-                    <%= get_calificaciones()%>
-                  </tr>
-                </tbody>
-              </table>
-
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
+                    <h4>Tutor</h4>
+                    <%= f.select :tutor, options_for_select(ConglomeradoQuincenalsController::TUTORES), class:"selectpicker"%>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
+                    <h4>Materia</h4>
+                    <%= f.select :materia, options_for_select(ConglomeradoQuincenalsController::MATERIAS), class:"selectpicker"%>
+                </div>
+                
               <h4>¿El tutor invitó a sus alumnos a sus asesorías presenciales?</h4>
               <div class="table-responsive">
                   <table class="table table-striped" style="text-align: center;">
@@ -167,6 +137,15 @@
                       </tbody>
                   </table>
               </div>
+              
+                <h4>Porcentaje de alumnos del grupo original que acabaron el curso</h4>
+                <%= f.text_field :alumnos_acabaron%>
+                <h4>Porcentaje de alumnos del grupo original que aprobaron el curso</h4>
+                <%= f.text_field :alumnos_aprobaron%>
+                <h4>Porcentaje de alumnos del grupo final (sin considerar bajas) que concluyeron el curso</h4>
+                <%= f.text_field :alumnos_final_concluyeron%>
+                <h4>Cantidad de horas que el coordinador de tutores considera el tutor debe acreditar</h4>
+                <%= f.text_field :total_horas_sugerido%>
 
               <h4>Resumen de observaciones sobre el desempeño del tutor y el seguimiento a sus alumnos</h4>
               <div class="field">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016175224) do
+ActiveRecord::Schema.define(version: 20171018001952) do
 
   create_table "conglomerado_quincenals", force: :cascade do |t|
     t.string   "materia"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20171016175224) do
     t.string   "cierre"
     t.string   "reingresar"
     t.string   "recomendacion"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "calificaciones"
     t.integer  "promedio"
     t.integer  "horas_desemp"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20171016175224) do
     t.integer  "horas_reportes"
     t.integer  "total_horas"
     t.integer  "total_horas_sugerido"
+    t.integer  "coordinador_tutores"
+    t.integer  "alumnos_aprobaron"
+    t.integer  "alumnos_final_concluyeron"
   end
 
   create_table "reporte_quincenals", force: :cascade do |t|

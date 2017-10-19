@@ -4,7 +4,7 @@ class ConglomeradoQuincenalsController < ApplicationController
   # GET /conglomerado_quincenals
   # GET /conglomerado_quincenals.json
   def index
-    @conglomerado_quincenals = ConglomeradoQuincenal.all
+    @conglomerado_quincenals = ConglomeradoQuincenal.where(coordinador_tutores: USER_ID)
   end
 
   # GET /conglomerado_quincenals/1
@@ -25,18 +25,26 @@ class ConglomeradoQuincenalsController < ApplicationController
   # POST /conglomerado_quincenals.json
   def create
     @conglomerado_quincenal = ConglomeradoQuincenal.new(conglomerado_quincenal_params)
-    @reportes_semanales = ReporteSemanal.all.order('created_at desc').take(15)
-    @conglomerado_quincenal[:tutor] = "Tutor generico"
-    calif_arr = [90,90,90,90,90,90,90,90,90,90,90,90,90,90,90]
+    @conglomerado_quincenal[:coordinador_tutores] =  USER_ID
+
+    # Variables calculadas a partir de los reportes semanales
+    reportes_semanales = ReporteSemanal.where(tutor: @conglomerado_quincenal[:tutor]).order('created_at desc').take(15)
+    
+    #Se leen las 15 calificaciones de los reportes semanales
+    calif_arr = []
+    reportes_semanales.each do |reporte|
+        calif_arr.push(reporte.total)
+    end
+    
+    if (reportes_semanales.count < 15)
+      puts "menos de 15"
+    end
+      
     @conglomerado_quincenal[:calificaciones] = calif_arr.to_json()
     @conglomerado_quincenal[:promedio] = calif_arr.sum.fdiv(calif_arr.size)
     @conglomerado_quincenal[:horas_desemp] =  @conglomerado_quincenal[:promedio]*0.75
-    #alumnos acabaron
-    #alumnos aprobaron
-    #alumnos concluyeron
     @conglomerado_quincenal[:horas_reportes] = 15
     @conglomerado_quincenal[:total_horas] =  @conglomerado_quincenal[:horas_desemp] + @conglomerado_quincenal[:horas_reportes]
-    #total_horas_sugerido
 
     respond_to do |format|
       if @conglomerado_quincenal.save
@@ -81,7 +89,7 @@ class ConglomeradoQuincenalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conglomerado_quincenal_params
-      params.require(:conglomerado_quincenal).permit(:materia, :tutor, :invito, :rparcial, :rfinal, :resumen, :cierre, :reingresar, :recomendacion)
+      params.require(:conglomerado_quincenal).permit(:materia, :tutor, :invito, :rparcial, :rfinal, :resumen, :cierre, :reingresar, :recomendacion, :alumnos_acabaron, :alumnos_aprobaron, :alumnos_final_concluyeron, :total_horas_sugerido)
     end
     
     def get_calificaciones()
