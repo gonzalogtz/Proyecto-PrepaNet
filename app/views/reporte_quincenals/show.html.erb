@@ -1,34 +1,78 @@
-<p id="notice"><%= notice %></p>
+<%= render 'topsidebar/navsidebar' %>
+      <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Reporte Quincenal de Actividad y Desempeño del Alumno</h1>
+          <div id="table-cursos">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <center>Reporte Quincenal de Actividad y Desempeño del Alumno</center>
+              </div>
+              <div class="panel-body">
+                <div class="">
+                  <div class="row">
+                   
+                      <div class="col-sm-3">
+                        <h4>Alumno:</h4>
+                        <h4> <%= @reporte_quincenal.alumno %></h4>
+                        <h4>Matrícula:</h4>
+                        <h4 style="font-weight: normal">A01191234</h4>
+                        <h4>Estatus del Alumno:</h4>
+                        <h4 style="font-weight: normal; color: green"><%= get_estatus_tag(@reporte_quincenal.estatus) %></h4>
+                       
+                        
+                      </div>
+                      <div class="col-sm-3">
+                        <h4 >Tutor del Alumno:</h4>
+                        <h4 style="font-weight: normal"><%= @reporte_quincenal.tutor %></h4>
+                        <h4>Coordinador de Tutores:</h4>
+                        <h4 style="font-weight: normal">Juan Pérez</h4>
+                        <h4>Fecha del reporte:</h4>
+                        <h4 style="font-weight: normal"><%= @reporte_quincenal.fecha.to_date %></h4>
+                      </div>
 
-<p>
-  <strong>Estatus:</strong>
-  <%= @reporte_quincenal.estatus %>
-</p>
 
-<p>
-  <strong>Localizado:</strong>
-  <%= @reporte_quincenal.localizado %>
-</p>
 
-<p>
-  <strong>Comentarios:</strong>
-  <%= @reporte_quincenal.comentarios %>
-</p>
+                      
+                    
+                      <div class="col-sm-2">
+                        <h4>Localizado:</h4>
+                        <h4 style="font-weight: normal; color: green"><%= get_localizado_tag(@reporte_quincenal.localizado) %></h4>
+                      </div>
+                      
+                   
+                    
+                    <div class="col-sm-3">
+                        <h4>Comentarios:</h4>
+                        <textarea readonly rows="10" cols="50" style="resize: none;">
+                          <%= @reporte_quincenal.comentarios %>
+                        </textarea>
+                    </div>
+                    
+                  
+                  </div>
 
-<p>
-  <strong>Tutor:</strong>
-  <%= @reporte_quincenal.tutor %>
-</p>
+                  <div class="row ">
 
-<p>
-  <strong>Alumno:</strong>
-  <%= @reporte_quincenal.alumno %>
-</p>
+                    <div class="col-sm-2">
+                      <%= link_to 'Atras', reporte_quincenals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %>
+                        
+                    </div>
+                    <div class="col-sm-2">
+                        
+                        <%= link_to 'Eliminar', @reporte_quincenal, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
+                    </div>
+                    <div class="col-sm-2">
+                      <%= link_to 'Editar', edit_reporte_quincenal_path(@reporte_quincenal), class:"btn btn-lg btn-warning" ,id:"btnChico" %>
+                        
+                    </div>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @reporte_quincenal.fecha.to_date %>
-</p>
 
-<%= link_to 'Edit', edit_reporte_quincenal_path(@reporte_quincenal) %> |
-<%= link_to 'Back', reporte_quincenals_path %>
+
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

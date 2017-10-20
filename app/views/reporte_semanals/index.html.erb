@@ -22,9 +22,9 @@
               <% @reporte_semanals.each do |reporte_semanal| %>
                 <tr class="pickHover">
                   <td><%= reporte_semanal.tutor %></td>
-                  <td>Nombre de Coordinador</td>
-                  <td>Fecha</td>
-                  <td><%= link_to 'Show', reporte_semanal %> <%= link_to 'Edit', edit_reporte_semanal_path(reporte_semanal) %> <%= link_to 'Destroy', reporte_semanal, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+                  <td>Coordinador</td>
+                  <td><%= reporte_semanal.created_at.to_date %></td>
+                  <td><%= link_to 'Ver', reporte_semanal %> </td>
                 </tr>
               <% end %>
             </tbody>

@@ -9,7 +9,7 @@
 	color: white;
 }
 .pickHover:hover { 
-    background-color: #4183D7 !important ;
+    background-color: #acc5e5 !important ;
     color: white;
     cursor: pointer;
 }
@@ -29,3 +29,19 @@
 .margin-bottom {
 	margin-top: 20px;
 }
+.mainContainer {
+	height: calc(100vh - 50px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+textarea {	
+
+width: 100%;
+}
+
+
+
+
+

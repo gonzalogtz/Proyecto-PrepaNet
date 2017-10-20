@@ -3,7 +3,7 @@
 <%= render 'topsidebar/navsidebar' %>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Conglomerado Quincenals</h1>
+          <h1 class="page-header">Explorar Reportes Conglomerados Quincenals</h1>
           <div id="table-cursos">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -15,6 +15,7 @@
                     <tr>
                       <th class="txtCenter">Materia</th>
                       <th class="txtCenter">Tutor</th>
+                      <th class="txtCenter">Fecha</th>
                       <th class="txtCenter">Acciones</th>
                     </tr>
                   </thead>
@@ -23,6 +24,7 @@
                       <tr class="pickHover" >
                         <td><%= conglomerado_quincenal.materia %></td>
                         <td><%= conglomerado_quincenal.tutor %></td>
+                        <td><%= conglomerado_quincenal.created_at.to_date %></td>
                         <td><%= link_to 'Show', conglomerado_quincenal %> <%= link_to 'Edit', edit_conglomerado_quincenal_path(conglomerado_quincenal) %> <%= link_to 'Destroy', conglomerado_quincenal, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
                       
                       
