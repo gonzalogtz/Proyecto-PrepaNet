@@ -27,9 +27,9 @@ class UsersController < ApplicationController
     if user != nil
       #Change this to redirect to main page
       USUARIO.replace user.names
-      ID.replace user.userid
+      USER_ID.replace user.userid
       ROLE.replace user.role
-      redirect_to conglomerado_quincenals
+      redirect_to conglomerado_quincenals_path
     else
       #tell it is 
       puts 'error'
