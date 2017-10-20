@@ -25,7 +25,7 @@ class ReporteQuincenalsController < ApplicationController
   # POST /reporte_quincenals.json
   def create
     @reporte_quincenal = ReporteQuincenal.new(reporte_quincenal_params)
-    @reporte_quincenal[:tutor] = ID
+    @reporte_quincenal[:tutor] = USER_ID
     @reporte_quincenal[:fecha] = Date.today
 
     respond_to do |format|
