@@ -43,12 +43,22 @@
 
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>Horas Acreditadas</b></p>
+        <p><b>Horas a acreditadar</b></p>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <%= @conglomerado_quincenal.total_horas%>
       </div>
     </div>
+    
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <p><b>Horas a acreditadar sugeridas</b></p>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <%= @conglomerado_quincenal.total_horas_sugerido%>
+      </div>
+    </div>
+    
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <p><b>Porcentaje de alumnos que completaron curso</b></p>
@@ -104,15 +114,6 @@
 
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>Cantidad de horas que el coordinador de tutores considera el tutor debe acreditar</b></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <%= @conglomerado_quincenal.total_horas_sugerido%>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <p><b>¿Envió actividad de cierre?</b></p>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -122,7 +123,7 @@
 
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>¿Lo recomiendo para reingresar?</b></p>
+        <p><b>¿Lo recomendaría para reingresar?</b></p>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <%= get_valor(@conglomerado_quincenal.reingresar) %>
@@ -144,17 +145,17 @@
       <%= @conglomerado_quincenal.resumen %>  
     </textarea>
     
-    <div class="row ">
+    <div class="row" style="margin-top: 10px;">
       <div class="col-sm-2">
         <%= link_to 'Atras', conglomerado_quincenals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %> 
       </div>
       
       <div class="col-sm-2">
-          <%= link_to 'Eliminar', @conglomerado_quincenal, method: :delete, data: { confirm: 'Estás seguro que quieres borrar este reporte? No se podrá recuperar!' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
+        <%= link_to 'Editar', edit_conglomerado_quincenal_path(@conglomerado_quincenal) , class:"btn btn-lg btn-warning" ,id:"btnChico" %>
       </div>
       
       <div class="col-sm-2">
-        <%= link_to 'Editar', edit_conglomerado_quincenal_path(@conglomerado_quincenal) , class:"btn btn-lg btn-warning" ,id:"btnChico" %>
+          <%= link_to 'Eliminar', @conglomerado_quincenal, method: :delete, data: { confirm: 'Estás seguro que quieres borrar este reporte? No se podrá recuperar!' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
       </div>
     </div>
   </div>

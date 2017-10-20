@@ -12,14 +12,15 @@
             </div>
             
             <div class="col-sm-12 margin-bottom margin-top">
-                <div class="select-label">
+                <div class="select-label" style="padding-left: 5px;">
                     <h4>Tutor a evaluar:</h4>
                 </div>
                 <div class="select-input">
                     <%= f.select :tutor, options_for_select(ReporteSemanalsController::TUTORES), class:"selectpicker", required: true%>
                 </div>
             </div>
-
+  
+            <div style="padding-left: 20px; padding-right: 20px; padding-bottom: 10px;">
             <h4>1.- Calificar en un plazo no mayor a 48 horas actividades y/o exámenes:</h4>
             <div class="table-responsive">
               <table class="table table-striped" style="text-align: center;">
@@ -180,6 +181,7 @@
                <%= link_to 'Back', reporte_semanals_path, class:"btn btn-primary btn-lg btnBack"  %>
                </div>
               </div>
+            </div>
             </div>
 
           </div>
