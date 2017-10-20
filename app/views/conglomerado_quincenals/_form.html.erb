@@ -138,15 +138,26 @@
                   </table>
               </div>
               
-                <h4>Porcentaje de alumnos del grupo original que acabaron el curso</h4>
-                <%= f.text_field :alumnos_acabaron%>
-                <h4>Porcentaje de alumnos del grupo original que aprobaron el curso</h4>
-                <%= f.text_field :alumnos_aprobaron%>
-                <h4>Porcentaje de alumnos del grupo final (sin considerar bajas) que concluyeron el curso</h4>
-                <%= f.text_field :alumnos_final_concluyeron%>
-                <h4>Cantidad de horas que el coordinador de tutores considera el tutor debe acreditar</h4>
-                <%= f.text_field :total_horas_sugerido%>
-
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
+                    <h4>Porcentaje de alumnos del grupo original que acabaron el curso</h4>
+                    <%= f.text_field :alumnos_acabaron%>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
+                    <h4>Porcentaje de alumnos del grupo original que aprobaron el curso</h4>
+                    <%= f.text_field :alumnos_aprobaron%>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
+                    <h4>Porcentaje de alumnos del grupo final (sin considerar bajas) que concluyeron el curso</h4>
+                    <%= f.text_field :alumnos_final_concluyeron%>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
+                    <h4>Cantidad de horas que el coordinador de tutores considera el tutor debe acreditar</h4>
+                    <%= f.text_field :total_horas_sugerido%>
+                </div>
+                
               <h4>Resumen de observaciones sobre el desempeño del tutor y el seguimiento a sus alumnos</h4>
               <div class="field">
                 <%= f.text_area :resumen, class:"form-control", id:"txtArea"%>
