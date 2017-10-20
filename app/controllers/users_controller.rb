@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       USUARIO.replace user.names
       ID.replace user.userid
       ROLE.replace user.role
-      redirect_to conglomerado_quincenals
+      redirect_to conglomerado_quincenals_path
     else
       #tell it is 
       puts 'error'
