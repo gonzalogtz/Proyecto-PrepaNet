@@ -42,7 +42,7 @@ class ConglomeradoQuincenalsController < ApplicationController
       
     @conglomerado_quincenal[:calificaciones] = calif_arr.to_json()
     @conglomerado_quincenal[:promedio] = calif_arr.sum.fdiv(calif_arr.size)
-    @conglomerado_quincenal[:horas_desemp] =  @conglomerado_quincenal[:promedio]*0.75
+    @conglomerado_quincenal[:horas_desemp] =  @conglomerado_quincenal[:promedio]*7.5
     @conglomerado_quincenal[:horas_reportes] = 15
     @conglomerado_quincenal[:total_horas] =  @conglomerado_quincenal[:horas_desemp] + @conglomerado_quincenal[:horas_reportes]
 

@@ -1,7 +1,6 @@
 <%= render 'topsidebar/navsidebar' %>
       <div class="row">
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Reporte Quincenal de Actividad y Desempeño del Alumno</h1>
           <div id="table-cursos">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -12,20 +11,20 @@
                   <div class="row">
                       <div class="col-sm-3">
                         <h4>Alumno:</h4>
-                        <h4 style="font-weight: normal">Gonzalo Gutierrez</h4>
+                        <h4 style="font-weight: normal"><%=get_usuario_name_by_id(@reporte_quincenal.alumno)%></h4>
                         <h4>Matrícula:</h4>
-                        <h4 style="font-weight: normal"><%= @reporte_quincenal.alumno %></h4>
+                        <h4 style="font-weight: normal"><%=@reporte_quincenal.alumno%></h4>
                         <h4>Estatus del Alumno:</h4>
                         <h4 style="font-weight: normal;"><%= get_estatus_tag(@reporte_quincenal.estatus) %></h4>
                        
                       </div>
                       <div class="col-sm-3">
                         <h4 >Tutor del Alumno:</h4>
-                        <h4 style="font-weight: normal">David Benitez</h4>
+                        <h4 style="font-weight: normal"><%=get_usuario_name_by_id(ApplicationController::USER_ID)%></h4>
                         <h4>Coordinador de Tutores:</h4>
                         <h4 style="font-weight: normal">Juan Pérez</h4>
                         <h4>Fecha del reporte:</h4>
-                        <h4 style="font-weight: normal"><%= @reporte_quincenal.fecha.to_date %></h4>
+                        <h4 style="font-weight: normal"><%=@reporte_quincenal.fecha.to_date %></h4>
                       </div>
 
                       <div class="col-sm-2">

@@ -3,7 +3,7 @@
   <div id="table-cursos">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <center><h3>Reportes Quincenales</h3></center>
+        <center><h3>Conglomerado de Reportes</h3></center>
       </div>
       <div class="table-responsive">
         <table class="table table-striped txtCenter">
@@ -12,16 +12,16 @@
               <th class="txtCenter">Materia</th>
               <th class="txtCenter">Tutor</th>
               <th class="txtCenter">Fecha</th>
-              <th class="txtCenter">Acciones</th>
+              <th class="txtCenter">Reporte Completo</th>
             </tr>
           </thead>
           <tbody>
             <% @conglomerado_quincenals.each do |conglomerado_quincenal| %>
               <tr class="pickHover" >
-                <td><%= conglomerado_quincenal.materia %></td>
-                <td><%= conglomerado_quincenal.tutor %></td>
+                <td>Matematicas I</td>
+                <td><%=get_usuario_name_by_id(conglomerado_quincenal.tutor)%></td>
                 <td><%= conglomerado_quincenal.created_at.to_date %></td>
-                <td><%= link_to 'Show', conglomerado_quincenal %> <%= link_to 'Edit', edit_conglomerado_quincenal_path(conglomerado_quincenal) %> <%= link_to 'Destroy', conglomerado_quincenal, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+                <td><%= link_to 'Ver', conglomerado_quincenal %></td>
               </tr>
             <% end %>
           </tbody>

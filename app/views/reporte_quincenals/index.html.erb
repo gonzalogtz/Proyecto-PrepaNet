@@ -21,8 +21,8 @@
             <tbody>
               <% @reporte_quincenals.each do |reporte_quincenal| %>
                 <tr class="pickHover">
-                  <td ><%= reporte_quincenal.alumno %></td>
-                  <td>Nombre generico</td>
+                  <td><%=reporte_quincenal.alumno%></td>
+                  <td><%=get_usuario_name_by_id(reporte_quincenal.alumno)%></td>
                   <%= get_estatus_tag(reporte_quincenal.estatus)%>
                   <%= get_localizado_tag(reporte_quincenal.localizado)%>
                   <td><%= reporte_quincenal.fecha.to_date%></td>

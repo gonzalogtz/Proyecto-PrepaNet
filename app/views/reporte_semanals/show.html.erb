@@ -1,7 +1,6 @@
 <%= render 'topsidebar/navsidebar' %>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<h1 class="page-header">Reporte Semanal del Desempeño del Tutor</h1>
 <div id="table-cursos">
   <div class="panel panel-primary">
     <div class="panel-heading">
@@ -12,8 +11,7 @@
         <div class="row">
           <div style="padding-bottom: .5%;" class="col-sm-7">
             <h4 style="float: left; padding-right: 2%;">Tutor:</h4>
-            <h4 style="font-weight: normal">
-              Gonzalo Gutierrez
+            <h4 style="font-weight: normal"><%=get_usuario_name_by_id(@reporte_semanal.tutor)%>
             </h4>
             
           </div>
