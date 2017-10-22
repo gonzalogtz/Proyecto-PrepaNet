@@ -12,20 +12,11 @@
             <thead>
               <tr>
                 <th class="txtCenter">Tutor</th>
-                <th class="txtCenter">Coordinador de Tutores</th>
-                <th class="txtCenter">Fecha de Reporte</th>
-                <th class="txtCenter">Reporte Completo</th>
+                <th class="txtCenter">Número de reportes</th>
               </tr>
             </thead>
             <tbody>
-              <% @reporte_semanals.each do |reporte_semanal| %>
-                <tr class="pickHover">
-                  <td><%=get_usuario_name_by_id(reporte_semanal.tutor)%></td>
-                  <td><%=get_usuario_name_by_id(ApplicationController::USER_ID)%></td>
-                  <td><%= reporte_semanal.created_at.to_date %></td>
-                  <td><%= link_to 'Ver', reporte_semanal %> </td>
-                </tr>
-              <% end %>
+              <%= get_reportes_colapsados %>
             </tbody>
           </table>
         </div>
@@ -38,6 +29,4 @@
     </div>
   </div>
 </div>
-
-
 

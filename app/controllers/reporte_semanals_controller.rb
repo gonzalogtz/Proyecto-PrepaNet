@@ -78,6 +78,54 @@ class ReporteSemanalsController < ApplicationController
       return reporte.califPlazo + reporte.califRubrica + reporte.retro + reporte.errores + reporte.responde
     end
     helper_method :get_calif_total
+    
+    def get_reportes_colapsados
+      reportes_semanales = ReporteSemanal.all
+      html_list = ""
+      i = 0
+      
+      TUTORES.each do |tutor|
+        reportes_tutor = reportes_semanales.where(tutor: tutor[1])
+        html_list += "<tr id='" + i.to_s +  "' class='pickHover tutor_header'>
+                        <td>" + tutor[0] + "</td>
+                        <td>" + reportes_tutor.count.to_s + "/15</td>
+                      </tr>"
+                      
+        html_list += "<tr class='tutor_content" + i.to_s + "' style='display: none;'>
+                        <td colspan='2'>
+                          <div class='table-resposive'>
+                            <table class='table table-striped txtCenter'>
+                              <thead>
+                                <tr>
+                                  <th class='txtCenter'>Semana</th>
+                                  <th class='txtCenter'>Tutor</th>
+                                  <th class='txtCenter'>Calificación</th>
+                                </tr>
+                              </thead>
+                              <tbody>"
+                              
+        j = 1
+        reportes_tutor.each do |reporte|
+          html_list += "<tr class='pickHover reporte_row' data-link='reporte_semanals/" + reporte.id.to_s + "'>"
+          html_list += "<td>" + j.to_s + "</td>"
+          html_list += "<td>" + get_usuario_name_by_id(reporte.tutor) + "</td>"
+          html_list += "<td>" + reporte.total.to_s + "</td>"
+          html_list += "</tr>"
+          j += 1
+        end
+        
+        html_list += "</tbody>
+                      </table>
+                      </div>
+                      </td>
+                      </tr>"
+        
+        i += 1
+      end
+      
+      return html_list.html_safe
+    end
+    helper_method :get_reportes_colapsados
 
     TUTORES  = [["Gonzalo Gutierrez", 1], ["David Valles", 2], ["Armando Galvan", 3], ["Adriana Montecarlo Ramirez", 4]]
 end

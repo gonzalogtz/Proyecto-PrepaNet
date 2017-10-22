@@ -15,3 +15,15 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+    $(".tutor_header").click(function() {
+        var index = $(this).attr('id');
+        console.log(index)
+        $(".tutor_content" + index).toggle( "fast", function() {});
+    });
+    
+    $(".reporte_row").click(function() {
+        window.location = $(this).data("link")
+    });
+})
