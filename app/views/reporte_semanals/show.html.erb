@@ -11,8 +11,15 @@
         <div class="row">
           <center><h3><%=get_usuario_name_by_id(@reporte_semanal.tutor)%></h3></center>
           
-          <div style="padding-left: 23px;" class="col-sm-4">
-            <h4 style="float: left; padding-right: 2%;">Fecha del reporte:</h4>
+          <div style="padding-left: 23px;" class="col-sm-12">
+            <h4 style="float: left; padding-right: 1%;">Semana:</h4>
+            <h4 style="font-weight: normal">
+              <%= @reporte_semanal.semana %>
+            </h4>
+          </div>
+          
+          <div style="padding-left: 23px;" class="col-sm-12">
+            <h4 style="float: left; padding-right: 1%;">Fecha de creación:</h4>
             <h4 style="font-weight: normal">
               <%= @reporte_semanal.created_at.to_date %>
             </h4>

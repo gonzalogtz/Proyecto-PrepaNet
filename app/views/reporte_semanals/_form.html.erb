@@ -11,12 +11,20 @@
               <center>Evaluación del Tutor</center>
             </div>
             
-            <div class="col-sm-12 margin-bottom margin-top">
+            <div class="col-sm-6 margin-bottom margin-top">
                 <div class="select-label" style="padding-left: 5px;">
                     <h4>Tutor a evaluar:</h4>
                 </div>
                 <div class="select-input">
                     <%= f.select :tutor, options_for_select(ReporteSemanalsController::TUTORES), class:"selectpicker", required: true%>
+                </div>
+            </div>
+            <div class="col-sm-6 margin-bottom margin-top">
+                <div class="select-label" style="padding-left: 5px;">
+                    <h4>Semana a evaluar:</h4>
+                </div>
+                <div class="select-input">
+                    <%= f.select :semana, options_for_select((1..15)), class:"selectpicker", required: true%>
                 </div>
             </div>
   

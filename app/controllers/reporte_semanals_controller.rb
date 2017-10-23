@@ -4,7 +4,7 @@ class ReporteSemanalsController < ApplicationController
   # GET /reporte_semanals
   # GET /reporte_semanals.json
   def index
-    @reporte_semanals = ReporteSemanal.all
+    @reporte_semanals = ReporteSemanal.where(coordinador_tutores: USER_ID)
   end
 
   # GET /reporte_semanals/1
@@ -26,6 +26,7 @@ class ReporteSemanalsController < ApplicationController
   def create
     @reporte_semanal = ReporteSemanal.new(reporte_semanal_params)
     @reporte_semanal[:total] = get_calif_total(@reporte_semanal)
+    @reporte_semanal[:coordinador_tutores] = USER_ID
 
     respond_to do |format|
       if @reporte_semanal.save
@@ -70,7 +71,7 @@ class ReporteSemanalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reporte_semanal_params
-      params.require(:reporte_semanal).permit(:tutor, :califPlazo, :califRubrica, :retro, :responde, :errores, :comentarios)
+      params.require(:reporte_semanal).permit(:tutor, :califPlazo, :califRubrica, :retro, :responde, :errores, :comentarios, :semana)
     end
 
     # Hace la sumatoria de puntos de la rubrica para conseguir una calificacion total
@@ -80,7 +81,7 @@ class ReporteSemanalsController < ApplicationController
     helper_method :get_calif_total
     
     def get_reportes_colapsados
-      reportes_semanales = ReporteSemanal.all
+      reportes_semanales = ReporteSemanal.where(coordinador_tutores: USER_ID)
       html_list = ""
       i = 0
       
@@ -104,14 +105,12 @@ class ReporteSemanalsController < ApplicationController
                               </thead>
                               <tbody>"
                               
-        j = 1
         reportes_tutor.each do |reporte|
           html_list += "<tr class='pickHover reporte_row' data-link='reporte_semanals/" + reporte.id.to_s + "'>"
-          html_list += "<td>" + j.to_s + "</td>"
+          html_list += "<td>" + reporte.semana.to_s + "</td>"
           html_list += "<td>" + get_usuario_name_by_id(reporte.tutor) + "</td>"
           html_list += "<td>" + reporte.total.to_s + "</td>"
           html_list += "</tr>"
-          j += 1
         end
         
         html_list += "</tbody>
