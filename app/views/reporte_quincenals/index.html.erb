@@ -24,7 +24,7 @@
                   <td><%=get_usuario_name_by_id(reporte_quincenal.alumno)%></td>
                   <%= get_estatus_tag(reporte_quincenal.estatus)%>
                   <%= get_localizado_tag(reporte_quincenal.localizado)%>
-                  <td><%= reporte_quincenal.fecha.to_date%></td>
+                  <td><%= reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA)%></td>
                 </tr>
               <% end %>
             </tbody>

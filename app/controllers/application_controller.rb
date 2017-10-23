@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   USUARIO = ""
   USER_ID = ""
   ROLE = ""
+  FORMATO_FECHA = "%-d/%-m/%Y"
 
     def get_usuario_name_by_id(id)
       usuario = User.where(userid: id).first

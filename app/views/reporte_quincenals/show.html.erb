@@ -11,6 +11,7 @@
                   <div class="row">
                       <center><h3><%=get_usuario_name_by_id(@reporte_quincenal.alumno)%></h3></center>
                       <center><h4 style="font-weight: normal"><%=@reporte_quincenal.alumno%></h4></center>
+                      <center><h4 style="font-weight: normal"><%=@reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA) %></h4></center>
                       
                       <div class="col-sm-3">
                         <h4>Estatus del Alumno:</h4>
@@ -21,12 +22,10 @@
                       </div>
                       
                       <div class="col-sm-3">
-                        <h4 >Tutor del Alumno:</h4>
+                        <h4 >Tutor:</h4>
                         <h4 style="font-weight: normal"><%=get_usuario_name_by_id(ApplicationController::USER_ID)%></h4>
-                        <h4>Coordinador de Tutores:</h4>
+                        <h4>Coordinador del Tutor:</h4>
                         <h4 style="font-weight: normal">Juan Pérez</h4>
-                        <h4>Fecha del reporte:</h4>
-                        <h4 style="font-weight: normal"><%=@reporte_quincenal.fecha.to_date %></h4>
                       </div>
                       
                     <div class="col-sm-6">

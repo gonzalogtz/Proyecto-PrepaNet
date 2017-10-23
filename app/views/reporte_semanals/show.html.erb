@@ -21,7 +21,7 @@
           <div style="padding-left: 23px;" class="col-sm-12">
             <h4 style="float: left; padding-right: 1%;">Fecha de creación:</h4>
             <h4 style="font-weight: normal">
-              <%= @reporte_semanal.created_at.to_date %>
+              <%= @reporte_semanal.created_at.strftime(ApplicationController::FORMATO_FECHA)%>
             </h4>
           </div>
         </div>

@@ -28,7 +28,7 @@ class ConglomeradoQuincenalsController < ApplicationController
     @conglomerado_quincenal[:coordinador_tutores] =  USER_ID
 
     # Variables calculadas a partir de los reportes semanales
-    reportes_semanales = ReporteSemanal.where(tutor: @conglomerado_quincenal[:tutor]).order('created_at desc').take(15)
+    reportes_semanales = ReporteSemanal.where(tutor: @conglomerado_quincenal[:tutor], coordinador_tutores: USER_ID).order('semana').take(15)
     
     #Se leen las 15 calificaciones de los reportes semanales
     calif_arr = []
@@ -37,6 +37,7 @@ class ConglomeradoQuincenalsController < ApplicationController
     end
     
     if (reportes_semanales.count < 15)
+      #TODO: 
       puts "menos de 15"
     end
       
@@ -89,7 +90,8 @@ class ConglomeradoQuincenalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conglomerado_quincenal_params
-      params.require(:conglomerado_quincenal).permit(:materia, :tutor, :invito, :rparcial, :rfinal, :resumen, :cierre, :reingresar, :recomendacion, :alumnos_acabaron, :alumnos_aprobaron, :alumnos_final_concluyeron, :total_horas_sugerido)
+      params.require(:conglomerado_quincenal).permit(:materia, :tutor, :invito, :rparcial, :rfinal, :resumen, :cierre, :reingresar, 
+      :recomendacion, :alumnos_acabaron, :alumnos_aprobaron, :alumnos_final_concluyeron, :total_horas_sugerido)
     end
 
     def get_valor(valor)

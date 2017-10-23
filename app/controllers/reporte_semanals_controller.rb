@@ -86,7 +86,7 @@ class ReporteSemanalsController < ApplicationController
       i = 0
       
       TUTORES.each do |tutor|
-        reportes_tutor = reportes_semanales.where(tutor: tutor[1])
+        reportes_tutor = reportes_semanales.where(tutor: tutor[1]).order('semana')
         html_list += "<tr id='" + i.to_s +  "' class='pickHover tutor_header'>
                         <td>" + tutor[0] + "</td>
                         <td>" + reportes_tutor.count.to_s + "/15</td>
