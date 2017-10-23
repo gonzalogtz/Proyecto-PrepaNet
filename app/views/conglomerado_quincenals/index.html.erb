@@ -12,16 +12,14 @@
               <th class="txtCenter">Materia</th>
               <th class="txtCenter">Tutor</th>
               <th class="txtCenter">Fecha</th>
-              <th class="txtCenter">Reporte Completo</th>
             </tr>
           </thead>
           <tbody>
             <% @conglomerado_quincenals.each do |conglomerado_quincenal| %>
-              <tr class="pickHover" >
+              <tr class='pickHover reporte_row' data-link='conglomerado_quincenals/<%=conglomerado_quincenal.id%>'>
                 <td>Matematicas I</td>
                 <td><%=get_usuario_name_by_id(conglomerado_quincenal.tutor)%></td>
                 <td><%= conglomerado_quincenal.created_at.to_date %></td>
-                <td><%= link_to 'Ver', conglomerado_quincenal %></td>
               </tr>
             <% end %>
           </tbody>
