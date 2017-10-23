@@ -1,0 +1,34 @@
+@media print {
+  body {
+  color: #000;
+  background: #fff;
+  }
+
+
+  nav, aside, footer {
+  display: none;
+  }
+ 
+  section {
+    background: none
+  }
+
+  body * {
+    visibility: hidden;
+    position: relative;
+  }
+  #printID * {
+    visibility: visible;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-right: 15%;
+   	bottom: 10px;
+
+  }
+  
+
+
+}
+

@@ -5,146 +5,146 @@
     <div class="panel-heading">
       <center>Evaluación del Tutor</center>
     </div>
+    <div id="printID">
+      <center><h3><%=get_usuario_name_by_id(@conglomerado_quincenal.tutor)%></h3></center>
+      <center><h4 style="font-weight: normal">Matematicas I</h4></center>
 
-    <center><h3><%=get_usuario_name_by_id(@conglomerado_quincenal.tutor)%></h3></center>
-    <center><h4 style="font-weight: normal">Matematicas I</h4></center>
+      <div class="panel-body">
+      <table class="table table-striped" style="text-align: center;">
+        <thead>
+          <tr>
+            <th style="text-align: center;">Semana</th>
+            <th style="text-align: center;">1</th>
+            <th style="text-align: center;">2</th>
+            <th style="text-align: center;">3</th>
+            <th style="text-align: center;">4</th>
+            <th style="text-align: center;">5</th>
+            <th style="text-align: center;">6</th>
+            <th style="text-align: center;">7</th>
+            <th style="text-align: center;">8</th>
+            <th style="text-align: center;">9</th>
+            <th style="text-align: center;">10</th>
+            <th style="text-align: center;">11</th>
+            <th style="text-align: center;">12</th>
+            <th style="text-align: center;">13</th>
+            <th style="text-align: center;">14</th>
+            <th style="text-align: center;">15</th>
+            <th style="text-align: center;">Promedio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calificación</td>
+            <%= get_calificaciones(@conglomerado_quincenal.calificaciones) %>
+            <td id="promedio"><%= @conglomerado_quincenal.promedio %></td>
+          </tr>
+        </tbody>
+      </table>
 
-    <div class="panel-body">
-    <table class="table table-striped" style="text-align: center;">
-      <thead>
-        <tr>
-          <th style="text-align: center;">Semana</th>
-          <th style="text-align: center;">1</th>
-          <th style="text-align: center;">2</th>
-          <th style="text-align: center;">3</th>
-          <th style="text-align: center;">4</th>
-          <th style="text-align: center;">5</th>
-          <th style="text-align: center;">6</th>
-          <th style="text-align: center;">7</th>
-          <th style="text-align: center;">8</th>
-          <th style="text-align: center;">9</th>
-          <th style="text-align: center;">10</th>
-          <th style="text-align: center;">11</th>
-          <th style="text-align: center;">12</th>
-          <th style="text-align: center;">13</th>
-          <th style="text-align: center;">14</th>
-          <th style="text-align: center;">15</th>
-          <th style="text-align: center;">Promedio</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Calificación</td>
-          <%= get_calificaciones(@conglomerado_quincenal.calificaciones) %>
-          <td id="promedio"><%= @conglomerado_quincenal.promedio %></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>Horas a acreditadar</b></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <%= @conglomerado_quincenal.total_horas%>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>Horas a acreditadar sugeridas</b></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <%= @conglomerado_quincenal.total_horas_sugerido%>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>Porcentaje de alumnos que completaron curso</b></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-         <%= @conglomerado_quincenal.alumnos_acabaron%>%
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>Porcentaje de alumnos del grupo original que aprobaron</b></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <%= @conglomerado_quincenal.alumnos_aprobaron%>%
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>Porcentaje de alumnos del grupo final que concluyeron el curso</b></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-         <%= @conglomerado_quincenal.alumnos_final_concluyeron%>%
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>¿Invitó a sus alumnos a sus asesorías presenciales?</b></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <%= get_valor(@conglomerado_quincenal.invito) %>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>¿Realizó los reportes parciales de desempeño de alumnos?</b></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <%= get_valor(@conglomerado_quincenal.rparcial) %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>¿Realizó el reporte final de alumno?</b></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <%= get_valor(@conglomerado_quincenal.rfinal) %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>¿Envió actividad de cierre?</b></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <%= get_valor(@conglomerado_quincenal.cierre) %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>¿Lo recomendaría para reingresar?</b></p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <%= get_valor(@conglomerado_quincenal.reingresar) %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <p><b>¿Lo recomendaría como coordinador de tutores?</b></p>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p><b>Horas a acreditadar</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%= @conglomerado_quincenal.total_horas%>
+        </div>
       </div>
       
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <%= get_valor(@conglomerado_quincenal.recomendacion) %>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p><b>Horas a acreditadar sugeridas</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%= @conglomerado_quincenal.total_horas_sugerido%>
+        </div>
       </div>
+      
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p><b>Porcentaje de alumnos que completaron curso</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+           <%= @conglomerado_quincenal.alumnos_acabaron%>%
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p><b>Porcentaje de alumnos del grupo original que aprobaron</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%= @conglomerado_quincenal.alumnos_aprobaron%>%
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p><b>Porcentaje de alumnos del grupo final que concluyeron el curso</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+           <%= @conglomerado_quincenal.alumnos_final_concluyeron%>%
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p><b>¿Invitó a sus alumnos a sus asesorías presenciales?</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <%= get_valor(@conglomerado_quincenal.invito) %>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p><b>¿Realizó los reportes parciales de desempeño de alumnos?</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <%= get_valor(@conglomerado_quincenal.rparcial) %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p><b>¿Realizó el reporte final de alumno?</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <%= get_valor(@conglomerado_quincenal.rfinal) %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p><b>¿Envió actividad de cierre?</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <%= get_valor(@conglomerado_quincenal.cierre) %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p><b>¿Lo recomendaría para reingresar?</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <%= get_valor(@conglomerado_quincenal.reingresar) %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <p><b>¿Lo recomendaría como coordinador de tutores?</b></p>
+        </div>
+        
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <%= get_valor(@conglomerado_quincenal.recomendacion) %>
+        </div>
+      </div>
+      
+      <h4>Comentarios:</h4>
+      <textarea readonly rows="5" cols="50" style="resize: none;">
+        <%= @conglomerado_quincenal.resumen %>  
+      </textarea>
     </div>
-    
-    <h4>Comentarios:</h4>
-    <textarea readonly rows="5" cols="50" style="resize: none;">
-      <%= @conglomerado_quincenal.resumen %>  
-    </textarea>
-    
     <div class="row" style="margin-top: 10px;">
       <div class="col-sm-2">
         <%= link_to 'Atras', conglomerado_quincenals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %> 

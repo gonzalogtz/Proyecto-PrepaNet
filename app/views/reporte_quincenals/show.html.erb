@@ -1,3 +1,5 @@
+
+
 <%= render 'topsidebar/navsidebar' %>
       <div class="row">
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -8,7 +10,7 @@
               </div>
               <div class="panel-body">
                 <div class="">
-                  <div class="row">
+                  <div class="row" id="printID">
                       <center><h3><%=get_usuario_name_by_id(@reporte_quincenal.alumno)%></h3></center>
                       <center><h4 style="font-weight: normal"><%=@reporte_quincenal.alumno%></h4></center>
                       <center><h4 style="font-weight: normal"><%=@reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA) %></h4></center>
@@ -47,6 +49,10 @@
                     <div class="col-sm-2">
                         <%= link_to 'Eliminar', @reporte_quincenal, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
                     </div>
+                    <div class="col-sm-2">
+                      <%= link_to 'Imprimir', @reporte_quincenal, :onclick => 'window.print();', class:"btn btn-lg btn-info",id:"btnChico"%>
+
+                    </div>
                   </div>
                 </div>
               </div>
@@ -54,3 +60,4 @@
           </div>
         </div>
       </div>
+     
