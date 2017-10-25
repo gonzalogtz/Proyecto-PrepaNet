@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   #Conglomerado
   resources :conglomerado_quincenals
-  post 'conglomerado_quincenals/get_semanales', to: 'conglomerado_quincenals#get_semanales_count'
+  post 'conglomerado_quincenals/get_semanales_count', to: 'conglomerado_quincenals#get_semanales_count'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

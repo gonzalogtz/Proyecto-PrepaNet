@@ -40,11 +40,17 @@ $(document).on('turbolinks:load', function() {
 
         $.ajax({
             type: "POST",
-            url: "get_semanales",
+            url: "get_semanales_count",
             dataType: "JSON",
             data: {tutor_id: $("#conglomerado_quincenal_tutor").val()},
             success: function(result) {
-                if (result["semanales_count"] < 15){
+                console.log(result["tipo_error"])
+                if (result["tipo_error"] == 1) {
+                    $("#alert_text").html("Este tutor no tiene 15 semanales")
+                    $(".alert").show()
+                }
+                else if (result["tipo_error"] == 2){
+                    $("#alert_text").html("Este tutor ya tiene reporte")
                     $(".alert").show()
                 }
             }
@@ -70,5 +76,35 @@ $(document).on('turbolinks:load', function() {
                 }
             }
         })
+    });
+    
+    $("#login_button").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "submit_login",
+            dataType: "JSON",
+            data: {user: $("#userid").val(),
+                    password: $("#password").val()},
+            success: function(result) {
+                //usuario incorrecto
+                if (result["tipo_error"] == 1) {
+                    $("#error_credenciales").html("Contraseña incorrecta");
+                    $("#error_credenciales").show();
+                }
+                //password incorrecta
+                else if (result["tipo_error"] == 2) {
+                    $("#error_credenciales").html("Usuario inexistente");
+                    $("#error_credenciales").show();
+                }
+                //credenciales correctas
+                else {
+                    document.location.href = "/conglomerado_quincenals"
+                }
+            }
+        })
+    });
+    
+    $("#userid, #password").focus(function(){
+        $("#error_credenciales").hide();
     });
 })

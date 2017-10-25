@@ -22,20 +22,30 @@ class UsersController < ApplicationController
   end
 
   def login
-    user = User.where(userid: params[:userid], password: params[:password]).first
+    response = {"tipo_error": 0}
+    user = User.where(userid: params[:user]).first
     
     if user != nil
-      #Change this to redirect to main page
-      USUARIO.replace user.names
-      USER_ID.replace user.userid
-      ROLE.replace user.role
-      redirect_to conglomerado_quincenals_path
+      #credenciales correctas
+      if user[:password] == params[:password]
+        USUARIO.replace user.names
+        USER_ID.replace user.userid
+        ROLE.replace user.role
+      #contraseña incorrecta
+      else
+        response = {"tipo_error": 1}
+      end
+      
+      #TODO: Change this to redirect to main page
+      #redirect_to conglomerado_quincenals_path
+    #el usuario no existe
     else
-      #tell it is 
-      puts 'error'
-      flash.now[:alert] = 'Error en las credenciales, intenta de nuevo.'
-
+      response = {"tipo_error": 2}
     end
+    
+      respond_to do |format|
+        format.js {render :json => response}
+      end
   end
 
   # POST /users

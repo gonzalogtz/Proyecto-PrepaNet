@@ -35,11 +35,6 @@ class ConglomeradoQuincenalsController < ApplicationController
     reportes_semanales.each do |reporte|
         calif_arr.push(reporte.total)
     end
-    
-    if (reportes_semanales.count < 15)
-      #TODO: 
-      puts "menos de 15"
-    end
       
     @conglomerado_quincenal[:calificaciones] = calif_arr.to_json()
     @conglomerado_quincenal[:promedio] = calif_arr.sum.fdiv(calif_arr.size)
@@ -84,10 +79,23 @@ class ConglomeradoQuincenalsController < ApplicationController
   
   # POST conglomerado_quincenals/get_semanales
   def get_semanales_count
+    response = {"tipo_error": 0}
+    
+    #primero checa si no hay 15 reportes semanales todavia
     reportes_semanales = ReporteSemanal.where(tutor: params[:tutor_id], coordinador_tutores: USER_ID).take(15)
-
+    if reportes_semanales.count < 15
+      response = {"tipo_error": 1}
+    else
+      conglomerado = ConglomeradoQuincenal.where(tutor: params[:tutor_id], coordinador_tutores: USER_ID)
+      
+      #despues checa si ya hay un conglomerado creado
+      if conglomerado.count > 0
+        response = {"tipo_error": 2}
+      end
+    end
+  
     respond_to do |format|
-      format.js {render :json => {"semanales_count": reportes_semanales.count}}
+      format.js {render :json => response}
     end
   end
 
