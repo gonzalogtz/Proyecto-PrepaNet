@@ -27,7 +27,17 @@ $(document).on('turbolinks:load', function() {
         window.location = $(this).data("link")
     });
     
+    function cerrar_alerta(){
+        $(".alert").hide()
+    };
+    
+    $(".alert_close").click(function() {
+        cerrar_alerta()
+    });
+    
     $("#conglomerado_quincenal_tutor").on('change', function(){
+        cerrar_alerta()
+
         $.ajax({
             type: "POST",
             url: "get_semanales",
@@ -35,6 +45,27 @@ $(document).on('turbolinks:load', function() {
             data: {tutor_id: $("#conglomerado_quincenal_tutor").val()},
             success: function(result) {
                 if (result["semanales_count"] < 15){
+                    $(".alert").show()
+                }
+            }
+        })
+    });
+    
+    $("#reporte_semanal_tutor").on('change', function(){
+        cerrar_alerta()
+    });
+    
+    $("#reporte_semanal_semana").on('change', function(){
+        cerrar_alerta()
+
+        $.ajax({
+            type: "POST",
+            url: "valida_tutor_semana",
+            dataType: "JSON",
+            data: {tutor_id: $("#reporte_semanal_tutor").val(),
+                    semana: $("#reporte_semanal_semana").val()},
+            success: function(result) {
+                if (result["semanal_count"] > 0){
                     $(".alert").show()
                 }
             }

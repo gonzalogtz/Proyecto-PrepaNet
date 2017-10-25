@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   
   #Reporte semanal
   resources :reporte_semanals
+  post 'reporte_semanals/valida_tutor_semana', to: 'reporte_semanals#valida_tutor_semana'
   
   #Conglomerado
   resources :conglomerado_quincenals

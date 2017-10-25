@@ -2,6 +2,11 @@
 <%= form_for(reporte_semanal) do |f| %>
   
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="alert alert-danger alert-dismissable">
+  <a class="close alert_close" aria-label="close">&times;</a>
+    <strong>Aviso</strong>
+    El alumno ya tiene un reporte para esa semana
+  </div>
     <h1 class="page-header">Generar Reporte Semanal</h1>
     <div class="row">
       <div class="row">

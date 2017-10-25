@@ -62,6 +62,14 @@ class ReporteSemanalsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def valida_tutor_semana
+    reportes_semanal = ReporteSemanal.where(tutor: params[:tutor_id], semana: params[:semana], coordinador_tutores: USER_ID)
+
+    respond_to do |format|
+      format.js {render :json => {"semanal_count": reportes_semanal.count}}
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
