@@ -26,4 +26,18 @@ $(document).on('turbolinks:load', function() {
     $(".reporte_row").click(function() {
         window.location = $(this).data("link")
     });
+    
+    $("#conglomerado_quincenal_tutor").on('change', function(){
+        $.ajax({
+            type: "POST",
+            url: "get_semanales",
+            dataType: "JSON",
+            data: {tutor_id: $("#conglomerado_quincenal_tutor").val()},
+            success: function(result) {
+                if (result["semanales_count"] < 15){
+                    $(".alert").show()
+                }
+            }
+        })
+    });
 })

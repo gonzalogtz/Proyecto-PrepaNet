@@ -81,6 +81,15 @@ class ConglomeradoQuincenalsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # POST conglomerado_quincenals/get_semanales
+  def get_semanales_count
+    reportes_semanales = ReporteSemanal.where(tutor: params[:tutor_id], coordinador_tutores: USER_ID).take(15)
+
+    respond_to do |format|
+      format.js {render :json => {"semanales_count": reportes_semanales.count}}
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
