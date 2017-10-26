@@ -21,7 +21,7 @@
                     <h4>Tutor a evaluar:</h4>
                 </div>
                 <div class="select-input">
-                    <%= f.select :tutor, options_for_select(ReporteSemanalsController::TUTORES),  {prompt: "Selecciona un tutor"}, class:"selectpicker", required: true%>
+                    <%= f.select :tutor, options_for_select(get_tutores),  {prompt: "Selecciona un tutor"}, class:"selectpicker", required: true%>
                 </div>
             </div>
             <div class="col-sm-6 margin-bottom margin-top">

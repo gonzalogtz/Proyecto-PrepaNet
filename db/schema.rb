@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 20171022223115) do
     t.datetime "updated_at", null: false
   end
   
+  create_table "usuario_coordina_usuarios", force: :cascade do |t|
+    t.string   "usuario"
+    t.string   "coordinador"
+  end
+  
   create_table "alumnos", force: :cascade do |t|
     t.string   "matricula"
     t.string   "nombres"

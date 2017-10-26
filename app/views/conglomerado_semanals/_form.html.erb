@@ -27,7 +27,7 @@
             <div class="panel-body">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom" style="text-align: center;">
                     <h4>Tutor</h4>
-                    <%= f.select :tutor, options_for_select(ConglomeradoSemanalsController::TUTORES), {prompt: "Selecciona un tutor"}, class:"selectpicker", required: true%>
+                    <%= f.select :tutor, options_for_select(get_tutores), {prompt: "Selecciona un tutor"}, class:"selectpicker", required: true%>
                 </div>
                 
               <h4>¿El tutor invitó a sus alumnos a sus asesorías presenciales?</h4>

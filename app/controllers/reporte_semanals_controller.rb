@@ -83,6 +83,19 @@ class ReporteSemanalsController < ApplicationController
       params.require(:reporte_semanal).permit(:tutor, :semana, :califica_en_plazo, :califica_con_rubrica, :da_retroalimentacion, :responde_mensajes, 
       :errores_ortografia, :comentarios)
     end
+    
+    def get_tutores
+      lista_tutores = []
+      
+      tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
+      tutores.each do |tutor|
+        nombre_tutor = tutor.nombres + " " + tutor.apellido_p + " " + tutor.apellido_m
+        lista_tutores.push([nombre_tutor, tutor.cuenta])
+      end
+      
+      return lista_tutores
+    end
+    helper_method :get_tutores
 
     # Hace la sumatoria de puntos de la rubrica para conseguir una calificacion total
     def get_calif_total(reporte)
@@ -96,7 +109,8 @@ class ReporteSemanalsController < ApplicationController
       html_list = ""
       i = 0
       
-      TUTORES.each do |tutor|
+      tutores = get_tutores
+      tutores.each do |tutor|
         reportes_tutor = reportes_semanales.where(tutor: tutor[1]).order('semana')
         html_list += "<tr id='" + i.to_s +  "' class='pickHover tutor_header'>
                         <td>" + tutor[0] + "</td>
@@ -136,6 +150,4 @@ class ReporteSemanalsController < ApplicationController
       return html_list.html_safe
     end
     helper_method :get_reportes_colapsados
-
-    TUTORES  = [["Gonzalo Gutierrez", 1], ["David Valles", 2], ["Armando Galvan", 3], ["Adriana Montecarlo Ramirez", 4]]
 end

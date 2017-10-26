@@ -112,6 +112,19 @@ class ConglomeradoSemanalsController < ApplicationController
       :actividad_cierre, :recomendacion_reingreso, :recomendacion_coordinador, :comentarios, :alumnos_original_acabaron, 
       :alumnos_original_aprobaron, :alumnos_final_concluyeron, :total_horas_sugerido)
     end
+    
+    def get_tutores
+      lista_tutores = []
+      
+      tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
+      tutores.each do |tutor|
+        nombre_tutor = tutor.nombres + " " + tutor.apellido_p + " " + tutor.apellido_m
+        lista_tutores.push([nombre_tutor, tutor.cuenta])
+      end
+      
+      return lista_tutores
+    end
+    helper_method :get_tutores
 
     def get_valor(valor)
       if valor == "1"
@@ -140,7 +153,4 @@ class ConglomeradoSemanalsController < ApplicationController
       
       return suma/15
     end
-    
-    TUTORES  = [["Gonzalo Gutierrez", 1], ["David Valles", 2], ["Armando Galvan", 3], ["Adriana Montecarlo Ramirez", 4]]
-    MATERIAS  = [["Matematicas I", 1], ["Quimica I", 2]]
 end

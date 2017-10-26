@@ -88,8 +88,6 @@ class ReporteQuincenalsController < ApplicationController
     end
     helper_method :get_alumnos
     
-    ALUMNOS  = [["Gonzalo Gutierrez", 1], ["David Valles", 2], ["Armando Galvan", 3], ["Adriana Montecarlo Ramirez", 4]]
-    
     def get_estatus_tag(estatus)
       if estatus == 0
         return "<td class='texto_negativo'>Inactivo</td>".html_safe

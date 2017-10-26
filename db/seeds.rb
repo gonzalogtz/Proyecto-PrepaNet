@@ -18,6 +18,14 @@ Usuario.create(cuenta: "T02", nomina_matricula: "A00000002", contrasena: "1", ca
 Usuario.create(cuenta: "T03", nomina_matricula: "A00000003", contrasena: "1", campus: "Monterrey",
                 rol: "Tutor", titulo: "", nombres: "David", apellido_p: "Valles", apellido_m: "Sanchez",
                 correo: "A00000003@itesm.mx", telefono: "8111111111", estatus: "")
+Usuario.create(cuenta: "T04", nomina_matricula: "A00000004", contrasena: "1", campus: "Monterrey",
+                rol: "Coordinador de Tutor", titulo: "", nombres: "Ana Sofia", apellido_p: "Cantu", apellido_m: "Sanchez",
+                correo: "A00000004@itesm.mx", telefono: "8111111111", estatus: "")
+                
+UsuarioCoordinaUsuario.create(usuario: "T00", coordinador: "T04")
+UsuarioCoordinaUsuario.create(usuario: "T01", coordinador: "T04")
+UsuarioCoordinaUsuario.create(usuario: "T02", coordinador: "T04")
+UsuarioCoordinaUsuario.create(usuario: "T03", coordinador: "T04")
                 
 Alumno.create(matricula: "A0000004", nombres: "Paloma", apellido_p: "Martinez", apellido_m: "Osuna", 
                 telefono: "8111111111", correo: "A0000004@itesm.mx")
