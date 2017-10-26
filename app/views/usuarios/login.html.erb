@@ -34,15 +34,15 @@
           <div class="inner cover">
             <img class="logo-cover" src="<%= asset_path("logoPrepa.png")%>" alt="Logo de Prepanet" />
 
-
-            <%= form_tag("/submit_login", method: "post", class: "form-signin") do %>
+            <div class="form-signin">
               <h2 class="form-signin-heading">Iniciar Sesión</h2>
               <%= text_field_tag :userid, "", class: "form-control", placeholder: "Clave de Usuario", required: true %>
               <br>
               <%= password_field_tag :password, "", class: "form-control", placeholder: "Contraseña", required: true  %>
+              <p id="error_credenciales"></p>
               <br>
-              <%= submit_tag "Iniciar Sesión", class: "btn btn-lg btn-default btn-block" %>
-            <% end %>
+              <%= submit_tag "Iniciar Sesión", class: "btn btn-lg btn-default btn-block", id: "login_button" %>
+            </div>
 
           </div>
 

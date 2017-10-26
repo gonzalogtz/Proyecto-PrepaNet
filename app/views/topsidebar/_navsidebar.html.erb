@@ -12,8 +12,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <img id="logoPrepa" src="<%= asset_path("logoPrepa.png")%>" />
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="perfil.html"><%= ApplicationController::USUARIO%></a></li>
-            <li><a href="../login.html">Cerrar Sesión</a></li>
+            <li><a href="perfil.html"><%= ApplicationController::NOMBRE_USUARIO%></a></li>
+            <li id="cerrar_sesion"><a>Cerrar Sesión</a></li>
           </ul>
         </div>
       </div>
@@ -26,7 +26,7 @@
             <li><h4 style="margin-left: 10px;">Reportes</h4></li>
             <li><%= link_to 'Reportes Quincenales', reporte_quincenals_path %></li>
             <li><%= link_to "Evaluación de Desempeño Semanal", reporte_semanals_path %></li>
-            <li><%= link_to 'Concentrados de Reportes Quincenales', conglomerado_quincenals_path %></li>
+            <li><%= link_to 'Concentrados de Reportes Quincenales', conglomerado_semanals_path %></li>
           </ul>
           
         </div>  
