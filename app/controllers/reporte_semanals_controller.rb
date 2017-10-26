@@ -1,4 +1,5 @@
 class ReporteSemanalsController < ApplicationController
+	before_action :user_is_logged_in
   before_action :set_reporte_semanal, only: [:show, :edit, :update, :destroy]
 
   # GET /reporte_semanals

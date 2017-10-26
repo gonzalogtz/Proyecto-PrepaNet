@@ -1,4 +1,5 @@
 class ReporteQuincenalsController < ApplicationController
+	before_action :user_is_logged_in
   before_action :set_reporte_quincenal, only: [:show, :edit, :update, :destroy]
 
   # GET /reporte_quincenals

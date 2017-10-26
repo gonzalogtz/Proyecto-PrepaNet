@@ -1,4 +1,5 @@
 class ConglomeradoQuincenalsController < ApplicationController
+  before_action :user_is_logged_in
   before_action :set_conglomerado_quincenal, only: [:show, :edit, :update, :destroy]
 
   # GET /conglomerado_quincenals
