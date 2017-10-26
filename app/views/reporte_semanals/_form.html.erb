@@ -59,10 +59,10 @@
                     <td>Se asignarán 3 puntos únicamente si el tutor SIEMPRE califica en el plazo</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :califPlazo, 0, required: true%></td>
-                    <td><%= f.radio_button :califPlazo, 1, required: true%></td>
-                    <td><%= f.radio_button :califPlazo, 2, required: true%></td>
-                    <td><%= f.radio_button :califPlazo, 3, required: true%></td>
+                    <td><%= f.radio_button :califica_en_plazo, 0, required: true%></td>
+                    <td><%= f.radio_button :califica_en_plazo, 1, required: true%></td>
+                    <td><%= f.radio_button :califica_en_plazo, 2, required: true%></td>
+                    <td><%= f.radio_button :califica_en_plazo, 3, required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -87,8 +87,8 @@
                     <td>Se asignará 1 punto únicamente si el tutor SIEMPRE califica con base en la rúbrica y envía al alumno cómo se compone su calificación.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :califRubrica, 0, required: true%></td>
-                    <td><%= f.radio_button :califRubrica, 1, required: true%></td>
+                    <td><%= f.radio_button :califica_con_rubrica, 0, required: true%></td>
+                    <td><%= f.radio_button :califica_con_rubrica, 1, required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -116,9 +116,9 @@
                     <td>Se asignarán 2 puntos únicamente si el tutor SIEMPRE da retroalimentación clara y específica.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :retro, 0, required: true%></td>
-                    <td><%= f.radio_button :retro, 1, required: true%></td>
-                    <td><%= f.radio_button :retro, 2, required: true%></td>
+                    <td><%= f.radio_button :da_retroalimentacion, 0, required: true%></td>
+                    <td><%= f.radio_button :da_retroalimentacion, 1, required: true%></td>
+                    <td><%= f.radio_button :da_retroalimentacion, 2, required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -149,10 +149,10 @@
                     <td>Se asignarán 3 puntos únicamente si el tutor SIEMPRE responde en el plazo.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :responde, 0, required: true%></td>
-                    <td><%= f.radio_button :responde, 1, required: true%></td>
-                    <td><%= f.radio_button :responde, 2, required: true%></td>
-                    <td><%= f.radio_button :responde, 3, required: true%></td>
+                    <td><%= f.radio_button :responde_mensajes, 0, required: true%></td>
+                    <td><%= f.radio_button :responde_mensajes, 1, required: true%></td>
+                    <td><%= f.radio_button :responde_mensajes, 2, required: true%></td>
+                    <td><%= f.radio_button :responde_mensajes, 3, required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -177,8 +177,8 @@
                     <td>Se asignará 1 punto únicamente si el tutor no presenta errores de ortografía.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :errores, 0, required: true%></td>
-                    <td><%= f.radio_button :errores, 1, required: true%></td>
+                    <td><%= f.radio_button :errores_ortografia, 0, required: true%></td>
+                    <td><%= f.radio_button :errores_ortografia, 1, required: true%></td>
                   </tr>
                 </tbody>
               </table>

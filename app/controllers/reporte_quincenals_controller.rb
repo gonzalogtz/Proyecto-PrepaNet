@@ -5,7 +5,7 @@ class ReporteQuincenalsController < ApplicationController
   # GET /reporte_quincenals
   # GET /reporte_quincenals.json
   def index
-    @reporte_quincenals = ReporteQuincenal.all.order('fecha desc, alumno')
+    @reporte_quincenals = ReporteQuincenal.all.order('fecha_correspondiente desc, alumno')
   end
 
   # GET /reporte_quincenals/1
@@ -26,8 +26,8 @@ class ReporteQuincenalsController < ApplicationController
   # POST /reporte_quincenals.json
   def create
     @reporte_quincenal = ReporteQuincenal.new(reporte_quincenal_params)
-    @reporte_quincenal[:tutor] = USER_ID
-    @reporte_quincenal[:fecha] = Date.today
+    @reporte_quincenal[:tutor] = CUENTA
+    @reporte_quincenal[:fecha_correspondiente] = Date.today
 
     respond_to do |format|
       if @reporte_quincenal.save
@@ -72,7 +72,7 @@ class ReporteQuincenalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reporte_quincenal_params
-      params.require(:reporte_quincenal).permit(:estatus, :localizado, :comentarios, :tutor, :alumno, :fecha)
+      params.require(:reporte_quincenal).permit(:alumno, :curso, :estatus, :localizado, :comentarios, :fecha_correspondiente)
     end
     
     ALUMNOS  = [["Gonzalo Gutierrez", 1], ["David Valles", 2], ["Armando Galvan", 3], ["Adriana Montecarlo Ramirez", 4]]

@@ -36,27 +36,27 @@
                 </thead>
                 <tr>
                   <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
-                  <td> <%= @reporte_semanal.califPlazo %>/3</td>
+                  <td> <%= @reporte_semanal.califica_en_plazo %>/3</td>
                 </tr>
                 <tr>
                   <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
-                  <td> <%= @reporte_semanal.califRubrica %>/1</td>
+                  <td> <%= @reporte_semanal.califica_con_rubrica %>/1</td>
                 </tr>
                 <tr>
                   <td> Da retroalimentación clara y específica de actividades y/o exámenes:</td>
-                  <td><%= @reporte_semanal.retro %>/2</td>
+                  <td><%= @reporte_semanal.da_retroalimentacion %>/2</td>
                 </tr>
                 <tr>
                   <td> Responde mensajes en un lapso no mayor a 24 horas:</td>
-                  <td>  <%= @reporte_semanal.responde %>/3</td>
+                  <td>  <%= @reporte_semanal.responde_mensajes %>/3</td>
                 </tr>
                 <tr>
                   <td>Errores de ortografía en mensajes, reportes y retroalimentaciones:</td>
-                  <td><%= @reporte_semanal.errores %>/1</td>
+                  <td><%= @reporte_semanal.errores_ortografia %>/1</td>
                 </tr>
                 <tr>
                   <td><strong>Total:</strong></td>
-                  <strong><td><%=@reporte_semanal.total%>/10</td></strong>
+                  <strong><td><%=@reporte_semanal.calificacion_total%>/10</td></strong>
                 </tr>
 
               </table>

@@ -40,7 +40,7 @@ $(document).on('turbolinks:load', function() {
     });
     
     //Validacion de conglomerado
-    $("#conglomerado_quincenal_tutor").change(function(){
+    $("#conglomerado_semanal_tutor").change(function(){
         $(event.target).find("option[value='']").attr("disabled", true);
         $("#btnSubmit").removeAttr("disabled");
         cerrar_alerta()
@@ -49,7 +49,7 @@ $(document).on('turbolinks:load', function() {
             type: "POST",
             url: "get_semanales_count",
             dataType: "JSON",
-            data: {tutor_id: $("#conglomerado_quincenal_tutor").val()},
+            data: {tutor_id: $("#conglomerado_semanal_tutor").val()},
             success: function(result) {
                 if (result["tipo_error"] == 1) {
                     $("#alert_text").html("Este tutor no tiene 15 semanales")
@@ -115,7 +115,7 @@ $(document).on('turbolinks:load', function() {
                 }
                 //credenciales correctas
                 else {
-                    document.location.href = "/conglomerado_quincenals"
+                    document.location.href = "/conglomerado_semanals"
                 }
             }
         })

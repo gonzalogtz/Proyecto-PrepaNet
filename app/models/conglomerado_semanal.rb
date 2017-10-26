@@ -1,0 +1,2 @@
+class ConglomeradoSemanal < ApplicationRecord
+end

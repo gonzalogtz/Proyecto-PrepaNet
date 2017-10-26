@@ -1,2 +1,0 @@
-class ConglomeradoQuincenal < ApplicationRecord
-end
