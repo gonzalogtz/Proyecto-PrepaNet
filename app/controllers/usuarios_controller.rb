@@ -23,7 +23,7 @@ class UsuariosController < ApplicationController
 
   def login
     response = {"tipo_error": 0}
-    user = Usuario.where(cuenta: params[:user]).first
+    user = Usuario.where('lower(cuenta) = ?', params[:user].downcase).first
     
     if user != nil
       #credenciales correctas

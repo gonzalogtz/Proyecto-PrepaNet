@@ -94,31 +94,52 @@ $(document).on('turbolinks:load', function() {
     
     //Validacion de login
     $("#login_button").click(function(){
-        $.ajax({
-            type: "POST",
-            url: "submit_login",
-            dataType: "JSON",
-            data: {user: $("#userid").val(),
-                    password: $("#password").val()},
-            success: function(result) {
-                //contraseña incorrecta
-                if (result["tipo_error"] == 1) {
-                    $("#error_credenciales").html("Contraseña incorrecta");
-                    $("#error_credenciales").show();
-                    $("#password").addClass("error_field");
+        usuario = $("#userid").val()
+        password = $("#password").val()
+        
+        if (usuario == "" && password == "") {
+            $("#error_credenciales").html("Favor de proporcionar la clave de usuario y contraseña");
+            $("#error_credenciales").show();
+            $("#userid").addClass("error_field");
+            $("#password").addClass("error_field");
+        }
+        else if(usuario == ""){
+            $("#error_credenciales").html("Favor de proporcionar la clave de usuario");
+            $("#error_credenciales").show();
+            $("#userid").addClass("error_field");
+        }
+        else if (password == ""){
+            $("#error_credenciales").html("Favor de proporcionar la contraseña");
+            $("#error_credenciales").show();
+            $("#password").addClass("error_field");
+        }
+        else{
+            $.ajax({
+                type: "POST",
+                url: "submit_login",
+                dataType: "JSON",
+                data: {user: usuario,
+                        password: password},
+                success: function(result) {
+                    //contraseña incorrecta
+                    if (result["tipo_error"] == 1) {
+                        $("#error_credenciales").html("Contraseña incorrecta");
+                        $("#error_credenciales").show();
+                        $("#password").addClass("error_field");
+                    }
+                    //usuario incorrecto
+                    else if (result["tipo_error"] == 2) {
+                        $("#error_credenciales").html("Usuario inexistente");
+                        $("#error_credenciales").show();
+                        $("#userid").addClass("error_field");
+                    }
+                    //credenciales correctas
+                    else {
+                        document.location.href = "/conglomerado_semanals"
+                    }
                 }
-                //usuario incorrecto
-                else if (result["tipo_error"] == 2) {
-                    $("#error_credenciales").html("Usuario inexistente");
-                    $("#error_credenciales").show();
-                    $("#userid").addClass("error_field");
-                }
-                //credenciales correctas
-                else {
-                    document.location.href = "/conglomerado_semanals"
-                }
-            }
-        })
+            })
+        }
     });
     
     //Logout

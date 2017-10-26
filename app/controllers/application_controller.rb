@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
     end
     helper_method :get_usuario_name_by_id
     
+    def get_alumno_name_by_id(id)
+      alumno = Alumno.where(matricula: id).first
+      return alumno.nombres + " " + alumno.apellido_p + " " + alumno.apellido_m
+    end
+    helper_method :get_alumno_name_by_id
+    
     def user_is_logged_in
       if (NOMBRE_USUARIO == "" && !current_page?("/"))
         redirect_to "/"

@@ -40,19 +40,20 @@ ActiveRecord::Schema.define(version: 20171022223115) do
     t.datetime "updated_at", null: false
   end
   
+  create_table "materias", force: :cascade do |t|
+    t.string   "clave"
+    t.string   "nombre"
+  end
+  
   create_table "cursos", force: :cascade do |t|
-    t.integer  "materia"
+    t.string   "clave_materia"
     t.integer  "grupo"
   end
     
-  create_table "materias", force: :cascade do |t|
-    t.string   "nombre"
-  end
-    
-  create_table "alumno_cursa_materia", force: :cascade do |t|
+  create_table "alumno_cursa_materias", force: :cascade do |t|
     t.string   "tutor"
     t.string   "alumno"
-    t.integer  "curso"
+    t.string   "curso"
   end
 
   create_table "conglomerado_semanals", force: :cascade do |t|

@@ -75,23 +75,36 @@ class ReporteQuincenalsController < ApplicationController
       params.require(:reporte_quincenal).permit(:alumno, :curso, :estatus, :localizado, :comentarios, :fecha_correspondiente)
     end
     
+    def get_alumnos
+      lista_alumnos = []
+      
+      alumnos_tutor = AlumnoCursaMateria.select("*").where(tutor: CUENTA).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula")
+      alumnos_tutor.each do |alumno|
+        nombre_alumno = alumno.nombres + " " + alumno.apellido_p + " " + alumno.apellido_m
+        lista_alumnos.push([nombre_alumno, alumno.matricula])
+      end
+      
+      return lista_alumnos
+    end
+    helper_method :get_alumnos
+    
     ALUMNOS  = [["Gonzalo Gutierrez", 1], ["David Valles", 2], ["Armando Galvan", 3], ["Adriana Montecarlo Ramirez", 4]]
     
     def get_estatus_tag(estatus)
-      if estatus == '0'
+      if estatus == 0
         return "<td class='texto_negativo'>Inactivo</td>".html_safe
-      elsif estatus == '1'
+      elsif estatus == 1
         return "<td class='texto_amarillo'>Parcialmente activo</td>".html_safe
-      else estatus == '2'
+      elsif estatus == 2
         return "<td class='texto_positivo'>Activo</td>".html_safe
       end
     end
     helper_method :get_estatus_tag
     
     def get_localizado_tag(localizado)
-      if localizado == '0'
+      if localizado == 0
         return "<td class='texto_negativo'>No</td>".html_safe
-      elsif localizado == '1'
+      elsif localizado == 1
         return "<td class='texto_positivo'>Sí</td>".html_safe
       end
     end
