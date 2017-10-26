@@ -121,6 +121,18 @@ $(document).on('turbolinks:load', function() {
         })
     });
     
+    //Logout
+    $("#cerrar_sesion").click(function(){
+        $.ajax({
+            type: "GET",
+            url: "logout",
+            dataType: "JSON",
+            success: function(result) {
+                document.location.href = "/"
+            }
+        })
+    });
+    
     $("#userid, #password").focus(function(){
         $("#error_credenciales").hide();
         $("#password, #userid").removeClass("error_field");

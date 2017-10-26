@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   #Users
   resources :users
   post 'submit_login', to: 'users#login', as: :submit_login
+  get 'logout', to: 'users#logout'
   
   #Reporte quincenal
   resources :reporte_quincenals

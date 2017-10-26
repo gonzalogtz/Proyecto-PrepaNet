@@ -28,9 +28,7 @@ class UsersController < ApplicationController
     if user != nil
       #credenciales correctas
       if user[:password] == params[:password]
-        USUARIO.replace user.names
-        USER_ID.replace user.userid
-        ROLE.replace user.role
+        set_credentials(user.names, user.userid, user.role)
       #contraseña incorrecta
       else
         response = {"tipo_error": 1}
@@ -46,6 +44,10 @@ class UsersController < ApplicationController
       respond_to do |format|
         format.js {render :json => response}
       end
+  end
+    
+  def logout
+    set_credentials("", "", "")
   end
 
   # POST /users
@@ -102,5 +104,11 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:userid, :password, :campus, :role, :names, :flname, :slname, :email, :phone, :status)
+    end
+    
+    def set_credentials(user, id, role)
+      USUARIO.replace user
+      USER_ID.replace id
+      ROLE.replace role
     end
 end
