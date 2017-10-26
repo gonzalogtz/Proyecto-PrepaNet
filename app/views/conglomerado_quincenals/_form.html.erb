@@ -25,13 +25,9 @@
               <center>Evaluación del Tutor</center>
             </div>
             <div class="panel-body">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom" style="text-align: center;">
                     <h4>Tutor</h4>
-                    <%= f.select :tutor, options_for_select(ConglomeradoQuincenalsController::TUTORES), class:"selectpicker"%>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
-                    <h4>Materia</h4>
-                    <%= f.select :materia, options_for_select(ConglomeradoQuincenalsController::MATERIAS), class:"selectpicker"%>
+                    <%= f.select :tutor, options_for_select(ConglomeradoQuincenalsController::TUTORES), {prompt: "Selecciona un tutor"}, class:"selectpicker", required: true%>
                 </div>
                 
               <h4>¿El tutor invitó a sus alumnos a sus asesorías presenciales?</h4>
@@ -45,8 +41,8 @@
                       </thead>
                       <tbody>
                           <tr>
-                              <td><%= f.radio_button :invito, 0%></td>
-                              <td><%= f.radio_button :invito, 1%></td>
+                              <td><%= f.radio_button :invito, 0, required: true%></td>
+                              <td><%= f.radio_button :invito, 1, required: true%></td>
                           </tr>
                       </tbody>
                   </table>
@@ -63,8 +59,8 @@
                       </thead>
                       <tbody>
                           <tr>
-                              <td><%= f.radio_button :rparcial, 0%></td>
-                              <td><%= f.radio_button :rparcial, 1%></td>
+                              <td><%= f.radio_button :rparcial, 0, required: true%></td>
+                              <td><%= f.radio_button :rparcial, 1, required: true%></td>
                           </tr>
                       </tbody>
                   </table>
@@ -81,8 +77,8 @@
                       </thead>
                       <tbody>
                           <tr>
-                              <td><%= f.radio_button :rfinal, 0%></td>
-                              <td><%= f.radio_button :rfinal, 1%></td>
+                              <td><%= f.radio_button :rfinal, 0, required: true%></td>
+                              <td><%= f.radio_button :rfinal, 1, required: true%></td>
                           </tr>
                       </tbody>
                   </table>
@@ -99,8 +95,8 @@
                       </thead>
                       <tbody>
                           <tr>
-                              <td><%= f.radio_button :cierre, 0%></td>
-                              <td><%= f.radio_button :cierre, 1%></td>
+                              <td><%= f.radio_button :cierre, 0, required: true%></td>
+                              <td><%= f.radio_button :cierre, 1, required: true%></td>
                           </tr>
                       </tbody>
                   </table>
@@ -117,8 +113,8 @@
                       </thead>
                       <tbody>
                           <tr>
-                              <td><%= f.radio_button :reingresar, 0%></td>
-                              <td><%= f.radio_button :reingresar, 1%></td>
+                              <td><%= f.radio_button :reingresar, 0, required: true%></td>
+                              <td><%= f.radio_button :reingresar, 1, required: true%></td>
                           </tr>
                       </tbody>
                   </table>
@@ -135,8 +131,8 @@
                       </thead>
                       <tbody>
                           <tr>
-                              <td><%= f.radio_button :recomendacion, 0%></td>
-                              <td><%= f.radio_button :recomendacion, 1%></td>
+                              <td><%= f.radio_button :recomendacion, 0, required: true%></td>
+                              <td><%= f.radio_button :recomendacion, 1, required: true%></td>
                           </tr>
                       </tbody>
                   </table>
@@ -144,22 +140,22 @@
               
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
                     <h4>Porcentaje de alumnos del grupo original que acabaron el curso</h4>
-                    <%= f.text_field :alumnos_acabaron%>
+                    <%= f.text_field :alumnos_acabaron, required: true%>
                 </div>
                 
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
                     <h4>Porcentaje de alumnos del grupo original que aprobaron el curso</h4>
-                    <%= f.text_field :alumnos_aprobaron%>
+                    <%= f.text_field :alumnos_aprobaron, required: true%>
                 </div>
                 
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
                     <h4>Porcentaje de alumnos del grupo final (sin considerar bajas) que concluyeron el curso</h4>
-                    <%= f.text_field :alumnos_final_concluyeron%>
+                    <%= f.text_field :alumnos_final_concluyeron, required: true%>
                 </div>
                 
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
                     <h4>Cantidad de horas que el coordinador de tutores considera el tutor debe acreditar</h4>
-                    <%= f.text_field :total_horas_sugerido%>
+                    <%= f.text_field :total_horas_sugerido, required: true%>
                 </div>
                 
               <h4>Resumen de observaciones sobre el desempeño del tutor y el seguimiento a sus alumnos</h4>
@@ -171,7 +167,7 @@
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <div class="actions">
-                    <%= f.submit "Guardar reporte", class:"btn btn-primary btn-lg", id:"btnSubmit"  %>
+                    <%= f.submit "Guardar reporte", class: "btn btn-primary btn-lg", id: "btnSubmit"  %>
                     <%= link_to 'Atrás', conglomerado_quincenals_path, class:"btn btn-primary btn-lg btnBack"  %>
                   </div>
                 </div>

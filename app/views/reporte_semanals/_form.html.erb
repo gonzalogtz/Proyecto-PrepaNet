@@ -21,7 +21,7 @@
                     <h4>Tutor a evaluar:</h4>
                 </div>
                 <div class="select-input">
-                    <%= f.select :tutor, options_for_select(ReporteSemanalsController::TUTORES), class:"selectpicker", required: true%>
+                    <%= f.select :tutor, options_for_select(ReporteSemanalsController::TUTORES),  {prompt: "Selecciona un tutor"}, class:"selectpicker", required: true%>
                 </div>
             </div>
             <div class="col-sm-6 margin-bottom margin-top">
@@ -29,7 +29,7 @@
                     <h4>Semana a evaluar:</h4>
                 </div>
                 <div class="select-input">
-                    <%= f.select :semana, options_for_select((1..15)), class:"selectpicker", required: true%>
+                    <%= f.select :semana, options_for_select((1..15)), {prompt: "Selecciona una semana"}, class:"selectpicker", required: true%>
                 </div>
             </div>
   
@@ -190,8 +190,8 @@
             <div class="row"> 
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                <div class="actions">
-               <%= f.submit "Guardar Reporte", class:"btn btn-primary btn-lg", id:"btnSubmit"  %>
-               <%= link_to 'Back', reporte_semanals_path, class:"btn btn-primary btn-lg btnBack"  %>
+               <%= f.submit "Guardar Reporte", class: "btn btn-primary btn-lg", id: "btnSubmit"  %>
+               <%= link_to "Atrás", reporte_semanals_path, class: "btn btn-primary btn-lg btnBack"  %>
                </div>
               </div>
             </div>

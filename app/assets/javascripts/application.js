@@ -35,7 +35,10 @@ $(document).on('turbolinks:load', function() {
         cerrar_alerta()
     });
     
-    $("#conglomerado_quincenal_tutor").on('change', function(){
+    //Validacion de conglomerado
+    $("#conglomerado_quincenal_tutor").change(function(){
+        $(event.target).find("option[value='']").attr("disabled", true);
+        $("#btnSubmit").removeAttr("disabled");
         cerrar_alerta()
 
         $.ajax({
@@ -44,40 +47,48 @@ $(document).on('turbolinks:load', function() {
             dataType: "JSON",
             data: {tutor_id: $("#conglomerado_quincenal_tutor").val()},
             success: function(result) {
-                console.log(result["tipo_error"])
                 if (result["tipo_error"] == 1) {
                     $("#alert_text").html("Este tutor no tiene 15 semanales")
+                    $("#btnSubmit").attr("disabled", true);
                     $(".alert").show()
                 }
                 else if (result["tipo_error"] == 2){
                     $("#alert_text").html("Este tutor ya tiene reporte")
+                    $("#btnSubmit").attr("disabled", true);
                     $(".alert").show()
                 }
             }
         })
     });
     
-    $("#reporte_semanal_tutor").on('change', function(){
-        cerrar_alerta()
-    });
-    
-    $("#reporte_semanal_semana").on('change', function(){
+    //validacion de reporte semanal
+    $("#reporte_semanal_semana, #reporte_semanal_tutor").change(function(event){
+        $(event.target).find("option[value='']").attr("disabled", true);
+        $("#btnSubmit").removeAttr("disabled");
         cerrar_alerta()
 
-        $.ajax({
-            type: "POST",
-            url: "valida_tutor_semana",
-            dataType: "JSON",
-            data: {tutor_id: $("#reporte_semanal_tutor").val(),
-                    semana: $("#reporte_semanal_semana").val()},
-            success: function(result) {
-                if (result["semanal_count"] > 0){
-                    $(".alert").show()
+        tutor = $("#reporte_semanal_tutor").val();
+        semana = $("#reporte_semanal_semana").val();
+        
+        //Solo se llama el servidor si hay un tutor Y semana seleccionado
+        if (tutor != "" && semana != ""){
+            $.ajax({
+                type: "POST",
+                url: "valida_tutor_semana",
+                dataType: "JSON",
+                data: {tutor_id: tutor,
+                        semana: semana},
+                success: function(result) {
+                    if (result["semanal_count"] > 0){
+                        $("#btnSubmit").attr("disabled", true);
+                        $(".alert").show()
+                    }
                 }
-            }
-        })
+            })
+        }
     });
     
+    //Validacion de login
     $("#login_button").click(function(){
         $.ajax({
             type: "POST",
@@ -86,15 +97,17 @@ $(document).on('turbolinks:load', function() {
             data: {user: $("#userid").val(),
                     password: $("#password").val()},
             success: function(result) {
-                //usuario incorrecto
+                //contraseña incorrecta
                 if (result["tipo_error"] == 1) {
                     $("#error_credenciales").html("Contraseña incorrecta");
                     $("#error_credenciales").show();
+                    $("#password").addClass("error_field");
                 }
-                //password incorrecta
+                //usuario incorrecto
                 else if (result["tipo_error"] == 2) {
                     $("#error_credenciales").html("Usuario inexistente");
                     $("#error_credenciales").show();
+                    $("#userid").addClass("error_field");
                 }
                 //credenciales correctas
                 else {
@@ -106,5 +119,6 @@ $(document).on('turbolinks:load', function() {
     
     $("#userid, #password").focus(function(){
         $("#error_credenciales").hide();
+        $("#password, #userid").removeClass("error_field");
     });
 })

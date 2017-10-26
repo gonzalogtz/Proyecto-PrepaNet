@@ -47,3 +47,13 @@
 .logo-cover{
   width: 100%;
 }
+
+#error_credenciales {
+  color: #E45252;
+  display: none;
+}
+
+.error_field {
+  border-color: #E45252;
+  border-width: 2px;
+}
