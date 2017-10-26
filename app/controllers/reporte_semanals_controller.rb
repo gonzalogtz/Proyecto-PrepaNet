@@ -44,7 +44,7 @@ class ReporteSemanalsController < ApplicationController
   # PATCH/PUT /reporte_semanals/1.json
   def update
     respond_to do |format|
-      if(@reporte_semanal.update(reporte_semanal_params) && @reporte_semanal.update_attribute(:total, get_calif_total(@reporte_semanal)))
+      if(@reporte_semanal.update(reporte_semanal_params) && @reporte_semanal.update_attribute(:calificacion_total, get_calif_total(@reporte_semanal)))
         format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully updated.' }
         format.json { render :show, status: :ok, location: @reporte_semanal }
       else
@@ -99,8 +99,7 @@ class ReporteSemanalsController < ApplicationController
 
     # Hace la sumatoria de puntos de la rubrica para conseguir una calificacion total
     def get_calif_total(reporte)
-      return reporte.califica_en_plazo + reporte.califica_con_rubrica + reporte.da_retroalimentacion 
-      + reporte.responde_mensajes + reporte.errores_ortografia
+      return reporte.califica_en_plazo + reporte.califica_con_rubrica + reporte.da_retroalimentacion + reporte.responde_mensajes + reporte.errores_ortografia
     end
     helper_method :get_calif_total
     

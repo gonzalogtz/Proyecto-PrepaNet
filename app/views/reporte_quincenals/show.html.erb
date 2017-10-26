@@ -1,5 +1,3 @@
-
-
 <%= render 'topsidebar/navsidebar' %>
       <div class="row">
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -11,7 +9,7 @@
               <div class="panel-body">
                 <div class="">
                   <div class="row" id="printID">
-                      <center><h3><%=get_usuario_name_by_id(@reporte_quincenal.alumno)%></h3></center>
+                      <center><h3><%=get_alumno_name_by_id(@reporte_quincenal.alumno)%></h3></center>
                       <center><h4 style="font-weight: normal"><%=@reporte_quincenal.alumno%></h4></center>
                       <center><h4 style="font-weight: normal"><%=@reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA) %></h4></center>
                       
