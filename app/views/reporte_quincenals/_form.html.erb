@@ -28,7 +28,7 @@
                 <h4>Alumno a evaluar:</h4>
             </div>
             <div class="select-input">
-                <%= f.select :alumno, options_for_select(ReporteQuincenalsController::ALUMNOS), class:"selectpicker"%>
+                <%= f.select :alumno, options_for_select(ReporteQuincenalsController::ALUMNOS), {prompt: "Selecciona un alumno"}, class:"selectpicker", required: true%>
             </div>
         </div>
             
@@ -44,9 +44,9 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="width: 33.33%"><%= f.radio_button :estatus, 0,required: true%></td>
-                                <td style="width: 33.33%"><%= f.radio_button :estatus, 1,required: true%></td>
-                                <td style="width: 33.33%"><%= f.radio_button :estatus, 2,required: true%></td>
+                                <td style="width: 33.33%"><%= f.radio_button :estatus, 0, required: true%></td>
+                                <td style="width: 33.33%"><%= f.radio_button :estatus, 1, required: true%></td>
+                                <td style="width: 33.33%"><%= f.radio_button :estatus, 2, required: true%></td>
                             </tr>
                         </tbody>
                     </table>
@@ -63,8 +63,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><%= f.radio_button :localizado, 0,required: true%></td>
-                                <td><%= f.radio_button :localizado, 1,required: true%></td>
+                                <td><%= f.radio_button :localizado, 0, required: true%></td>
+                                <td><%= f.radio_button :localizado, 1, required: true%></td>
                             </tr>
                         </tbody>
                     </table>

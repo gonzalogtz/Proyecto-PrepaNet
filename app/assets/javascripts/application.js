@@ -35,6 +35,10 @@ $(document).on('turbolinks:load', function() {
         cerrar_alerta()
     });
     
+    $("#reporte_quincenal_alumno").change(function(){
+        $(event.target).find("option[value='']").attr("disabled", true);
+    });
+    
     //Validacion de conglomerado
     $("#conglomerado_quincenal_tutor").change(function(){
         $(event.target).find("option[value='']").attr("disabled", true);

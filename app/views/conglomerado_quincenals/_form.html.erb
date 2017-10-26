@@ -140,22 +140,22 @@
               
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
                     <h4>Porcentaje de alumnos del grupo original que acabaron el curso</h4>
-                    <%= f.text_field :alumnos_acabaron, required: true%>
+                    <%= f.number_field :alumnos_acabaron, min: 0, max: 100, required: true%>
                 </div>
                 
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
                     <h4>Porcentaje de alumnos del grupo original que aprobaron el curso</h4>
-                    <%= f.text_field :alumnos_aprobaron, required: true%>
+                    <%= f.number_field :alumnos_aprobaron, min: 0, max: 100, required: true%>
                 </div>
                 
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
                     <h4>Porcentaje de alumnos del grupo final (sin considerar bajas) que concluyeron el curso</h4>
-                    <%= f.text_field :alumnos_final_concluyeron, required: true%>
+                    <%= f.number_field :alumnos_final_concluyeron, min: 0, max: 100, required: true%>
                 </div>
                 
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 margin-bottom" style="text-align: center;">
                     <h4>Cantidad de horas que el coordinador de tutores considera el tutor debe acreditar</h4>
-                    <%= f.text_field :total_horas_sugerido, required: true%>
+                    <%= f.number_field :total_horas_sugerido, min: 0, max: 90, required: true%>
                 </div>
                 
               <h4>Resumen de observaciones sobre el desempeño del tutor y el seguimiento a sus alumnos</h4>
