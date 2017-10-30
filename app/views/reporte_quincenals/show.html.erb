@@ -30,12 +30,15 @@
                       
                     <div class="col-sm-6">
                         <h4>Comentarios:</h4>
-                        <textarea readonly rows="10" cols="50" style="resize: none;"><%= @reporte_quincenal.comentarios %>
-                        </textarea>
+                        <div contentEditable="false" id="divText" class="scrollDiv">    
+                          <%= @reporte_quincenal.comentarios %>
+
+                        </div>
+                        
                     </div>
                   </div>
 
-                  <div class="row ">
+                  <div class="row " style="padding-top: 50px;">
                     <div class="col-sm-2">
                       <%= link_to 'Atrás', reporte_quincenals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %>
                     </div>

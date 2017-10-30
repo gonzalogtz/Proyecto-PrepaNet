@@ -31,7 +31,7 @@ class ReporteSemanalsController < ApplicationController
 
     respond_to do |format|
       if @reporte_semanal.save
-        format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully created.' }
+        format.html { redirect_to reporte_semanal_url(@reporte_semanal), notice: 'Reporte semanal was successfully created.' }
         format.json { render :show, status: :created, location: @reporte_semanal }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ReporteSemanalsController < ApplicationController
   def update
     respond_to do |format|
       if(@reporte_semanal.update(reporte_semanal_params) && @reporte_semanal.update_attribute(:calificacion_total, get_calif_total(@reporte_semanal)))
-        format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully updated.' }
+        format.html { redirect_to reporte_semanal_url(@reporte_semanal), notice: 'Reporte semanal was successfully updated.' }
         format.json { render :show, status: :ok, location: @reporte_semanal }
       else
         format.html { render :edit }

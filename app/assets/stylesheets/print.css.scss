@@ -4,28 +4,43 @@
   background: #fff;
   }
 
+  #divText {
+    display:inline-block;
+    border: solid 1px #000;
+    min-height:10px;
+    width: 300px;
+	}
+
 
   nav, aside, footer {
   display: none;
   }
  
   section {
-    background: none
+ 
   }
 
   body * {
     visibility: hidden;
-    position: relative;
+  	
   }
+ 
+
+
+
   #printID * {
     visibility: visible;
-    position: relative;
-    align-items: center;
+  	position: relative;
+   
     width: 100%;
     height: 100%;
-    padding-right: 15%;
-   	bottom: 10px;
+    padding-right: 20%;
+   	bottom: 20px;
 
+  }
+
+  #noPrint{
+  	visibility: hidden !important;
   }
   
 
