@@ -86,6 +86,14 @@ class UsuariosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_notificaciones
+		notificaciones = Notificacion.where(usuario: CUENTA).order('created_at desc')
+
+		respond_to do |format|
+		format.js {render :json => notificaciones}
+		end
+	end
 
   private
     # Use callbacks to share common setup or constraints between actions.

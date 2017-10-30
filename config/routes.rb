@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   #Conglomerado
   resources :conglomerado_semanals
   post 'conglomerado_semanals/get_semanales_count', to: 'conglomerado_semanals#get_semanales_count'
+  
+  get 'get_notificaciones', to: 'usuarios#get_notificaciones'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

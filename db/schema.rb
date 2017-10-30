@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(version: 20171022223115) do
     t.string   "alumno"
     t.string   "curso"
   end
+  
+  create_table "notificaciones", force: :cascade do |t|
+    t.string   "usuario"
+    t.string   "mensaje"
+    t.string   "liga"
+    t.datetime "created_at", null: false
+  end
 
   create_table "conglomerado_semanals", force: :cascade do |t|
     t.string   "coordinador_tutores"

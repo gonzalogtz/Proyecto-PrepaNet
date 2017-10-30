@@ -28,9 +28,11 @@ class ReporteSemanalsController < ApplicationController
     @reporte_semanal = ReporteSemanal.new(reporte_semanal_params)
     @reporte_semanal[:calificacion_total] = get_calif_total(@reporte_semanal)
     @reporte_semanal[:coordinador_tutores] = CUENTA
-
+    
     respond_to do |format|
       if @reporte_semanal.save
+        notificacion = Notificacion.new(usuario: @reporte_semanal[:tutor], mensaje: "Tu coordinador de tutores ha creado tu reporte correspondiente a la semana " + @reporte_semanal[:semana].to_s, liga: "/reporte_semanals/" + @reporte_semanal[:id].to_s)
+        notificacion.save
         format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully created.' }
         format.json { render :show, status: :created, location: @reporte_semanal }
       else

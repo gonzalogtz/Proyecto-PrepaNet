@@ -17,9 +17,13 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
+    //activa el popover de notificaciones
+    $('[data-toggle="popover"]').popover();
+    //activa tooltips
+    $('[data-toggle="tooltip"]').tooltip(); 
+
     $(".tutor_header").click(function() {
         var index = $(this).attr('id');
-        console.log(index)
         $(".tutor_content" + index).toggle( "fast", function() {});
     });
     
@@ -158,4 +162,43 @@ $(document).on('turbolinks:load', function() {
         $("#error_credenciales").hide();
         $("#password, #userid").removeClass("error_field");
     });
+    
+    //Carga notificaciones
+    $("#notificaciones").click(function(){
+        $.ajax({
+            type: "GET",
+            url: "get_notificaciones",
+            dataType: "JSON",
+            success: function(result) {
+                var content = "<table id='notif-table'>"
+                
+                jQuery.each(result, function(i, val) {
+                    content += "<tr class='notificacion_row' data-link='" + val["liga"] + "'>"
+                    content += "<td>"
+                    content += "<p class='notificacion_mensaje'>" + val["mensaje"] + "</p>"
+                    var parsed_date = new Date(val["created_at"])
+                    content += "<p class='notificacion_fecha'>" + formato_fecha(parsed_date) + "</p>"
+                    content += "</td>"
+                    content += "</tr>"
+                });
+                
+                $('.popover-content').html(content)
+                content = "</table>"
+            }
+        })
+    });
+    
+    function formato_fecha(fecha){
+        var fecha_formateada = ""
+        fecha_formateada += fecha.getDate()
+        fecha_formateada += "/" + (fecha.getMonth() + 1)
+        fecha_formateada += "/" + fecha.getFullYear()
+        
+        return fecha_formateada
+    }
 })
+
+//hace el 'click' event para las notificaciones que son generadas despues del load
+$(document).on("click", ".notificacion_row", function() {
+    window.location = $(this).data("link")
+});
