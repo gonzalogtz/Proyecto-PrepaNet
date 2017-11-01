@@ -42,7 +42,7 @@ class UsuariosController < ApplicationController
         format.js {render :json => response}
       end
   end
-    
+
   def logout
     set_credentials("", "", "")
   end

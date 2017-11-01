@@ -101,6 +101,25 @@ class ConglomeradoSemanalsController < ApplicationController
   end
 
   private
+    def verify_show_access(conglomerado_semanal)
+      #el reporte lo puede ver el coordinador de tutores
+      if (conglomerado_semanal.coordinador_tutores != CUENTA)
+        
+        #el tutor tambien puede ver los reportes
+        if (conglomerado_semanal.tutor != CUENTA)
+          redirect_to "/"
+        end
+      end
+    end
+    helper_method :verify_show_access
+    
+    def verify_edit_access(conglomerado_semanal)
+      #el reporte lo puede editar el coordinador de tutores
+      if (conglomerado_semanal.coordinador_tutores != CUENTA)
+        redirect_to "/"
+      end
+    end
+    helper_method :verify_edit_access
     # Use callbacks to share common setup or constraints between actions.
     def set_conglomerado_semanal
       @conglomerado_semanal = ConglomeradoSemanal.find(params[:id])

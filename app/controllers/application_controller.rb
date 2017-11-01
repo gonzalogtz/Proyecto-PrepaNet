@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   CUENTA = ""
   ROL = ""
   FORMATO_FECHA = "%-d/%-m/%Y"
+  STR_ROL_TUTOR = "Tutor"
+  STR_ROL_COORDINADOR_TUTOR = "Coordinador de Tutor"
 
     def get_usuario_name_by_id(id)
       usuario = Usuario.where(cuenta: id).first
@@ -18,6 +20,14 @@ class ApplicationController < ActionController::Base
       return alumno.nombres + " " + alumno.apellido_p + " " + alumno.apellido_m
     end
     helper_method :get_alumno_name_by_id
+    
+    def get_coordinador_name_by_coordinado_id(id)
+      relacion_coordinador = UsuarioCoordinaUsuario.where(usuario: id).first
+      coordinador = Usuario.where(cuenta: relacion_coordinador.coordinador).first
+      
+      return coordinador.nombres + " " + coordinador.apellido_p
+    end
+    helper_method :get_coordinador_name_by_coordinado_id
     
     def user_is_logged_in
       if (NOMBRE_USUARIO == "" && !current_page?("/"))

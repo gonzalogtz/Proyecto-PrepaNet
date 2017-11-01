@@ -46,7 +46,7 @@ class ReporteSemanalsController < ApplicationController
   # PATCH/PUT /reporte_semanals/1.json
   def update
     respond_to do |format|
-      if(@reporte_semanal.update(reporte_semanal_params) && @reporte_semanal.update_attribute(:total, get_calif_total(@reporte_semanal)))
+      if(@reporte_semanal.update(reporte_semanal_params) && @reporte_semanal.update_attribute(:calificacion_total, get_calif_total(@reporte_semanal)))
         format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully updated.' }
         format.json { render :show, status: :ok, location: @reporte_semanal }
       else
@@ -75,6 +75,26 @@ class ReporteSemanalsController < ApplicationController
   end
 
   private
+    def verify_show_access(reporte_semanal)
+      #el reporte lo puede ver el coordinador de tutores
+      if (reporte_semanal.coordinador_tutores != CUENTA)
+        
+        #el tutor tambien puede ver los reportes
+        if (reporte_semanal.tutor != CUENTA)
+          redirect_to "/"
+        end
+      end
+    end
+    helper_method :verify_show_access
+    
+    def verify_edit_access(reporte_semanal)
+      #el reporte lo puede editar el coordinador de tutores
+      if (reporte_semanal.coordinador_tutores != CUENTA)
+        redirect_to "/"
+      end
+    end
+    helper_method :verify_edit_access
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_reporte_semanal
       @reporte_semanal = ReporteSemanal.find(params[:id])
@@ -101,8 +121,7 @@ class ReporteSemanalsController < ApplicationController
 
     # Hace la sumatoria de puntos de la rubrica para conseguir una calificacion total
     def get_calif_total(reporte)
-      return reporte.califica_en_plazo + reporte.califica_con_rubrica + reporte.da_retroalimentacion 
-      + reporte.responde_mensajes + reporte.errores_ortografia
+      return reporte.califica_en_plazo + reporte.califica_con_rubrica + reporte.da_retroalimentacion + reporte.responde_mensajes + reporte.errores_ortografia
     end
     helper_method :get_calif_total
     
@@ -126,7 +145,6 @@ class ReporteSemanalsController < ApplicationController
                               <thead>
                                 <tr>
                                   <th class='txtCenter'>Semana</th>
-                                  <th class='txtCenter'>Tutor</th>
                                   <th class='txtCenter'>Calificación</th>
                                 </tr>
                               </thead>
@@ -135,7 +153,6 @@ class ReporteSemanalsController < ApplicationController
         reportes_tutor.each do |reporte|
           html_list += "<tr class='pickHover reporte_row' data-link='reporte_semanals/" + reporte.id.to_s + "'>"
           html_list += "<td>" + reporte.semana.to_s + "</td>"
-          html_list += "<td>" + get_usuario_name_by_id(reporte.tutor) + "</td>"
           html_list += "<td>" + reporte.calificacion_total.to_s + "</td>"
           html_list += "</tr>"
         end

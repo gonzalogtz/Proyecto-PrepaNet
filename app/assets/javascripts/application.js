@@ -150,7 +150,7 @@ $(document).on('turbolinks:load', function() {
     $("#cerrar_sesion").click(function(){
         $.ajax({
             type: "GET",
-            url: "logout",
+            url: "/logout",
             dataType: "JSON",
             success: function(result) {
                 document.location.href = "/"
@@ -167,20 +167,28 @@ $(document).on('turbolinks:load', function() {
     $("#notificaciones").click(function(){
         $.ajax({
             type: "GET",
-            url: "get_notificaciones",
+            url: "/get_notificaciones",
             dataType: "JSON",
             success: function(result) {
                 var content = "<table id='notif-table'>"
-                
-                jQuery.each(result, function(i, val) {
-                    content += "<tr class='notificacion_row' data-link='" + val["liga"] + "'>"
+                if (result.length > 0){
+                    jQuery.each(result, function(i, val) {
+                        content += "<tr class='notificacion_row notificacion_link' data-link='" + val["liga"] + "'>"
+                        content += "<td>"
+                        content += "<p class='notificacion_mensaje'>" + val["mensaje"] + "</p>"
+                        var parsed_date = new Date(val["created_at"])
+                        content += "<p class='notificacion_fecha'>" + formato_fecha(parsed_date) + "</p>"
+                        content += "</td>"
+                        content += "</tr>"
+                    });
+                }
+                else {
+                    content += "<tr class='notificacion_row'>"
                     content += "<td>"
-                    content += "<p class='notificacion_mensaje'>" + val["mensaje"] + "</p>"
-                    var parsed_date = new Date(val["created_at"])
-                    content += "<p class='notificacion_fecha'>" + formato_fecha(parsed_date) + "</p>"
+                    content += "<p class='notificacion_mensaje'>No tienes notificaciones pendientes</p>"
                     content += "</td>"
                     content += "</tr>"
-                });
+                }
                 
                 $('.popover-content').html(content)
                 content = "</table>"
@@ -199,6 +207,6 @@ $(document).on('turbolinks:load', function() {
 })
 
 //hace el 'click' event para las notificaciones que son generadas despues del load
-$(document).on("click", ".notificacion_row", function() {
+$(document).on("click", ".notificacion_link", function() {
     window.location = $(this).data("link")
 });
