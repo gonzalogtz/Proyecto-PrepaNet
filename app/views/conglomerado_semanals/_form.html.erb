@@ -25,10 +25,12 @@
               <center>Evaluación del Tutor</center>
             </div>
             <div class="panel-body">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom" style="text-align: center;">
-                    <h4>Tutor</h4>
-                    <%= f.select :tutor, options_for_select(get_tutores), {prompt: "Selecciona un tutor"}, class:"selectpicker", required: true%>
-                </div>
+                <% if action_name != 'edit'%>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom" style="text-align: center;">
+                        <h4>Tutor</h4>
+                        <%= f.select :tutor, options_for_select(get_tutores), {prompt: "Selecciona un tutor"}, class:"selectpicker", required: true%>
+                    </div>
+                <%end%>
                 
               <h4>¿El tutor invitó a sus alumnos a sus asesorías presenciales?</h4>
               <div class="table-responsive">

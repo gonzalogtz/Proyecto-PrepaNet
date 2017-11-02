@@ -146,9 +146,9 @@ class ConglomeradoSemanalsController < ApplicationController
     helper_method :get_tutores
 
     def get_valor(valor)
-      if valor == "1"
+      if valor == 1
         return "Sí".html_safe
-      else valor == "0"
+      else valor == 0
         return "No".html_safe
       end
     end

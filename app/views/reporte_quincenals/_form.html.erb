@@ -23,13 +23,15 @@
             </div>
             <div class="panel-body">
             
-            <div class="col-sm-12 margin-bottom" style="padding-left: 0px;">
-                <div class="select-label">
-                <h4>Alumno a evaluar:</h4>
-            </div>
-            <div class="select-input">
-                <%= f.select :alumno, options_for_select(get_alumnos), {prompt: "Selecciona un alumno"}, class:"selectpicker", required: true%>
-            </div>
+            <% if action_name != 'edit'%>
+                <div class="col-sm-12 margin-bottom" style="padding-left: 0px;">
+                    <div class="select-label">
+                    <h4>Alumno a evaluar:</h4>
+                </div>
+                <div class="select-input">
+                    <%= f.select :alumno, options_for_select(get_alumnos), {prompt: "Selecciona un alumno"}, class:"selectpicker", required: true%>
+                </div>
+            <%end%>
         </div>
             
                 <h4>1.- Estatus del alumno:</h4>
