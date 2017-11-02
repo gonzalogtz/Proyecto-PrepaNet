@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function() {
         $(".tutor_content" + index).toggle( "fast", function() {});
     });
     
-    $(".reporte_row").click(function() {
+    $(".reporte_row, .boton_reporte_activado").click(function() {
         window.location = $(this).data("link")
     });
     
