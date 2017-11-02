@@ -17,7 +17,7 @@
             <% @conglomerado_semanals.each do |conglomerado_semanal| %>
               <tr class='pickHover reporte_row' data-link='conglomerado_semanals/<%=conglomerado_semanal.id%>'>
                 <td><%=get_usuario_name_by_id(conglomerado_semanal.tutor)%></td>
-                <td><%= conglomerado_semanal.created_at.to_date %></td>
+                <td><%= conglomerado_semanal.created_at.strftime(ApplicationController::FORMATO_FECHA)%></td>
               </tr>
             <% end %>
           </tbody>

@@ -9,6 +9,13 @@ class ReporteSemanalsController < ApplicationController
       @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA)
     elsif ROL == STR_ROL_TUTOR
       @reporte_semanals = ReporteSemanal.where(tutor: CUENTA).order('semana').take(15)
+      
+      calif_arr = []
+      @reporte_semanals.each do |reporte|
+        calif_arr.push(reporte.calificacion_total)
+      end
+      @promedio_actual = calif_arr.sum.fdiv(calif_arr.size).ceil
+      @horas_desempeno_actual = (@promedio_actual*7.5).ceil
       render "index_tutor"
     end
   end

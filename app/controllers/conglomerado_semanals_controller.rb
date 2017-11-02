@@ -39,7 +39,7 @@ class ConglomeradoSemanalsController < ApplicationController
       
     @conglomerado_semanal[:calificaciones_semanales] = calif_arr.to_json()
     @conglomerado_semanal[:promedio] = calif_arr.sum.fdiv(calif_arr.size)
-    @conglomerado_semanal[:horas_desempeno_semanal] =  @conglomerado_semanal[:promedio]*7.5
+    @conglomerado_semanal[:horas_desempeno_semanal] =  (@conglomerado_semanal[:promedio]*7.5).ceil
     @conglomerado_semanal[:horas_reportes] = 15
     @conglomerado_semanal[:total_horas] =  @conglomerado_semanal[:horas_desempeno_semanal] + @conglomerado_semanal[:horas_reportes]
 

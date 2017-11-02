@@ -12,6 +12,7 @@
       <img id="logoPrepa" src="<%= asset_path("logoPrepa.png")%>" />
       <ul class="nav navbar-nav navbar-right">
         <li><a href="perfil.html"><%= ApplicationController::NOMBRE_USUARIO%></a></li>
+        <li><a><%=DateTime.now.strftime(ApplicationController::FORMATO_FECHA)%></a></li>
         <li data-toggle="popover" data-placement="bottom" title="Notificaciones" id='notificaciones' class='nav_icon'><%= image_tag("notification_icon.png") %></li>
         <li id="cerrar_sesion" class='nav_icon' data-toggle="tooltip" title="Cerrar Sesión" data-placement="bottom"><%= image_tag("logout_icon.png") %></li>
       </ul>
