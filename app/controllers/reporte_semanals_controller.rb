@@ -5,7 +5,12 @@ class ReporteSemanalsController < ApplicationController
   # GET /reporte_semanals
   # GET /reporte_semanals.json
   def index
-    @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA)
+    if ROL == STR_ROL_COORDINADOR_TUTOR
+      @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA)
+    elsif ROL == STR_ROL_TUTOR
+      @reporte_semanals = ReporteSemanal.where(tutor: CUENTA).order('semana').take(15)
+      render "index_tutor"
+    end
   end
 
   # GET /reporte_semanals/1

@@ -73,16 +73,18 @@
         <div class="row ">
         
           <div class="col-sm-2">
-            <%= link_to 'Atras', reporte_semanals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %>      
+            <%= link_to 'Atrás', reporte_semanals_path, class:"btn btn-lg btn-primary", id:"btnChico" %>
           </div>
           
-          <div class="col-sm-2">
-            <%= link_to 'Editar', edit_reporte_semanal_path(@reporte_semanal), class:"btn btn-lg btn-warning" ,id:"btnChico" %>
-          </div>
-          
-          <div class="col-sm-2">
-              <%= link_to 'Eliminar', @reporte_semanal, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
-          </div>
+          <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%>
+            <div class="col-sm-2">
+              <%= link_to 'Editar', edit_reporte_semanal_path(@reporte_semanal), class:"btn btn-lg btn-warning", id:"btnChico" %>
+            </div>
+            
+            <div class="col-sm-2">
+                <%= link_to 'Eliminar', @reporte_semanal, method: :delete, data: {confirm: '¿Estás seguro que quieres borrar este reporte? iNo se podrá recuperar!' }, class:"btn btn-lg btn-danger", id:"btnChico" %>
+            </div>
+          <%end%>
         </div>
       </div>
     </div>

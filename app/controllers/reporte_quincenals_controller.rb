@@ -5,7 +5,7 @@ class ReporteQuincenalsController < ApplicationController
   # GET /reporte_quincenals
   # GET /reporte_quincenals.json
   def index
-    @reporte_quincenals = ReporteQuincenal.all.order('fecha_correspondiente desc, alumno')
+    @reporte_quincenals = ReporteQuincenal.where(tutor: CUENTA).order('fecha_correspondiente desc, alumno')
   end
 
   # GET /reporte_quincenals/1

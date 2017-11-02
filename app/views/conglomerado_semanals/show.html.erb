@@ -148,16 +148,18 @@
     
     <div class="row" style="margin-top: 10px;">
       <div class="col-sm-2">
-        <%= link_to 'Atras', conglomerado_semanals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %> 
+        <%= link_to 'Atrás', conglomerado_semanals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %> 
       </div>
       
-      <div class="col-sm-2">
-        <%= link_to 'Editar', edit_conglomerado_semanal_path(@conglomerado_semanal) , class:"btn btn-lg btn-warning" ,id:"btnChico" %>
-      </div>
-      
-      <div class="col-sm-2">
-          <%= link_to 'Eliminar', @conglomerado_semanal, method: :delete, data: { confirm: 'Estás seguro que quieres borrar este reporte? No se podrá recuperar!' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
-      </div>
+      <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%>
+        <div class="col-sm-2">
+          <%= link_to 'Editar', edit_conglomerado_semanal_path(@conglomerado_semanal) , class:"btn btn-lg btn-warning" ,id:"btnChico" %>
+        </div>
+        
+        <div class="col-sm-2">
+            <%= link_to 'Eliminar', @conglomerado_semanal, method: :delete, data: { confirm: '¿Estás seguro que quieres borrar este reporte? iNo se podrá recuperar!' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
+        </div>
+      <%end%>
     </div>
   </div>
 
