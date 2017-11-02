@@ -12,6 +12,11 @@ class UsuariosController < ApplicationController
   def show
   end
 
+  def import
+    Usuario.import(params[:file])
+    redirect_to root_url, notice: "Usuarios importados."
+ end
+
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
