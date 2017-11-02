@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'submit_login', to: 'usuarios#login', as: :submit_login
   get 'logout', to: 'usuarios#logout'
   
+
   resources :usuarios do
     collection { post :import }
   end

@@ -1,4 +1,5 @@
 class Usuario < ApplicationRecord
+<<<<<<< HEAD
     require 'csv'
     def self.import(file)
         CSV.foreach(file.path, headers:true) do |row|
@@ -12,4 +13,6 @@ class Usuario < ApplicationRecord
             end
         end
     end
+=======
+>>>>>>> 49c9dd963a5072acdc75142e62ddb7376178f440
 end

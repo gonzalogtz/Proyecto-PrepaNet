@@ -1,41 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Usuarios</h1>
+<h1>Users</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Cuenta</th>
-      <th>Nomina/Matricula</th>
-      <th>Contrasena</th>
+      <th>Userid</th>
+      <th>Password</th>
       <th>Campus</th>
-      <th>Rol</th>
-      <th>Titulo</th>
-      <th>Nombres</th>
-      <th>Apellido Paterno</th>
-      <th>Apellido Materno</th>
-      <th>Correo</th>
-      <th>Telefono</th>
-      <th>Estatus</th>
+      <th>Role</th>
+      <th>Names</th>
+      <th>Flname</th>
+      <th>Slname</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @usuarios.each do |user| %>
+    <% @users.each do |user| %>
       <tr>
-        <td><%= user.cuenta %></td>
-        <td><%= user.nomina_matricula %></td>
-        <td><%= user.contrasena %></td>
+        <td><%= user.userid %></td>
+        <td><%= user.password %></td>
         <td><%= user.campus %></td>
-        <td><%= user.rol %></td>
-        <td><%= user.titulo %></td>
-        <td><%= user.nombres %></td>
-        <td><%= user.apellido_p %></td>
-        <td><%= user.apellido_m %></td>
-        <td><%= user.correo %></td>
-        <td><%= user.telefono %></td>
-        <td><%= user.estatus %></td>
+        <td><%= user.role %></td>
+        <td><%= user.names %></td>
+        <td><%= user.flname %></td>
+        <td><%= user.slname %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.status %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -43,9 +42,4 @@
 
 <br>
 
-<h2>Importar Usuarios</h2>
-<%= form_tag import_usuarios_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Importar" %>
-<% end %>
-
+<%= link_to 'New User', new_user_path %>
