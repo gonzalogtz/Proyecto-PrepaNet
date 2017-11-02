@@ -2,7 +2,12 @@
 <%= form_for(reporte_semanal) do |f| %>
   
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header">Generar Concentrado de Reportes Semanales</h1>
+<div class="alert alert-danger alert-dismissable">
+  <a class="close alert_close" aria-label="close">&times;</a>
+    <strong>Aviso</strong>
+    El alumno ya tiene un reporte para esa semana
+  </div>
+    <h1 class="page-header">Generar Reporte Semanal</h1>
     <div class="row">
       <div class="row">
         <div id="table-cursos" class="" style="margin-top: 20px;">
@@ -11,12 +16,20 @@
               <center>Evaluación del Tutor</center>
             </div>
             
-            <div class="col-sm-12 margin-bottom margin-top">
+            <div class="col-sm-6 margin-bottom margin-top">
                 <div class="select-label" style="padding-left: 5px;">
                     <h4>Tutor a evaluar:</h4>
                 </div>
                 <div class="select-input">
-                    <%= f.select :tutor, options_for_select(ReporteSemanalsController::TUTORES), class:"selectpicker", required: true%>
+                    <%= f.select :tutor, options_for_select(get_tutores),  {prompt: "Selecciona un tutor"}, class:"selectpicker", required: true%>
+                </div>
+            </div>
+            <div class="col-sm-6 margin-bottom margin-top">
+                <div class="select-label" style="padding-left: 5px;">
+                    <h4>Semana a evaluar:</h4>
+                </div>
+                <div class="select-input">
+                    <%= f.select :semana, options_for_select((1..15)), {prompt: "Selecciona una semana"}, class:"selectpicker", required: true%>
                 </div>
             </div>
   
@@ -46,10 +59,10 @@
                     <td>Se asignarán 3 puntos únicamente si el tutor SIEMPRE califica en el plazo</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :califPlazo, 0, required: true%></td>
-                    <td><%= f.radio_button :califPlazo, 1, required: true%></td>
-                    <td><%= f.radio_button :califPlazo, 2, required: true%></td>
-                    <td><%= f.radio_button :califPlazo, 3, required: true%></td>
+                    <td><%= f.radio_button :califica_en_plazo, 0, required: true%></td>
+                    <td><%= f.radio_button :califica_en_plazo, 1, required: true%></td>
+                    <td><%= f.radio_button :califica_en_plazo, 2, required: true%></td>
+                    <td><%= f.radio_button :califica_en_plazo, 3, required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -74,8 +87,8 @@
                     <td>Se asignará 1 punto únicamente si el tutor SIEMPRE califica con base en la rúbrica y envía al alumno cómo se compone su calificación.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :califRubrica, 0, required: true%></td>
-                    <td><%= f.radio_button :califRubrica, 1, required: true%></td>
+                    <td><%= f.radio_button :califica_con_rubrica, 0, required: true%></td>
+                    <td><%= f.radio_button :califica_con_rubrica, 1, required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -103,9 +116,9 @@
                     <td>Se asignarán 2 puntos únicamente si el tutor SIEMPRE da retroalimentación clara y específica.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :retro, 0, required: true%></td>
-                    <td><%= f.radio_button :retro, 1, required: true%></td>
-                    <td><%= f.radio_button :retro, 2, required: true%></td>
+                    <td><%= f.radio_button :da_retroalimentacion, 0, required: true%></td>
+                    <td><%= f.radio_button :da_retroalimentacion, 1, required: true%></td>
+                    <td><%= f.radio_button :da_retroalimentacion, 2, required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -136,10 +149,10 @@
                     <td>Se asignarán 3 puntos únicamente si el tutor SIEMPRE responde en el plazo.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :responde, 0, required: true%></td>
-                    <td><%= f.radio_button :responde, 1, required: true%></td>
-                    <td><%= f.radio_button :responde, 2, required: true%></td>
-                    <td><%= f.radio_button :responde, 3, required: true%></td>
+                    <td><%= f.radio_button :responde_mensajes, 0, required: true%></td>
+                    <td><%= f.radio_button :responde_mensajes, 1, required: true%></td>
+                    <td><%= f.radio_button :responde_mensajes, 2, required: true%></td>
+                    <td><%= f.radio_button :responde_mensajes, 3, required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -164,8 +177,8 @@
                     <td>Se asignará 1 punto únicamente si el tutor no presenta errores de ortografía.</td>
                   </tr>
                   <tr>
-                    <td><%= f.radio_button :errores, 0, required: true%></td>
-                    <td><%= f.radio_button :errores, 1, required: true%></td>
+                    <td><%= f.radio_button :errores_ortografia, 0, required: true%></td>
+                    <td><%= f.radio_button :errores_ortografia, 1, required: true%></td>
                   </tr>
                 </tbody>
               </table>
@@ -177,8 +190,8 @@
             <div class="row"> 
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                <div class="actions">
-               <%= f.submit "Guardar Reporte", class:"btn btn-primary btn-lg", id:"btnSubmit"  %>
-               <%= link_to 'Back', reporte_semanals_path, class:"btn btn-primary btn-lg btnBack"  %>
+               <%= f.submit "Guardar Reporte", class: "btn btn-primary btn-lg", id: "btnSubmit"  %>
+               <%= link_to "Atrás", reporte_semanals_path, class: "btn btn-primary btn-lg btnBack"  %>
                </div>
               </div>
             </div>

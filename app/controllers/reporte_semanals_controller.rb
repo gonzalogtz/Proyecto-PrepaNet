@@ -1,10 +1,16 @@
 class ReporteSemanalsController < ApplicationController
+	before_action :user_is_logged_in
   before_action :set_reporte_semanal, only: [:show, :edit, :update, :destroy]
 
   # GET /reporte_semanals
   # GET /reporte_semanals.json
   def index
-    @reporte_semanals = ReporteSemanal.all
+    if ROL == STR_ROL_COORDINADOR_TUTOR
+      @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA)
+    elsif ROL == STR_ROL_TUTOR
+      @reporte_semanals = ReporteSemanal.where(tutor: CUENTA).order('semana').take(15)
+      render "index_tutor"
+    end
   end
 
   # GET /reporte_semanals/1
@@ -25,10 +31,13 @@ class ReporteSemanalsController < ApplicationController
   # POST /reporte_semanals.json
   def create
     @reporte_semanal = ReporteSemanal.new(reporte_semanal_params)
-    @reporte_semanal[:total] = get_calif_total(@reporte_semanal)
-
+    @reporte_semanal[:calificacion_total] = get_calif_total(@reporte_semanal)
+    @reporte_semanal[:coordinador_tutores] = CUENTA
+    
     respond_to do |format|
       if @reporte_semanal.save
+        notificacion = Notificacion.new(usuario: @reporte_semanal[:tutor], mensaje: "Tu coordinador de tutores ha creado tu reporte correspondiente a la semana " + @reporte_semanal[:semana].to_s, liga: "/reporte_semanals/" + @reporte_semanal[:id].to_s)
+        notificacion.save
         format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully created.' }
         format.json { render :show, status: :created, location: @reporte_semanal }
       else
@@ -42,7 +51,7 @@ class ReporteSemanalsController < ApplicationController
   # PATCH/PUT /reporte_semanals/1.json
   def update
     respond_to do |format|
-      if(@reporte_semanal.update(reporte_semanal_params) && @reporte_semanal.update_attribute(:total, get_calif_total(@reporte_semanal)))
+      if(@reporte_semanal.update(reporte_semanal_params) && @reporte_semanal.update_attribute(:calificacion_total, get_calif_total(@reporte_semanal)))
         format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully updated.' }
         format.json { render :show, status: :ok, location: @reporte_semanal }
       else
@@ -61,8 +70,36 @@ class ReporteSemanalsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def valida_tutor_semana
+    reportes_semanal = ReporteSemanal.where(tutor: params[:tutor_id], semana: params[:semana], coordinador_tutores: CUENTA)
+
+    respond_to do |format|
+      format.js {render :json => {"semanal_count": reportes_semanal.count}}
+    end
+  end
 
   private
+    def verify_show_access(reporte_semanal)
+      #el reporte lo puede ver el coordinador de tutores
+      if (reporte_semanal.coordinador_tutores != CUENTA)
+        
+        #el tutor tambien puede ver los reportes
+        if (reporte_semanal.tutor != CUENTA)
+          redirect_to "/"
+        end
+      end
+    end
+    helper_method :verify_show_access
+    
+    def verify_edit_access(reporte_semanal)
+      #el reporte lo puede editar el coordinador de tutores
+      if (reporte_semanal.coordinador_tutores != CUENTA)
+        redirect_to "/"
+      end
+    end
+    helper_method :verify_edit_access
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_reporte_semanal
       @reporte_semanal = ReporteSemanal.find(params[:id])
@@ -70,22 +107,37 @@ class ReporteSemanalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reporte_semanal_params
-      params.require(:reporte_semanal).permit(:tutor, :califPlazo, :califRubrica, :retro, :responde, :errores, :comentarios)
+      params.require(:reporte_semanal).permit(:tutor, :semana, :califica_en_plazo, :califica_con_rubrica, :da_retroalimentacion, :responde_mensajes, 
+      :errores_ortografia, :comentarios)
     end
+    
+    def get_tutores
+      lista_tutores = []
+      
+      tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
+      tutores.each do |tutor|
+        nombre_tutor = tutor.nombres + " " + tutor.apellido_p + " " + tutor.apellido_m
+        lista_tutores.push([nombre_tutor, tutor.cuenta])
+      end
+      
+      return lista_tutores
+    end
+    helper_method :get_tutores
 
     # Hace la sumatoria de puntos de la rubrica para conseguir una calificacion total
     def get_calif_total(reporte)
-      return reporte.califPlazo + reporte.califRubrica + reporte.retro + reporte.errores + reporte.responde
+      return reporte.califica_en_plazo + reporte.califica_con_rubrica + reporte.da_retroalimentacion + reporte.responde_mensajes + reporte.errores_ortografia
     end
     helper_method :get_calif_total
     
     def get_reportes_colapsados
-      reportes_semanales = ReporteSemanal.all
+      reportes_semanales = ReporteSemanal.where(coordinador_tutores: CUENTA)
       html_list = ""
       i = 0
       
-      TUTORES.each do |tutor|
-        reportes_tutor = reportes_semanales.where(tutor: tutor[1])
+      tutores = get_tutores
+      tutores.each do |tutor|
+        reportes_tutor = reportes_semanales.where(tutor: tutor[1]).order('semana')
         html_list += "<tr id='" + i.to_s +  "' class='pickHover tutor_header'>
                         <td>" + tutor[0] + "</td>
                         <td>" + reportes_tutor.count.to_s + "/15</td>
@@ -98,20 +150,16 @@ class ReporteSemanalsController < ApplicationController
                               <thead>
                                 <tr>
                                   <th class='txtCenter'>Semana</th>
-                                  <th class='txtCenter'>Tutor</th>
                                   <th class='txtCenter'>Calificación</th>
                                 </tr>
                               </thead>
                               <tbody>"
                               
-        j = 1
         reportes_tutor.each do |reporte|
           html_list += "<tr class='pickHover reporte_row' data-link='reporte_semanals/" + reporte.id.to_s + "'>"
-          html_list += "<td>" + j.to_s + "</td>"
-          html_list += "<td>" + get_usuario_name_by_id(reporte.tutor) + "</td>"
-          html_list += "<td>" + reporte.total.to_s + "</td>"
+          html_list += "<td>" + reporte.semana.to_s + "</td>"
+          html_list += "<td>" + reporte.calificacion_total.to_s + "</td>"
           html_list += "</tr>"
-          j += 1
         end
         
         html_list += "</tbody>
@@ -126,6 +174,4 @@ class ReporteSemanalsController < ApplicationController
       return html_list.html_safe
     end
     helper_method :get_reportes_colapsados
-
-    TUTORES  = [["Gonzalo Gutierrez", 1], ["David Valles", 2], ["Armando Galvan", 3], ["Adriana Montecarlo Ramirez", 4]]
 end

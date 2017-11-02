@@ -9,19 +9,15 @@
         <table class="table table-striped txtCenter">
           <thead>
             <tr>
-              <th class="txtCenter">Materia</th>
               <th class="txtCenter">Tutor</th>
               <th class="txtCenter">Fecha</th>
-              <th class="txtCenter">Reporte Completo</th>
             </tr>
           </thead>
           <tbody>
-            <% @conglomerado_quincenals.each do |conglomerado_quincenal| %>
-              <tr class="pickHover" >
-                <td>Matematicas I</td>
-                <td><%=get_usuario_name_by_id(conglomerado_quincenal.tutor)%></td>
-                <td><%= conglomerado_quincenal.created_at.to_date %></td>
-                <td><%= link_to 'Ver', conglomerado_quincenal %></td>
+            <% @conglomerado_semanals.each do |conglomerado_semanal| %>
+              <tr class='pickHover reporte_row' data-link='conglomerado_semanals/<%=conglomerado_semanal.id%>'>
+                <td><%=get_usuario_name_by_id(conglomerado_semanal.tutor)%></td>
+                <td><%= conglomerado_semanal.created_at.to_date %></td>
               </tr>
             <% end %>
           </tbody>
@@ -29,7 +25,7 @@
       </div>
       <div class="row"> 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <%= link_to "Crear Reporte", new_conglomerado_quincenal_path, class: 'btn btn-primary btn-lg', :id => "btnSubmit"%>
+              <%= link_to "Crear Reporte", new_conglomerado_semanal_path, class: 'btn btn-primary btn-lg', :id => "btnSubmit"%>
             </div>
       </div>
     </div>

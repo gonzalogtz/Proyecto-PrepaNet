@@ -1,0 +1,7 @@
+<%=verify_edit_access(@conglomerado_semanal)%>
+<%= render 'topsidebar/navsidebar' %>
+
+<%= render 'form', conglomerado_semanal: @conglomerado_semanal %>
+
+<%= link_to 'Show', @conglomerado_semanal %> |
+<%= link_to 'Back', conglomerado_semanals_path %>

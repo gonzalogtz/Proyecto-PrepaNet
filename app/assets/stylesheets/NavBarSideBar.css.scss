@@ -112,12 +112,9 @@ body {
   border-radius: 50%;
 }
 #logoPrepa{
-  
   width:150px;
   height:auto;
   margin-top: .8%;
-
-
 }
 
 .navbar-inverse{
@@ -145,3 +142,54 @@ body {
   background-color: #fff;
 }
 
+#cerrar_sesion:hover,
+#notificaciones:hover {
+  cursor: pointer;
+}
+
+.popover {
+  width: 600px;
+  top: 85% !important;
+  //left: 74% !important;
+}
+
+.arrow {
+  //left: 90.7% !important;
+}
+
+.popover-title {
+  background-color: white;
+}
+
+.popover-content {
+  padding: 0px 0px
+}
+
+.notificacion_row {
+  border-bottom: 1pt solid lightgray;
+}
+
+.notificacion_row:hover {
+  background-color: #F6F6F6;
+  cursor: pointer;
+}
+
+.notificacion_row td {
+  padding: 0px 14px;
+}
+
+.notificacion_fecha {
+  float: right;
+}
+
+.notificacion_mensaje {
+  margin-bottom: 2px;
+}
+
+.nav_icon img{
+  width: 25px;
+  height: 25px;
+  margin-top: 13px;
+  margin-right: 15px;
+  margin-left: 15px;
+}

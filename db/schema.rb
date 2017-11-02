@@ -11,78 +11,111 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20171022223115) do
-
-  create_table "alumnos", force: :cascade do |t|
-    t.string   "tutor"
-    t.string   "nombre"
-    t.string   "matricula"
+  
+  create_table "usuarios", force: :cascade do |t|
+    t.string   "cuenta"
+    t.string   "nomina_matricula"
+    t.string   "contrasena"
+    t.string   "campus"
+    t.string   "rol"
+    t.string   "titulo"
+    t.string   "nombres"
+    t.string   "apellido_p"
+    t.string   "apellido_m"
+    t.string   "correo"
+    t.string   "telefono"
+    t.string   "estatus"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "conglomerado_quincenals", force: :cascade do |t|
-    t.string   "materia"
+  
+  create_table "usuario_coordina_usuarios", force: :cascade do |t|
+    t.string   "usuario"
+    t.string   "coordinador"
+  end
+  
+  create_table "alumnos", force: :cascade do |t|
+    t.string   "matricula"
+    t.string   "nombres"
+    t.string   "apellido_p"
+    t.string   "apellido_m"
+    t.string   "telefono"
+    t.string   "correo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+  
+  create_table "materias", force: :cascade do |t|
+    t.string   "clave"
+    t.string   "nombre"
+  end
+  
+  create_table "cursos", force: :cascade do |t|
+    t.string   "clave_materia"
+    t.integer  "grupo"
+  end
+    
+  create_table "alumno_cursa_materias", force: :cascade do |t|
     t.string   "tutor"
-    t.string   "invito"
-    t.string   "rparcial"
-    t.string   "rfinal"
-    t.text     "resumen"
-    t.string   "cierre"
-    t.string   "reingresar"
-    t.string   "recomendacion"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "calificaciones"
+    t.string   "alumno"
+    t.string   "curso"
+  end
+  
+  create_table "notificaciones", force: :cascade do |t|
+    t.string   "usuario"
+    t.string   "mensaje"
+    t.string   "liga"
+    t.datetime "created_at", null: false
+  end
+
+  create_table "conglomerado_semanals", force: :cascade do |t|
+    t.string   "coordinador_tutores"
+    t.string   "tutor"
+    t.integer  "curso"
+    t.integer  "invitacion_asesorias"
+    t.integer  "reporte_parcial"
+    t.integer  "reporte_final"
+    t.integer  "actividad_cierre"
+    t.integer  "recomendacion_reingreso"
+    t.integer  "recomendacion_coordinador"
+    t.text     "comentarios"
+    t.string   "calificaciones_semanales"
     t.integer  "promedio"
-    t.integer  "horas_desemp"
-    t.integer  "alumnos_acabaron"
+    t.integer  "horas_desempeno_semanal"
     t.integer  "horas_reportes"
     t.integer  "total_horas"
     t.integer  "total_horas_sugerido"
-    t.integer  "coordinador_tutores"
-    t.integer  "alumnos_aprobaron"
+    t.integer  "alumnos_original_acabaron"
+    t.integer  "alumnos_original_aprobaron"
     t.integer  "alumnos_final_concluyeron"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "reporte_quincenals", force: :cascade do |t|
-    t.string   "estatus"
-    t.string   "localizado"
-    t.string   "comentarios"
     t.string   "tutor"
     t.string   "alumno"
-    t.datetime "fecha"
+    t.integer  "curso"
+    t.integer  "estatus"
+    t.integer  "localizado"
+    t.text     "comentarios"
+    t.datetime "fecha_correspondiente"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "reporte_semanals", force: :cascade do |t|
+    t.string   "coordinador_tutores"
     t.string   "tutor"
-    t.integer  "califPlazo"
-    t.integer  "califRubrica"
-    t.integer  "retro"
-    t.integer  "responde"
-    t.integer  "errores"
+    t.integer  "semana"
+    t.integer  "califica_en_plazo"
+    t.integer  "califica_con_rubrica"
+    t.integer  "da_retroalimentacion"
+    t.integer  "responde_mensajes"
+    t.integer  "errores_ortografia"
+    t.integer  "calificacion_total"
     t.text     "comentarios"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.integer  "total"
-    t.integer  "semana"
-    t.string   "coordinador_tutores"
   end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "userid"
-    t.string   "password"
-    t.string   "campus"
-    t.string   "role"
-    t.string   "names"
-    t.string   "flname"
-    t.string   "slname"
-    t.string   "email"
-    t.string   "phone"
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end

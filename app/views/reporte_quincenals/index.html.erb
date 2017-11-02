@@ -11,22 +11,20 @@
             <thead>
               <tr>
                 <th class="txtCenter">Matrícula</th>
-                <th class="txtCenter">Nombre</th>
+                <th class="txtCenter">Alumno</th>
                 <th class="txtCenter">Estatus</th>
                 <th class="txtCenter">Localizado</th>
                 <th class="txtCenter">Fecha</th>
-                <th class="txtCenter">Reporte Completo</th>
               </tr>
             </thead>
             <tbody>
               <% @reporte_quincenals.each do |reporte_quincenal| %>
-                <tr class="pickHover">
+                <tr class='pickHover reporte_row' data-link='reporte_quincenals/<%=reporte_quincenal.id%>'>
                   <td><%=reporte_quincenal.alumno%></td>
-                  <td><%=get_usuario_name_by_id(reporte_quincenal.alumno)%></td>
+                  <td><%=get_alumno_name_by_id(reporte_quincenal.alumno)%></td>
                   <%= get_estatus_tag(reporte_quincenal.estatus)%>
                   <%= get_localizado_tag(reporte_quincenal.localizado)%>
-                  <td><%= reporte_quincenal.fecha.to_date%></td>
-                  <td><%= link_to 'Ver', reporte_quincenal %></td>
+                  <td><%= reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA)%></td>
                 </tr>
               <% end %>
             </tbody>
@@ -43,5 +41,4 @@
 </div>
 
 <%#= link_to 'Edit', edit_reporte_quincenal_path(reporte_quincenal) %>
-<%#= link_to 'Destroy', reporte_quincenal, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%#= reporte_quincenal.fecha.strftime('%m-%d-%Y')%>
+<%#= link_to 'Destroy', reporte_quincenal, method: :delete, data: { confirm: 'Estás seguro?' } %>
