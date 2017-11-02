@@ -16,22 +16,24 @@
               <center>Evaluación del Tutor</center>
             </div>
             
-            <div class="col-sm-6 margin-bottom margin-top">
-                <div class="select-label" style="padding-left: 5px;">
-                    <h4>Tutor a evaluar:</h4>
-                </div>
-                <div class="select-input">
-                    <%= f.select :tutor, options_for_select(get_tutores),  {prompt: "Selecciona un tutor"}, class:"selectpicker", required: true%>
-                </div>
-            </div>
-            <div class="col-sm-6 margin-bottom margin-top">
-                <div class="select-label" style="padding-left: 5px;">
-                    <h4>Semana a evaluar:</h4>
-                </div>
-                <div class="select-input">
-                    <%= f.select :semana, options_for_select((1..15)), {prompt: "Selecciona una semana"}, class:"selectpicker", required: true%>
-                </div>
-            </div>
+            <% if action_name != 'edit'%>
+              <div class="col-sm-6 margin-bottom margin-top">
+                  <div class="select-label" style="padding-left: 5px;">
+                      <h4>Tutor a evaluar:</h4>
+                  </div>
+                  <div class="select-input">
+                      <%= f.select :tutor, options_for_select(get_tutores),  {prompt: "Selecciona un tutor"}, class:"selectpicker", required: true%>
+                  </div>
+              </div>
+              <div class="col-sm-6 margin-bottom margin-top">
+                  <div class="select-label" style="padding-left: 5px;">
+                      <h4>Semana a evaluar:</h4>
+                  </div>
+                  <div class="select-input">
+                      <%= f.select :semana, options_for_select((1..15)), {prompt: "Selecciona una semana"}, class:"selectpicker", required: true%>
+                  </div>
+              </div>
+            <%end%>
   
             <div style="padding-left: 20px; padding-right: 20px; padding-bottom: 10px;">
             <h4>1.- Calificar en un plazo no mayor a 48 horas actividades y/o exámenes:</h4>

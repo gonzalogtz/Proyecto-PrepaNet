@@ -39,7 +39,7 @@ class ConglomeradoSemanalsController < ApplicationController
       
     @conglomerado_semanal[:calificaciones_semanales] = calif_arr.to_json()
     @conglomerado_semanal[:promedio] = calif_arr.sum.fdiv(calif_arr.size)
-    @conglomerado_semanal[:horas_desempeno_semanal] =  @conglomerado_semanal[:promedio]*7.5
+    @conglomerado_semanal[:horas_desempeno_semanal] =  (@conglomerado_semanal[:promedio]*7.5).ceil
     @conglomerado_semanal[:horas_reportes] = 15
     @conglomerado_semanal[:total_horas] =  @conglomerado_semanal[:horas_desempeno_semanal] + @conglomerado_semanal[:horas_reportes]
 
@@ -101,6 +101,25 @@ class ConglomeradoSemanalsController < ApplicationController
   end
 
   private
+    def verify_show_access(conglomerado_semanal)
+      #el reporte lo puede ver el coordinador de tutores
+      if (conglomerado_semanal.coordinador_tutores != CUENTA)
+        
+        #el tutor tambien puede ver los reportes
+        if (conglomerado_semanal.tutor != CUENTA)
+          redirect_to "/"
+        end
+      end
+    end
+    helper_method :verify_show_access
+    
+    def verify_edit_access(conglomerado_semanal)
+      #el reporte lo puede editar el coordinador de tutores
+      if (conglomerado_semanal.coordinador_tutores != CUENTA)
+        redirect_to "/"
+      end
+    end
+    helper_method :verify_edit_access
     # Use callbacks to share common setup or constraints between actions.
     def set_conglomerado_semanal
       @conglomerado_semanal = ConglomeradoSemanal.find(params[:id])
@@ -127,9 +146,9 @@ class ConglomeradoSemanalsController < ApplicationController
     helper_method :get_tutores
 
     def get_valor(valor)
-      if valor == "1"
+      if valor == 1
         return "Sí".html_safe
-      else valor == "0"
+      else valor == 0
         return "No".html_safe
       end
     end

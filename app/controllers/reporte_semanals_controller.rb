@@ -5,7 +5,19 @@ class ReporteSemanalsController < ApplicationController
   # GET /reporte_semanals
   # GET /reporte_semanals.json
   def index
-    @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA)
+    if ROL == STR_ROL_COORDINADOR_TUTOR
+      @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA)
+    elsif ROL == STR_ROL_TUTOR
+      @reporte_semanals = ReporteSemanal.where(tutor: CUENTA).order('semana').take(15)
+      
+      calif_arr = []
+      @reporte_semanals.each do |reporte|
+        calif_arr.push(reporte.calificacion_total)
+      end
+      @promedio_actual = calif_arr.sum.fdiv(calif_arr.size).ceil
+      @horas_desempeno_actual = (@promedio_actual*7.5).ceil
+      render "index_tutor"
+    end
   end
 
   # GET /reporte_semanals/1
@@ -28,10 +40,12 @@ class ReporteSemanalsController < ApplicationController
     @reporte_semanal = ReporteSemanal.new(reporte_semanal_params)
     @reporte_semanal[:calificacion_total] = get_calif_total(@reporte_semanal)
     @reporte_semanal[:coordinador_tutores] = CUENTA
-
+    
     respond_to do |format|
       if @reporte_semanal.save
-        format.html { redirect_to reporte_semanal_url(@reporte_semanal), notice: 'Reporte semanal was successfully created.' }
+        notificacion = Notificacion.new(usuario: @reporte_semanal[:tutor], mensaje: "Tu coordinador de tutores ha creado tu reporte correspondiente a la semana " + @reporte_semanal[:semana].to_s, liga: "/reporte_semanals/" + @reporte_semanal[:id].to_s)
+        notificacion.save
+        format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully created.' }
         format.json { render :show, status: :created, location: @reporte_semanal }
       else
         format.html { render :new }
@@ -73,6 +87,26 @@ class ReporteSemanalsController < ApplicationController
   end
 
   private
+    def verify_show_access(reporte_semanal)
+      #el reporte lo puede ver el coordinador de tutores
+      if (reporte_semanal.coordinador_tutores != CUENTA)
+        
+        #el tutor tambien puede ver los reportes
+        if (reporte_semanal.tutor != CUENTA)
+          redirect_to "/"
+        end
+      end
+    end
+    helper_method :verify_show_access
+    
+    def verify_edit_access(reporte_semanal)
+      #el reporte lo puede editar el coordinador de tutores
+      if (reporte_semanal.coordinador_tutores != CUENTA)
+        redirect_to "/"
+      end
+    end
+    helper_method :verify_edit_access
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_reporte_semanal
       @reporte_semanal = ReporteSemanal.find(params[:id])
@@ -123,7 +157,6 @@ class ReporteSemanalsController < ApplicationController
                               <thead>
                                 <tr>
                                   <th class='txtCenter'>Semana</th>
-                                  <th class='txtCenter'>Tutor</th>
                                   <th class='txtCenter'>Calificación</th>
                                 </tr>
                               </thead>
@@ -132,7 +165,6 @@ class ReporteSemanalsController < ApplicationController
         reportes_tutor.each do |reporte|
           html_list += "<tr class='pickHover reporte_row' data-link='reporte_semanals/" + reporte.id.to_s + "'>"
           html_list += "<td>" + reporte.semana.to_s + "</td>"
-          html_list += "<td>" + get_usuario_name_by_id(reporte.tutor) + "</td>"
           html_list += "<td>" + reporte.calificacion_total.to_s + "</td>"
           html_list += "</tr>"
         end

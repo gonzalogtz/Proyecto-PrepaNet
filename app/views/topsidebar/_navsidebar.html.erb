@@ -1,35 +1,34 @@
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <img id="logoPrepa" src="<%= asset_path("logoPrepa.png")%>" />
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="perfil.html"><%= ApplicationController::NOMBRE_USUARIO%></a></li>
-            <li id="cerrar_sesion"><a>Cerrar Sesión</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            
-            <li><h4 style="margin-left: 10px;">Reportes</h4></li>
-            <li><%= link_to 'Reportes Quincenales', reporte_quincenals_path %></li>
-            <li><%= link_to "Evaluación de Desempeño Semanal", reporte_semanals_path %></li>
-            <li><%= link_to 'Concentrados de Reportes Quincenales', conglomerado_semanals_path %></li>
-          </ul>
-          
-        </div>  
-      </div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
-    
+    <div id="navbar" class="navbar-collapse collapse">
+      <img id="logoPrepa" src="<%= asset_path("logoPrepa.png")%>" />
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="perfil.html"><%= ApplicationController::NOMBRE_USUARIO%></a></li>
+        <li><a><%=DateTime.now.strftime(ApplicationController::FORMATO_FECHA)%></a></li>
+        <li data-toggle="popover" data-placement="bottom" title="Notificaciones" id='notificaciones' class='nav_icon'><%= image_tag("notification_icon.png") %></li>
+        <li id="cerrar_sesion" class='nav_icon' data-toggle="tooltip" title="Cerrar Sesión" data-placement="bottom"><%= image_tag("logout_icon.png") %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li><h4 style="margin-left: 10px;">Reportes</h4></li>
+        <% if ApplicationController::ROL == ApplicationController::STR_ROL_TUTOR%><li><%= link_to 'Reportes Quincenales', reporte_quincenals_path %></li><% end %>
+        <% if ApplicationController::ROL == ApplicationController::STR_ROL_TUTOR%><li><%= link_to "Evaluación de Desempeño Semanal", reporte_semanals_path %></li><% end %>
+        <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_TUTOR%><li><%= link_to "Evaluación de Desempeño Semanal", reporte_semanals_path %></li><% end %>
+        <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_TUTOR%><li><%= link_to 'Concentrados de Reportes Quincenales', conglomerado_semanals_path %></li><% end %>
+      </ul>
+    </div>
+  </div>
+</div>

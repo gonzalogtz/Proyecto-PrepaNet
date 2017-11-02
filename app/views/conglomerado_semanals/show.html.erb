@@ -1,4 +1,6 @@
+<%=verify_show_access(@conglomerado_semanal)%>
 <%= render 'topsidebar/navsidebar' %>
+
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 <div id="table-cursos">
   <div class="panel panel-primary">
@@ -143,32 +145,29 @@
         </div>
           
           <h4>Comentarios:</h4>
-          
           <div contentEditable="false" id="divText" class="scrollDiv">    
             <%= @conglomerado_semanal.comentarios %>
-
           </div>
-          </div>
+        </div>
       </div>
         <div class="row" style="padding-bottom: 15px; padding-left: 15px;">
           <div class="col-sm-2">
             <%= link_to 'Atras', conglomerado_semanals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %> 
           </div>
           
-          <div class="col-sm-2">
-            <%= link_to 'Editar', edit_conglomerado_semanal_path(@conglomerado_semanal) , class:"btn btn-lg btn-warning" ,id:"btnChico" %>
-          </div>
+          <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%>
+            <div class="col-sm-2">
+              <%= link_to 'Editar', edit_conglomerado_semanal_path(@conglomerado_semanal) , class:"btn btn-lg btn-warning" ,id:"btnChico" %>
+            </div>
+            <div class="col-sm-2">
+                <%= link_to 'Eliminar', @conglomerado_semanal, method: :delete, data: { confirm: 'Estás seguro que quieres borrar este reporte? No se podrá recuperar!' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
+            </div>
+          <%end%>
           
-          <div class="col-sm-2">
-              <%= link_to 'Eliminar', @conglomerado_semanal, method: :delete, data: { confirm: 'Estás seguro que quieres borrar este reporte? No se podrá recuperar!' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
-          </div>
           <div class="col-sm-2">
               <%= link_to 'Imprimir', @reporte_quincenal, :onclick => 'window.print();', class:"btn btn-lg btn-info",id:"btnChico"%>
           </div>
-          
         </div>
-      
-
   </div>
 </div>
 </div>

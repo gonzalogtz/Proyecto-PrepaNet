@@ -1,11 +1,11 @@
 class ReporteQuincenalsController < ApplicationController
-	before_action :user_is_logged_in
+  before_action :user_is_logged_in
   before_action :set_reporte_quincenal, only: [:show, :edit, :update, :destroy]
 
   # GET /reporte_quincenals
   # GET /reporte_quincenals.json
   def index
-    @reporte_quincenals = ReporteQuincenal.all.order('fecha_correspondiente desc, alumno')
+    @reporte_quincenals = ReporteQuincenal.where(tutor: CUENTA).order('fecha_correspondiente desc, alumno')
   end
 
   # GET /reporte_quincenals/1
@@ -65,6 +65,19 @@ class ReporteQuincenalsController < ApplicationController
   end
 
   private
+    def verify_show_access(reporte_quincenal)
+      #el reporte lo puede ver el tutor
+      if (reporte_quincenal.tutor != CUENTA)
+        coordinador_tutor = UsuarioCoordinaUsuario.where(usuario: reporte_quincenal.tutor).first
+        
+        #el coordinador de tutores tambien puede ver los reportes
+        if (coordinador_tutor.coordinador != CUENTA)
+          redirect_to "/"
+        end
+      end
+    end
+    helper_method :verify_show_access
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_reporte_quincenal
       @reporte_quincenal = ReporteQuincenal.find(params[:id])
