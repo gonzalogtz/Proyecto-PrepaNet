@@ -104,7 +104,7 @@ class ReporteQuincenalsController < ApplicationController
         #last corresponde al reporte mas reciente
         return get_estatus_tag(@reporte_quincenals_alumnos.last[:estatus])
       else
-        return "<span class='no_reportes'>No existen reportes</span>".html_safe
+        return "<span class='no_reportes'>No existe información</span>".html_safe
       end
     end
     helper_method :get_ultimo_estatus
@@ -114,7 +114,7 @@ class ReporteQuincenalsController < ApplicationController
         #last corresponde al reporte mas reciente
         return get_localizado_tag(@reporte_quincenals_alumnos.last[:localizado])
       else
-        return "<span class='no_reportes'>No existen reportes</span>".html_safe
+        return "<span class='no_reportes'>No existe información</span>".html_safe
       end 
     end
     helper_method :get_ultimo_localizado
