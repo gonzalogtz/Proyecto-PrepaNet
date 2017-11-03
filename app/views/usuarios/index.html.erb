@@ -4,12 +4,10 @@
     <div class="panel panel-primary">
 
     <div class="panel-heading">
-        <center><h1>Importar Usuarios</h1></center>
+      <center><h1>Agregar usuarios</h1></center>
     </div>
 
-
-
-<div class="table-responsive" style="display: none;">
+    <div class="table-responsive" style="display: none;">
         <table class="table table-striped txtCenter">
           <thead>
             <tr>
@@ -25,7 +23,6 @@
               <th class="txtCenter">Correo</th>
               <th class="txtCenter">Telefono</th>
               <th class="txtCenter">Estatus</th>
-              
             </tr>
           </thead>
           <tbody>
@@ -43,37 +40,26 @@
                 <td><%= user.correo %></td>
                 <td><%= user.telefono %></td>
                 <td><%= user.estatus %></td>
-                
               </tr>
             <% end %>
           </tbody>
         </table>
       </div>
 
-<div class="row" id="">
-  <div class="col-md-12"> 
-    <div class="col-sm-6" id="singleUser">
-    <%= link_to 'Agregar un Usuario', new_usuario_path %>
-  </div>
-  <div class="col-sm-6" id="multipleUser">
-    <h2>Agregar Multiples Usuarios</h2>
-    <%= form_tag import_usuarios_path, multipart: true do %>
-    <%= file_field_tag :file, class: "inline"  %>
-    <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
- 
-    <% end %>
-  </div>
-    
-  </div>
-  
-  
-</div>
-
-
-
-
-
-
+      <div class="row" id="">
+        <div class="col-md-12"> 
+          <div class="col-sm-6" id="singleUser">
+            <%= link_to 'Agregar un Usuario', new_usuario_path %>
+          </div>
+          <div class="col-sm-6" id="multipleUser">
+            <h2>Agregar Multiples Usuarios</h2>
+            <%= form_tag import_usuarios_path, multipart: true do %>
+              <%= file_field_tag :file, class: "inline"  %>
+              <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

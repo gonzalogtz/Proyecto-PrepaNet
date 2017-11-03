@@ -21,20 +21,42 @@ Usuario.create(cuenta: "T03", nomina_matricula: "A00000003", contrasena: "1", ca
 Usuario.create(cuenta: "T04", nomina_matricula: "A00000004", contrasena: "1", campus: "Monterrey",
                 rol: "Coordinador de Tutor", titulo: "", nombres: "Ana Sofia", apellido_p: "Cantu", apellido_m: "Sanchez",
                 correo: "A00000004@itesm.mx", telefono: "8111111111", estatus: "")
+Usuario.create(cuenta: "T05", nomina_matricula: "A00000005", contrasena: "1", campus: "Monterrey",
+                rol: "Tutor", titulo: "", nombres: "José", apellido_p: "Farías", apellido_m: "Martínez",
+                correo: "A00000005@itesm.mx", telefono: "8111111111", estatus: "")
+Usuario.create(cuenta: "T06", nomina_matricula: "A00000006", contrasena: "1", campus: "Monterrey",
+                rol: "Tutor", titulo: "", nombres: "José Abél", apellido_p: "Quezada", apellido_m: "Martinez",
+                correo: "A00000006@itesm.mx", telefono: "8111111111", estatus: "")
+Usuario.create(cuenta: "T07", nomina_matricula: "A00000007", contrasena: "1", campus: "Monterrey",
+                rol: "Tutor", titulo: "", nombres: "Mauro", apellido_p: "Amarante", apellido_m: "Esparza",
+                correo: "A00000007@itesm.mx", telefono: "8111111111", estatus: "")
+Usuario.create(cuenta: "T08", nomina_matricula: "A00000008", contrasena: "1", campus: "Monterrey",
+                rol: "Coordinador de Tutor", titulo: "", nombres: "Natalia", apellido_p: "Garcia", apellido_m: "Garcia",
+                correo: "A00000008@itesm.mx", telefono: "8111111111", estatus: "")
+Usuario.create(cuenta: "T09", nomina_matricula: "A00000009", contrasena: "1", campus: "Monterrey",
+                rol: "Coordinador Prepanet", titulo: "", nombres: "Ana Maria", apellido_p: "Loreto", apellido_m: "Zúñiga",
+                correo: "A00000009@itesm.mx", telefono: "8111111111", estatus: "")
                 
 UsuarioCoordinaUsuario.create(usuario: "T00", coordinador: "T04")
 UsuarioCoordinaUsuario.create(usuario: "T01", coordinador: "T04")
 UsuarioCoordinaUsuario.create(usuario: "T02", coordinador: "T04")
 UsuarioCoordinaUsuario.create(usuario: "T03", coordinador: "T04")
+UsuarioCoordinaUsuario.create(usuario: "T05", coordinador: "T08")
+UsuarioCoordinaUsuario.create(usuario: "T06", coordinador: "T08")
+UsuarioCoordinaUsuario.create(usuario: "T07", coordinador: "T08")
                 
 Alumno.create(matricula: "A0000004", nombres: "Paloma", apellido_p: "Martinez", apellido_m: "Osuna", 
                 telefono: "8111111111", correo: "A0000004@itesm.mx")
-Alumno.create(matricula: "A0000005", nombres: "Diana", apellido_p: "Elizalde", apellido_m: "Martinez", 
+Alumno.create(matricula: "A0000005", nombres: "Diana Maria", apellido_p: "Elizalde", apellido_m: "Vilarreal", 
                 telefono: "8111111111", correo: "A0000005@itesm.mx")
 Alumno.create(matricula: "A0000006", nombres: "Lizette", apellido_p: "Guajardo", apellido_m: "Elizondo", 
                 telefono: "8111111111", correo: "A0000006@itesm.mx")
 Alumno.create(matricula: "A0000007", nombres: "Gerardo", apellido_p: "Guajardo", apellido_m: "Elizondo", 
                 telefono: "8111111111", correo: "A0000007@itesm.mx")
+Alumno.create(matricula: "A0000008", nombres: "Gabriel", apellido_p: "Gomez", apellido_m: "Hoyt", 
+                telefono: "8111111111", correo: "A0000008@itesm.mx")
+Alumno.create(matricula: "A0000009", nombres: "Marcelo", apellido_p: "Lozano", apellido_m: "Madrigal", 
+                telefono: "8111111111", correo: "A0000009@itesm.mx")
                 
 Materia.create(clave: "M00", nombre: "Matematicas I")
 Materia.create(clave: "M01", nombre: "Fisica I")
@@ -50,3 +72,5 @@ AlumnoCursaMateria.create(tutor: "T00", alumno: "A0000004", curso: "M00")
 AlumnoCursaMateria.create(tutor: "T00", alumno: "A0000005", curso: "M00")
 AlumnoCursaMateria.create(tutor: "T00", alumno: "A0000006", curso: "M00")
 AlumnoCursaMateria.create(tutor: "T00", alumno: "A0000007", curso: "M00")
+AlumnoCursaMateria.create(tutor: "T01", alumno: "A0000008", curso: "M00")
+AlumnoCursaMateria.create(tutor: "T01", alumno: "A0000009", curso: "M00")

@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   FORMATO_FECHA = "%-d/%-m/%Y"
   STR_ROL_TUTOR = "Tutor"
   STR_ROL_COORDINADOR_TUTOR = "Coordinador de Tutor"
+  STR_ROL_COORDINADOR_PREPANET = "Coordinador Prepanet"
 
     def get_usuario_name_by_id(id)
       usuario = Usuario.where(cuenta: id).first

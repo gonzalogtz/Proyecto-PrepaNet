@@ -1,0 +1,28 @@
+<%= render 'topsidebar/navsidebar' %>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="panel-heading">
+      <h1 class="page-header">Reportes Quincenales</h1>
+    </div>
+    
+    <% @tutores.each do |tutor| %>
+        <h3 class="tutor_reportes_header">Tutor: <%=tutor.nombres%> <%=tutor.apellido_p%> <%=tutor.apellido_m%></h3>
+        <% get_alumnos_by_tutor(tutor.cuenta).each do |alumno| %>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="tarjeta alumno_tarjeta">
+                <div class='tarjeta_nombre'><%=alumno.nombres%></div>
+                <div class='tarjeta_apellidos'><%=alumno.apellido_p%> <%=alumno.apellido_m%></div>
+                <div class='tarjeta_matricula'><%=alumno.matricula%></div>
+                <%get_reporte_quincenals_by_alumno(tutor.cuenta, alumno.alumno)%>
+                <div class='info_alumno'><span>Estatus más reciente: </span><%=get_ultimo_estatus%></div>
+                <div class='info_alumno'><span>Localizado recientemente: </span><%=get_ultimo_localizado%></div>
+                <div class='contenedor_boton_reportes'>
+                    <div class='contenedor_boton_reportes_header'>Reportes</div>
+                    <%=get_reporte_quincenals_buttons%>
+                </div>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+    
+  </div>
+</div>

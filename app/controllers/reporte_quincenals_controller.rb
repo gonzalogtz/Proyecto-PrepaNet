@@ -5,7 +5,12 @@ class ReporteQuincenalsController < ApplicationController
   # GET /reporte_quincenals
   # GET /reporte_quincenals.json
   def index
-    @alumnos = AlumnoCursaMateria.select("*").where(tutor: CUENTA).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula")
+    if ROL == STR_ROL_TUTOR
+      @alumnos = AlumnoCursaMateria.select("*").where(tutor: CUENTA).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula")
+    elsif ROL == STR_ROL_COORDINADOR_TUTOR
+      @tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
+      render "index_coordinador_tutor"
+    end
   end
 
   # GET /reporte_quincenals/1
@@ -78,8 +83,8 @@ class ReporteQuincenalsController < ApplicationController
     end
     helper_method :verify_show_access
     
-    def get_reporte_quincenals_by_alumno(alumno_id)
-      @reporte_quincenals_alumnos = ReporteQuincenal.where(tutor: CUENTA, alumno: alumno_id).order('fecha_correspondiente')
+    def get_reporte_quincenals_by_alumno(tutor_id = CUENTA, alumno_id)
+      @reporte_quincenals_alumnos = ReporteQuincenal.where(tutor: tutor_id, alumno: alumno_id).order('fecha_correspondiente')
     end
     helper_method :get_reporte_quincenals_by_alumno
     
@@ -141,6 +146,12 @@ class ReporteQuincenalsController < ApplicationController
       return lista_alumnos
     end
     helper_method :get_alumnos
+    
+    def get_alumnos_by_tutor(tutor_id)
+      alumnos = AlumnoCursaMateria.select("*").where(tutor: tutor_id).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula").order('alumnos.matricula')
+      return alumnos
+    end
+    helper_method :get_alumnos_by_tutor
     
     def get_estatus_tag(estatus)
       if estatus == 0

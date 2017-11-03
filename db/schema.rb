@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20171022223115) do
     t.string   "usuario"
     t.string   "mensaje"
     t.string   "liga"
+    t.integer  "leida"
     t.datetime "created_at", null: false
   end
 
