@@ -1,29 +1,30 @@
 <%= render 'topsidebar/navsidebar' %>
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <div class="panel-heading">
-    <h1 class="page-header">Reportes Semanales</h1>
+      <h1 class="page-header">Reportes Semanales</h1>
     </div>
+    
     <% @tutores.each do |tutor| %>
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        <div class="tutor_tarjeta">
-          <div class='tutor_tarjeta_nombre'><%=tutor.nombres%></div>
-          <div class='tutor_tarjeta_apellidos'><%=tutor.apellido_p%> <%=tutor.apellido_m%></div>
+        <div class="tarjeta tutor_tarjeta">
+          <div class='tarjeta_nombre'><%=tutor.nombres%></div>
+          <div class='tarjeta_apellidos'><%=tutor.apellido_p%> <%=tutor.apellido_m%></div>
+          <div class='tarjeta_matricula'><%=tutor.cuenta%></div>
           <%get_reporte_semanals_by_tutor(tutor.usuario)%>
           <div class='contenedor_boton_reportes'>
-          <div class='contenedor_boton_reportes_header'>Reportes</div>
-            <% (1..15).each do |i| %>
-              <%=get_reporte_semanals_by_semana(i)%>
-            <% end %>
-          </div>
+            <div class='contenedor_boton_reportes_header'>Reportes</div>
+              <% (1..15).each do |i| %>
+                <%=get_reporte_semanals_by_semana(i)%>
+              <% end %>
+            </div>
         </div>
       </div>
     <% end %>
     
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <%= link_to "Crear Reporte", new_reporte_semanal_path, class: 'btn btn-primary btn-lg', :id => "btnSubmit"%>
+        <%= link_to "Crear Reporte", new_reporte_semanal_path, class: 'btn btn-primary btn-lg', :id => "btnSubmitTarjetas"%>
       </div>
     </div>
   </div>
 </div>
-

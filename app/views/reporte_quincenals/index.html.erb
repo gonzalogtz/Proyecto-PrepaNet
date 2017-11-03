@@ -1,44 +1,30 @@
 <%= render 'topsidebar/navsidebar' %>
-<div class="row">
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <div id="table-cursos">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <center><h3>Reportes Quincenales</h3></center>
-        </div>
-        <div class="table-responsive">
-          <table class="table table-striped txtCenter">
-            <thead>
-              <tr>
-                <th class="txtCenter">Matrícula</th>
-                <th class="txtCenter">Alumno</th>
-                <th class="txtCenter">Estatus</th>
-                <th class="txtCenter">Localizado</th>
-                <th class="txtCenter">Fecha</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @reporte_quincenals.each do |reporte_quincenal| %>
-                <tr class='pickHover reporte_row' data-link='reporte_quincenals/<%=reporte_quincenal.id%>'>
-                  <td><%=reporte_quincenal.alumno%></td>
-                  <td><%=get_alumno_name_by_id(reporte_quincenal.alumno)%></td>
-                  <%= get_estatus_tag(reporte_quincenal.estatus)%>
-                  <%= get_localizado_tag(reporte_quincenal.localizado)%>
-                  <td><%= reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA)%></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-        <div class="row"> 
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <%= link_to "Crear Reporte", new_reporte_quincenal_path, class: 'btn btn-primary btn-lg btnSubmit'%>
+    <div class="panel-heading">
+      <h1 class="page-header">Reportes Quincenales</h1>
+    </div>
+    
+    <% @alumnos.each do |alumno| %>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="tarjeta alumno_tarjeta">
+          <div class='tarjeta_nombre'><%=alumno.nombres%></div>
+          <div class='tarjeta_apellidos'><%=alumno.apellido_p%> <%=alumno.apellido_m%></div>
+          <div class='tarjeta_matricula'><%=alumno.matricula%></div>
+          <%get_reporte_quincenals_by_alumno(alumno.alumno)%>
+          <div class='info_alumno'><span>Estatus más reciente: </span><%=get_ultimo_estatus%></div>
+          <div class='info_alumno'><span>Localizado recientemente: </span><%=get_ultimo_localizado%></div>
+          <div class='contenedor_boton_reportes'>
+            <div class='contenedor_boton_reportes_header'>Reportes</div>
+              <%=get_reporte_quincenals_buttons%>
           </div>
         </div>
+      </div>
+    <% end %>
+        
+    <div class="row"> 
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <%= link_to "Crear Reporte", new_reporte_quincenal_path, class: 'btn btn-primary btn-lg', :id => "btnSubmitTarjetas"%>
       </div>
     </div>
   </div>
 </div>
-
-<%#= link_to 'Edit', edit_reporte_quincenal_path(reporte_quincenal) %>
-<%#= link_to 'Destroy', reporte_quincenal, method: :delete, data: { confirm: 'Estás seguro?' } %>

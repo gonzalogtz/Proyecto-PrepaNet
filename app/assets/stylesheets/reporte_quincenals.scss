@@ -16,12 +16,8 @@
 	text-align: center;
 }
 
-.pls{
-	text-align: center !important;
-}
-
 .txtArea {	
-    height: 150px;
+	height: 150px;
 	width: 100%;
 	resize: none;
 }
@@ -38,6 +34,10 @@
 	color: green;
 }
 
+.no_reportes {
+	color: gray;
+}
+
 .titulo {
 	font-size: 30px;
 }
@@ -50,4 +50,10 @@
 .select-input {
 	float: left;
 	margin: auto;
+}
+
+.info_alumno {
+	font-size: 15px;
+	margin-left: 4px;
+	margin-top: 20px;
 }
