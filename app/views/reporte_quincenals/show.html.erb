@@ -9,7 +9,7 @@
               </div>
               <div class="panel-body">
                 <div class="">
-                  <div class="row">
+                  <div class="row" id="printID">
                       <center><h3><%=get_alumno_name_by_id(@reporte_quincenal.alumno)%></h3></center>
                       <center><h4 style="font-weight: normal"><%=@reporte_quincenal.alumno%></h4></center>
                       <center><h4 style="font-weight: normal"><%=@reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA) %></h4></center>
@@ -31,12 +31,15 @@
                       
                     <div class="col-sm-6">
                         <h4>Comentarios:</h4>
-                        <textarea readonly rows="10" cols="50" style="resize: none;"><%= @reporte_quincenal.comentarios %>
-                        </textarea>
+                        <div contentEditable="false" id="divText" class="scrollDiv">    
+                          <%= @reporte_quincenal.comentarios %>
+
+                        </div>
+                        
                     </div>
                   </div>
 
-                  <div class="row ">
+                  <div class="row " style="padding-top: 50px;">
                     <div class="col-sm-2">
                       <%= link_to 'Atrás', reporte_quincenals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %>
                     </div>
@@ -47,6 +50,10 @@
                     
                     <div class="col-sm-2">
                         <%= link_to 'Eliminar', @reporte_quincenal, method: :delete, data: { confirm: '¿Estás seguro que quieres borrar este reporte? iNo se podrá recuperar!' }, class:"btn btn-lg btn-danger", id:"btnChico" %>
+                    </div>
+                    
+                    <div class="col-sm-2">
+                      <%= link_to 'Imprimir', @reporte_quincenal, :onclick => 'window.print();', class:"btn btn-lg btn-info",id:"btnChico"%>
                     </div>
                   </div>
                 </div>

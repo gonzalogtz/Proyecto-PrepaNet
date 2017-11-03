@@ -45,7 +45,7 @@ class ConglomeradoSemanalsController < ApplicationController
 
     respond_to do |format|
       if @conglomerado_semanal.save
-        format.html { redirect_to conglomerado_semanals_path, notice: 'Conglomerado quincenal was successfully created.' }
+        format.html { redirect_to conglomerado_semanal_url(@conglomerado_semanal), notice: 'Conglomerado quincenal was successfully created.' }
         format.json { render :show, status: :created, location: @conglomerado_semanal }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class ConglomeradoSemanalsController < ApplicationController
   def update
     respond_to do |format|
       if @conglomerado_semanal.update(conglomerado_semanal_params)
-        format.html { redirect_to conglomerado_semanals_path, notice: 'Conglomerado quincenal was successfully updated.' }
+        format.html { redirect_to conglomerado_semanal_url(@conglomerado_semanal), notice: 'Conglomerado quincenal was successfully updated.' }
         format.json { render :show, status: :ok, location: @conglomerado_semanal }
       else
         format.html { render :edit }

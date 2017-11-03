@@ -1,0 +1,29 @@
+@media print {
+  #divText {
+    display:inline-block;
+    border: solid 1px #000;
+    min-height:10px;
+    width: 300px;
+  }
+
+  nav, aside, footer {
+    display: none;
+  }
+  
+
+  body * {
+    visibility: hidden;
+  }
+
+  #printID * {
+    visibility: visible;
+    position: relative; 
+    top: -10px; 
+    left: -35px;
+  }
+
+  #noPrint{
+    visibility: hidden !important;
+  }
+}
+

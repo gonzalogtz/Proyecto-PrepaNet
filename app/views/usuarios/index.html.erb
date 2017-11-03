@@ -1,57 +1,79 @@
-<p id="notice"><%= notice %></p>
+<%= render 'topsidebar/navsidebar' %>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <div id="table-cursos">
+    <div class="panel panel-primary">
 
-<h1>Users</h1>
+    <div class="panel-heading">
+        <center><h1>Importar Usuarios</h1></center>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Cuenta</th>
-      <th>Nomina/Matricula</th>
-      <th>Contrasena</th>
-      <th>Campus</th>
-      <th>Rol</th>
-      <th>Titulo</th>
-      <th>Nombres</th>
-      <th>Apellido Paterno</th>
-      <th>Apellido Materno</th>
-      <th>Correo</th>
-      <th>Telefono</th>
-      <th>Estatus</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @usuarios.each do |user| %>
-      <tr>
-        <td><%= user.cuenta %></td>
-        <td><%= user.nomina_matricula %></td>
-        <td><%= user.contrasena %></td>
-        <td><%= user.campus %></td>
-        <td><%= user.rol %></td>
-        <td><%= user.titulo %></td>
-        <td><%= user.nombres %></td>
-        <td><%= user.apellido_p %></td>
-        <td><%= user.apellido_m %></td>
-        <td><%= user.correo %></td>
-        <td><%= user.telefono %></td>
-        <td><%= user.estatus %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+<div class="table-responsive" style="display: none;">
+        <table class="table table-striped txtCenter">
+          <thead>
+            <tr>
+              <th class="txtCenter">Cuenta</th>
+              <th class="txtCenter">Nomina/Matricula</th>
+              <th class="txtCenter">Contrasena</th>
+              <th class="txtCenter">Campus</th>
+              <th class="txtCenter">Rol</th>
+              <th class="txtCenter">Titulo</th>
+              <th class="txtCenter">Nombres</th>
+              <th class="txtCenter">Apellido Paterno</th>
+              <th class="txtCenter">Apellido Materno</th>
+              <th class="txtCenter">Correo</th>
+              <th class="txtCenter">Telefono</th>
+              <th class="txtCenter">Estatus</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <% @usuarios.each do |user| %>
+              <tr>
+                <td><%= user.cuenta %></td>
+                <td><%= user.nomina_matricula %></td>
+                <td><%= user.contrasena %></td>
+                <td><%= user.campus %></td>
+                <td><%= user.rol %></td>
+                <td><%= user.titulo %></td>
+                <td><%= user.nombres %></td>
+                <td><%= user.apellido_p %></td>
+                <td><%= user.apellido_m %></td>
+                <td><%= user.correo %></td>
+                <td><%= user.telefono %></td>
+                <td><%= user.estatus %></td>
+                
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+<div class="row" id="">
+  <div class="col-md-12"> 
+    <div class="col-sm-6" id="singleUser">
+    <%= link_to 'Agregar un Usuario', new_usuario_path %>
+  </div>
+  <div class="col-sm-6" id="multipleUser">
+    <h2>Agregar Multiples Usuarios</h2>
+    <%= form_tag import_usuarios_path, multipart: true do %>
+    <%= file_field_tag :file, class: "inline"  %>
+    <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
+ 
     <% end %>
-  </tbody>
-</table>
+  </div>
+    
+  </div>
+  
+  
+</div>
 
-<br>
 
-<%= link_to 'New User', new_usuario_path %>
 
-<br>
 
-<h2>Importar Usuarios</h2>
-<%= form_tag import_usuarios_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Importar" %>
-<% end %>
+
+
+    </div>
+  </div>
+</div>
