@@ -24,10 +24,10 @@
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
         <li><h4 style="margin-left: 10px;">Reportes</h4></li>
-        <% if ApplicationController::ROL == ApplicationController::STR_ROL_TUTOR%><li><%= link_to 'Reportes Quincenales', reporte_quincenals_path %></li><% end %>
-        <% if ApplicationController::ROL == ApplicationController::STR_ROL_TUTOR%><li><%= link_to "Evaluación de Desempeño Semanal", reporte_semanals_path %></li><% end %>
-        <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_TUTOR%><li><%= link_to "Evaluación de Desempeño Semanal", reporte_semanals_path %></li><% end %>
-        <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_TUTOR%><li><%= link_to 'Concentrados de Reportes Quincenales', conglomerado_semanals_path %></li><% end %>
+        <% if ApplicationController::ROL == ApplicationController::STR_ROL_TUTOR%><li><%= link_to 'Reportes quincenales', reporte_quincenals_path %></li><% end %>
+        <% if ApplicationController::ROL == ApplicationController::STR_ROL_TUTOR%><li><%= link_to "Mi desempeño semanal", reporte_semanals_path %></li><% end %>
+        <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_TUTOR%><li><%= link_to "Reportes semanales", reporte_semanals_path %></li><% end %>
+        <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_TUTOR%><li><%= link_to 'Concentrados de reportes semanales', conglomerado_semanals_path %></li><% end %>
       </ul>
     </div>
   </div>

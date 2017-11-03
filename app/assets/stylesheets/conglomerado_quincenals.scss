@@ -11,15 +11,11 @@
 	margin-top: 50px;
 	color: white;
 }
-#btnSubmit{
-	width: 100%; 
-	margin-top: 50px;
-	color: white;
-}
+
 .pickHover:hover { 
-    background-color: #acc5e5 !important ;
-    color: white;
-    cursor: pointer;
+	background-color: #acc5e5 !important ;
+	color: white;
+	cursor: pointer;
 }
 
 #txtArea{
@@ -42,17 +38,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 }
-textarea {	
+textarea {
 	width: 100%;
 }
 
 .alert {
 	display: none;
 }
-
-
-
-
-

@@ -5,7 +5,7 @@ class ReporteQuincenalsController < ApplicationController
   # GET /reporte_quincenals
   # GET /reporte_quincenals.json
   def index
-    @reporte_quincenals = ReporteQuincenal.where(tutor: CUENTA).order('fecha_correspondiente desc, alumno')
+    @alumnos = AlumnoCursaMateria.select("*").where(tutor: CUENTA).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula")
   end
 
   # GET /reporte_quincenals/1
@@ -78,6 +78,47 @@ class ReporteQuincenalsController < ApplicationController
     end
     helper_method :verify_show_access
     
+    def get_reporte_quincenals_by_alumno(alumno_id)
+      @reporte_quincenals_alumnos = ReporteQuincenal.where(tutor: CUENTA, alumno: alumno_id).order('fecha_correspondiente')
+    end
+    helper_method :get_reporte_quincenals_by_alumno
+    
+    def get_reporte_quincenals_buttons
+      html = ""
+      
+      if @reporte_quincenals_alumnos.present?
+        @reporte_quincenals_alumnos.each do |reporte|
+          html += "<div class='boton_reporte boton_reporte_activado' data-link='reporte_quincenals/" + reporte.id.to_s + "' 
+          data-toggle='tooltip' title='" + reporte.fecha_correspondiente.strftime(ApplicationController::FORMATO_FECHA) + "' data-placement='bottom'></div>"
+        end
+      else
+        html += "<div class='no_reportes footer_no_reportes'>No se tienen reportes para este alumno</div>"
+      end
+      
+      return html.html_safe
+    end
+    helper_method :get_reporte_quincenals_buttons
+    
+    def get_ultimo_estatus
+      if @reporte_quincenals_alumnos.present?
+        #last corresponde al reporte mas reciente
+        return get_estatus_tag(@reporte_quincenals_alumnos.last[:estatus])
+      else
+        return "<span class='no_reportes'>No existe información</span>".html_safe
+      end
+    end
+    helper_method :get_ultimo_estatus
+    
+    def get_ultimo_localizado
+      if @reporte_quincenals_alumnos.present?
+        #last corresponde al reporte mas reciente
+        return get_localizado_tag(@reporte_quincenals_alumnos.last[:localizado])
+      else
+        return "<span class='no_reportes'>No existe información</span>".html_safe
+      end 
+    end
+    helper_method :get_ultimo_localizado
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_reporte_quincenal
       @reporte_quincenal = ReporteQuincenal.find(params[:id])
@@ -103,20 +144,20 @@ class ReporteQuincenalsController < ApplicationController
     
     def get_estatus_tag(estatus)
       if estatus == 0
-        return "<td class='texto_negativo'>Inactivo</td>".html_safe
+        return "<span class='texto_negativo'>Inactivo</span>".html_safe
       elsif estatus == 1
-        return "<td class='texto_amarillo'>Parcialmente activo</td>".html_safe
+        return "<span class='texto_amarillo'>Parcialmente activo</span>".html_safe
       elsif estatus == 2
-        return "<td class='texto_positivo'>Activo</td>".html_safe
+        return "<span class='texto_positivo'>Activo</span>".html_safe
       end
     end
     helper_method :get_estatus_tag
     
     def get_localizado_tag(localizado)
       if localizado == 0
-        return "<td class='texto_negativo'>No</td>".html_safe
+        return "<span class='texto_negativo'>No</span>".html_safe
       elsif localizado == 1
-        return "<td class='texto_positivo'>Sí</td>".html_safe
+        return "<span class='texto_positivo'>Sí</span>".html_safe
       end
     end
     helper_method :get_localizado_tag

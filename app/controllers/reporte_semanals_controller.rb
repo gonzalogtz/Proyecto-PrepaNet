@@ -7,6 +7,7 @@ class ReporteSemanalsController < ApplicationController
   def index
     if ROL == STR_ROL_COORDINADOR_TUTOR
       @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA)
+      @tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
     elsif ROL == STR_ROL_TUTOR
       @reporte_semanals = ReporteSemanal.where(tutor: CUENTA).order('semana').take(15)
       
@@ -107,6 +108,26 @@ class ReporteSemanalsController < ApplicationController
     end
     helper_method :verify_edit_access
     
+    def get_reporte_semanals_by_tutor(tutor_id)
+      @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA, tutor: tutor_id)
+    end
+    helper_method :get_reporte_semanals_by_tutor
+    
+    def get_reporte_semanals_by_semana(num_semana)
+      @reporte_semanal = @reporte_semanals.where(semana: num_semana).first
+      
+      html = ""
+      if !@reporte_semanal
+        html = "<div class='boton_reporte'>" + num_semana.to_s + "</div>"
+      else
+        html = "<div class='boton_reporte boton_reporte_activado' data-link='reporte_semanals/" + @reporte_semanal.id.to_s + "' 
+        data-toggle='tooltip' title='" + @reporte_semanal.calificacion_total.to_s + "/10' data-placement='bottom'>" + num_semana.to_s + "</div>"
+      end
+      
+      return html.html_safe
+    end
+    helper_method :get_reporte_semanals_by_semana
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_reporte_semanal
       @reporte_semanal = ReporteSemanal.find(params[:id])
@@ -136,49 +157,4 @@ class ReporteSemanalsController < ApplicationController
       return reporte.califica_en_plazo + reporte.califica_con_rubrica + reporte.da_retroalimentacion + reporte.responde_mensajes + reporte.errores_ortografia
     end
     helper_method :get_calif_total
-    
-    def get_reportes_colapsados
-      reportes_semanales = ReporteSemanal.where(coordinador_tutores: CUENTA)
-      html_list = ""
-      i = 0
-      
-      tutores = get_tutores
-      tutores.each do |tutor|
-        reportes_tutor = reportes_semanales.where(tutor: tutor[1]).order('semana')
-        html_list += "<tr id='" + i.to_s +  "' class='pickHover tutor_header'>
-                        <td>" + tutor[0] + "</td>
-                        <td>" + reportes_tutor.count.to_s + "/15</td>
-                      </tr>"
-                      
-        html_list += "<tr class='tutor_content" + i.to_s + "' style='display: none;'>
-                        <td colspan='2'>
-                          <div class='table-resposive'>
-                            <table class='table table-striped txtCenter'>
-                              <thead>
-                                <tr>
-                                  <th class='txtCenter'>Semana</th>
-                                  <th class='txtCenter'>Calificación</th>
-                                </tr>
-                              </thead>
-                              <tbody>"
-                              
-        reportes_tutor.each do |reporte|
-          html_list += "<tr class='pickHover reporte_row' data-link='reporte_semanals/" + reporte.id.to_s + "'>"
-          html_list += "<td>" + reporte.semana.to_s + "</td>"
-          html_list += "<td>" + reporte.calificacion_total.to_s + "</td>"
-          html_list += "</tr>"
-        end
-        
-        html_list += "</tbody>
-                      </table>
-                      </div>
-                      </td>
-                      </tr>"
-        
-        i += 1
-      end
-      
-      return html_list.html_safe
-    end
-    helper_method :get_reportes_colapsados
 end
