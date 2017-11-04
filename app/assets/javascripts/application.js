@@ -139,7 +139,7 @@ $(document).on('turbolinks:load', function() {
                     }
                     //credenciales correctas
                     else {
-                        document.location.href = "/conglomerado_semanals"
+                        document.location.href = "/mainmenu"
                     }
                 }
             })
@@ -165,6 +165,10 @@ $(document).on('turbolinks:load', function() {
     
     //Carga notificaciones
     $("#notificaciones").click(function(){
+        load_notifications()
+    });
+    
+    function load_notifications(){
         $.ajax({
             type: "GET",
             url: "/get_notificaciones",
@@ -172,6 +176,7 @@ $(document).on('turbolinks:load', function() {
             success: function(result) {
                 var content = "<table id='notif-table'>"
                 if (result.length > 0){
+                    $("#notif_icon").attr("src", "/new_notification_icon.png" );
                     jQuery.each(result, function(i, val) {
                         content += "<tr class='notificacion_row notificacion_link' data-link='" + val["liga"] + "'>"
                         content += "<td>"
@@ -190,11 +195,13 @@ $(document).on('turbolinks:load', function() {
                     content += "</tr>"
                 }
                 
+                content += "</table>"
                 $('.popover-content').html(content)
-                content = "</table>"
             }
         })
-    });
+    }
+    
+    load_notifications()
     
     function formato_fecha(fecha){
         var fecha_formateada = ""
@@ -204,6 +211,15 @@ $(document).on('turbolinks:load', function() {
         
         return fecha_formateada
     }
+    
+    $(".tutor_reportes_header").click(function(){
+        var index = $(this).attr('id');
+        $(".content_" + index).toggle();
+    })
+    
+    $("#logoPrepa").click(function(){
+        window.location = '/mainmenu'
+    });
 })
 
 //hace el 'click' event para las notificaciones que son generadas despues del load

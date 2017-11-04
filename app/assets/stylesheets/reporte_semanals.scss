@@ -59,7 +59,7 @@
 }
 
 .alumno_tarjeta {
-	height: 290px
+	height: 290px;
 }
 
 .tarjeta_nombre {
@@ -116,4 +116,8 @@
 
 .footer_no_reportes {
 	margin-left: 4px;
+}
+
+.tutor_reportes_container {
+	display: none;	
 }

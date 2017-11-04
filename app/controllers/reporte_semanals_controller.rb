@@ -94,7 +94,7 @@ class ReporteSemanalsController < ApplicationController
         
         #el tutor tambien puede ver los reportes
         if (reporte_semanal.tutor != CUENTA)
-          redirect_to "/"
+          redirect_to "/mainmenu"
         end
       end
     end
@@ -103,7 +103,7 @@ class ReporteSemanalsController < ApplicationController
     def verify_edit_access(reporte_semanal)
       #el reporte lo puede editar el coordinador de tutores
       if (reporte_semanal.coordinador_tutores != CUENTA)
-        redirect_to "/"
+        redirect_to "/mainmenu"
       end
     end
     helper_method :verify_edit_access

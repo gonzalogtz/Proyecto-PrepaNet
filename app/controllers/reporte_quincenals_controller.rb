@@ -77,7 +77,7 @@ class ReporteQuincenalsController < ApplicationController
         
         #el coordinador de tutores tambien puede ver los reportes
         if (coordinador_tutor.coordinador != CUENTA)
-          redirect_to "/"
+          redirect_to "/mainmenu"
         end
       end
     end
