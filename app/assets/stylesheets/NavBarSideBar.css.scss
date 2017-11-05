@@ -147,14 +147,15 @@ body {
   cursor: pointer;
 }
 
+#notificaciones:focus, #notificaciones:active:focus, #notificaciones.active:focus{
+  outline-color: transparent;
+  outline-style: none;
+}
+
 .popover {
   width: 600px;
   top: 85% !important;
   //left: 74% !important;
-}
-
-.arrow {
-  //left: 90.7% !important;
 }
 
 .popover-title {
@@ -170,7 +171,7 @@ body {
 }
 
 .notificacion_row:hover {
-  background-color: #F6F6F6;
+  background-color: #F6F5FA;
   cursor: pointer;
 }
 
@@ -184,6 +185,26 @@ body {
 
 .notificacion_mensaje {
   margin-bottom: 2px;
+}
+
+.no_leida {
+  background-color: #EDF2FA;
+}
+
+.no_leida:hover {
+  background-color: #E5EAF0;
+}
+
+.pop-over_footer {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #385A97;
+}
+
+.pop-over_footer:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .nav_icon img{

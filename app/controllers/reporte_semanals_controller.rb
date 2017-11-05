@@ -44,7 +44,8 @@ class ReporteSemanalsController < ApplicationController
     
     respond_to do |format|
       if @reporte_semanal.save
-        notificacion = Notificacion.new(usuario: @reporte_semanal[:tutor], mensaje: "Tu coordinador de tutores ha creado tu reporte correspondiente a la semana " + @reporte_semanal[:semana].to_s, liga: "/reporte_semanals/" + @reporte_semanal[:id].to_s)
+        mensaje_notificacion = "Tu coordinador de tutores ha creado tu reporte correspondiente a la semana " + @reporte_semanal[:semana].to_s
+        notificacion = Notificacion.new(usuario: @reporte_semanal[:tutor], mensaje: mensaje_notificacion, liga: "/reporte_semanals/" + @reporte_semanal[:id].to_s, leida: 0)
         notificacion.save
         format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully created.' }
         format.json { render :show, status: :created, location: @reporte_semanal }

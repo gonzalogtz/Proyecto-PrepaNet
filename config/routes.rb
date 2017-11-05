@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  #Login
   root 'usuarios#login.html'
   
-  #Users
+  #Usuario
   post 'submit_login', to: 'usuarios#login', as: :submit_login
   get 'logout', to: 'usuarios#logout'
   resources :usuarios do
@@ -20,8 +21,12 @@ Rails.application.routes.draw do
   resources :conglomerado_semanals
   post 'conglomerado_semanals/get_semanales_count', to: 'conglomerado_semanals#get_semanales_count'
   
-  get 'get_notificaciones', to: 'usuarios#get_notificaciones'
+  #Notificaciones
+  get 'get_notificaciones', to: 'notificaciones#get_notificaciones'
+  get 'get_num_notificaciones', to: 'notificaciones#get_num_notificaciones'
+  post 'set_notificaciones_leida', to: 'notificaciones#set_notificaciones_leida'
   
+  #Home page
   get 'mainmenu', to: 'mainmenututor#MenuTutor.html.erb'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

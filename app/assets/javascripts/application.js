@@ -164,7 +164,9 @@ $(document).on('turbolinks:load', function() {
     });
     
     //Carga notificaciones
-    $("#notificaciones").click(function(){
+    $("#notificaciones").focus(function(e) {
+        $("#notif_icon").attr("src", "/notification_icon.png");
+        document.title = "PrepaNet"
         load_notifications()
     });
     
@@ -176,13 +178,12 @@ $(document).on('turbolinks:load', function() {
             success: function(result) {
                 var content = "<table id='notif-table'>"
                 if (result.length > 0){
-                    $("#notif_icon").attr("src", "/new_notification_icon.png" );
                     jQuery.each(result, function(i, val) {
-                        content += "<tr class='notificacion_row notificacion_link' data-link='" + val["liga"] + "'>"
-                        content += "<td>"
+                        content += "<tr class='notificacion_row notificacion_link' data-link='" + val["liga"] + "' id='" + val["id"] + "'>"
+                        if (val["leida"] == 1) content += "<td>"; else content += "<td class='no_leida'>"
                         content += "<p class='notificacion_mensaje'>" + val["mensaje"] + "</p>"
                         var parsed_date = new Date(val["created_at"])
-                        content += "<p class='notificacion_fecha'>" + formato_fecha(parsed_date) + "</p>"
+                        content += "<p class='notificacion_fecha'>" + diferencia_fecha(parsed_date) + "</p>"
                         content += "</td>"
                         content += "</tr>"
                     });
@@ -190,26 +191,45 @@ $(document).on('turbolinks:load', function() {
                 else {
                     content += "<tr class='notificacion_row'>"
                     content += "<td>"
-                    content += "<p class='notificacion_mensaje'>No tienes notificaciones pendientes</p>"
+                    content += "<p class='notificacion_mensaje'>Aún no tienes notificaciones</p>"
                     content += "</td>"
                     content += "</tr>"
                 }
                 
                 content += "</table>"
+                content += "<div class='pop-over_footer'>Marcar todas como leídas</div>"
                 $('.popover-content').html(content)
             }
         })
     }
     
-    load_notifications()
+    function check_num_notificaciones(){
+        $.ajax({
+            type: "GET",
+            url: "/get_num_notificaciones",
+            dataType: "JSON",
+            success: function(result) {
+                if (result > 0){
+                    $("#notif_icon").attr("src", "/new_notification_icon.png" );
+                    document.title = "(*) PrepaNet"
+                }
+            }
+        })
+    }
     
-    function formato_fecha(fecha){
-        var fecha_formateada = ""
-        fecha_formateada += fecha.getDate()
-        fecha_formateada += "/" + (fecha.getMonth() + 1)
-        fecha_formateada += "/" + fecha.getFullYear()
+    check_num_notificaciones()
+    
+    function diferencia_fecha(fecha) {
+        fecha_actual = new Date()
+        var diff = new Date(fecha_actual - fecha)
+        diff = diff/1000/60/60/24
         
-        return fecha_formateada
+        if (diff < 1)
+            return "Hoy"
+        else if (diff < 2)
+            return "Ayer"
+        else if (diff >= 2)
+            return "Hace " + diff.floor() + " días"
     }
     
     $(".tutor_reportes_header").click(function(){
@@ -225,4 +245,20 @@ $(document).on('turbolinks:load', function() {
 //hace el 'click' event para las notificaciones que son generadas despues del load
 $(document).on("click", ".notificacion_link", function() {
     window.location = $(this).data("link")
+    
+    $.ajax({
+        type: "POST",
+        url: "/set_notificaciones_leida",
+        dataType: "JSON",
+        data: {id_notif: $(this).attr('id')}
+    })
+});
+
+$(document).on("click", ".pop-over_footer", function() {
+    $.ajax({
+        type: "POST",
+        url: "/set_notificaciones_leida",
+        dataType: "JSON",
+        data: {id_notif: -1}
+    })
 });
