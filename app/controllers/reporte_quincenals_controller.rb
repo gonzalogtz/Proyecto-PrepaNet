@@ -5,10 +5,7 @@ class ReporteQuincenalsController < ApplicationController
   # GET /reporte_quincenals
   # GET /reporte_quincenals.json
   def index
-    if ROL == STR_ROL_TUTOR
-      @alumnos = AlumnoCursaMateria.select("*").where(tutor: CUENTA).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula")
-    elsif ROL == STR_ROL_COORDINADOR_TUTOR
-      @tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
+    if ROL == STR_ROL_COORDINADOR_TUTOR
       render "index_coordinador_tutor"
     end
   end
@@ -83,10 +80,10 @@ class ReporteQuincenalsController < ApplicationController
     end
     helper_method :verify_show_access
     
-    def get_reporte_quincenals_by_alumno(tutor_id = CUENTA, alumno_id)
-      @reporte_quincenals_alumnos = ReporteQuincenal.where(tutor: tutor_id, alumno: alumno_id).order('fecha_correspondiente')
+    def get_reporte_quincenals_by_alumno_and_curso(alumno_id, curso_id)
+      @reporte_quincenals_alumnos = ReporteQuincenal.where(alumno: alumno_id, curso: curso_id).order('fecha_correspondiente')
     end
-    helper_method :get_reporte_quincenals_by_alumno
+    helper_method :get_reporte_quincenals_by_alumno_and_curso
     
     def get_reporte_quincenals_buttons
       html = ""
@@ -135,25 +132,6 @@ class ReporteQuincenalsController < ApplicationController
     def reporte_quincenal_params
       params.require(:reporte_quincenal).permit(:alumno, :curso, :estatus, :localizado, :comentarios, :fecha_correspondiente)
     end
-    
-    def get_alumnos
-      lista_alumnos = []
-      
-      alumnos_tutor = AlumnoCursaMateria.select("*").where(tutor: CUENTA).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula")
-      alumnos_tutor.each do |alumno|
-        nombre_alumno = alumno.nombres + " " + alumno.apellido_p + " " + alumno.apellido_m
-        lista_alumnos.push([nombre_alumno, alumno.matricula])
-      end
-      
-      return lista_alumnos
-    end
-    helper_method :get_alumnos
-    
-    def get_alumnos_by_tutor(tutor_id)
-      alumnos = AlumnoCursaMateria.select("*").where(tutor: tutor_id).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula").order('alumnos.matricula')
-      return alumnos
-    end
-    helper_method :get_alumnos_by_tutor
     
     def get_estatus_tag(estatus)
       if estatus == 0

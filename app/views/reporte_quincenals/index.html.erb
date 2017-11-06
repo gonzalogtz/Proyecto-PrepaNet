@@ -4,27 +4,12 @@
       <h1 class="page-header">Reportes Quincenales</h1>
     </div>
     
-    <% @alumnos.each do |alumno| %>
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        <div class="tarjeta alumno_tarjeta">
-          <div class='tarjeta_nombre'><%=alumno.nombres%></div>
-          <div class='tarjeta_apellidos'><%=alumno.apellido_p%> <%=alumno.apellido_m%></div>
-          <div class='tarjeta_matricula'><%=alumno.matricula%></div>
-          <%get_reporte_quincenals_by_alumno(alumno.alumno)%>
-          <div class='info_alumno'><span>Estatus más reciente: </span><%=get_ultimo_estatus%></div>
-          <div class='info_alumno'><span>Localizado recientemente: </span><%=get_ultimo_localizado%></div>
-          <div class='contenedor_boton_reportes'>
-            <div class='contenedor_boton_reportes_header'>Reportes</div>
-              <%=get_reporte_quincenals_buttons%>
-          </div>
-        </div>
-      </div>
-    <% end %>
-        
+    <%= render 'tarjetas', tutor: ApplicationController::CUENTA %>
+    
     <div class="row"> 
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <%= link_to "+", new_reporte_quincenal_path, class: 'btn btn_circular', :id => "btnSubmitTarjetas"%>
       </div>
     </div>
+    
   </div>
-</div>

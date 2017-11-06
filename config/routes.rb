@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   get 'get_num_notificaciones', to: 'notificaciones#get_num_notificaciones'
   post 'set_notificaciones_leida', to: 'notificaciones#set_notificaciones_leida'
   
+  #Alumnos
+  get 'get_alumnos_by_curso', to: 'alumnos#send_alumnos_by_curso'
+  
   #Home page
   get 'mainmenu', to: 'mainmenututor#MenuTutor.html.erb'
 

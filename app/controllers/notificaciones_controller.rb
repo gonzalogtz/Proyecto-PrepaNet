@@ -3,7 +3,7 @@ class NotificacionesController < ApplicationController
         notificaciones = Notificacion.where(usuario: CUENTA).order('created_at desc')
 
         respond_to do |format|
-        format.js {render :json => notificaciones}
+            format.js {render :json => notificaciones}
         end
     end
 
@@ -11,7 +11,7 @@ class NotificacionesController < ApplicationController
         num_notificaciones = Notificacion.where(usuario: CUENTA, leida: 0).count
 
         respond_to do |format|
-        format.js {render :json => num_notificaciones}
+            format.js {render :json => num_notificaciones}
         end
     end
     

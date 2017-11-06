@@ -96,6 +96,28 @@ $(document).on('turbolinks:load', function() {
         }
     });
     
+    //carga los alumnos por grupo en la forma para reportes quincenales
+    $("#reporte_quincenal_curso").change(function(event){
+        $(event.target).find("option[value='']").attr("disabled", true);
+        
+        curso = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "/get_alumnos_by_curso",
+            dataType: "JSON",
+            data: {curso_id: curso},
+            success: function(result) {
+                var options = "";
+                
+                for(var i = 0; i < result.length; i++) {
+                    options += "<option value='" + result[i][0] + "'>" + result[i][1] + "</option>";
+                }
+
+                $('#reporte_quincenal_alumno').html(options);
+            }
+        })
+    });
+    
     //Validacion de login
     $("#login_button").click(function(){
         usuario = $("#userid").val()
@@ -235,10 +257,9 @@ $(document).on('turbolinks:load', function() {
             return "Hace " + diff.floor() + " días"
     }
     
-    $(".tutor_reportes_header").click(function(){
+    $(".reportes_header").click(function(){
         toggle_arrow_icon($(this))
-        var index = $(this).attr('id');
-        $(".content_" + index).toggle();
+        $(this).siblings(".reportes_content").toggle();
     })
     
     function toggle_arrow_icon(reference_tag) {

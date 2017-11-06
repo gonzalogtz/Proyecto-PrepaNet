@@ -1,0 +1,23 @@
+<% get_cursos_by_tutor(tutor).each do |curso| %>
+    <div>
+        <h3 class="reportes_header" id='<%=curso.curso%>'><span><img class='arrow_icon' src="expand_arrow.png"></span><%=curso.curso%></h3>
+        <div class='reportes_content padding_inside'>
+            <% get_alumnos_by_curso(curso.curso).each do |alumno| %>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="tarjeta alumno_tarjeta">
+                        <div class='tarjeta_nombre'><%=alumno.nombres%></div>
+                        <div class='tarjeta_apellidos'><%=alumno.apellido_p%> <%=alumno.apellido_m%></div>
+                        <div class='tarjeta_matricula'><%=alumno.matricula%></div>
+                        <% get_reporte_quincenals_by_alumno_and_curso(alumno.alumno, curso.curso) %>
+                        <div class='info_alumno'><span>Estatus más reciente: </span><%=get_ultimo_estatus%></div>
+                        <div class='info_alumno'><span>Localizado recientemente: </span><%=get_ultimo_localizado%></div>
+                        <div class='contenedor_boton_reportes'>
+                            <div class='contenedor_boton_reportes_header'>Reportes</div>
+                            <%=get_reporte_quincenals_buttons%>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+<% end %>

@@ -30,6 +30,23 @@ class ApplicationController < ActionController::Base
     end
     helper_method :get_coordinador_name_by_coordinado_id
     
+    def get_cursos_by_tutor(tutor_id = CUENTA)
+      cursos = TutorTutoreaMateria.select("*").where(tutor: tutor_id).joins("INNER JOIN cursos ON tutor_tutorea_materias.curso = cursos.grupo").order('curso')
+      return cursos
+    end
+    helper_method :get_cursos_by_tutor
+    
+    def get_alumnos_by_curso(curso_id)
+      alumnos = AlumnoCursaMateria.select("*").where(curso: curso_id).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula")
+      return alumnos
+    end
+    helper_method :get_alumnos_by_curso
+    
+    def get_tutores_by_coordinador_tutores(coordinador_id = CUENTA)
+      tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
+    end
+    helper_method :get_tutores_by_coordinador_tutores
+  
     def user_is_logged_in
       if (NOMBRE_USUARIO == "" && !current_page?("/"))
         redirect_to "/"

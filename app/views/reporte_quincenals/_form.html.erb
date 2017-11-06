@@ -1,89 +1,97 @@
 <%= form_for(reporte_quincenal) do |f| %>
-  <% if reporte_quincenal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(reporte_quincenal.errors.count, "error") %> prohibited this reporte_quincenal from being saved:</h2>
-      <ul>
-      <% reporte_quincenal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header titulo"> Reporte Quincenal de Actividad y Desempeño del Alumno</h1>
-    <div class="row">
-
-    </div>
-    <div class="row">
-    <div id="table-cursos" style="margin-top: 20px;">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <center>Evaluación del alumno</center>
-            </div>
-            <div class="panel-body">
-            
-            <% if action_name != 'edit'%>
-                <div class="col-sm-12 margin-bottom" style="padding-left: 0px;">
-                    <div class="select-label">
-                    <h4>Alumno a evaluar:</h4>
-                </div>
-                <div class="select-input">
-                    <%= f.select :alumno, options_for_select(get_alumnos), {prompt: "Selecciona un alumno"}, class:"selectpicker", required: true%>
-                </div>
-            <%end%>
+    <% if reporte_quincenal.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(reporte_quincenal.errors.count, "error") %> prohibited this reporte_quincenal from being saved:</h2>
+            <ul>
+                <% reporte_quincenal.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                 <% end %>
+            </ul>
         </div>
-            
-                <h4>1.- Estatus del alumno:</h4>
-                <div class="table-responsive">
-                    <table class="table table-striped" style="text-align: center;">
-                        <thead>
-                            <tr>
-                                <th style="text-align: center;">Inactivo</th>
-                                <th style="text-align: center;">Parcialmente activo</th>
-                                <th style="text-align: center;">Activo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="width: 33.33%"><%= f.radio_button :estatus, 0, required: true%></td>
-                                <td style="width: 33.33%"><%= f.radio_button :estatus, 1, required: true%></td>
-                                <td style="width: 33.33%"><%= f.radio_button :estatus, 2, required: true%></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-        
-                <h4>2.- Localizado:</h4>
-                <div class="table-responsive">
-                    <table class="table table-striped" style="text-align: center;">
-                        <thead>
-                        <tr>
-                            <th style="text-align: center;">No</th>
-                            <th style="text-align: center;">Sí</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><%= f.radio_button :localizado, 0, required: true%></td>
-                                <td><%= f.radio_button :localizado, 1, required: true%></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-        
-                <h4>3.- Comentarios:</h4>
-                <%= f.text_area :comentarios, class:"txtArea"%>
+    <% end %>
 
-                <div class="row"> 
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <%= f.submit "Guardar reporte", class:"btn btn-primary btn-lg btnSubmit"  %>
-                        <%= link_to 'Atrás', reporte_quincenals_path, class:"btn btn-primary btn-lg btnBack"  %>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header titulo">Generar Reporte Quincenal</h1>
+        <div class="row">
+            <div id="table-cursos" style="margin-top: 20px;">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <center>Evaluación del alumno</center>
+                    </div>
+                    
+                    <div class="panel-body">
+                        <% if action_name != 'edit'%>
+                            <div class="col-sm-6 margin-bottom" style="padding-left: 0px;">
+                                <div class="select-label">
+                                    <h4>Curso:</h4>
+                                </div>
+                                <div class="select-input">
+                                    <%= f.select :curso, options_from_collection_for_select(get_cursos_by_tutor(), :grupo, :materia), {prompt: "Selecciona un curso"}, class: "selectpicker", required: true%>
+                                </div>
+                            </div>
+                        
+                            <div class="col-sm-6 margin-bottom" style="padding-left: 0px;">
+                                <div class="select-label">
+                                    <h4>Alumno a evaluar:</h4>
+                                </div>
+                                <div class="select-input">
+                                    <%= f.select :alumno, {}, {prompt: "Selecciona un curso primero"}, class: "selectpicker", required: true%>
+                                </div>
+                            </div>
+                        <%end%>
+                    
+                        <h4>1.- Estatus del alumno:</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped" style="text-align: center;">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;">Inactivo</th>
+                                        <th style="text-align: center;">Parcialmente activo</th>
+                                        <th style="text-align: center;">Activo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 33.33%"><%= f.radio_button :estatus, 0, required: true%></td>
+                                        <td style="width: 33.33%"><%= f.radio_button :estatus, 1, required: true%></td>
+                                        <td style="width: 33.33%"><%= f.radio_button :estatus, 2, required: true%></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                
+                        <h4>2.- Localizado:</h4>
+                        <div class="table-responsive">
+                            <table class="table table-striped" style="text-align: center;">
+                                <thead>
+                                <tr>
+                                    <th style="text-align: center;">No</th>
+                                    <th style="text-align: center;">Sí</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><%= f.radio_button :localizado, 0, required: true%></td>
+                                        <td><%= f.radio_button :localizado, 1, required: true%></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                
+                        <h4>3.- Comentarios:</h4>
+                        <%= f.text_area :comentarios, class:"txtArea"%>
+
+                        <div class="row"> 
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <%= f.submit "Guardar reporte", class:"btn btn-primary btn-lg btnSubmit" %>
+                                <%= link_to 'Atrás', reporte_quincenals_path, class:"btn btn-primary btn-lg btnBack" %>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <% end %>
 

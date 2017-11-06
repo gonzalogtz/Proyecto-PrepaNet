@@ -56,10 +56,14 @@ ActiveRecord::Schema.define(version: 20171022223115) do
     t.string   "campus"
     t.integer  "estatus"
   end
-    
+  
   create_table "alumno_cursa_materias", force: :cascade do |t|
-    t.string   "tutor"
     t.string   "alumno"
+    t.string   "curso"
+  end
+  
+  create_table "tutor_tutorea_materias", force: :cascade do |t|
+    t.string   "tutor"
     t.string   "curso"
   end
   
@@ -74,7 +78,7 @@ ActiveRecord::Schema.define(version: 20171022223115) do
   create_table "conglomerado_semanals", force: :cascade do |t|
     t.string   "coordinador_tutores"
     t.string   "tutor"
-    t.integer  "curso"
+    t.string   "curso"
     t.integer  "invitacion_asesorias"
     t.integer  "reporte_parcial"
     t.integer  "reporte_final"
@@ -98,7 +102,7 @@ ActiveRecord::Schema.define(version: 20171022223115) do
   create_table "reporte_quincenals", force: :cascade do |t|
     t.string   "tutor"
     t.string   "alumno"
-    t.integer  "curso"
+    t.string  "curso"
     t.integer  "estatus"
     t.integer  "localizado"
     t.text     "comentarios"
@@ -110,6 +114,7 @@ ActiveRecord::Schema.define(version: 20171022223115) do
   create_table "reporte_semanals", force: :cascade do |t|
     t.string   "coordinador_tutores"
     t.string   "tutor"
+    t.string   "curso"
     t.integer  "semana"
     t.integer  "califica_en_plazo"
     t.integer  "califica_con_rubrica"
