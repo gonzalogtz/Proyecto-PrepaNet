@@ -158,12 +158,22 @@ body {
   //left: 74% !important;
 }
 
+.arrow {
+  //left: 90% !important;
+}
+
 .popover-title {
   background-color: white;
 }
 
 .popover-content {
   padding: 0px 0px
+}
+
+#notif-table {
+  overflow-y: scroll;
+  max-height: 380px;
+  display: block;
 }
 
 .notificacion_row {
@@ -196,8 +206,9 @@ body {
 }
 
 .pop-over_footer {
+  border-top: 1pt solid lightgray;
   text-align: center;
-  margin-top: 5px;
+  margin-top: -1px; //para que se integre con el ultimo border-bottom de la tabla
   margin-bottom: 5px;
   color: #385A97;
 }

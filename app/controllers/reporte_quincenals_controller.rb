@@ -90,11 +90,13 @@ class ReporteQuincenalsController < ApplicationController
     
     def get_reporte_quincenals_buttons
       html = ""
+      i = 1
       
       if @reporte_quincenals_alumnos.present?
         @reporte_quincenals_alumnos.each do |reporte|
           html += "<div class='boton_reporte boton_reporte_activado' data-link='reporte_quincenals/" + reporte.id.to_s + "' 
-          data-toggle='tooltip' title='" + reporte.fecha_correspondiente.strftime(ApplicationController::FORMATO_FECHA) + "' data-placement='bottom'></div>"
+          data-toggle='tooltip' title='" + reporte.fecha_correspondiente.strftime(ApplicationController::FORMATO_FECHA) + "' data-placement='bottom'>" + i.to_s + "</div>"
+          i += 1
         end
       else
         html += "<div class='no_reportes footer_no_reportes'>No se tienen reportes para este alumno</div>"
