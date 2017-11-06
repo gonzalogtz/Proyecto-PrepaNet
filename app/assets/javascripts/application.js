@@ -221,8 +221,11 @@ $(document).on('turbolinks:load', function() {
     
     function diferencia_fecha(fecha) {
         fecha_actual = new Date()
-        var diff = new Date(fecha_actual - fecha)
-        diff = diff/1000/60/60/24
+        
+        date1 = Date.UTC(fecha_actual.getFullYear(), fecha_actual.getMonth(), fecha_actual.getDate());
+        date2 = Date.UTC(fecha.getFullYear(), fecha.getMonth(), fecha.getDate());
+        var ms = Math.abs(date1-date2);
+        diff = Math.floor(ms/1000/60/60/24);
         
         if (diff < 1)
             return "Hoy"
@@ -233,9 +236,19 @@ $(document).on('turbolinks:load', function() {
     }
     
     $(".tutor_reportes_header").click(function(){
+        toggle_arrow_icon($(this))
         var index = $(this).attr('id');
         $(".content_" + index).toggle();
     })
+    
+    function toggle_arrow_icon(reference_tag) {
+        if (reference_tag.find(".arrow_icon").attr("src") == "collapse_arrow.png") {
+            reference_tag.find(".arrow_icon").attr("src", "expand_arrow.png");
+        }
+        else if (reference_tag.find(".arrow_icon").attr("src") == "expand_arrow.png") {
+            reference_tag.find(".arrow_icon").attr("src", "collapse_arrow.png");
+        }
+    }
     
     $("#logoPrepa").click(function(){
         window.location = '/mainmenu'
