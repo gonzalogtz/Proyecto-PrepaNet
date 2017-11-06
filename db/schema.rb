@@ -51,8 +51,10 @@ ActiveRecord::Schema.define(version: 20171022223115) do
   end
   
   create_table "cursos", force: :cascade do |t|
-    t.string   "clave_materia"
-    t.integer  "grupo"
+    t.string   "materia"
+    t.string   "grupo"
+    t.string   "campus"
+    t.integer  "estatus"
   end
     
   create_table "alumno_cursa_materias", force: :cascade do |t|
