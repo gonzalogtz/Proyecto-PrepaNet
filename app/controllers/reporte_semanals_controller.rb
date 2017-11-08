@@ -80,11 +80,11 @@ class ReporteSemanalsController < ApplicationController
     end
   end
   
-  def valida_tutor_semana
-    reportes_semanal = ReporteSemanal.where(tutor: params[:tutor_id], semana: params[:semana], coordinador_tutores: CUENTA)
+  def valida_reporte_tutor_curso_semana
+    reportes_semanales_count = ReporteSemanal.where(tutor: params[:tutor_id], curso: params[:curso_id], semana: params[:semana], coordinador_tutores: CUENTA).count
 
     respond_to do |format|
-      format.js {render :json => {"semanal_count": reportes_semanal.count}}
+      format.js {render :json => {"semanal_count": reportes_semanales_count}}
     end
   end
 
@@ -109,20 +109,20 @@ class ReporteSemanalsController < ApplicationController
     end
     helper_method :verify_edit_access
     
-    def get_reporte_semanals_by_tutor(tutor_id)
-      @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA, tutor: tutor_id)
+    def get_reporte_semanals_by_tutor_and_curso(tutor_id, curso_id)
+      @reporte_semanals_tutor = ReporteSemanal.where(tutor: tutor_id, curso: curso_id).order('semana')
     end
-    helper_method :get_reporte_semanals_by_tutor
+    helper_method :get_reporte_semanals_by_tutor_and_curso
     
     def get_reporte_semanals_by_semana(num_semana)
-      @reporte_semanal = @reporte_semanals.where(semana: num_semana).first
+      reporte_semanal = @reporte_semanals_tutor.where(semana: num_semana).first
       
       html = ""
-      if !@reporte_semanal
+      if !reporte_semanal
         html = "<div class='boton_reporte'>" + num_semana.to_s + "</div>"
       else
-        html = "<div class='boton_reporte boton_reporte_activado' data-link='reporte_semanals/" + @reporte_semanal.id.to_s + "' 
-        data-toggle='tooltip' title='" + @reporte_semanal.calificacion_total.to_s + "/10' data-placement='bottom'>" + num_semana.to_s + "</div>"
+        html = "<div class='boton_reporte boton_reporte_activado' data-link='reporte_semanals/" + reporte_semanal.id.to_s + "' 
+        data-toggle='tooltip' title='" + reporte_semanal.calificacion_total.to_s + "/10' data-placement='bottom'>" + num_semana.to_s + "</div>"
       end
       
       return html.html_safe
@@ -136,22 +136,21 @@ class ReporteSemanalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reporte_semanal_params
-      params.require(:reporte_semanal).permit(:tutor, :semana, :califica_en_plazo, :califica_con_rubrica, :da_retroalimentacion, :responde_mensajes, 
+      params.require(:reporte_semanal).permit(:tutor, :curso, :semana, :califica_en_plazo, :califica_con_rubrica, :da_retroalimentacion, :responde_mensajes, 
       :errores_ortografia, :comentarios)
     end
     
-    def get_tutores
+    def get_tutores_for_select
       lista_tutores = []
       
-      tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
-      tutores.each do |tutor|
+      get_tutores_by_coordinador_tutores().each do |tutor|
         nombre_tutor = tutor.nombres + " " + tutor.apellido_p + " " + tutor.apellido_m
         lista_tutores.push([nombre_tutor, tutor.cuenta])
       end
       
       return lista_tutores
     end
-    helper_method :get_tutores
+    helper_method :get_tutores_for_select
 
     # Hace la sumatoria de puntos de la rubrica para conseguir una calificacion total
     def get_calif_total(reporte)

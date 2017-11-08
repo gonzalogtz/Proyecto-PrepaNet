@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   #Reporte semanal
   resources :reporte_semanals
-  post 'reporte_semanals/valida_tutor_semana', to: 'reporte_semanals#valida_tutor_semana'
+  post 'reporte_semanals/valida_reporte_tutor_curso_semana', to: 'reporte_semanals#valida_reporte_tutor_curso_semana'
   
   #Conglomerado
   resources :conglomerado_semanals
@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   
   #Alumnos
   get 'get_alumnos_by_curso', to: 'alumnos#send_alumnos_by_curso'
+  
+  #Cursos
+  get 'get_cursos_by_tutor', to: 'cursos#send_cursos_by_tutor'
   
   #Home page
   get 'mainmenu', to: 'mainmenututor#MenuTutor.html.erb'

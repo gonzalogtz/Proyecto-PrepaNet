@@ -44,6 +44,7 @@ class ApplicationController < ActionController::Base
     
     def get_tutores_by_coordinador_tutores(coordinador_id = CUENTA)
       tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
+      return tutores
     end
     helper_method :get_tutores_by_coordinador_tutores
   

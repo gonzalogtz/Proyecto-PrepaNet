@@ -4,21 +4,8 @@
       <h1 class="page-header">Reportes Semanales</h1>
     </div>
     
-    <% @tutores.each do |tutor| %>
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        <div class="tarjeta tutor_tarjeta">
-          <div class='tarjeta_nombre'><%=tutor.nombres%></div>
-          <div class='tarjeta_apellidos'><%=tutor.apellido_p%> <%=tutor.apellido_m%></div>
-          <div class='tarjeta_matricula'><%=tutor.cuenta%></div>
-          <%get_reporte_semanals_by_tutor(tutor.usuario)%>
-          <div class='contenedor_boton_reportes'>
-            <div class='contenedor_boton_reportes_header'>Reportes</div>
-              <% (1..15).each do |i| %>
-                <%=get_reporte_semanals_by_semana(i)%>
-              <% end %>
-            </div>
-        </div>
-      </div>
+    <% get_tutores_by_coordinador_tutores.each do |tutor| %>
+      <%= render 'tarjetas', tutor: tutor%>
     <% end %>
     
     <div class="row">

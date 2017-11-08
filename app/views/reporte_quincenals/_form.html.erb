@@ -1,15 +1,4 @@
 <%= form_for(reporte_quincenal) do |f| %>
-    <% if reporte_quincenal.errors.any? %>
-        <div id="error_explanation">
-            <h2><%= pluralize(reporte_quincenal.errors.count, "error") %> prohibited this reporte_quincenal from being saved:</h2>
-            <ul>
-                <% reporte_quincenal.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                 <% end %>
-            </ul>
-        </div>
-    <% end %>
-
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header titulo">Generar Reporte Quincenal</h1>
         <div class="row">
@@ -35,7 +24,7 @@
                                     <h4>Alumno a evaluar:</h4>
                                 </div>
                                 <div class="select-input">
-                                    <%= f.select :alumno, {}, {prompt: "Selecciona un curso primero"}, class: "selectpicker", required: true%>
+                                    <%= f.select :alumno, {}, {prompt: "Selecciona un alumno"}, class: "selectpicker", required: true%>
                                 </div>
                             </div>
                         <%end%>

@@ -16,35 +16,35 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function () {
     //activa el popover de notificaciones
     $('[data-toggle="popover"]').popover();
     //activa tooltips
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="tooltip"]').tooltip();
 
-    $(".tutor_header").click(function() {
+    $(".tutor_header").click(function () {
         var index = $(this).attr('id');
-        $(".tutor_content" + index).toggle( "fast", function() {});
+        $(".tutor_content" + index).toggle("fast", function () { });
     });
-    
-    $(".reporte_row, .boton_reporte_activado").click(function() {
+
+    $(".reporte_row, .boton_reporte_activado").click(function () {
         window.location = $(this).data("link")
     });
-    
-    function cerrar_alerta(){
+
+    function cerrar_alerta() {
         $(".alert").hide()
     };
-    
-    $(".alert_close").click(function() {
+
+    $(".alert_close").click(function () {
         cerrar_alerta()
     });
-    
-    $("#reporte_quincenal_alumno").change(function(){
+
+    $("#reporte_quincenal_alumno").change(function () {
         $(event.target).find("option[value='']").attr("disabled", true);
     });
-    
+
     //Validacion de conglomerado
-    $("#conglomerado_semanal_tutor").change(function(){
+    $("#conglomerado_semanal_tutor").change(function () {
         $(event.target).find("option[value='']").attr("disabled", true);
         $("#btnSubmit").removeAttr("disabled");
         cerrar_alerta()
@@ -53,14 +53,14 @@ $(document).on('turbolinks:load', function() {
             type: "POST",
             url: "get_semanales_count",
             dataType: "JSON",
-            data: {tutor_id: $("#conglomerado_semanal_tutor").val()},
-            success: function(result) {
+            data: { tutor_id: $("#conglomerado_semanal_tutor").val() },
+            success: function (result) {
                 if (result["tipo_error"] == 1) {
                     $("#alert_text").html("Este tutor no tiene 15 semanales")
                     $("#btnSubmit").attr("disabled", true);
                     $(".alert").show()
                 }
-                else if (result["tipo_error"] == 2){
+                else if (result["tipo_error"] == 2) {
                     $("#alert_text").html("Este tutor ya tiene reporte")
                     $("#btnSubmit").attr("disabled", true);
                     $(".alert").show()
@@ -68,26 +68,30 @@ $(document).on('turbolinks:load', function() {
             }
         })
     });
-    
+
     //validacion de reporte semanal
-    $("#reporte_semanal_semana, #reporte_semanal_tutor").change(function(event){
+    $("#reporte_semanal_semana, #reporte_semanal_tutor, #reporte_semanal_curso").change(function (event) {
         $(event.target).find("option[value='']").attr("disabled", true);
         $("#btnSubmit").removeAttr("disabled");
         cerrar_alerta()
 
         tutor = $("#reporte_semanal_tutor").val();
+        curso = $("#reporte_semanal_curso").val();
         semana = $("#reporte_semanal_semana").val();
-        
-        //Solo se llama el servidor si hay un tutor Y semana seleccionado
-        if (tutor != "" && semana != ""){
+
+        //Solo se llama el servidor si hay un tutor, curso y semana seleccionado
+        if (tutor != "" && semana != "" && curso != "") {
             $.ajax({
                 type: "POST",
-                url: "valida_tutor_semana",
+                url: "valida_reporte_tutor_curso_semana",
                 dataType: "JSON",
-                data: {tutor_id: tutor,
-                        semana: semana},
-                success: function(result) {
-                    if (result["semanal_count"] > 0){
+                data: {
+                    tutor_id: tutor,
+                    curso_id: curso,
+                    semana: semana
+                },
+                success: function (result) {
+                    if (result["semanal_count"] > 0) {
                         $("#btnSubmit").attr("disabled", true);
                         $(".alert").show()
                     }
@@ -95,21 +99,21 @@ $(document).on('turbolinks:load', function() {
             })
         }
     });
-    
+
     //carga los alumnos por grupo en la forma para reportes quincenales
-    $("#reporte_quincenal_curso").change(function(event){
+    $("#reporte_quincenal_curso").change(function (event) {
         $(event.target).find("option[value='']").attr("disabled", true);
-        
+
         curso = $(this).val();
         $.ajax({
             type: "GET",
             url: "/get_alumnos_by_curso",
             dataType: "JSON",
-            data: {curso_id: curso},
-            success: function(result) {
+            data: { curso_id: curso },
+            success: function (result) {
                 var options = "";
-                
-                for(var i = 0; i < result.length; i++) {
+
+                for (var i = 0; i < result.length; i++) {
                     options += "<option value='" + result[i][0] + "'>" + result[i][1] + "</option>";
                 }
 
@@ -117,36 +121,60 @@ $(document).on('turbolinks:load', function() {
             }
         })
     });
-    
+
+    //carga los cursos por tutor en la forma para reportes semanales
+    $("#reporte_semanal_tutor").change(function (event) {
+        $(event.target).find("option[value='']").attr("disabled", true);
+
+        tutor = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "/get_cursos_by_tutor",
+            dataType: "JSON",
+            data: { tutor_id: tutor },
+            success: function (result) {
+                var options = "";
+
+                for (var i = 0; i < result.length; i++) {
+                    options += "<option value='" + result[i][0] + "'>" + result[i][1] + "</option>";
+                }
+
+                $('#reporte_semanal_curso').html(options);
+            }
+        })
+    });
+
     //Validacion de login
-    $("#login_button").click(function(){
+    $("#login_button").click(function () {
         usuario = $("#userid").val()
         password = $("#password").val()
-        
+
         if (usuario == "" && password == "") {
             $("#error_credenciales").html("Favor de proporcionar la clave de usuario y contraseña");
             $("#error_credenciales").show();
             $("#userid").addClass("error_field");
             $("#password").addClass("error_field");
         }
-        else if(usuario == ""){
+        else if (usuario == "") {
             $("#error_credenciales").html("Favor de proporcionar la clave de usuario");
             $("#error_credenciales").show();
             $("#userid").addClass("error_field");
         }
-        else if (password == ""){
+        else if (password == "") {
             $("#error_credenciales").html("Favor de proporcionar la contraseña");
             $("#error_credenciales").show();
             $("#password").addClass("error_field");
         }
-        else{
+        else {
             $.ajax({
                 type: "POST",
                 url: "submit_login",
                 dataType: "JSON",
-                data: {user: usuario,
-                        password: password},
-                success: function(result) {
+                data: {
+                    user: usuario,
+                    password: password
+                },
+                success: function (result) {
                     //contraseña incorrecta
                     if (result["tipo_error"] == 1) {
                         $("#error_credenciales").html("Contraseña incorrecta");
@@ -167,40 +195,40 @@ $(document).on('turbolinks:load', function() {
             })
         }
     });
-    
+
     //Logout
-    $("#cerrar_sesion").click(function(){
+    $("#cerrar_sesion").click(function () {
         $.ajax({
             type: "GET",
             url: "/logout",
             dataType: "JSON",
-            success: function(result) {
+            success: function (result) {
                 document.location.href = "/"
             }
         })
     });
-    
-    $("#userid, #password").focus(function(){
+
+    $("#userid, #password").focus(function () {
         $("#error_credenciales").hide();
         $("#password, #userid").removeClass("error_field");
     });
-    
+
     //Carga notificaciones
-    $("#notificaciones").focus(function(e) {
+    $("#notificaciones").focus(function (e) {
         $("#notif_icon").attr("src", "/notification_icon.png");
         document.title = "PrepaNet"
         load_notifications()
     });
-    
-    function load_notifications(){
+
+    function load_notifications() {
         $.ajax({
             type: "GET",
             url: "/get_notificaciones",
             dataType: "JSON",
-            success: function(result) {
+            success: function (result) {
                 var content = "<table id='notif-table'>"
-                if (result.length > 0){
-                    jQuery.each(result, function(i, val) {
+                if (result.length > 0) {
+                    jQuery.each(result, function (i, val) {
                         content += "<tr class='notificacion_row notificacion_link' data-link='" + val["liga"] + "' id='" + val["id"] + "'>"
                         if (val["leida"] == 1) content += "<td>"; else content += "<td class='no_leida'>"
                         content += "<p class='notificacion_mensaje'>" + val["mensaje"] + "</p>"
@@ -217,38 +245,38 @@ $(document).on('turbolinks:load', function() {
                     content += "</td>"
                     content += "</tr>"
                 }
-                
+
                 content += "</table>"
                 content += "<div class='pop-over_footer'>Marcar todas como leídas</div>"
                 $('.popover-content').html(content)
             }
         })
     }
-    
-    function check_num_notificaciones(){
+
+    function check_num_notificaciones() {
         $.ajax({
             type: "GET",
             url: "/get_num_notificaciones",
             dataType: "JSON",
-            success: function(result) {
-                if (result > 0){
-                    $("#notif_icon").attr("src", "/new_notification_icon.png" );
+            success: function (result) {
+                if (result > 0) {
+                    $("#notif_icon").attr("src", "/new_notification_icon.png");
                     document.title = "(*) PrepaNet"
                 }
             }
         })
     }
-    
+
     check_num_notificaciones()
-    
+
     function diferencia_fecha(fecha) {
         fecha_actual = new Date()
-        
+
         date1 = Date.UTC(fecha_actual.getFullYear(), fecha_actual.getMonth(), fecha_actual.getDate());
         date2 = Date.UTC(fecha.getFullYear(), fecha.getMonth(), fecha.getDate());
-        var ms = Math.abs(date1-date2);
-        diff = Math.floor(ms/1000/60/60/24);
-        
+        var ms = Math.abs(date1 - date2);
+        diff = Math.floor(ms / 1000 / 60 / 60 / 24);
+
         if (diff < 1)
             return "Hoy"
         else if (diff < 2)
@@ -256,12 +284,12 @@ $(document).on('turbolinks:load', function() {
         else if (diff >= 2)
             return "Hace " + diff.floor() + " días"
     }
-    
-    $(".reportes_header").click(function(){
+
+    $(".reportes_header").click(function () {
         toggle_arrow_icon($(this))
         $(this).siblings(".reportes_content").toggle();
     })
-    
+
     function toggle_arrow_icon(reference_tag) {
         if (reference_tag.find(".arrow_icon").attr("src") == "collapse_arrow.png") {
             reference_tag.find(".arrow_icon").attr("src", "expand_arrow.png");
@@ -270,29 +298,29 @@ $(document).on('turbolinks:load', function() {
             reference_tag.find(".arrow_icon").attr("src", "collapse_arrow.png");
         }
     }
-    
-    $("#logoPrepa").click(function(){
+
+    $("#logoPrepa").click(function () {
         window.location = '/mainmenu'
     });
 })
 
 //hace el 'click' event para las notificaciones que son generadas despues del load
-$(document).on("click", ".notificacion_link", function() {
+$(document).on("click", ".notificacion_link", function () {
     window.location = $(this).data("link")
-    
+
     $.ajax({
         type: "POST",
         url: "/set_notificaciones_leida",
         dataType: "JSON",
-        data: {id_notif: $(this).attr('id')}
+        data: { id_notif: $(this).attr('id') }
     })
 });
 
-$(document).on("click", ".pop-over_footer", function() {
+$(document).on("click", ".pop-over_footer", function () {
     $.ajax({
         type: "POST",
         url: "/set_notificaciones_leida",
         dataType: "JSON",
-        data: {id_notif: -1}
+        data: { id_notif: -1 }
     })
 });
