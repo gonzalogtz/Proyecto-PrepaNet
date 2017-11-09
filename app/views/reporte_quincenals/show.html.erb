@@ -10,30 +10,29 @@
               <div class="panel-body">
                 <div class="">
                   <div class="row" id="printID">
-                      <center><h3><%=get_alumno_name_by_id(@reporte_quincenal.alumno)%></h3></center>
-                      <center><h4 style="font-weight: normal"><%=@reporte_quincenal.alumno%></h4></center>
-                      <center><h4 style="font-weight: normal"><%=@reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA) %></h4></center>
+                      <center><h3 class=""><%=get_alumno_name_by_id(@reporte_quincenal.alumno)%></h3></center>
+                      <center><h4 class="" style="font-weight: normal"><%=@reporte_quincenal.alumno%></h4></center>
+                      <center><h4 class="printPad" style="font-weight: normal"><%=@reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA) %></h4></center>
                       
                       <div class="col-sm-3">
-                        <h4>Estatus del Alumno:</h4>
+                        <h4 class="boldPrint">Estatus del Alumno:</h4>
                         <h4 style="font-weight: normal;"><%= get_estatus_tag(@reporte_quincenal.estatus) %></h4>
                         
-                        <h4>Localizado:</h4>
+                        <h4 class="boldPrint">Localizado:</h4>
                         <h4 style="font-weight: normal;"><%= get_localizado_tag(@reporte_quincenal.localizado) %></h4>
                       </div>
                       
                       <div class="col-sm-3">
-                        <h4 >Tutor:</h4>
+                        <h4 class="boldPrint" >Tutor:</h4>
                         <h4 style="font-weight: normal"><%=get_usuario_name_by_id(@reporte_quincenal.tutor)%></h4>
-                        <h4>Coordinador del Tutor:</h4>
+                        <h4 class="boldPrint">Coordinador del Tutor:</h4>
                         <h4 style="font-weight: normal"><%=get_coordinador_name_by_coordinado_id(@reporte_quincenal.tutor)%></h4>
                       </div>
                       
                     <div class="col-sm-6">
-                        <h4>Comentarios:</h4>
+                        <h4 class="boldPrint">Comentarios:</h4>
                         <div contentEditable="false" id="divText" class="scrollDiv">    
                           <%= @reporte_quincenal.comentarios %>
-
                         </div>
                         
                     </div>
