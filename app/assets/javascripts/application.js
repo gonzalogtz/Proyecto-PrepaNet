@@ -31,6 +31,11 @@ $(document).on('turbolinks:load', function () {
         window.location = $(this).data("link")
     });
 
+    $(".boton_carousel_reporte_activado").click(function () {
+        id_reporte = $(this).data("link")
+        $("#reporte_" + id_reporte).show("slow").siblings().hide(500);
+    });
+
     function cerrar_alerta() {
         $(".alert").hide()
     };
@@ -44,30 +49,43 @@ $(document).on('turbolinks:load', function () {
     });
 
     //Validacion de conglomerado
-    $("#conglomerado_semanal_tutor").change(function () {
+    $("#conglomerado_semanal_tutor, #conglomerado_semanal_curso").change(function () {
+        valida_conglomerado(event)
+    });
+    
+    function valida_conglomerado(event) {
         $(event.target).find("option[value='']").attr("disabled", true);
         $("#btnSubmit").removeAttr("disabled");
         cerrar_alerta()
+        
+        tutor = $("#conglomerado_semanal_tutor").val();
+        curso = $("#conglomerado_semanal_curso").val();
+        
+        console.log(curso)
 
-        $.ajax({
-            type: "POST",
-            url: "get_semanales_count",
-            dataType: "JSON",
-            data: { tutor_id: $("#conglomerado_semanal_tutor").val() },
-            success: function (result) {
-                if (result["tipo_error"] == 1) {
-                    $("#alert_text").html("Este tutor no tiene 15 semanales")
-                    $("#btnSubmit").attr("disabled", true);
-                    $(".alert").show()
+        //Solo se llama el servidor si hay un tutor curso seleccionado
+        if (tutor && curso) {
+            $.ajax({
+                type: "POST",
+                url: "get_semanales_count",
+                dataType: "JSON",
+                data: { tutor_id: tutor,
+                        curso_id: curso },
+                success: function (result) {
+                    if (result["tipo_error"] == 1) {
+                        $("#alert_text").html("Este tutor no tiene 15 semanales")
+                        $("#btnSubmit").attr("disabled", true);
+                        $(".alert").show()
+                    }
+                    else if (result["tipo_error"] == 2) {
+                        $("#alert_text").html("Este tutor ya tiene reporte")
+                        $("#btnSubmit").attr("disabled", true);
+                        $(".alert").show()
+                    }
                 }
-                else if (result["tipo_error"] == 2) {
-                    $("#alert_text").html("Este tutor ya tiene reporte")
-                    $("#btnSubmit").attr("disabled", true);
-                    $(".alert").show()
-                }
-            }
-        })
-    });
+            })
+        }
+    }
 
     //validacion de reporte semanal
     $("#reporte_semanal_semana, #reporte_semanal_tutor, #reporte_semanal_curso").change(function (event) {
@@ -80,7 +98,7 @@ $(document).on('turbolinks:load', function () {
         semana = $("#reporte_semanal_semana").val();
 
         //Solo se llama el servidor si hay un tutor, curso y semana seleccionado
-        if (tutor != "" && semana != "" && curso != "") {
+        if (tutor && semana && curso) {
             $.ajax({
                 type: "POST",
                 url: "valida_reporte_tutor_curso_semana",
@@ -123,7 +141,7 @@ $(document).on('turbolinks:load', function () {
     });
 
     //carga los cursos por tutor en la forma para reportes semanales
-    $("#reporte_semanal_tutor").change(function (event) {
+    $("#reporte_semanal_tutor, #conglomerado_semanal_tutor").change(function (event) {
         $(event.target).find("option[value='']").attr("disabled", true);
 
         tutor = $(this).val();
@@ -138,8 +156,13 @@ $(document).on('turbolinks:load', function () {
                 for (var i = 0; i < result.length; i++) {
                     options += "<option value='" + result[i][0] + "'>" + result[i][1] + "</option>";
                 }
-
-                $('#reporte_semanal_curso').html(options);
+                
+                if (event.target.id == "reporte_semanal_tutor")
+                    $('#reporte_semanal_curso').html(options);
+                else {
+                    $('#conglomerado_semanal_curso').html(options);
+                    valida_conglomerado(event)
+                }
             }
         })
     });

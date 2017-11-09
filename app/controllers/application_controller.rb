@@ -47,6 +47,18 @@ class ApplicationController < ActionController::Base
       return tutores
     end
     helper_method :get_tutores_by_coordinador_tutores
+    
+    def get_tutores_for_select
+      lista_tutores = []
+      
+      get_tutores_by_coordinador_tutores().each do |tutor|
+        nombre_tutor = tutor.nombres + " " + tutor.apellido_p + " " + tutor.apellido_m
+        lista_tutores.push([nombre_tutor, tutor.cuenta])
+      end
+      
+      return lista_tutores
+    end
+    helper_method :get_tutores_for_select
   
     def user_is_logged_in
       if (NOMBRE_USUARIO == "" && !current_page?("/"))

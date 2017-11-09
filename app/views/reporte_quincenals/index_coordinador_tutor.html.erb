@@ -7,7 +7,7 @@
     <% get_tutores_by_coordinador_tutores.each do |tutor| %>
         <div>
             <h3 class='reportes_header' id='<%=tutor.cuenta%>'><span><img class='arrow_icon' src="expand_arrow.png"></span>Tutor: <%=tutor.nombres%> <%=tutor.apellido_p%> <%=tutor.apellido_m%></h3>
-            <div class='reportes_content padding_inside'>
+            <div class='reportes_content open padding_inside'>
                 <%= render 'tarjetas', tutor: tutor.cuenta%>
             </div>
         </div>

@@ -9,14 +9,6 @@ class ReporteSemanalsController < ApplicationController
       @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA)
       @tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
     elsif ROL == STR_ROL_TUTOR
-      @reporte_semanals = ReporteSemanal.where(tutor: CUENTA).order('semana').take(15)
-      
-      calif_arr = []
-      @reporte_semanals.each do |reporte|
-        calif_arr.push(reporte.calificacion_total)
-      end
-      @promedio_actual = calif_arr.sum.fdiv(calif_arr.size).ceil
-      @horas_desempeno_actual = (@promedio_actual*7.5).ceil
       render "index_tutor"
     end
   end
@@ -111,6 +103,7 @@ class ReporteSemanalsController < ApplicationController
     
     def get_reporte_semanals_by_tutor_and_curso(tutor_id, curso_id)
       @reporte_semanals_tutor = ReporteSemanal.where(tutor: tutor_id, curso: curso_id).order('semana')
+      return @reporte_semanals_tutor
     end
     helper_method :get_reporte_semanals_by_tutor_and_curso
     
@@ -129,6 +122,21 @@ class ReporteSemanalsController < ApplicationController
     end
     helper_method :get_reporte_semanals_by_semana
     
+    def get_botones_reportes_semanales_carousel(num_semana)
+      reporte_semanal = @reporte_semanals_tutor.where(semana: num_semana).first
+      
+      html = ""
+      if !reporte_semanal
+        html = "<div class='boton_carousel_reporte'>" + num_semana.to_s + "</div>"
+      else
+        html = "<div class='boton_carousel_reporte boton_carousel_reporte_activado' data-link='"+ reporte_semanal.id.to_s + "' 
+        data-toggle='tooltip' title='" + reporte_semanal.calificacion_total.to_s + "/10' data-placement='top'>" + num_semana.to_s + "</div>"
+      end
+      
+      return html.html_safe
+    end
+    helper_method :get_botones_reportes_semanales_carousel
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_reporte_semanal
       @reporte_semanal = ReporteSemanal.find(params[:id])
@@ -139,18 +147,6 @@ class ReporteSemanalsController < ApplicationController
       params.require(:reporte_semanal).permit(:tutor, :curso, :semana, :califica_en_plazo, :califica_con_rubrica, :da_retroalimentacion, :responde_mensajes, 
       :errores_ortografia, :comentarios)
     end
-    
-    def get_tutores_for_select
-      lista_tutores = []
-      
-      get_tutores_by_coordinador_tutores().each do |tutor|
-        nombre_tutor = tutor.nombres + " " + tutor.apellido_p + " " + tutor.apellido_m
-        lista_tutores.push([nombre_tutor, tutor.cuenta])
-      end
-      
-      return lista_tutores
-    end
-    helper_method :get_tutores_for_select
 
     # Hace la sumatoria de puntos de la rubrica para conseguir una calificacion total
     def get_calif_total(reporte)

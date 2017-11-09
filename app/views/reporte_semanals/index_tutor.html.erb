@@ -1,33 +1,29 @@
 <%= render 'topsidebar/navsidebar' %>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <div id="table-cursos">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <center><h3>Reportes Semanales</h3></center>
-          <p>Promedio actual: <%=@promedio_actual%></p>
-          <p>Horas con promedio actual: <%=@horas_desempeno_actual%>/75</p>
+  <ul class="nav nav-pills nav-justified">
+    <% get_cursos_by_tutor().each do |curso| %>
+        <li><a data-toggle="tab" href="#<%= curso.curso.parameterize %>"><%= curso.materia %></a></li>
+    <%end%>
+  </ul>
+  
+  <div class="tab-content">
+    <% get_cursos_by_tutor().each do |curso| %>
+      <div id="<%= curso.curso.parameterize %>" class="tab-pane fade">
+        <div class='reporte_carousel_content'>
+          <% get_reporte_semanals_by_tutor_and_curso(ApplicationController::CUENTA, curso.curso).each do |reporte_semanal|%>
+            <div id='reporte_<%=reporte_semanal.id%>' class='reporte_semanal_carousel'>
+              <%= render 'show_reporte_semanal', reporte_semanal: reporte_semanal %>
+            </div>
+          <%end%>
         </div>
-
-        <div class="table-resposive">
-          <table class="table table-striped txtCenter">
-            <thead>
-              <tr>
-                <th class="txtCenter">Semana</th>
-                <th class="txtCenter">Calificación</th>
-              </tr>
-            </thead>
-            <tbody>
-                <% @reporte_semanals.each do |reporte_semanal| %>
-                <tr class='pickHover reporte_row' data-link='reporte_semanals/<%=reporte_semanal.id%>'>
-                  <td><%=reporte_semanal.semana%></td>
-                  <td><%= reporte_semanal.calificacion_total%></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+        <div class="carousel_nav">
+          <% (1..15).each do |i| %>
+            <%=get_botones_reportes_semanales_carousel(i)%>
+          <% end %>
         </div>
-    </div>
+      </div>
+    <%end%>
   </div>
+  
 </div>
-
