@@ -4,7 +4,7 @@
       <h1 class="page-header">Reportes Semanales</h1>
     </div>
     
-    <% get_tutores_by_coordinador_tutores.each do |tutor| %>
+    <% get_tutores_encargados.each do |tutor| %>
       <%= render 'tarjetas', tutor: tutor%>
     <% end %>
     

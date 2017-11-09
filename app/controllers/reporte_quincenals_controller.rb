@@ -5,7 +5,7 @@ class ReporteQuincenalsController < ApplicationController
   # GET /reporte_quincenals
   # GET /reporte_quincenals.json
   def index
-    if ROL == STR_ROL_COORDINADOR_TUTOR
+    if ROL == STR_ROL_COORDINADOR_TUTOR || ROL == STR_ROL_COORDINADOR_CAMPUS
       render "index_coordinador_tutor"
     end
   end

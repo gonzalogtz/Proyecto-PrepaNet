@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   FORMATO_FECHA = "%-d/%-m/%Y"
   STR_ROL_TUTOR = "Tutor"
   STR_ROL_COORDINADOR_TUTOR = "Coordinador de Tutor"
+  STR_ROL_COORDINADOR_CAMPUS = "Coordinador de Campus"
   STR_ROL_COORDINADOR_PREPANET = "Coordinador Prepanet"
 
     def get_usuario_name_by_id(id)
@@ -42,11 +43,34 @@ class ApplicationController < ActionController::Base
     end
     helper_method :get_alumnos_by_curso
     
+    def get_tutores_encargados
+      if ROL == STR_ROL_COORDINADOR_TUTOR
+        return get_tutores_by_coordinador_tutores
+      elsif ROL == STR_ROL_COORDINADOR_CAMPUS
+        return get_tutores_by_coordinador_campus
+      end
+    end
+    helper_method :get_tutores_encargados
+    
     def get_tutores_by_coordinador_tutores(coordinador_id = CUENTA)
       tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
       return tutores
     end
     helper_method :get_tutores_by_coordinador_tutores
+    
+    def get_tutores_by_coordinador_campus(coordinador_id = CUENTA)
+      coordinador_tutores = UsuarioCoordinaUsuario.where(coordinador: CUENTA)
+      
+      lista_coordinadores = []
+      coordinador_tutores.each do |coordinador_tutor|
+        lista_coordinadores.push(coordinador_tutor.usuario)
+      end
+      
+      tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: lista_coordinadores).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
+
+      return tutores
+    end
+    helper_method :get_tutores_by_coordinador_campus
     
     def get_tutores_for_select
       lista_tutores = []
