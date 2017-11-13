@@ -12,9 +12,53 @@ body {
 }
 
 /** Hider **/
+@media (max-width: 580px) {
+  
+  #nombreUsuario{
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  
+  #fecha{
+    display: none;
+  }
+}
+
+@media (max-width: 408px) {
+  
+  #notificaciones{
+    display: none;
+  }
+}
 
 
 
+
+
+.textPad{
+
+  margin-top: 12px;
+}
+.iconPad{
+  margin-top: -6px;
+}
+
+.leftLi {
+    float: left;
+    margin-left: 20px;
+    padding-bottom: -10px;
+    
+}
+
+.leftLi2 {
+    float: right;
+    margin-left: 20px;
+    list-style-type: none;
+    text-align: right;
+    color: white !important;
+}
 
 
 .hide{
