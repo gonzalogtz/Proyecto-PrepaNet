@@ -83,6 +83,18 @@ class ApplicationController < ActionController::Base
       return lista_tutores
     end
     helper_method :get_tutores_for_select
+    
+    def get_texto_header_curso(curso)
+      texto = curso.materia + " - Grupo "
+      texto += get_num_grupo(curso.grupo)
+      return texto
+    end
+    helper_method :get_texto_header_curso
+    
+    def get_num_grupo(clave_grupo)
+      partes_grupo = clave_grupo.split('.')
+      return partes_grupo[-1]
+    end
   
     def user_is_logged_in
       if (NOMBRE_USUARIO == "" && !current_page?("/"))

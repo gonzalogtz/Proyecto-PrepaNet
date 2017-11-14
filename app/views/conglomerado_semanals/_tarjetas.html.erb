@@ -1,12 +1,14 @@
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
     <div class="tarjeta tutor_tarjeta">
-        <div class='tarjeta_nombre'><%=tutor.nombres%></div>
-        <div class='tarjeta_apellidos'><%=tutor.apellido_p%> <%=tutor.apellido_m%></div>
+        <div class='tarjeta_texto_grande'><%=tutor.nombres%></div>
+        <div class='tarjeta_texto_grande'><%=tutor.apellido_p%> <%=tutor.apellido_m%></div>
         <div class='tarjeta_matricula'><%=tutor.cuenta%></div>
         <div class='contenedor_boton_reportes'>
             <% get_cursos_by_tutor(tutor.cuenta).each do |curso| %>
-                <div class='contenedor_boton_reportes_header col-md-12'>Reporte - <%= curso.materia %></div>
-                <%=get_conglomerado_semanals_button_by_tutor_and_curso(tutor.usuario, curso.curso)%>
+                <div class='contenedor_curso_reportes'>
+                    <div class='contenedor_boton_reportes_header'>Reporte - <%= get_texto_header_curso(curso) %></div>
+                    <%=get_conglomerado_semanals_button_by_tutor_and_curso(tutor.usuario, curso.curso)%>
+                </div>
             <% end %>
         </div>
     </div>
