@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', function () {
     $('[data-toggle="popover"]').popover();
     //activa tooltips
     $('[data-toggle="tooltip"]').tooltip();
-
+    
     $(".tutor_header").click(function () {
         var index = $(this).attr('id');
         $(".tutor_content" + index).toggle("fast", function () { });
@@ -325,6 +325,66 @@ $(document).on('turbolinks:load', function () {
     $("#logoPrepa").click(function () {
         window.location = '/mainmenu'
     });
+    
+    $("#toggle_expand_grupo").click(function() {
+        if ($(this).html() == "Colapsar grupos"){
+            var nuevo_texto = "Expandir grupos"
+            $(".reportes_curso_content").hide();
+        }
+        else {
+            var nuevo_texto = "Colapsar grupos"
+            $(".reportes_curso_content").show();
+        }
+        
+        $(this).html(nuevo_texto)
+    });
+    
+    $("#toggle_sin_reportes").click(function() {
+        if ($(this).html() == "Mostrar alumnos sin reportes")
+            var nuevo_texto = "Mostrar todos los alumnos"
+        else
+            var nuevo_texto = "Mostrar alumnos sin reportes"
+        
+        $("[data-existencia='1']").each(function(){
+            $(this).closest(".tarjeta_col").toggle();
+        })
+        
+        $(this).html(nuevo_texto)
+    });
+    
+    //filtro de estatus en reportes quincenales
+    $('#filtro_estatus :checkbox').change(function() {
+        arr_filtro = []
+        $('#filtro_estatus :checkbox').each(function(){
+            if ($(this).is(":checked"))
+                arr_filtro.push($(this).val())
+        })
+        
+        filtrar_atributo(arr_filtro, "estatus")
+    });
+    
+    //filtro de localizacion en reportes quincenales
+    $('#filtro_localizado :checkbox').change(function() {
+        console.log($(this))
+        arr_filtro = []
+        $('#filtro_localizado :checkbox').each(function(){
+            if ($(this).is(":checked"))
+                arr_filtro.push($(this).val())
+        })
+        
+        filtrar_atributo(arr_filtro, "localizado")
+    });
+    
+    function filtrar_atributo(arr_filtro, atributo) {
+        //esconde todas, despues muestra las que tengan la palomita
+        $(".tarjeta_col").hide()
+        
+        $.each(arr_filtro, function(i, val) {
+            $('[data-' + atributo + '="' + val + '"]').each(function(){
+                $(this).closest(".tarjeta_col").show()
+            })
+        })
+    }
 })
 
 //hace el 'click' event para las notificaciones que son generadas despues del load

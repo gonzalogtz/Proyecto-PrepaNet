@@ -108,7 +108,7 @@ class ReporteQuincenalsController < ApplicationController
         #last corresponde al reporte mas reciente
         return get_estatus_tag(@reporte_quincenals_alumnos.last[:estatus])
       else
-        return "<span class='no_reportes'>No existe información</span>".html_safe
+        return "<span data-existencia='0' class='no_reportes'>No existe información</span>".html_safe
       end
     end
     helper_method :get_ultimo_estatus
@@ -135,21 +135,25 @@ class ReporteQuincenalsController < ApplicationController
     
     def get_estatus_tag(estatus)
       if estatus == 0
-        return "<span class='texto_negativo'>Inactivo</span>".html_safe
+        tag = "<span data-existencia='1' data-estatus='0' class='texto_negativo'>Inactivo</span>"
       elsif estatus == 1
-        return "<span class='texto_amarillo'>Parcialmente activo</span>".html_safe
+        tag = "<span data-existencia='1' data-estatus='1' class='texto_amarillo'>Parcialmente activo</span>"
       elsif estatus == 2
-        return "<span class='texto_positivo'>Activo</span>".html_safe
+        tag = "<span data-existencia='1' data-estatus='2' class='texto_positivo'>Activo</span>"
       end
+      
+      return tag.html_safe
     end
     helper_method :get_estatus_tag
     
     def get_localizado_tag(localizado)
       if localizado == 0
-        return "<span class='texto_negativo'>No</span>".html_safe
+        tag = "<span data-localizado='0' class='texto_negativo'>No</span>"
       elsif localizado == 1
-        return "<span class='texto_positivo'>Sí</span>".html_safe
+        tag = "<span data-localizado='1' class='texto_positivo'>Sí</span>"
       end
+      
+      return tag.html_safe
     end
     helper_method :get_localizado_tag
 end
