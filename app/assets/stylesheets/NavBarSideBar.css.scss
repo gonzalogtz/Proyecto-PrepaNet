@@ -12,6 +12,54 @@ body {
 }
 
 /** Hider **/
+@media (max-width: 580px) {
+  
+  #nombreUsuario{
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  
+  #fecha{
+    display: none;
+  }
+}
+
+@media (max-width: 408px) {
+  
+  #notificaciones{
+    display: none;
+  }
+}
+
+
+
+
+
+.textPad{
+
+  margin-top: 12px;
+}
+.iconPad{
+  margin-top: -6px;
+}
+
+.leftLi {
+    float: left;
+    margin-left: 20px;
+    padding-bottom: -10px;
+    
+}
+
+.leftLi2 {
+    float: right;
+    margin-left: 20px;
+    list-style-type: none;
+    text-align: right;
+    color: white !important;
+}
+
 
 .hide{
   display: none;
@@ -42,6 +90,30 @@ body {
 .sidebar {
   display: none;
 }
+
+
+@media screen and (max-width: 767px) {
+    #hideSmall{
+    display: none;
+  }
+  #navbarColl{
+    background-color: #4183D7;
+    
+  }
+  .backAzul{
+    text-align: center;
+    color: white;
+  }
+  .backAzul:hover{
+    
+    background-color: #428bca !important;
+    color: black;
+  }
+  .navbar{
+    border-bottom: solid 1px black;
+  }
+}
+
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;
@@ -85,8 +157,8 @@ body {
 }
 @media (min-width: 768px) {
   .main {
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 0px;
+    padding-left: 68px;
   }
 }
 .main .page-header {
