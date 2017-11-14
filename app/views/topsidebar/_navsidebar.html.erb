@@ -1,14 +1,14 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
-    <div class="">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarColl" aria-expanded="false" aria-controls="navbar">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
     </div>
-    <div id="navbar">
+    <div id="navbar" class="navbar-collapse collapse">
       <img id="logoPrepa" src="<%= asset_path("logoPrepa.png")%>" />
       <ul class="nav navbar-nav navbar-right">
         <li><a><%= ApplicationController::NOMBRE_USUARIO%></a></li>
@@ -19,19 +19,18 @@
     </div>
   </div>
 </nav>
-
 <div class="container-fluid">
   <div class="row">
-    <div id="navbarColl" class="sidebar navbar-collapse collapse">
-      <ul  class="nav nav-sidebar">
-        <li class="backAzul" id="hideSmall"><h4 style="margin-left: 10px;">Reportes</h4></li>
-        <li><%= link_to 'Reportes quincenales', reporte_quincenals_path, class: "backAzul"%></li>
-        <% if ApplicationController::ROL == ApplicationController::STR_ROL_TUTOR%><li class="backAzul"><%= link_to "Mi desempeño semanal", reporte_semanals_path, class: "backAzul" %></li><% end %>
-        <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%><li class="backAzul"><%= link_to "Reportes semanales", reporte_semanals_path, class: "backAzul" %></li><% end %>
-        <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%><li class="backAzul"><%= link_to 'Concentrados de reportes semanales', conglomerado_semanals_path, class: "backAzul" %></li><% end %>
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li><h4 style="margin-left: 10px;">Reportes</h4></li>
+        <li><%= link_to 'Reportes quincenales', reporte_quincenals_path %></li>
+        <% if ApplicationController::ROL == ApplicationController::STR_ROL_TUTOR%><li><%= link_to "Mi desempeño semanal", reporte_semanals_path %></li><% end %>
+        <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%><li><%= link_to "Reportes semanales", reporte_semanals_path %></li><% end %>
+        <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%><li><%= link_to 'Concentrados de reportes semanales', conglomerado_semanals_path %></li><% end %>
         <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_PREPANET%>
-          <li class="backAzul"><h4 style="margin-left: 10px;">Administración del sistema</h4></li>
-          <li class="backAzul"><%= link_to 'Agregar usuarios', usuarios_path %></li>
+          <li><h4 style="margin-left: 10px;">Administración del sistema</h4></li>
+          <li><%= link_to 'Agregar usuarios', usuarios_path %></li>
         <% end %>
       </ul>
     </div>
