@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inicio periodo:</strong>
+  <%= @periodo.inicio_periodo %>
+</p>
+
+<p>
+  <strong>Fin periodo:</strong>
+  <%= @periodo.fin_periodo %>
+</p>
+
+<p>
+  <strong>Inicio de inscripcion normal:</strong>
+  <%= @periodo.inicio_de_inscripcion_normal %>
+</p>
+
+<p>
+  <strong>Fin de inscripcion normal:</strong>
+  <%= @periodo.fin_de_inscripcion_normal %>
+</p>
+
+<p>
+  <strong>Inicio de inscripcion tardia:</strong>
+  <%= @periodo.inicio_de_inscripcion_tardia %>
+</p>
+
+<p>
+  <strong>Fin de inscripcion tardia:</strong>
+  <%= @periodo.fin_de_inscripcion_tardia %>
+</p>
+
+<p>
+  <strong>Fecha de fin de registro:</strong>
+  <%= @periodo.fecha_de_fin_de_registro %>
+</p>
+
+<p>
+  <strong>Fecha inicial primer parcial:</strong>
+  <%= @periodo.fecha_inicial_primer_parcial %>
+</p>
+
+<p>
+  <strong>Fecha final primer parcial:</strong>
+  <%= @periodo.fecha_final_primer_parcial %>
+</p>
+
+<p>
+  <strong>Fecha inicial segundo parcial:</strong>
+  <%= @periodo.fecha_inicial_segundo_parcial %>
+</p>
+
+<p>
+  <strong>Fecha final segundo parcial:</strong>
+  <%= @periodo.fecha_final_segundo_parcial %>
+</p>
+
+<p>
+  <strong>Fecha inicial tercer parcial:</strong>
+  <%= @periodo.fecha_inicial_tercer_parcial %>
+</p>
+
+<p>
+  <strong>Fecha final tercer parcial:</strong>
+  <%= @periodo.fecha_final_tercer_parcial %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @periodo.descripcion %>
+</p>
+
+<p>
+  <strong>Clasificacion:</strong>
+  <%= @periodo.clasificacion %>
+</p>
+
+<%= link_to 'Edit', edit_periodo_path(@periodo) %> |
+<%= link_to 'Back', periodos_path %>

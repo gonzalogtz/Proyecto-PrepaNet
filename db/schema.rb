@@ -12,6 +12,27 @@
 
 ActiveRecord::Schema.define(version: 20171022223115) do
   
+
+  create_table "periodos", force: :cascade do |t|
+    t.datetime   "inicio_periodo"
+    t.datetime   "fin_periodo"
+    t.datetime   "inicio_de_inscripcion_normal"
+    t.datetime   "fin_de_inscripcion_normal"
+    t.datetime   "inicio_de_inscripcion_tardia"
+    t.datetime   "fin_de_inscripcion_tardia"
+    t.datetime   "fecha_de_fin_de_registro"
+    t.datetime   "fecha_inicial_primer_parcial"
+    t.datetime   "fecha_final_primer_parcial"
+    t.datetime   "fecha_inicial_segundo_parcial"
+    t.datetime   "fecha_final_segundo_parcial"
+    t.datetime   "fecha_inicial_tercer_parcial"
+    t.datetime   "fecha_final_tercer_parcial"
+    t.string   "descripcion"
+    t.string   "clasificacion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "usuarios", force: :cascade do |t|
     t.string   "cuenta"
     t.string   "nomina_matricula"

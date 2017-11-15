@@ -14,14 +14,14 @@ body {
 /** Hider **/
 @media (max-width: 580px) {
   
-  #nombreUsuario{
+  #fecha{
     display: none;
   }
 }
 
 @media (max-width: 500px) {
   
-  #fecha{
+  #nombreUsuario{
     display: none;
   }
 }
@@ -155,12 +155,24 @@ body {
 .main {
   padding: 20px;
 }
-@media (min-width: 768px) {
-  .main {
-    padding-right: 40px;
-    padding-left: 40px;
+@media (max-width: 767px) {
+  #reporteTitle{
+    display: none;
+   
+  }
+
+  .blueBack{
+    background-color: #4183D7;
+    text-align: center;
+    color: white;
+  }
+
+  .blueBack:hover{
+    background-color: #428bca !important;
+   
   }
 }
+
 .main .page-header {
   margin-top: 0;
 }

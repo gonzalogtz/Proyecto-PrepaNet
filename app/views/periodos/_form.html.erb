@@ -1,0 +1,92 @@
+<%= form_for(periodo) do |f| %>
+  <% if periodo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(periodo.errors.count, "error") %> prohibited this periodo from being saved:</h2>
+
+      <ul>
+      <% periodo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :inicio_periodo %>
+    <%= f.text_field :inicio_periodo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fin_periodo %>
+    <%= f.text_field :fin_periodo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :inicio_de_inscripcion_normal %>
+    <%= f.text_field :inicio_de_inscripcion_normal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fin_de_inscripcion_normal %>
+    <%= f.text_field :fin_de_inscripcion_normal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :inicio_de_inscripcion_tardia %>
+    <%= f.text_field :inicio_de_inscripcion_tardia %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fin_de_inscripcion_tardia %>
+    <%= f.text_field :fin_de_inscripcion_tardia %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_de_fin_de_registro %>
+    <%= f.text_field :fecha_de_fin_de_registro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_inicial_primer_parcial %>
+    <%= f.text_field :fecha_inicial_primer_parcial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_final_primer_parcial %>
+    <%= f.text_field :fecha_final_primer_parcial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_inicial_segundo_parcial %>
+    <%= f.text_field :fecha_inicial_segundo_parcial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_final_segundo_parcial %>
+    <%= f.text_field :fecha_final_segundo_parcial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_inicial_tercer_parcial %>
+    <%= f.text_field :fecha_inicial_tercer_parcial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_final_tercer_parcial %>
+    <%= f.text_field :fecha_final_tercer_parcial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clasificacion %>
+    <%= f.text_field :clasificacion %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

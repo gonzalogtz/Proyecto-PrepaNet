@@ -305,7 +305,7 @@ $(document).on('turbolinks:load', function () {
         else if (diff < 2)
             return "Ayer"
         else if (diff >= 2)
-            return "Hace " + diff.floor() + " días"
+            return "Hace " + Math.floor(diff) + " días"
     }
 
     $(".reportes_header").click(function () {
