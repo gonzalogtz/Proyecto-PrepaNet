@@ -15,7 +15,7 @@
                                     <h4>Curso:</h4>
                                 </div>
                                 <div class="select-input">
-                                    <%= f.select :curso, options_from_collection_for_select(get_cursos_by_tutor(), :grupo, :materia), {prompt: "Selecciona un curso"}, class: "selectpicker", required: true%>
+                                    <%= f.select :curso, options_from_collection_for_select(get_cursos_encargados(), :grupo, :materia), {prompt: "Selecciona un curso"}, class: "selectpicker", required: true%>
                                 </div>
                             </div>
                         

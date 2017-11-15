@@ -248,8 +248,12 @@ body {
   display: block;
 }
 
-.notificacion_row {
+.notificacion_row, .empty_notif {
   border-bottom: 1pt solid lightgray;
+}
+
+.empty_notif {
+  text-align: center;
 }
 
 .notificacion_row:hover {

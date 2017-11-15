@@ -28,7 +28,16 @@ class ReporteQuincenalsController < ApplicationController
   # POST /reporte_quincenals.json
   def create
     @reporte_quincenal = ReporteQuincenal.new(reporte_quincenal_params)
-    @reporte_quincenal[:tutor] = CUENTA
+    
+    #si el usuario es el tutor, usar su cuenta directamente
+    if ROL == STR_ROL_TUTOR
+      @reporte_quincenal[:tutor] = CUENTA
+    else
+      tutor_materia = TutorTutoreaMateria.where(curso: @reporte_quincenal[:curso]).first
+      @reporte_quincenal[:tutor] = tutor_materia.tutor
+    end
+    
+    @reporte_quincenal[:campus] = CAMPUS
     @reporte_quincenal[:fecha_correspondiente] = Date.today
 
     respond_to do |format|
@@ -74,7 +83,12 @@ class ReporteQuincenalsController < ApplicationController
         
         #el coordinador de tutores tambien puede ver los reportes
         if (coordinador_tutor.coordinador != CUENTA)
-          redirect_to "/mainmenu"
+          #el coordinador de campus puede ver los reportes
+          if (ROL == STR_ROL_COORDINADOR_CAMPUS && reporte_quincenal.campus != CAMPUS)
+            puts reporte_quincenal.campus
+            puts CAMPUS
+            redirect_to "/mainmenu"
+          end
         end
       end
     end
@@ -108,7 +122,7 @@ class ReporteQuincenalsController < ApplicationController
         #last corresponde al reporte mas reciente
         return get_estatus_tag(@reporte_quincenals_alumnos.last[:estatus])
       else
-        return "<span data-existencia='0' class='no_reportes'>No existe información</span>".html_safe
+        return "<span data-estatus='-1' class='no_reportes'>No existe información</span>".html_safe
       end
     end
     helper_method :get_ultimo_estatus
@@ -118,7 +132,7 @@ class ReporteQuincenalsController < ApplicationController
         #last corresponde al reporte mas reciente
         return get_localizado_tag(@reporte_quincenals_alumnos.last[:localizado])
       else
-        return "<span class='no_reportes'>No existe información</span>".html_safe
+        return "<span data-localizado='-1' class='no_reportes'>No existe información</span>".html_safe
       end 
     end
     helper_method :get_ultimo_localizado
@@ -135,11 +149,11 @@ class ReporteQuincenalsController < ApplicationController
     
     def get_estatus_tag(estatus)
       if estatus == 0
-        tag = "<span data-existencia='1' data-estatus='0' class='texto_negativo'>Inactivo</span>"
+        tag = "<span data-estatus='0' class='texto_negativo'>Inactivo</span>"
       elsif estatus == 1
-        tag = "<span data-existencia='1' data-estatus='1' class='texto_amarillo'>Parcialmente activo</span>"
+        tag = "<span data-estatus='1' class='texto_amarillo'>Parcialmente activo</span>"
       elsif estatus == 2
-        tag = "<span data-existencia='1' data-estatus='2' class='texto_positivo'>Activo</span>"
+        tag = "<span data-estatus='2' class='texto_positivo'>Activo</span>"
       end
       
       return tag.html_safe

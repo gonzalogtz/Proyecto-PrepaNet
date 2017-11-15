@@ -262,7 +262,7 @@ $(document).on('turbolinks:load', function () {
                     });
                 }
                 else {
-                    content += "<tr class='notificacion_row'>"
+                    content += "<tr class='empty_notif'>"
                     content += "<td>"
                     content += "<p class='notificacion_mensaje'>Aún no tienes notificaciones</p>"
                     content += "</td>"
@@ -326,6 +326,19 @@ $(document).on('turbolinks:load', function () {
         window.location = '/mainmenu'
     });
     
+    $("#toggle_expand_tutor").click(function() {
+        if ($(this).html() == "Colapsar tutores"){
+            var nuevo_texto = "Expandir tutores"
+            $(".reportes_tutor_content").hide();
+        }
+        else {
+            var nuevo_texto = "Colapsar tutores"
+            $(".reportes_tutor_content").show();
+        }
+        
+        $(this).html(nuevo_texto)
+    });
+    
     $("#toggle_expand_grupo").click(function() {
         if ($(this).html() == "Colapsar grupos"){
             var nuevo_texto = "Expandir grupos"
@@ -339,50 +352,50 @@ $(document).on('turbolinks:load', function () {
         $(this).html(nuevo_texto)
     });
     
-    $("#toggle_sin_reportes").click(function() {
-        if ($(this).html() == "Mostrar alumnos sin reportes")
-            var nuevo_texto = "Mostrar todos los alumnos"
-        else
-            var nuevo_texto = "Mostrar alumnos sin reportes"
-        
-        $("[data-existencia='1']").each(function(){
-            $(this).closest(".tarjeta_col").toggle();
-        })
-        
-        $(this).html(nuevo_texto)
+    //filtro en reportes quincenales
+    $('#filtro_estatus :checkbox, #filtro_localizado :checkbox').change(function() {
+        filtrar_tarjetas_alumnos()
     });
     
-    //filtro de estatus en reportes quincenales
-    $('#filtro_estatus :checkbox').change(function() {
-        arr_filtro = []
+    $("#search_alumno").on('input', function() {
+        filtrar_tarjetas_alumnos()
+    });
+    
+    function filtrar_tarjetas_alumnos(filtro_estatus, filtro_localizado, texto) {
+        filtro_estatus = []
         $('#filtro_estatus :checkbox').each(function(){
             if ($(this).is(":checked"))
-                arr_filtro.push($(this).val())
+                filtro_estatus.push($(this).val())
         })
         
-        filtrar_atributo(arr_filtro, "estatus")
-    });
-    
-    //filtro de localizacion en reportes quincenales
-    $('#filtro_localizado :checkbox').change(function() {
-        console.log($(this))
-        arr_filtro = []
+        filtro_localizado = []
         $('#filtro_localizado :checkbox').each(function(){
             if ($(this).is(":checked"))
-                arr_filtro.push($(this).val())
+                filtro_localizado.push($(this).val())
         })
         
-        filtrar_atributo(arr_filtro, "localizado")
-    });
-    
-    function filtrar_atributo(arr_filtro, atributo) {
-        //esconde todas, despues muestra las que tengan la palomita
-        $(".tarjeta_col").hide()
+        if ($("#search_alumno").val())
+            var texto = $("#search_alumno").val()
+        else
+            var texto = "*"
         
-        $.each(arr_filtro, function(i, val) {
-            $('[data-' + atributo + '="' + val + '"]').each(function(){
-                $(this).closest(".tarjeta_col").show()
-            })
+        //esconde todas, despues muestra las que tengan la palomita
+        $(".tarjeta_col").hide();
+        
+        //para cada combinacion del filtro
+        $.each(filtro_estatus, function(i, val_est) {
+            $.each(filtro_localizado, function(j, val_loc) {
+                $('.div_info').each(function(){
+                    // solo escoger tarjetas que tengan los filtros seleccionados
+                    if ($(this).find('[data-estatus="' + val_est + '"]').length > 0 && $(this).find('[data-localizado="' + val_loc + '"]').length > 0) {
+                        //si hay filtro de texto, aplicarlo
+                        if (texto != "*" && $(this).siblings(".datos_busqueda:caseInsensitiveContains(" + texto + ")").length > 0)
+                            $(this).closest(".tarjeta_col").show()
+                        else if (texto == "*")
+                            $(this).closest(".tarjeta_col").show()
+                    }
+                })
+            });
         })
     }
 })
@@ -406,4 +419,11 @@ $(document).on("click", ".pop-over_footer", function () {
         dataType: "JSON",
         data: { id_notif: -1 }
     })
+});
+
+//agrega la funcion :caseInsensitiveContains
+$.extend($.expr[":"], {
+    "caseInsensitiveContains": function(elem, i, match, array) {
+        return (elem.textContent || elem.innerText || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+    }
 });

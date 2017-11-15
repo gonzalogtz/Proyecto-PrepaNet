@@ -2,43 +2,23 @@
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <div class="panel-heading">
       <h1 class="page-header">Reportes Quincenales</h1>
-      
-      <button type='button' id='toggle_expand_grupo' class='btn-sm btn-primary'>Expandir grupos</button>
-      
-      <button type='button' id='toggle_sin_reportes' class='btn-sm btn-primary'>Mostrar alumnos sin reportes</button>
-      
-      <div class="input-group">
-			  <div class="input-group-btn">
-				  <button class="btn btn-default" type="button">Estatus</button>
-					<button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"><span class="caret"></span></button>
-					<ul role="menu" class="dropdown-menu" id="filtro_estatus">
-            <li><input type="checkbox" value="0" checked><span class="lbl">Inactivo</span></li>
-            <li><input type="checkbox" value="1" checked><span class="lbl">Parcialmente Activo</span></li>
-            <li><input type="checkbox" value="2" checked><span class="lbl">Activo</span></li>
-          </ul>
-				</div>
-      </div>
-      
-      <div class="input-group">
-			  <div class="input-group-btn">
-				  <button class="btn btn-default" type="button">Localizado</button>
-					<button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"><span class="caret"></span></button>
-					<ul role="menu" class="dropdown-menu" id="filtro_localizado">
-            <li><input type="checkbox" value="0" checked><span class="lbl">No</span></li>
-            <li><input type="checkbox" value="1" checked><span class="lbl">Sí</span></li>
-          </ul>
-				</div>
-      </div>
+      <%= render 'filtros' %>
     </div>
     
     <% get_tutores_encargados.each do |tutor| %>
         <div>
             <h3 class='reportes_header' id='<%=tutor.cuenta%>'><span><img class='arrow_icon' src="collapse_arrow.png"></span>Tutor: <%=tutor.nombres%> <%=tutor.apellido_p%> <%=tutor.apellido_m%></h3>
-            <div class='reportes_content open padding_inside'>
+            <div class='reportes_content reportes_tutor_content open padding_inside'>
                 <%= render 'tarjetas', tutor: tutor.cuenta%>
             </div>
         </div>
     <% end %>
+    
+    <div class="row"> 
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <%= link_to "+", new_reporte_quincenal_path, class: 'btn btn_circular', :id => "btnSubmitTarjetas"%>
+      </div>
+    </div>
     
   </div>
 </div>
