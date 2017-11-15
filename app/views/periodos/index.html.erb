@@ -5,6 +5,21 @@
 <table>
   <thead>
     <tr>
+      <th>Inicio periodo</th>
+      <th>Fin periodo</th>
+      <th>Inicio de inscripcion normal</th>
+      <th>Fin de inscripcion normal</th>
+      <th>Inicio de inscripcion tardia</th>
+      <th>Fin de inscripcion tardia</th>
+      <th>Fecha de fin de registro</th>
+      <th>Fecha inicial primer parcial</th>
+      <th>Fecha final primer parcial</th>
+      <th>Fecha inicial segundo parcial</th>
+      <th>Fecha final segundo parcial</th>
+      <th>Fecha inicial tercer parcial</th>
+      <th>Fecha final tercer parcial</th>
+      <th>Descripcion</th>
+      <th>Clasificacion</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +27,21 @@
   <tbody>
     <% @periodos.each do |periodo| %>
       <tr>
+        <td><%= periodo.inicio_periodo %></td>
+        <td><%= periodo.fin_periodo %></td>
+        <td><%= periodo.inicio_de_inscripcion_normal %></td>
+        <td><%= periodo.fin_de_inscripcion_normal %></td>
+        <td><%= periodo.inicio_de_inscripcion_tardia %></td>
+        <td><%= periodo.fin_de_inscripcion_tardia %></td>
+        <td><%= periodo.fecha_de_fin_de_registro %></td>
+        <td><%= periodo.fecha_inicial_primer_parcial %></td>
+        <td><%= periodo.fecha_final_primer_parcial %></td>
+        <td><%= periodo.fecha_inicial_segundo_parcial %></td>
+        <td><%= periodo.fecha_final_segundo_parcial %></td>
+        <td><%= periodo.fecha_inicial_tercer_parcial %></td>
+        <td><%= periodo.fecha_final_tercer_parcial %></td>
+        <td><%= periodo.descripcion %></td>
+        <td><%= periodo.clasificacion %></td>
         <td><%= link_to 'Show', periodo %></td>
         <td><%= link_to 'Edit', edit_periodo_path(periodo) %></td>
         <td><%= link_to 'Destroy', periodo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
