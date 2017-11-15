@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   #Reporte quincenal
   resources :reporte_quincenals
+
+  #Reporte periodos
+  resources :periodos
   
   #Reporte semanal
   resources :reporte_semanals
