@@ -5,12 +5,16 @@
             <% get_alumnos_by_curso(curso.curso).each do |alumno| %>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 tarjeta_col">
                     <div class="tarjeta alumno_tarjeta">
-                        <div class='tarjeta_texto_grande'><%=alumno.nombres%></div>
-                        <div class='tarjeta_texto_grande'><%=alumno.apellido_p%> <%=alumno.apellido_m%></div>
-                        <div class='tarjeta_matricula'><%=alumno.matricula%></div>
+                        <div class="datos_busqueda">
+                            <div class='tarjeta_texto_grande'><%=alumno.nombres%></div>
+                            <div class='tarjeta_texto_grande'><%=alumno.apellido_p%> <%=alumno.apellido_m%></div>
+                            <div class='tarjeta_matricula'><%=alumno.matricula%></div>
+                        </div>
                         <% get_reporte_quincenals_by_alumno_and_curso(alumno.alumno, curso.curso) %>
-                        <div class='info_alumno'><span>Estatus más reciente: </span><%=get_ultimo_estatus%></div>
-                        <div class='info_alumno'><span>Localizado recientemente: </span><%=get_ultimo_localizado%></div>
+                        <div class='div_info'>
+                            <div class='info_alumno'><span>Estatus más reciente: </span><%=get_ultimo_estatus%></div>
+                            <div class='info_alumno'><span>Localizado recientemente: </span><%=get_ultimo_localizado%></div>
+                        </div>
                         <div class='contenedor_boton_reportes'>
                             <div class='contenedor_boton_reportes_header'>Reportes</div>
                             <%=get_reporte_quincenals_buttons%>

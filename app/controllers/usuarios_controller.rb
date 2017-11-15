@@ -33,7 +33,7 @@ class UsuariosController < ApplicationController
     if user != nil
       #credenciales correctas
       if user[:contrasena] == params[:password]
-        set_credentials(user.nombres, user.cuenta, user.rol)
+        set_credentials(user.nombres, user.cuenta, user.rol, user.campus)
       #contraseña incorrecta
       else
         response = {"tipo_error": 1}
@@ -49,7 +49,7 @@ class UsuariosController < ApplicationController
   end
 
   def logout
-    set_credentials("", "", "")
+    set_credentials("", "", "", "")
   end
 
   # POST /usuarios
@@ -108,9 +108,10 @@ class UsuariosController < ApplicationController
       params.require(:user).permit(:userid, :password, :campus, :role, :names, :flname, :slname, :email, :phone, :status)
     end
     
-    def set_credentials(user, id, role)
+    def set_credentials(user, id, role, campus)
       NOMBRE_USUARIO.replace user
       CUENTA.replace id
       ROL.replace role
+      CAMPUS.replace campus
     end
 end

@@ -6,34 +6,34 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Usuario.create(cuenta: "T00", nomina_matricula: "A00000000", contrasena: "1", campus: "Monterrey",
+Usuario.create(cuenta: "T00", nomina_matricula: "A00000000", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "David", apellido_p: "Benitez", apellido_m: "Morales",
                 correo: "A00000000@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T01", nomina_matricula: "A00000001", contrasena: "1", campus: "Monterrey",
+Usuario.create(cuenta: "T01", nomina_matricula: "A00000001", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "Gonzalo", apellido_p: "Gutierrez", apellido_m: "Sanchez",
                 correo: "A00000001@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T02", nomina_matricula: "A00000002", contrasena: "1", campus: "Monterrey",
+Usuario.create(cuenta: "T02", nomina_matricula: "A00000002", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "Armando", apellido_p: "Galvan", apellido_m: "Sanchez",
                 correo: "A00000002@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T03", nomina_matricula: "A00000003", contrasena: "1", campus: "Monterrey",
+Usuario.create(cuenta: "T03", nomina_matricula: "A00000003", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "David", apellido_p: "Valles", apellido_m: "Sanchez",
                 correo: "A00000003@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T04", nomina_matricula: "A00000004", contrasena: "1", campus: "Monterrey",
+Usuario.create(cuenta: "T04", nomina_matricula: "A00000004", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Coordinador de Tutor", titulo: "", nombres: "Ana Sofia", apellido_p: "Cantu", apellido_m: "Sanchez",
                 correo: "A00000004@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T05", nomina_matricula: "A00000005", contrasena: "1", campus: "Monterrey",
+Usuario.create(cuenta: "T05", nomina_matricula: "A00000005", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "José", apellido_p: "Farías", apellido_m: "Martínez",
                 correo: "A00000005@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T06", nomina_matricula: "A00000006", contrasena: "1", campus: "Monterrey",
+Usuario.create(cuenta: "T06", nomina_matricula: "A00000006", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "José Abél", apellido_p: "Quezada", apellido_m: "Martinez",
                 correo: "A00000006@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T07", nomina_matricula: "A00000007", contrasena: "1", campus: "Monterrey",
+Usuario.create(cuenta: "T07", nomina_matricula: "A00000007", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "Mauro", apellido_p: "Amarante", apellido_m: "Esparza",
                 correo: "A00000007@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T08", nomina_matricula: "A00000008", contrasena: "1", campus: "Monterrey",
+Usuario.create(cuenta: "T08", nomina_matricula: "A00000008", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Coordinador de Tutor", titulo: "", nombres: "Natalia", apellido_p: "Garcia", apellido_m: "Garcia",
                 correo: "A00000008@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T09", nomina_matricula: "A00000009", contrasena: "1", campus: "Monterrey",
+Usuario.create(cuenta: "T09", nomina_matricula: "A00000009", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Coordinador de Campus", titulo: "", nombres: "Ana Maria", apellido_p: "Loreto", apellido_m: "Zúñiga",
                 correo: "A00000009@itesm.mx", telefono: "8111111111", estatus: "")
                 
@@ -65,20 +65,20 @@ Materia.create(clave: "M01", nombre: "Fisica I")
 Materia.create(clave: "M02", nombre: "Ingles I")
 Materia.create(clave: "M03", nombre: "Historia I")
 
-Curso.create(materia: "Matematicas I", grupo: "PRN.PC4018L.1773.AGS.1", campus: "Campus Aguascalientes", estatus: 1)
-Curso.create(materia: "Matematicas II", grupo: "PRN.PC4018L.1773.AGS.2", campus: "Campus Aguascalientes", estatus: 1)
-Curso.create(materia: "Matematicas III", grupo: "PRN.PC4018L.1773.AGS.3", campus: "Campus Aguascalientes", estatus: 1)
-Curso.create(materia: "Matematicas IV", grupo: "PRN.PC4018L.1773.AGS.4", campus: "Campus Aguascalientes", estatus: 1)
+Curso.create(materia: "Matematicas I", grupo: "PRN.PC4018L.1773.MTY.1", campus: "Campus Monterrey", estatus: 1)
+Curso.create(materia: "Matematicas II", grupo: "PRN.PC4018L.1773.MTY.2", campus: "Campus Monterrey", estatus: 1)
+Curso.create(materia: "Matematicas III", grupo: "PRN.PC4018L.1773.MTY.3", campus: "Campus Monterrey", estatus: 1)
+Curso.create(materia: "Matematicas IV", grupo: "PRN.PC4018L.1773.MTY.4", campus: "Campus Monterrey", estatus: 1)
 
-AlumnoCursaMateria.create(alumno: "A0000004", curso: "PRN.PC4018L.1773.AGS.1")
-AlumnoCursaMateria.create(alumno: "A0000005", curso: "PRN.PC4018L.1773.AGS.1")
-AlumnoCursaMateria.create(alumno: "A0000004", curso: "PRN.PC4018L.1773.AGS.2")
-AlumnoCursaMateria.create(alumno: "A0000006", curso: "PRN.PC4018L.1773.AGS.2")
-AlumnoCursaMateria.create(alumno: "A0000007", curso: "PRN.PC4018L.1773.AGS.2")
-AlumnoCursaMateria.create(alumno: "A0000008", curso: "PRN.PC4018L.1773.AGS.3")
-AlumnoCursaMateria.create(alumno: "A0000009", curso: "PRN.PC4018L.1773.AGS.4")
+AlumnoCursaMateria.create(alumno: "A0000004", curso: "PRN.PC4018L.1773.MTY.1")
+AlumnoCursaMateria.create(alumno: "A0000005", curso: "PRN.PC4018L.1773.MTY.1")
+AlumnoCursaMateria.create(alumno: "A0000004", curso: "PRN.PC4018L.1773.MTY.2")
+AlumnoCursaMateria.create(alumno: "A0000006", curso: "PRN.PC4018L.1773.MTY.2")
+AlumnoCursaMateria.create(alumno: "A0000007", curso: "PRN.PC4018L.1773.MTY.2")
+AlumnoCursaMateria.create(alumno: "A0000008", curso: "PRN.PC4018L.1773.MTY.3")
+AlumnoCursaMateria.create(alumno: "A0000009", curso: "PRN.PC4018L.1773.MTY.4")
 
-TutorTutoreaMateria.create(tutor: "T00", curso: "PRN.PC4018L.1773.AGS.1")
-TutorTutoreaMateria.create(tutor: "T00", curso: "PRN.PC4018L.1773.AGS.2")
-TutorTutoreaMateria.create(tutor: "T01", curso: "PRN.PC4018L.1773.AGS.3")
-TutorTutoreaMateria.create(tutor: "T01", curso: "PRN.PC4018L.1773.AGS.4")
+TutorTutoreaMateria.create(tutor: "T00", curso: "PRN.PC4018L.1773.MTY.1")
+TutorTutoreaMateria.create(tutor: "T00", curso: "PRN.PC4018L.1773.MTY.2")
+TutorTutoreaMateria.create(tutor: "T01", curso: "PRN.PC4018L.1773.MTY.3")
+TutorTutoreaMateria.create(tutor: "T01", curso: "PRN.PC4018L.1773.MTY.4")

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   NOMBRE_USUARIO = ""
   CUENTA = ""
   ROL = ""
+  CAMPUS = ""
   FORMATO_FECHA = "%-d/%-m/%Y"
   STR_ROL_TUTOR = "Tutor"
   STR_ROL_COORDINADOR_TUTOR = "Coordinador de Tutor"
@@ -37,6 +38,17 @@ class ApplicationController < ActionController::Base
     end
     helper_method :get_cursos_by_tutor
     
+    def get_cursos_encargados()
+      if ROL == STR_ROL_TUTOR
+        cursos = TutorTutoreaMateria.select("*").where(tutor: CUENTA).joins("INNER JOIN cursos ON tutor_tutorea_materias.curso = cursos.grupo").order('curso')
+      elsif ROL == STR_ROL_COORDINADOR_TUTOR
+        cursos = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN tutor_tutorea_materias ON usuario_coordina_usuarios.usuario = tutor_tutorea_materias.tutor INNER JOIN cursos ON tutor_tutorea_materias.curso = cursos.grupo").order('curso')
+      elsif ROL == STR_ROL_COORDINADOR_CAMPUS
+        cursos = Curso.where(campus: CAMPUS)
+      end
+    end
+    helper_method :get_cursos_encargados
+
     def get_alumnos_by_curso(curso_id)
       alumnos = AlumnoCursaMateria.select("*").where(curso: curso_id).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula")
       return alumnos
