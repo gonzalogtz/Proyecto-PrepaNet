@@ -19,7 +19,7 @@ Usuario.create(cuenta: "T03", nomina_matricula: "A00000003", contrasena: "1", ca
                 rol: "Tutor", titulo: "", nombres: "David", apellido_p: "Valles", apellido_m: "Sanchez",
                 correo: "A00000003@itesm.mx", telefono: "8111111111", estatus: "")
 Usuario.create(cuenta: "T04", nomina_matricula: "A00000004", contrasena: "1", campus: "Campus Monterrey",
-                rol: "Coordinador de Tutor", titulo: "", nombres: "Ana Sofia", apellido_p: "Cantu", apellido_m: "Sanchez",
+                rol: "Coordinador de Tutores", titulo: "", nombres: "Ana Sofia", apellido_p: "Cantu", apellido_m: "Sanchez",
                 correo: "A00000004@itesm.mx", telefono: "8111111111", estatus: "")
 Usuario.create(cuenta: "T05", nomina_matricula: "A00000005", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "José", apellido_p: "Farías", apellido_m: "Martínez",
@@ -31,10 +31,16 @@ Usuario.create(cuenta: "T07", nomina_matricula: "A00000007", contrasena: "1", ca
                 rol: "Tutor", titulo: "", nombres: "Mauro", apellido_p: "Amarante", apellido_m: "Esparza",
                 correo: "A00000007@itesm.mx", telefono: "8111111111", estatus: "")
 Usuario.create(cuenta: "T08", nomina_matricula: "A00000008", contrasena: "1", campus: "Campus Monterrey",
-                rol: "Coordinador de Tutor", titulo: "", nombres: "Natalia", apellido_p: "Garcia", apellido_m: "Garcia",
+                rol: "Coordinador de Tutores", titulo: "", nombres: "Natalia", apellido_p: "Garcia", apellido_m: "Garcia",
                 correo: "A00000008@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T09", nomina_matricula: "A00000009", contrasena: "1", campus: "Campus Monterrey",
-                rol: "Coordinador de Campus", titulo: "", nombres: "Ana Maria", apellido_p: "Loreto", apellido_m: "Zúñiga",
+Usuario.create(cuenta: "T09", nomina_matricula: "L00000009", contrasena: "1", campus: "Campus Monterrey",
+                rol: "Coordinador Prepanet Campus", titulo: "", nombres: "Ana Maria", apellido_p: "Loreto", apellido_m: "Zúñiga",
+                correo: "A00000009@itesm.mx", telefono: "8111111111", estatus: "")
+Usuario.create(cuenta: "T10", nomina_matricula: "L00000010", contrasena: "1", campus: "Campus Monterrey",
+                rol: "Coordinador Informatica Prepanet", titulo: "", nombres: "Tron", apellido_p: "Loreto", apellido_m: "Zúñiga",
+                correo: "A00000009@itesm.mx", telefono: "8111111111", estatus: "")
+Usuario.create(cuenta: "T11", nomina_matricula: "L00000011", contrasena: "1", campus: "Campus Monterrey",
+                rol: "Director Prepanet Nacional", titulo: "", nombres: "Big Boss", apellido_p: "Loreto", apellido_m: "Zúñiga",
                 correo: "A00000009@itesm.mx", telefono: "8111111111", estatus: "")
                 
 UsuarioCoordinaUsuario.create(usuario: "T00", coordinador: "T04")

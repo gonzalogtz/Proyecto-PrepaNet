@@ -30,8 +30,13 @@ $(document).on('turbolinks:load', function () {
     $(".reporte_row, .boton_reporte_activado").click(function () {
         window.location = $(this).data("link")
     });
+    
+    $(".materia_tab").click(function (){
+        $(".empty_desemp").hide();
+    })
 
     $(".boton_carousel_reporte_activado").click(function () {
+        $(this).closest(".tab-pane").find(".empty_semana").hide();
         id_reporte = $(this).data("link")
         $("#reporte_" + id_reporte).show("slow").siblings().hide(500);
     });

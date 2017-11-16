@@ -8,9 +8,11 @@ class ApplicationController < ActionController::Base
   CAMPUS = ""
   FORMATO_FECHA = "%-d/%-m/%Y"
   STR_ROL_TUTOR = "Tutor"
-  STR_ROL_COORDINADOR_TUTOR = "Coordinador de Tutor"
-  STR_ROL_COORDINADOR_CAMPUS = "Coordinador de Campus"
-  STR_ROL_COORDINADOR_PREPANET = "Coordinador Prepanet"
+  STR_ROL_COORDINADOR_TUTOR = "Coordinador de Tutores"
+  STR_ROL_TUTOR_STAFF = "Tutor Staff"
+  STR_ROL_COORDINADOR_CAMPUS = "Coordinador Prepanet Campus"
+  STR_ROL_COORDINADOR_PREPANET = "Director Prepanet Nacional"
+  STR_ROL_COORDINADOR_INFORMATICA = "Coordinador Informatica Prepanet"
 
     def get_usuario_name_by_id(id)
       usuario = Usuario.where(cuenta: id).first
