@@ -1,0 +1,22 @@
+<%= render 'topsidebar/navsidebar' %>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="panel-heading">
+      <h1 class="page-header">Reportes Semanales</h1>
+    </div>
+    
+    <% get_campus.each do |campus| %>
+        <h3 class='reportes_header' id='<%=campus.campus%>'><span><img class='arrow_icon' src="expand_arrow.png"></span><%=campus.campus%></h3>
+        <div class='reportes_content reportes_campus_content padding_inside'>
+            <% get_tutores_by_campus(campus.campus).each do |tutor| %>
+                <%= render 'tarjetas', tutor: tutor%>
+            <% end %>
+        </div>
+    <%end%>
+    
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <%= link_to "+", new_reporte_semanal_path, class: 'btn btn_circular', :id => "btnSubmitTarjetas"%>
+      </div>
+    </div>
+  </div>
+</div>

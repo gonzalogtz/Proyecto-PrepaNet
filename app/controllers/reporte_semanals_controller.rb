@@ -10,6 +10,8 @@ class ReporteSemanalsController < ApplicationController
       @tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
     elsif ROL == STR_ROL_TUTOR
       render "index_tutor"
+    elsif ROL == STR_ROL_COORDINADOR_PREPANET || ROL == STR_ROL_COORDINADOR_INFORMATICA
+      render "index_coordinador_nacional"
     end
   end
 

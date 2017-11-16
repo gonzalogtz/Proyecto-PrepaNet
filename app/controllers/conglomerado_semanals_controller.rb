@@ -5,7 +5,11 @@ class ConglomeradoSemanalsController < ApplicationController
   # GET /conglomerado_semanals
   # GET /conglomerado_semanals.json
   def index
-    @conglomerado_semanals = ConglomeradoSemanal.where(coordinador_tutores: CUENTA)
+    if ROL == STR_ROL_COORDINADOR_TUTOR
+      @conglomerado_semanals = ConglomeradoSemanal.where(coordinador_tutores: CUENTA)
+    elsif ROL == STR_ROL_COORDINADOR_PREPANET || ROL == STR_ROL_COORDINADOR_INFORMATICA
+      render "index_coordinador_nacional"
+    end
   end
 
   # GET /conglomerado_semanals/1
