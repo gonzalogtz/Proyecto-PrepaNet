@@ -357,6 +357,19 @@ $(document).on('turbolinks:load', function () {
         $(this).html(nuevo_texto)
     });
     
+    $("#toggle_expand_campus").click(function() {
+        if ($(this).html() == "Colapsar campus"){
+            var nuevo_texto = "Expandir campus"
+            $(".reportes_campus_content").hide();
+        }
+        else {
+            var nuevo_texto = "Colapsar campus"
+            $(".reportes_campus_content").show();
+        }
+        
+        $(this).html(nuevo_texto)
+    });
+    
     //filtro en reportes quincenales
     $('#filtro_estatus :checkbox, #filtro_localizado :checkbox').change(function() {
         filtrar_tarjetas_alumnos()

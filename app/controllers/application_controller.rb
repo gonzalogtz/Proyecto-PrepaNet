@@ -47,6 +47,8 @@ class ApplicationController < ActionController::Base
         cursos = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN tutor_tutorea_materias ON usuario_coordina_usuarios.usuario = tutor_tutorea_materias.tutor INNER JOIN cursos ON tutor_tutorea_materias.curso = cursos.grupo").order('curso')
       elsif ROL == STR_ROL_COORDINADOR_CAMPUS
         cursos = Curso.where(campus: CAMPUS)
+      elsif ROL == STR_ROL_COORDINADOR_INFORMATICA || ROL == STR_ROL_COORDINADOR_PREPANET
+        cursos = Curso.all
       end
     end
     helper_method :get_cursos_encargados
@@ -86,6 +88,12 @@ class ApplicationController < ActionController::Base
     end
     helper_method :get_tutores_by_coordinador_campus
     
+    def get_tutores_by_campus(campus_id)
+      tutores = Usuario.where(campus: campus_id, rol: STR_ROL_TUTOR)
+      return tutores
+    end
+    helper_method :get_tutores_by_campus
+    
     def get_tutores_for_select
       lista_tutores = []
       
@@ -109,6 +117,12 @@ class ApplicationController < ActionController::Base
       partes_grupo = clave_grupo.split('.')
       return partes_grupo[-1]
     end
+    
+    def get_campus
+      campus = Curso.select('DISTINCT campus')
+      return campus
+    end
+    helper_method :get_campus
   
     def user_is_logged_in
       if (NOMBRE_USUARIO == "" && !current_page?("/"))

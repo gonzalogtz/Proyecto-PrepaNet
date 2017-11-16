@@ -7,6 +7,8 @@ class ReporteQuincenalsController < ApplicationController
   def index
     if ROL == STR_ROL_COORDINADOR_TUTOR || ROL == STR_ROL_COORDINADOR_CAMPUS
       render "index_coordinador_tutor"
+    elsif ROL == STR_ROL_COORDINADOR_PREPANET || ROL == STR_ROL_COORDINADOR_INFORMATICA
+      render "index_coordinador_nacional"
     end
   end
 
@@ -85,8 +87,6 @@ class ReporteQuincenalsController < ApplicationController
         if (coordinador_tutor.coordinador != CUENTA)
           #el coordinador de campus puede ver los reportes
           if (ROL == STR_ROL_COORDINADOR_CAMPUS && reporte_quincenal.campus != CAMPUS)
-            puts reporte_quincenal.campus
-            puts CAMPUS
             redirect_to "/mainmenu"
           end
         end
