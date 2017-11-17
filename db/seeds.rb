@@ -6,11 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-<<<<<<< HEAD
-=======
+
 #################### USUARIOS ####################
 #################### tutores ####################
->>>>>>> debml
+
 Usuario.create(cuenta: "T00", nomina_matricula: "A00000000", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "David", apellido_p: "Benitez", apellido_m: "Morales",
                 correo: "A00000000@itesm.mx", telefono: "8111111111", estatus: "")
@@ -22,27 +21,7 @@ Usuario.create(cuenta: "T02", nomina_matricula: "A00000002", contrasena: "1", ca
                 correo: "A00000002@itesm.mx", telefono: "8111111111", estatus: "")
 Usuario.create(cuenta: "T03", nomina_matricula: "A00000003", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "David", apellido_p: "Valles", apellido_m: "Sanchez",
-                correo: "A00000003@itesm.mx", telefono: "8111111111", estatus: "")
-<<<<<<< HEAD
-Usuario.create(cuenta: "T04", nomina_matricula: "A00000004", contrasena: "1", campus: "Campus Monterrey",
-                rol: "Coordinador de Tutor", titulo: "", nombres: "Ana Sofia", apellido_p: "Cantu", apellido_m: "Sanchez",
-                correo: "A00000004@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T05", nomina_matricula: "A00000005", contrasena: "1", campus: "Campus Monterrey",
-                rol: "Tutor", titulo: "", nombres: "José", apellido_p: "Farías", apellido_m: "Martínez",
-                correo: "A00000005@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T06", nomina_matricula: "A00000006", contrasena: "1", campus: "Campus Monterrey",
-                rol: "Tutor", titulo: "", nombres: "José Abél", apellido_p: "Quezada", apellido_m: "Martinez",
-                correo: "A00000006@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T07", nomina_matricula: "A00000007", contrasena: "1", campus: "Campus Monterrey",
-                rol: "Tutor", titulo: "", nombres: "Mauro", apellido_p: "Amarante", apellido_m: "Esparza",
-                correo: "A00000007@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T08", nomina_matricula: "A00000008", contrasena: "1", campus: "Campus Monterrey",
-                rol: "Coordinador de Tutor", titulo: "", nombres: "Natalia", apellido_p: "Garcia", apellido_m: "Garcia",
-                correo: "A00000008@itesm.mx", telefono: "8111111111", estatus: "")
-Usuario.create(cuenta: "T09", nomina_matricula: "A00000009", contrasena: "1", campus: "Campus Monterrey",
-                rol: "Coordinador de Campus", titulo: "", nombres: "Ana Maria", apellido_p: "Loreto", apellido_m: "Zúñiga",
-=======
-                
+                correo: "A00000003@itesm.mx", telefono: "8111111111", estatus: "")            
 #################### coordinadores de tutores ####################
 Usuario.create(cuenta: "T04", nomina_matricula: "A00000004", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Coordinador de Tutores", titulo: "", nombres: "Ana Sofia", apellido_p: "Cantu", apellido_m: "Sanchez",
@@ -54,7 +33,6 @@ Usuario.create(cuenta: "T05", nomina_matricula: "A00000008", contrasena: "1", ca
 #################### coordinadores de campus ####################
 Usuario.create(cuenta: "T06", nomina_matricula: "L00000009", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Coordinador Prepanet Campus", titulo: "", nombres: "Ana Maria", apellido_p: "Loreto", apellido_m: "Zúñiga",
->>>>>>> debml
                 correo: "A00000009@itesm.mx", telefono: "8111111111", estatus: "")
                 
 #################### coordinador informatica ####################

@@ -1,97 +1,146 @@
-<%= form_for(periodo) do |f| %>
-  <% if periodo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(periodo.errors.count, "error") %> prohibited this periodo from being saved:</h2>
+<%= render 'topsidebar/navsidebar' %>
 
-      <ul>
-      <% periodo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :inicio_periodo %>
-    <%= f.text_field :inicio_periodo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fin_periodo %>
-    <%= f.text_field :fin_periodo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :inicio_de_inscripcion_normal %>
-    <%= f.text_field :inicio_de_inscripcion_normal %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fin_de_inscripcion_normal %>
-    <%= f.text_field :fin_de_inscripcion_normal %>
-  </div>
-
-  <div class="field">
-    <%= f.label :inicio_de_inscripcion_tardia %>
-    <%= f.text_field :inicio_de_inscripcion_tardia %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fin_de_inscripcion_tardia %>
-    <%= f.text_field :fin_de_inscripcion_tardia %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fecha_de_fin_de_registro %>
-    <%= f.text_field :fecha_de_fin_de_registro %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fecha_inicial_primer_parcial %>
-    <%= f.text_field :fecha_inicial_primer_parcial %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fecha_final_primer_parcial %>
-    <%= f.text_field :fecha_final_primer_parcial %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fecha_inicial_segundo_parcial %>
-    <%= f.text_field :fecha_inicial_segundo_parcial %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fecha_final_segundo_parcial %>
-    <%= f.text_field :fecha_final_segundo_parcial %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fecha_inicial_tercer_parcial %>
-    <%= f.text_field :fecha_inicial_tercer_parcial %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fecha_final_tercer_parcial %>
-    <%= f.text_field :fecha_final_tercer_parcial %>
-  </div>
-
-  <div class="field">
-    <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
-  </div>
-
-  <div class="field">
-    <%= f.label :clasificacion %>
-    <%= f.text_field :clasificacion %>
-  </div>
   
-  <div class="field">
-    <%= f.label :activo %>
-    <%= f.text_field :activo %>
-  </div>
+  <div class="col-sm-6 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header titulo">Generar Reporte Quincenal</h1>
+<div class="alert alert-danger alert-dismissable">
+  <a class="close alert_close" aria-label="close">&times;</a>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+  
+    <div class="row">
+      <div class="row">
+        <div id="table-cursos" class="" style="margin-top: 20px;">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <center>Evaluación del Tutor</center>
+            </div>
+            <%= form_for(periodo) do |f| %>
+            
+            <div id="centerDiv">
+              <div class="col-sm-4 margin-bottom margin-top">
+
+                  <div class="field">
+
+                    <%= f.label :inicio_periodo, class:"labPad"  %>
+                  
+                
+                    <%= f.text_field :inicio_periodo, class:"datetimepicker1"  %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :fin_periodo, class:"labPad" %>
+
+
+                    <%= f.text_field :fin_periodo, class:"datetimepicker1" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :inicio_de_inscripcion_normal, class:"labPad" %>
+                    <%= f.text_field :inicio_de_inscripcion_normal, class:"datetimepicker1" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :fin_de_inscripcion_normal, class:"labPad" %>
+                    <%= f.text_field :fin_de_inscripcion_normal, class:"datetimepicker1" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :inicio_de_inscripcion_tardia, class:"labPad" %>
+                    <%= f.text_field :inicio_de_inscripcion_tardia, class:"datetimepicker1" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :fin_de_inscripcion_tardia, class:"labPad" %>
+                    <%= f.text_field :fin_de_inscripcion_tardia, class:"datetimepicker1" %>
+                  </div>
+                  <div class="field">
+                    <%= f.label :fecha_de_fin_de_registro, class:"labPad" %>
+                    <%= f.text_field :fecha_de_fin_de_registro, class:"datetimepicker1" %>
+                  </div>
+                  <div class="field">
+                    <%= f.label :activo, class:"labPad" %>
+                    <%= f.text_field :activo %>
+                  </div>
+
+      
+           
+              </div>
+                
+              <div class="col-sm-4 margin-bottom margin-top">
+
+                
+
+                  <div class="field">
+                    <%= f.label :fecha_inicial_primer_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_inicial_primer_parcial, class:"datetimepicker1" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :fecha_final_primer_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_final_primer_parcial, class:"datetimepicker1" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :fecha_inicial_segundo_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_inicial_segundo_parcial, class:"datetimepicker1" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :fecha_final_segundo_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_final_segundo_parcial, class:"datetimepicker1" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :fecha_inicial_tercer_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_inicial_tercer_parcial, class:"datetimepicker1" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :fecha_final_tercer_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_final_tercer_parcial, class:"datetimepicker1" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :descripcion, class:"labPad" %>
+                    <%= f.text_field :descripcion %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :clasificacion, class:"labPad" %>
+                    <%= f.text_field :clasificacion %>
+                  </div>
+                  
+                  
+
+                  
+
+              </div>
+             </div> 
+            
+                    <div id="" >
+                        <%= f.submit "Guardar reporte", class:"btn btn-primary btn-lg btnSubmit btnPeriodo"  %>
+                    
+                    </div>
+                
+            
+        
+
+
+
+                
+
+                
+
+              <% end %>
+            
+
+
+
+
+           
+          </div>
+        </div>
+
+      </div>  
+    </div>
