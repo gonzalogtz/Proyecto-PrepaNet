@@ -13,8 +13,8 @@
                       <center><h3 class=""><%=get_alumno_name_by_id(@reporte_quincenal.alumno)%></h3></center>
                       <center><h4 class="" style="font-weight: normal"><%=@reporte_quincenal.alumno%></h4></center>
                       <center><h4 class="" style="font-weight: normal"><%=@reporte_quincenal.campus%></h4></center>
-                      <center><h4 class="" style="font-weight: normal"><%=@reporte_quincenal.curso%></h4></center>
-                      <center><h4 class="" style="font-weight: normal"><%=@reporte_quincenal.periodo%></h4></center>
+                      <center><h4 class="" style="font-weight: normal"><%=get_texto_header_curso(@reporte_quincenal.curso)%></h4></center>
+                      <center><h4 class="" style="font-weight: normal"><%=get_descripcion_periodo(@reporte_quincenal.periodo)%></h4></center>
                       <center><h4 class="printPad" style="font-weight: normal">Fecha del reporte: <%=@reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA) %></h4></center>
                       
                       <div class="col-sm-3">
