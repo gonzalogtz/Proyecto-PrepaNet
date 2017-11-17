@@ -1,38 +1,40 @@
-<% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_PREPANET || ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_INFORMATICA%>
-    <button type='button' id='toggle_expand_campus' class='btn-sm btn-primary'>Expandir campus</button>
-<% end %>
+<div class='col-md-12'>
+    <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_PREPANET || ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_INFORMATICA%>
+        <button type='button' id='toggle_expand_campus' class='btn-sm btn-primary col-sm-2 filtro'>Expandir campus</button>
+    <% end %>
 
-<% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%><button type='button' id='toggle_expand_tutor' class='btn-sm btn-primary'>Colapsar tutores</button><% end %>
+    <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%><button type='button' id='toggle_expand_tutor' class='btn-sm btn-primary col-sm-2 filtro'>Colapsar tutores</button><% end %>
 
-<button type='button' id='toggle_expand_grupo' class='btn-sm btn-primary'>Expandir grupos</button>
+    <button type='button' id='toggle_expand_grupo' class='btn-sm btn-primary col-sm-2 filtro'>Expandir grupos</button>
 
-<div class="input-group">
-    <div class="input-group-btn">
-        <button class="btn btn-default" type="button">Estatus</button>
-        <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"><span class="caret"></span></button>
-        <ul role="menu" class="dropdown-menu" id="filtro_estatus">
-            <li><input type="checkbox" value="-1" checked><span class="lbl">Sin información</span></li>
-            <li class="divider"></li>
-            <li><input type="checkbox" value="0" checked><span class="lbl">Inactivo</span></li>
-            <li><input type="checkbox" value="1" checked><span class="lbl">Parcialmente Activo</span></li>
-            <li><input type="checkbox" value="2" checked><span class="lbl">Activo</span></li>
-        </ul>
+    <div class="input-group col-sm-2 filtro">
+        <div class="input-group-btn">
+            <button class="btn btn-default" type="button">Estatus</button>
+            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"><span class="caret"></span></button>
+            <ul role="menu" class="dropdown-menu" id="filtro_estatus">
+                <li><input type="checkbox" value="-1" checked><span class="lbl">Sin información</span></li>
+                <li class="divider"></li>
+                <li><input type="checkbox" value="0" checked><span class="lbl">Inactivo</span></li>
+                <li><input type="checkbox" value="1" checked><span class="lbl">Parcialmente Activo</span></li>
+                <li><input type="checkbox" value="2" checked><span class="lbl">Activo</span></li>
+            </ul>
+        </div>
     </div>
-</div>
 
-<div class="input-group">
-    <div class="input-group-btn">
-        <button class="btn btn-default" type="button">Localizado</button>
-        <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"><span class="caret"></span></button>
-        <ul role="menu" class="dropdown-menu" id="filtro_localizado">
-            <li><input type="checkbox" value="-1" checked><span class="lbl">Sin información</span></li>
-            <li class="divider"></li>
-            <li><input type="checkbox" value="0" checked><span class="lbl">No</span></li>
-            <li><input type="checkbox" value="1" checked><span class="lbl">Sí</span></li>
-        </ul>
+    <div class="input-group col-sm-2 filtro">
+        <div class="input-group-btn">
+            <button class="btn btn-default" type="button">Localizado</button>
+            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"><span class="caret"></span></button>
+            <ul role="menu" class="dropdown-menu" id="filtro_localizado">
+                <li><input type="checkbox" value="-1" checked><span class="lbl">Sin información</span></li>
+                <li class="divider"></li>
+                <li><input type="checkbox" value="0" checked><span class="lbl">No</span></li>
+                <li><input type="checkbox" value="1" checked><span class="lbl">Sí</span></li>
+            </ul>
+        </div>
     </div>
-</div>
 
-<div class="form-group">
-  <input type="text" class="form-control small_search_bar" placeholder="Buscar alumno" id="search_alumno">
+    <div class="form-group col-sm-4 filtro">
+    <input type="text" class="form-control small_search_bar" placeholder="Buscar alumno" id="search_alumno">
+    </div>
 </div>
