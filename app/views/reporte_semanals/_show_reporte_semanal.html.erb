@@ -2,6 +2,32 @@
           <center><h3><%=get_usuario_name_by_id(reporte_semanal.tutor)%></h3></center>
           
           <div style="padding-left: 23px;" class="col-sm-12">
+            <h4 style="font-weight: normal">
+              <%= reporte_semanal.campus %>
+            </h4>
+          </div>
+          
+          <div style="padding-left: 23px;" class="col-sm-12">
+            <h4 style="font-weight: normal">
+               Coordinador de tutores: <%= get_usuario_name_by_id(reporte_semanal.coordinador_tutores) %>
+            </h4>
+          </div>
+          
+          <div style="padding-left: 23px;" class="col-sm-12">
+            <h4 style="float: left; padding-right: 1%;">Curso:</h4>
+            <h4 style="font-weight: normal">
+              <%= reporte_semanal.curso %>
+            </h4>
+          </div>
+          
+          <div style="padding-left: 23px;" class="col-sm-12">
+            <h4 style="float: left; padding-right: 1%;">Periodo:</h4>
+            <h4 style="font-weight: normal">
+              <%= reporte_semanal.periodo %>
+            </h4>
+          </div>
+          
+          <div style="padding-left: 23px;" class="col-sm-12">
             <h4 style="float: left; padding-right: 1%;">Semana:</h4>
             <h4 style="font-weight: normal">
               <%= reporte_semanal.semana %>

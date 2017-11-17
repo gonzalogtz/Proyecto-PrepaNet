@@ -78,3 +78,10 @@ AlumnoTomaCurso.create(alumno: "A0000006", curso: "PRN.PC4018L.1773.MTY.2")
 AlumnoTomaCurso.create(alumno: "A0000007", curso: "PRN.PC4018L.1773.MTY.2")
 AlumnoTomaCurso.create(alumno: "A0000008", curso: "PRN.PC4018L.1773.MTY.3")
 AlumnoTomaCurso.create(alumno: "A0000009", curso: "PRN.PC4018L.1773.MTY.4")
+
+#################### REPORTES SEMANALES ####################
+for i in 1..15
+    ReporteSemanal.create(coordinador_tutores: "T04", tutor: "T00", curso: "PRN.PC4018L.1773.MTY.1", campus: "Campus Monterrey", 
+                    semana: i, califica_en_plazo: 1, califica_con_rubrica: 1, da_retroalimentacion: 1,
+                    responde_mensajes: 1, errores_ortografia: 1, calificacion_total: 5, comentarios: "", periodo: 1)
+end

@@ -10,9 +10,32 @@
     <div>
       <div id="printID">
       
-
       <center><h3><%=get_usuario_name_by_id(@conglomerado_semanal.tutor)%></h3></center>
 
+      <div style="padding-left: 23px;" class="col-sm-12">
+        <h4 style="font-weight: normal">
+          Coordinador de tutores: <%= get_usuario_name_by_id(@conglomerado_semanal.coordinador_tutores) %>
+        </h4>
+      </div>
+      
+      <div style="padding-left: 23px;" class="col-sm-12">
+        <h4 style="font-weight: normal">
+          <%= @conglomerado_semanal.curso %>
+        </h4>
+      </div>
+      
+      <div style="padding-left: 23px;" class="col-sm-12">
+        <h4 style="font-weight: normal">
+          <%= @conglomerado_semanal.campus %>
+        </h4>
+      </div>
+      
+      <div style="padding-left: 23px;" class="col-sm-12">
+        <h4 style="font-weight: normal">
+          <%= @conglomerado_semanal.periodo %>
+        </h4>
+      </div>
+      
         <div class="panel-body">
         <table class="table table-striped" style="text-align: center;">
           <thead>
