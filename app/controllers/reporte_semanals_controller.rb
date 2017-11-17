@@ -88,10 +88,14 @@ class ReporteSemanalsController < ApplicationController
     def verify_show_access(reporte_semanal)
       #el reporte lo puede ver el coordinador de tutores
       if (reporte_semanal.coordinador_tutores != CUENTA)
-        
         #el tutor tambien puede ver los reportes
         if (reporte_semanal.tutor != CUENTA)
-          redirect_to "/mainmenu"
+          #el coordinador de campus
+          if (reporte_semanal.campus != CAMPUS)
+            if (ROL != STR_ROL_COORDINADOR_INFORMATICA || ROL != STR_ROL_COORDINADOR_PREPANET)
+              redirect_to "/mainmenu"
+            end
+          end
         end
       end
     end

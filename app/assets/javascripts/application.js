@@ -18,22 +18,13 @@
 //= require bootstrap-datetimepicker
 //= require_tree .
 
-
-
-
-$( document).ready(function() {
-
-   
-    $('.datetimepicker1').datetimepicker({
-        format: 'YYYY-MM-DD'
-    });
-});
-
 $(document).on('turbolinks:load', function () {
     //activa el popover de notificaciones
     $('[data-toggle="popover"]').popover();
     //activa tooltips
     $('[data-toggle="tooltip"]').tooltip();
+    //activa picker de calendarios
+    $('.datetimepicker1').datetimepicker({format: 'DD-MM-YYYY'});
     
     $(".tutor_header").click(function () {
         var index = $(this).attr('id');
