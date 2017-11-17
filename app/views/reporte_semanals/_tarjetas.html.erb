@@ -5,13 +5,7 @@
         <div class='tarjeta_matricula'><%=tutor.cuenta%></div>
         <div class='contenedor_boton_reportes'>
             <% get_cursos_by_tutor(tutor.cuenta).each do |curso| %>
-                <!-- cuando este partial se llama con estos roles, el objeto tutor viene directamente de la tabla de 'usuarios', y se debe de usar el atributo 'cuenta' -->
-                <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_PREPANET || ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_INFORMATICA%>
-                    <%get_reporte_semanals_by_tutor_and_curso(tutor.cuenta, curso.curso)%>
-                <!-- con otros roles (coordinador tutores) el objeto tutor viene de la tabla de 'usuario_coordina_usuarios', y se debe de usar el atributo 'usuario' para la cuenta -->
-                <% else %>
-                    <%get_reporte_semanals_by_tutor_and_curso(tutor.usuario, curso.curso)%>
-                <% end %>
+                <%get_reporte_semanals_by_tutor_and_curso(tutor.cuenta, curso.grupo)%>
                 <div class='contenedor_curso_reportes'>
                     <div class='contenedor_boton_reportes_header'>Reportes - <%= get_texto_header_curso(curso) %></div>
                     <div>

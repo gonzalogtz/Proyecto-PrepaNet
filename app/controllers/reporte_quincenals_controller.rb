@@ -31,15 +31,12 @@ class ReporteQuincenalsController < ApplicationController
   def create
     @reporte_quincenal = ReporteQuincenal.new(reporte_quincenal_params)
     
-    #si el usuario es el tutor, usar su cuenta directamente
-    if ROL == STR_ROL_TUTOR
-      @reporte_quincenal[:tutor] = CUENTA
-    else
-      tutor_materia = TutorTutoreaMateria.where(curso: @reporte_quincenal[:curso]).first
-      @reporte_quincenal[:tutor] = tutor_materia.tutor
-    end
+    info_curso = Curso.where(grupo: @reporte_quincenal[:curso]).first
+    @reporte_quincenal[:tutor] = info_curso.tutor
+    @reporte_quincenal[:coordinador_tutores] = info_curso.coordinador_tutores
+    @reporte_quincenal[:campus] = info_curso.campus
+    @reporte_quincenal[:periodo] = info_curso.periodo
     
-    @reporte_quincenal[:campus] = CAMPUS
     @reporte_quincenal[:fecha_correspondiente] = Date.today
 
     respond_to do |format|
@@ -81,10 +78,8 @@ class ReporteQuincenalsController < ApplicationController
     def verify_show_access(reporte_quincenal)
       #el reporte lo puede ver el tutor
       if (reporte_quincenal.tutor != CUENTA)
-        coordinador_tutor = UsuarioCoordinaUsuario.where(usuario: reporte_quincenal.tutor).first
-        
         #el coordinador de tutores tambien puede ver los reportes
-        if (coordinador_tutor.coordinador != CUENTA)
+        if (reporte_quincenal.coordinador_tutores != CUENTA)
           #el coordinador de campus puede ver los reportes
           if (ROL == STR_ROL_COORDINADOR_CAMPUS && reporte_quincenal.campus != CAMPUS)
             redirect_to "/mainmenu"

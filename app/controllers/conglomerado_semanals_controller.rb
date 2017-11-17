@@ -30,7 +30,11 @@ class ConglomeradoSemanalsController < ApplicationController
   # POST /conglomerado_semanals.json
   def create
     @conglomerado_semanal = ConglomeradoSemanal.new(conglomerado_semanal_params)
-    @conglomerado_semanal[:coordinador_tutores] =  CUENTA
+    
+    info_curso = Curso.where(grupo: @conglomerado_semanal[:curso]).first
+    @conglomerado_semanal[:periodo] = info_curso.periodo
+    @conglomerado_semanal[:coordinador_tutores] =  info_curso.coordinador_tutores
+    @conglomerado_semanal[:campus] =  info_curso.campus
 
     # Variables calculadas a partir de los reportes semanales
     reportes_semanales = ReporteSemanal.where(tutor: @conglomerado_semanal[:tutor], curso: @conglomerado_semanal[:curso]).order('semana').take(15)
@@ -94,14 +98,14 @@ class ConglomeradoSemanalsController < ApplicationController
     response = {"tipo_error": 0}
     
     #primero checa si no hay 15 reportes semanales todavia
-    reportes_semanales = ReporteSemanal.where(tutor: params[:tutor_id], curso: params[:curso_id]).take(15)
-    if reportes_semanales.count < 15
+    reportes_semanales_count = ReporteSemanal.where(tutor: params[:tutor_id], curso: params[:curso_id]).count
+    if reportes_semanales_count < 15
       response = {"tipo_error": 1}
     else
-      conglomerado = ConglomeradoSemanal.where(tutor: params[:tutor_id], curso: params[:curso_id])
+      conglomerado_count = ConglomeradoSemanal.where(tutor: params[:tutor_id], curso: params[:curso_id]).count
       
       #despues checa si ya hay un conglomerado creado
-      if conglomerado.count > 0
+      if conglomerado_count > 0
         response = {"tipo_error": 2}
       end
     end

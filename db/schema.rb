@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20171022223115) do
     t.datetime "fecha_final_tercer_parcial"
     t.string   "descripcion"
     t.string   "clasificacion"
+    t.integer  "activo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,11 +51,6 @@ ActiveRecord::Schema.define(version: 20171022223115) do
     t.datetime "updated_at", null: false
   end
   
-  create_table "usuario_coordina_usuarios", force: :cascade do |t|
-    t.string   "usuario"
-    t.string   "coordinador"
-  end
-  
   create_table "alumnos", force: :cascade do |t|
     t.string   "matricula"
     t.string   "nombres"
@@ -73,18 +69,15 @@ ActiveRecord::Schema.define(version: 20171022223115) do
   
   create_table "cursos", force: :cascade do |t|
     t.string   "materia"
+    t.string   "tutor"
+    t.string   "coordinador_tutores"
     t.string   "grupo"
     t.string   "campus"
-    t.integer  "estatus"
+    t.integer  "periodo"
   end
   
-  create_table "alumno_cursa_materias", force: :cascade do |t|
+  create_table "alumno_toma_cursos", force: :cascade do |t|
     t.string   "alumno"
-    t.string   "curso"
-  end
-  
-  create_table "tutor_tutorea_materias", force: :cascade do |t|
-    t.string   "tutor"
     t.string   "curso"
   end
   
@@ -117,6 +110,7 @@ ActiveRecord::Schema.define(version: 20171022223115) do
     t.integer  "alumnos_original_acabaron"
     t.integer  "alumnos_original_aprobaron"
     t.integer  "alumnos_final_concluyeron"
+    t.integer  "periodo"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -124,12 +118,14 @@ ActiveRecord::Schema.define(version: 20171022223115) do
   create_table "reporte_quincenals", force: :cascade do |t|
     t.string   "tutor"
     t.string   "alumno"
+    t.string   "coordinador_tutores"
     t.string   "curso"
     t.string   "campus"
     t.integer  "estatus"
     t.integer  "localizado"
     t.text     "comentarios"
     t.datetime "fecha_correspondiente"
+    t.integer  "periodo"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -147,6 +143,7 @@ ActiveRecord::Schema.define(version: 20171022223115) do
     t.integer  "errores_ortografia"
     t.integer  "calificacion_total"
     t.text     "comentarios"
+    t.integer  "periodo"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end

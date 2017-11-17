@@ -3,7 +3,7 @@
 
   <ul class="nav nav-pills nav-justified">
     <% get_cursos_by_tutor().each do |curso| %>
-        <li class="materia_tab"><a data-toggle="tab" href="#<%= curso.curso.parameterize %>"><%= curso.materia %></a></li>
+        <li class="materia_tab"><a data-toggle="tab" href="#<%= curso.grupo.parameterize %>"><%= curso.materia %></a></li>
     <%end%>
   </ul>
   
@@ -13,13 +13,13 @@
   
   <div class="tab-content">
     <% get_cursos_by_tutor().each do |curso| %>
-      <div id="<%= curso.curso.parameterize %>" class="tab-pane fade">
+      <div id="<%= curso.grupo.parameterize %>" class="tab-pane fade">
         <div class="empty_semana">
           Elige una semana para ver el reporte expandido
         </div>
         
         <div class='reporte_carousel_content'>
-          <% get_reporte_semanals_by_tutor_and_curso(ApplicationController::CUENTA, curso.curso).each do |reporte_semanal|%>
+          <% get_reporte_semanals_by_tutor_and_curso(ApplicationController::CUENTA, curso.grupo).each do |reporte_semanal|%>
             <div id='reporte_<%=reporte_semanal.id%>' class='reporte_semanal_carousel'>
               <%= render 'show_reporte_semanal', reporte_semanal: reporte_semanal %>
             </div>

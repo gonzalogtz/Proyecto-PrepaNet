@@ -5,10 +5,7 @@ class ReporteSemanalsController < ApplicationController
   # GET /reporte_semanals
   # GET /reporte_semanals.json
   def index
-    if ROL == STR_ROL_COORDINADOR_TUTOR
-      @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA)
-      @tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
-    elsif ROL == STR_ROL_TUTOR
+    if ROL == STR_ROL_TUTOR
       render "index_tutor"
     elsif ROL == STR_ROL_COORDINADOR_PREPANET || ROL == STR_ROL_COORDINADOR_INFORMATICA
       render "index_coordinador_nacional"
@@ -33,8 +30,13 @@ class ReporteSemanalsController < ApplicationController
   # POST /reporte_semanals.json
   def create
     @reporte_semanal = ReporteSemanal.new(reporte_semanal_params)
+    
+    info_curso = Curso.where(grupo: @reporte_semanal[:curso]).first
+    @reporte_semanal[:coordinador_tutores] = info_curso.coordinador_tutores
+    @reporte_semanal[:periodo] = info_curso.periodo
+    @reporte_semanal[:campus] = info_curso.campus
+    
     @reporte_semanal[:calificacion_total] = get_calif_total(@reporte_semanal)
-    @reporte_semanal[:coordinador_tutores] = CUENTA
     
     respond_to do |format|
       if @reporte_semanal.save
