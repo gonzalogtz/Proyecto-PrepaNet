@@ -6,10 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 #################### USUARIOS ####################
 #################### tutores ####################
-
 Usuario.create(cuenta: "T00", nomina_matricula: "A00000000", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "David", apellido_p: "Benitez", apellido_m: "Morales",
                 correo: "A00000000@itesm.mx", telefono: "8111111111", estatus: "")
@@ -21,7 +19,8 @@ Usuario.create(cuenta: "T02", nomina_matricula: "A00000002", contrasena: "1", ca
                 correo: "A00000002@itesm.mx", telefono: "8111111111", estatus: "")
 Usuario.create(cuenta: "T03", nomina_matricula: "A00000003", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "David", apellido_p: "Valles", apellido_m: "Sanchez",
-                correo: "A00000003@itesm.mx", telefono: "8111111111", estatus: "")            
+                correo: "A00000003@itesm.mx", telefono: "8111111111", estatus: "")
+                
 #################### coordinadores de tutores ####################
 Usuario.create(cuenta: "T04", nomina_matricula: "A00000004", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Coordinador de Tutores", titulo: "", nombres: "Ana Sofia", apellido_p: "Cantu", apellido_m: "Sanchez",

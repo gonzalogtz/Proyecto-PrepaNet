@@ -84,6 +84,10 @@ class ApplicationController < ActionController::Base
     helper_method :get_tutores_for_select
     
     def get_texto_header_curso(curso)
+      if !curso.is_a?(ActiveRecord::Base)
+        curso = Curso.where(grupo: curso).first
+      end
+      
       texto = curso.materia + " - Grupo "
       texto += get_num_grupo(curso.grupo)
       return texto
@@ -100,6 +104,12 @@ class ApplicationController < ActionController::Base
       return campus
     end
     helper_method :get_campus
+    
+    def get_descripcion_periodo(periodo_id = PERIODO_ACTUAL)
+      descripcion = Periodo.find(periodo_id)
+      return descripcion.descripcion
+    end
+    helper_method :get_descripcion_periodo
   
     def user_is_logged_in()
       if (NOMBRE_USUARIO == "" && !current_page?("/"))
