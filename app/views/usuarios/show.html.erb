@@ -1,54 +1,59 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Userid:</strong>
-  <%= @user.userid %>
+  <strong>Cuenta:</strong>
+  <%= @usuario.cuenta %>
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
+  <strong>Nomina o matricula:</strong>
+  <%= @usuario.nomina_matricula %>
+</p>
+
+<p>
+  <strong>Contraseña:</strong>
+  <%= @usuario.contrasena %>
 </p>
 
 <p>
   <strong>Campus:</strong>
-  <%= @user.campus %>
+  <%= @usuario.campus %>
 </p>
 
 <p>
-  <strong>Role:</strong>
-  <%= @user.role %>
+  <strong>Rol:</strong>
+  <%= @usuario.rol %>
 </p>
 
 <p>
-  <strong>Names:</strong>
-  <%= @user.names %>
+  <strong>Nombres:</strong>
+  <%= @usuario.nombres %>
 </p>
 
 <p>
-  <strong>Flname:</strong>
-  <%= @user.flname %>
+  <strong>apellido_p:</strong>
+  <%= @usuario.apellido_p %>
 </p>
 
 <p>
-  <strong>Slname:</strong>
-  <%= @user.slname %>
+  <strong>apellido_m:</strong>
+  <%= @usuario.apellido_m %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+  <strong>correo:</strong>
+  <%= @usuario.correo %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
+  <strong>telefono:</strong>
+  <%= @usuario.telefono %>
 </p>
 
 <p>
-  <strong>Status:</strong>
-  <%= @user.status %>
+  <strong>Estatus:</strong>
+  <%= @usuario.estatus %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
+<%= link_to 'Back', usuarios_path %>

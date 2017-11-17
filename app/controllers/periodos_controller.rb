@@ -25,6 +25,11 @@ class PeriodosController < ApplicationController
   # POST /periodos.json
   def create
     @periodo = Periodo.new(periodo_params)
+    
+    #se desactiva el periodo anterior
+    if @periodo[:activo] == 1
+      Periodo.where(activo: 1).update_all(activo: 0)
+    end
 
     respond_to do |format|
       if @periodo.save
@@ -69,6 +74,8 @@ class PeriodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def periodo_params
-      params.fetch(:periodo, {})
+      params.require(:periodo).permit(:inicio_periodo, :fin_periodo, :inicio_de_inscripcion_normal, :fin_de_inscripcion_normal, :inicio_de_inscripcion_tardia, 
+        :fin_de_inscripcion_tardia, :fecha_de_fin_de_registro, :fecha_inicial_primer_parcial, :fecha_final_primer_parcial, :fecha_inicial_segundo_parcial,
+        :fecha_final_segundo_parcial, :fecha_inicial_tercer_parcial, :fecha_final_tercer_parcial, :descripcion, :clasificacion, :activo)
     end
 end

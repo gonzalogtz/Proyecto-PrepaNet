@@ -1,3 +1,7 @@
+<% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_PREPANET || ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_INFORMATICA%>
+    <button type='button' id='toggle_expand_campus' class='btn-sm btn-primary'>Expandir campus</button>
+<% end %>
+
 <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%><button type='button' id='toggle_expand_tutor' class='btn-sm btn-primary'>Colapsar tutores</button><% end %>
 
 <button type='button' id='toggle_expand_grupo' class='btn-sm btn-primary'>Expandir grupos</button>

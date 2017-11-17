@@ -30,8 +30,13 @@ $(document).on('turbolinks:load', function () {
     $(".reporte_row, .boton_reporte_activado").click(function () {
         window.location = $(this).data("link")
     });
+    
+    $(".materia_tab").click(function (){
+        $(".empty_desemp").hide();
+    })
 
     $(".boton_carousel_reporte_activado").click(function () {
+        $(this).closest(".tab-pane").find(".empty_semana").hide();
         id_reporte = $(this).data("link")
         $("#reporte_" + id_reporte).show("slow").siblings().hide(500);
     });
@@ -347,6 +352,19 @@ $(document).on('turbolinks:load', function () {
         else {
             var nuevo_texto = "Colapsar grupos"
             $(".reportes_curso_content").show();
+        }
+        
+        $(this).html(nuevo_texto)
+    });
+    
+    $("#toggle_expand_campus").click(function() {
+        if ($(this).html() == "Colapsar campus"){
+            var nuevo_texto = "Expandir campus"
+            $(".reportes_campus_content").hide();
+        }
+        else {
+            var nuevo_texto = "Colapsar campus"
+            $(".reportes_campus_content").show();
         }
         
         $(this).html(nuevo_texto)

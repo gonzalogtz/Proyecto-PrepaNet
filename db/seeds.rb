@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+<<<<<<< HEAD
+=======
+#################### USUARIOS ####################
+#################### tutores ####################
+>>>>>>> debml
 Usuario.create(cuenta: "T00", nomina_matricula: "A00000000", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "David", apellido_p: "Benitez", apellido_m: "Morales",
                 correo: "A00000000@itesm.mx", telefono: "8111111111", estatus: "")
@@ -18,6 +23,7 @@ Usuario.create(cuenta: "T02", nomina_matricula: "A00000002", contrasena: "1", ca
 Usuario.create(cuenta: "T03", nomina_matricula: "A00000003", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "David", apellido_p: "Valles", apellido_m: "Sanchez",
                 correo: "A00000003@itesm.mx", telefono: "8111111111", estatus: "")
+<<<<<<< HEAD
 Usuario.create(cuenta: "T04", nomina_matricula: "A00000004", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Coordinador de Tutor", titulo: "", nombres: "Ana Sofia", apellido_p: "Cantu", apellido_m: "Sanchez",
                 correo: "A00000004@itesm.mx", telefono: "8111111111", estatus: "")
@@ -35,18 +41,33 @@ Usuario.create(cuenta: "T08", nomina_matricula: "A00000008", contrasena: "1", ca
                 correo: "A00000008@itesm.mx", telefono: "8111111111", estatus: "")
 Usuario.create(cuenta: "T09", nomina_matricula: "A00000009", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Coordinador de Campus", titulo: "", nombres: "Ana Maria", apellido_p: "Loreto", apellido_m: "Zúñiga",
+=======
+                
+#################### coordinadores de tutores ####################
+Usuario.create(cuenta: "T04", nomina_matricula: "A00000004", contrasena: "1", campus: "Campus Monterrey",
+                rol: "Coordinador de Tutores", titulo: "", nombres: "Ana Sofia", apellido_p: "Cantu", apellido_m: "Sanchez",
+                correo: "A00000004@itesm.mx", telefono: "8111111111", estatus: "")
+Usuario.create(cuenta: "T05", nomina_matricula: "A00000008", contrasena: "1", campus: "Campus Monterrey",
+                rol: "Coordinador de Tutores", titulo: "", nombres: "Natalia", apellido_p: "Garcia", apellido_m: "Garcia",
+                correo: "A00000008@itesm.mx", telefono: "8111111111", estatus: "")
+                
+#################### coordinadores de campus ####################
+Usuario.create(cuenta: "T06", nomina_matricula: "L00000009", contrasena: "1", campus: "Campus Monterrey",
+                rol: "Coordinador Prepanet Campus", titulo: "", nombres: "Ana Maria", apellido_p: "Loreto", apellido_m: "Zúñiga",
+>>>>>>> debml
                 correo: "A00000009@itesm.mx", telefono: "8111111111", estatus: "")
                 
-UsuarioCoordinaUsuario.create(usuario: "T00", coordinador: "T04")
-UsuarioCoordinaUsuario.create(usuario: "T01", coordinador: "T04")
-UsuarioCoordinaUsuario.create(usuario: "T02", coordinador: "T04")
-UsuarioCoordinaUsuario.create(usuario: "T03", coordinador: "T04")
-UsuarioCoordinaUsuario.create(usuario: "T05", coordinador: "T08")
-UsuarioCoordinaUsuario.create(usuario: "T06", coordinador: "T08")
-UsuarioCoordinaUsuario.create(usuario: "T07", coordinador: "T08")
-UsuarioCoordinaUsuario.create(usuario: "T04", coordinador: "T09")
-UsuarioCoordinaUsuario.create(usuario: "T08", coordinador: "T09")
+#################### coordinador informatica ####################
+Usuario.create(cuenta: "T07", nomina_matricula: "L00000010", contrasena: "1", campus: "Campus Monterrey",
+                rol: "Coordinador Informatica Prepanet", titulo: "", nombres: "Tron", apellido_p: "Loreto", apellido_m: "Zúñiga",
+                correo: "A00000009@itesm.mx", telefono: "8111111111", estatus: "")
                 
+#################### coordinador nacional ####################
+Usuario.create(cuenta: "T08", nomina_matricula: "L00000011", contrasena: "1", campus: "Campus Monterrey",
+                rol: "Director Prepanet Nacional", titulo: "", nombres: "Big Boss", apellido_p: "Loreto", apellido_m: "Zúñiga",
+                correo: "A00000009@itesm.mx", telefono: "8111111111", estatus: "")
+
+#################### ALUMNOS ####################
 Alumno.create(matricula: "A0000004", nombres: "Paloma", apellido_p: "Martinez", apellido_m: "Osuna", 
                 telefono: "8111111111", correo: "A0000004@itesm.mx")
 Alumno.create(matricula: "A0000005", nombres: "Diana Maria", apellido_p: "Elizalde", apellido_m: "Vilarreal", 
@@ -60,25 +81,30 @@ Alumno.create(matricula: "A0000008", nombres: "Gabriel", apellido_p: "Gomez", ap
 Alumno.create(matricula: "A0000009", nombres: "Marcelo", apellido_p: "Lozano", apellido_m: "Madrigal", 
                 telefono: "8111111111", correo: "A0000009@itesm.mx")
                 
+#################### MATERIAS (NO USADA) ####################
 Materia.create(clave: "M00", nombre: "Matematicas I")
 Materia.create(clave: "M01", nombre: "Fisica I")
 Materia.create(clave: "M02", nombre: "Ingles I")
 Materia.create(clave: "M03", nombre: "Historia I")
 
-Curso.create(materia: "Matematicas I", grupo: "PRN.PC4018L.1773.MTY.1", campus: "Campus Monterrey", estatus: 1)
-Curso.create(materia: "Matematicas II", grupo: "PRN.PC4018L.1773.MTY.2", campus: "Campus Monterrey", estatus: 1)
-Curso.create(materia: "Matematicas III", grupo: "PRN.PC4018L.1773.MTY.3", campus: "Campus Monterrey", estatus: 1)
-Curso.create(materia: "Matematicas IV", grupo: "PRN.PC4018L.1773.MTY.4", campus: "Campus Monterrey", estatus: 1)
+#################### CURSOS ####################
+Curso.create(materia: "Matematicas I", tutor: "T00", coordinador_tutores: "T04", grupo: "PRN.PC4018L.1773.MTY.1", campus: "Campus Monterrey", periodo: 1)
+Curso.create(materia: "Matematicas II", tutor: "T00", coordinador_tutores: "T04", grupo: "PRN.PC4018L.1773.MTY.2", campus: "Campus Monterrey", periodo: 1)
+Curso.create(materia: "Matematicas III", tutor: "T01", coordinador_tutores: "T04",  grupo: "PRN.PC4018L.1773.MTY.3", campus: "Campus Monterrey", periodo: 1)
+Curso.create(materia: "Matematicas IV", tutor: "T02", coordinador_tutores: "T04",  grupo: "PRN.PC4018L.1773.MTY.4", campus: "Campus Monterrey", periodo: 1)
 
-AlumnoCursaMateria.create(alumno: "A0000004", curso: "PRN.PC4018L.1773.MTY.1")
-AlumnoCursaMateria.create(alumno: "A0000005", curso: "PRN.PC4018L.1773.MTY.1")
-AlumnoCursaMateria.create(alumno: "A0000004", curso: "PRN.PC4018L.1773.MTY.2")
-AlumnoCursaMateria.create(alumno: "A0000006", curso: "PRN.PC4018L.1773.MTY.2")
-AlumnoCursaMateria.create(alumno: "A0000007", curso: "PRN.PC4018L.1773.MTY.2")
-AlumnoCursaMateria.create(alumno: "A0000008", curso: "PRN.PC4018L.1773.MTY.3")
-AlumnoCursaMateria.create(alumno: "A0000009", curso: "PRN.PC4018L.1773.MTY.4")
+#################### RELACION ALUMNO - CURSO ####################
+AlumnoTomaCurso.create(alumno: "A0000004", curso: "PRN.PC4018L.1773.MTY.1")
+AlumnoTomaCurso.create(alumno: "A0000005", curso: "PRN.PC4018L.1773.MTY.1")
+AlumnoTomaCurso.create(alumno: "A0000004", curso: "PRN.PC4018L.1773.MTY.2")
+AlumnoTomaCurso.create(alumno: "A0000006", curso: "PRN.PC4018L.1773.MTY.2")
+AlumnoTomaCurso.create(alumno: "A0000007", curso: "PRN.PC4018L.1773.MTY.2")
+AlumnoTomaCurso.create(alumno: "A0000008", curso: "PRN.PC4018L.1773.MTY.3")
+AlumnoTomaCurso.create(alumno: "A0000009", curso: "PRN.PC4018L.1773.MTY.4")
 
-TutorTutoreaMateria.create(tutor: "T00", curso: "PRN.PC4018L.1773.MTY.1")
-TutorTutoreaMateria.create(tutor: "T00", curso: "PRN.PC4018L.1773.MTY.2")
-TutorTutoreaMateria.create(tutor: "T01", curso: "PRN.PC4018L.1773.MTY.3")
-TutorTutoreaMateria.create(tutor: "T01", curso: "PRN.PC4018L.1773.MTY.4")
+#################### REPORTES SEMANALES ####################
+for i in 1..15
+    ReporteSemanal.create(coordinador_tutores: "T04", tutor: "T00", curso: "PRN.PC4018L.1773.MTY.1", campus: "Campus Monterrey", 
+                    semana: i, califica_en_plazo: 1, califica_con_rubrica: 1, da_retroalimentacion: 1,
+                    responde_mensajes: 1, errores_ortografia: 1, calificacion_total: 5, comentarios: "", periodo: 1)
+end

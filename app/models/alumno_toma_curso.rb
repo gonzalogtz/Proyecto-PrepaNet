@@ -1,0 +1,2 @@
+class AlumnoTomaCurso < ApplicationRecord
+end

@@ -5,14 +5,14 @@
         <div class='tarjeta_matricula'><%=tutor.cuenta%></div>
         <div class='contenedor_boton_reportes'>
             <% get_cursos_by_tutor(tutor.cuenta).each do |curso| %>
-                <%get_reporte_semanals_by_tutor_and_curso(tutor.usuario, curso.curso)%>
+                <%get_reporte_semanals_by_tutor_and_curso(tutor.cuenta, curso.grupo)%>
                 <div class='contenedor_curso_reportes'>
                     <div class='contenedor_boton_reportes_header'>Reportes - <%= get_texto_header_curso(curso) %></div>
-                        <div>
-                            <% (1..15).each do |i| %>
-                                <%=get_reporte_semanals_by_semana(i)%>
-                            <% end %>
-                        </div>
+                    <div>
+                        <% (1..15).each do |i| %>
+                            <%=get_reporte_semanals_by_semana(i)%>
+                        <% end %>
+                    </div>
                 </div>
             <% end %>
         </div>
