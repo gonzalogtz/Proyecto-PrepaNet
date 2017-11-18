@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
 
 $(document).on('turbolinks:load', function () {
@@ -21,6 +23,8 @@ $(document).on('turbolinks:load', function () {
     $('[data-toggle="popover"]').popover();
     //activa tooltips
     $('[data-toggle="tooltip"]').tooltip();
+    //activa picker de calendarios
+    $('.datetimepicker1').datetimepicker({format: 'DD-MM-YYYY'});
     
     $(".tutor_header").click(function () {
         var index = $(this).attr('id');
