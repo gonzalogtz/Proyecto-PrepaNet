@@ -73,6 +73,10 @@ class ReporteQuincenalsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_reportes_by_periodo
+    render '_reportes_periodo', locals: {periodo: params[:periodo_id]}, layout: false
+  end
 
   private
     def verify_show_access(reporte_quincenal)

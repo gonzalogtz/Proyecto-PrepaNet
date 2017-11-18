@@ -26,16 +26,14 @@ class ApplicationController < ActionController::Base
     end
     helper_method :get_alumno_name_by_id
     
-    def get_cursos_by_tutor(tutor_id = CUENTA)
-      periodo_actual = Periodo.where(activo: 1).first
-
-      cursos = Curso.where(tutor: tutor_id, periodo: periodo_actual.id).order('grupo')
+    def get_cursos_by_tutor(tutor_id = CUENTA, periodo = get_periodo_activo().id)
+      cursos = Curso.where(tutor: tutor_id, periodo: periodo).order('grupo')
       return cursos
     end
     helper_method :get_cursos_by_tutor
     
     def get_cursos_encargados()
-      periodo_actual = Periodo.where(activo: 1).first
+      periodo_actual = get_periodo_activo()
       
       if ROL == STR_ROL_TUTOR
         cursos = Curso.where(tutor: CUENTA, periodo: periodo_actual.id)
@@ -58,7 +56,7 @@ class ApplicationController < ActionController::Base
     helper_method :get_alumnos_by_curso
     
     def get_tutores_encargados()
-      periodo_actual = Periodo.where(activo: 1).first
+      periodo_actual = get_periodo_activo()
       
       if ROL == STR_ROL_COORDINADOR_TUTOR
         tutores = Curso.select("usuarios.cuenta, usuarios.nombres, usuarios.apellido_p, usuarios.apellido_m").where(coordinador_tutores: CUENTA, periodo: periodo_actual.id).joins("INNER JOIN usuarios ON cursos.tutor = usuarios.cuenta").distinct
@@ -70,8 +68,8 @@ class ApplicationController < ActionController::Base
     end
     helper_method :get_tutores_encargados
     
-    def get_tutores_by_campus(campus_id)
-      tutores = Usuario.where(campus: campus_id, rol: STR_ROL_TUTOR)
+    def get_tutores_by_campus(campus_id, periodo)
+      tutores = Usuario.where(campus: campus_id, rol: STR_ROL_TUTOR, periodo: periodo)
       return tutores
     end
     helper_method :get_tutores_by_campus
@@ -104,13 +102,22 @@ class ApplicationController < ActionController::Base
       return partes_grupo[-1]
     end
     
-    def get_campus()
-      periodo_actual = Periodo.where(activo: 1).first
-
-      campus = Curso.select('DISTINCT campus').where(periodo: periodo_actual.id)
+    def get_campus(periodo_id)
+      campus = Curso.select('DISTINCT campus').where(periodo: periodo_id)
       return campus
     end
     helper_method :get_campus
+    
+    def get_periodos()
+      periodos = Periodo.select(:descripcion, :id).all
+      return periodos
+    end
+    helper_method :get_periodos
+    
+    def get_periodo_activo()
+      periodo_actual = Periodo.where(activo: 1).first
+    end
+    helper_method :get_periodo_activo
     
     def get_descripcion_periodo(periodo_id)
       descripcion = Periodo.find(periodo_id)

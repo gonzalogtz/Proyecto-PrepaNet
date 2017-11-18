@@ -4,7 +4,7 @@
         <div class='tarjeta_texto_grande'><%=tutor.apellido_p%> <%=tutor.apellido_m%></div>
         <div class='tarjeta_matricula'><%=tutor.cuenta%></div>
         <div class='contenedor_boton_reportes'>
-            <% get_cursos_by_tutor(tutor.cuenta).each do |curso| %>
+            <% get_cursos_by_tutor(tutor.cuenta, periodo).each do |curso| %>
                 <div class='contenedor_curso_reportes'>
                     <div class='contenedor_boton_reportes_header'>Reporte - <%= get_texto_header_curso(curso) %></div>
                     <%=get_conglomerado_semanals_button_by_tutor_and_curso(tutor.cuenta, curso.grupo)%>

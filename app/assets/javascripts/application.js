@@ -21,18 +21,13 @@
 $(document).on('turbolinks:load', function () {
     //activa el popover de notificaciones
     $('[data-toggle="popover"]').popover();
-    //activa tooltips
-    $('[data-toggle="tooltip"]').tooltip();
+
     //activa picker de calendarios
     $('.datetimepicker1').datetimepicker({format: 'DD-MM-YYYY'});
     
     $(".tutor_header").click(function () {
         var index = $(this).attr('id');
         $(".tutor_content" + index).toggle("fast", function () { });
-    });
-
-    $(".reporte_row, .boton_reporte_activado").click(function () {
-        window.location = $(this).data("link")
     });
     
     $(".materia_tab").click(function (){
@@ -146,6 +141,15 @@ $(document).on('turbolinks:load', function () {
 
                 $('#reporte_quincenal_alumno').html(options);
             }
+        })
+    });
+    
+    $(".periodo_select").change(function () {
+        periodo = $(this).val()
+        prefix = $(this).attr('id') //contiene parte del path de la ruta
+        $("#periodo_content").load(prefix + "/get_reportes_by_periodo", {periodo_id: periodo}, function(){
+            bind_header_clicks() //es necesario hacer este bind para que las acciones de expandir/colapsar funcionen
+            bind_boton_reporte_clicks() //y para que los botones/popover de los reportes funcionen
         })
     });
 
@@ -297,9 +301,7 @@ $(document).on('turbolinks:load', function () {
                 }
             }
         })
-    }
-
-    check_num_notificaciones()
+    } check_num_notificaciones()
 
     function diferencia_fecha(fecha) {
         fecha_actual = new Date()
@@ -317,11 +319,10 @@ $(document).on('turbolinks:load', function () {
             return "Hace " + Math.floor(diff) + " días"
     }
 
-    $(".reportes_header").click(function () {
-        toggle_arrow_icon($(this))
-        $(this).siblings(".reportes_content").toggle();
-    })
-
+    $("#logoPrepa").click(function () {
+        window.location = '/mainmenu'
+    });
+    
     function toggle_arrow_icon(reference_tag) {
         if (reference_tag.find(".arrow_icon").attr("src") == "collapse_arrow.png") {
             reference_tag.find(".arrow_icon").attr("src", "expand_arrow.png");
@@ -330,10 +331,21 @@ $(document).on('turbolinks:load', function () {
             reference_tag.find(".arrow_icon").attr("src", "collapse_arrow.png");
         }
     }
-
-    $("#logoPrepa").click(function () {
-        window.location = '/mainmenu'
-    });
+    
+    function bind_header_clicks() {
+        $(".reportes_header").click(function () {
+            toggle_arrow_icon($(this))
+            $(this).siblings(".reportes_content").toggle();
+        })
+    } bind_header_clicks()
+    
+    function bind_boton_reporte_clicks() {
+        $(".reporte_row, .boton_reporte_activado").click(function () {
+            window.location = $(this).data("link")
+        });
+        //activa tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+    } bind_boton_reporte_clicks()
     
     $("#toggle_expand_tutor").click(function() {
         if ($(this).html() == "Colapsar tutores"){

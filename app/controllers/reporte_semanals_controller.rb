@@ -83,6 +83,10 @@ class ReporteSemanalsController < ApplicationController
       format.js {render :json => {"semanal_count": reportes_semanales_count}}
     end
   end
+  
+  def get_reportes_by_periodo
+    render '_reportes_periodo', locals: {periodo: params[:periodo_id]}, layout: false
+  end
 
   private
     def verify_show_access(reporte_semanal)

@@ -114,6 +114,10 @@ class ConglomeradoSemanalsController < ApplicationController
       format.js {render :json => response}
     end
   end
+  
+  def get_reportes_by_periodo
+    render '_reportes_periodo', locals: {periodo: params[:periodo_id]}, layout: false
+  end
 
   private
     def verify_show_access(conglomerado_semanal)

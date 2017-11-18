@@ -1,4 +1,4 @@
-<% get_cursos_by_tutor(tutor).each do |curso| %>
+<% get_cursos_by_tutor(tutor, periodo).each do |curso| %>
     <div>
         <h3 class="reportes_header" id='<%=curso.grupo%>'><span><img class='arrow_icon' src="expand_arrow.png"></span><%=get_texto_header_curso(curso)%></h3>
         <div class='reportes_content reportes_curso_content padding_inside col-md-12'>
