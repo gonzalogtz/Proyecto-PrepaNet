@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20171022223115) do
     t.string   "apellido_m"
     t.string   "correo"
     t.string   "telefono"
-    t.string   "estatus"
+    t.integer  "periodo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
