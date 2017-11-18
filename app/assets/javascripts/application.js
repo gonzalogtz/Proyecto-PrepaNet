@@ -380,16 +380,16 @@ $(document).on('turbolinks:load', function () {
     });
     
     function filtrar_tarjetas_alumnos(filtro_estatus, filtro_localizado, texto) {
-        filtro_estatus = []
+        var filtro_estatus = {"-1": 0, "0": 0, "1": 0, "2": 0}
         $('#filtro_estatus :checkbox').each(function(){
             if ($(this).is(":checked"))
-                filtro_estatus.push($(this).val())
+                filtro_estatus[$(this).val()] = 1
         })
         
-        filtro_localizado = []
+        filtro_localizado = {"-1": 0, "0": 0, "1": 0}
         $('#filtro_localizado :checkbox').each(function(){
             if ($(this).is(":checked"))
-                filtro_localizado.push($(this).val())
+                filtro_localizado[$(this).val()] = 1
         })
         
         if ($("#search_alumno").val())
@@ -400,20 +400,19 @@ $(document).on('turbolinks:load', function () {
         //esconde todas, despues muestra las que tengan la palomita
         $(".tarjeta_col").hide();
         
-        //para cada combinacion del filtro
-        $.each(filtro_estatus, function(i, val_est) {
-            $.each(filtro_localizado, function(j, val_loc) {
-                $('.div_info').each(function(){
-                    // solo escoger tarjetas que tengan los filtros seleccionados
-                    if ($(this).find('[data-estatus="' + val_est + '"]').length > 0 && $(this).find('[data-localizado="' + val_loc + '"]').length > 0) {
-                        //si hay filtro de texto, aplicarlo
-                        if (texto != "*" && $(this).siblings(".datos_busqueda:caseInsensitiveContains(" + texto + ")").length > 0)
-                            $(this).closest(".tarjeta_col").show()
-                        else if (texto == "*")
-                            $(this).closest(".tarjeta_col").show()
-                    }
-                })
-            });
+        //para cada tarjeta...
+        $('.div_info').each(function() {
+            tarjeta_estatus = $(this).find('.estatus').data('estatus')
+            tarjeta_localizado = $(this).find('.localizado').data('localizado')
+            
+            //checa las banderas de los filtros y solo muestra los que tengan ambas prendidas
+            if (filtro_estatus[tarjeta_estatus] == 1 && filtro_localizado[tarjeta_localizado] == 1) {
+                //si hay busqueda de texto, tambien tomarlo en cuenta
+                if (texto != "*" && $(this).siblings(".datos_busqueda:caseInsensitiveContains(" + texto + ")").length > 0)
+                    $(this).closest(".tarjeta_col").show()
+                else if (texto == "*")
+                    $(this).closest(".tarjeta_col").show()
+            }
         })
     }
 })
