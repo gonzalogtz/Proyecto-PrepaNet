@@ -109,7 +109,7 @@ class ApplicationController < ActionController::Base
     helper_method :get_campus
     
     def get_periodos()
-      periodos = Periodo.select(:descripcion, :id).all
+      periodos = Periodo.select(:descripcion, :id).all.order('inicio_periodo')
       return periodos
     end
     helper_method :get_periodos

@@ -90,11 +90,9 @@ for i in 1..15
                     responde_mensajes: 1, errores_ortografia: 1, calificacion_total: 5, comentarios: "", periodo: 1)
 end
 
-
-
 ######################################## PERIODOS 2########################################
 #################### PERIODOS ####################
-Periodo.create(descripcion: "Enero - Marzo 2018", activo: 2)
+Periodo.create(descripcion: "Enero - Marzo 2018", activo: 0)
 
 #################### USUARIOS ####################
 #################### tutores ####################

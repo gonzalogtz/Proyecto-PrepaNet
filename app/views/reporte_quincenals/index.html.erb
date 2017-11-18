@@ -1,16 +1,16 @@
 <%= render 'topsidebar/navsidebar' %>
-  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <div class="panel-heading">
-      <h1 class="page-header">Reportes Quincenales</h1>
-      <%= render 'filtros' %>
-    </div>
-    
-    <%= render 'tarjetas', tutor: ApplicationController::CUENTA %>
-    
-    <div class="row"> 
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <%= link_to "+", new_reporte_quincenal_path, class: 'btn btn_circular', :id => "btnSubmitTarjetas"%>
-      </div>
-    </div>
-    
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <div class="panel-heading">
+    <h1 class="page-header">Reportes Quincenales</h1>
+    <%= render 'filtros' %>
   </div>
+  
+  <%= render 'tarjetas', tutor: ApplicationController::CUENTA, periodo: get_periodo_activo().id %>
+  
+  <div class="row"> 
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <%= link_to "+", new_reporte_quincenal_path, class: 'btn btn_circular', :id => "btnSubmitTarjetas"%>
+    </div>
+  </div>
+  
+</div>

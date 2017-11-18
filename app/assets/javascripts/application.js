@@ -150,6 +150,7 @@ $(document).on('turbolinks:load', function () {
         $("#periodo_content").load(prefix + "/get_reportes_by_periodo", {periodo_id: periodo}, function(){
             bind_header_clicks() //es necesario hacer este bind para que las acciones de expandir/colapsar funcionen
             bind_boton_reporte_clicks() //y para que los botones/popover de los reportes funcionen
+            reset_filtros_tarjetas_alumnos()
         })
     });
 
@@ -220,6 +221,11 @@ $(document).on('turbolinks:load', function () {
                     //usuario incorrecto
                     else if (result["tipo_error"] == 2) {
                         $("#error_credenciales").html("Usuario inexistente");
+                        $("#error_credenciales").show();
+                        $("#userid").addClass("error_field");
+                    }
+                    else if (result["tipo_error"] == 3) {
+                        $("#error_credenciales").html("Este usuario ya no es valido");
                         $("#error_credenciales").show();
                         $("#userid").addClass("error_field");
                     }
@@ -343,6 +349,7 @@ $(document).on('turbolinks:load', function () {
         $(".reporte_row, .boton_reporte_activado").click(function () {
             window.location = $(this).data("link")
         });
+        
         //activa tooltips
         $('[data-toggle="tooltip"]').tooltip();
     } bind_boton_reporte_clicks()
@@ -395,7 +402,19 @@ $(document).on('turbolinks:load', function () {
         filtrar_tarjetas_alumnos()
     });
     
-    function filtrar_tarjetas_alumnos(filtro_estatus, filtro_localizado, texto) {
+    function reset_filtros_tarjetas_alumnos() {
+        $('#filtro_estatus :checkbox').each(function(){
+            $(this).prop('checked', true);
+        })
+        
+        $('#filtro_localizado :checkbox').each(function(){
+            $(this).prop('checked', true);
+        })
+        
+        $("#search_alumno").val("")
+    }
+    
+    function filtrar_tarjetas_alumnos() {
         var filtro_estatus = {"-1": 0, "0": 0, "1": 0, "2": 0}
         $('#filtro_estatus :checkbox').each(function(){
             if ($(this).is(":checked"))

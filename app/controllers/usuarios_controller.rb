@@ -32,8 +32,13 @@ class UsuariosController < ApplicationController
     
     if user != nil
       #credenciales correctas
-      if user[:contrasena] == params[:password]
-        set_credentials(user.nombres, user.cuenta, user.rol, user.campus)
+      if user[:contrasena] == params[:password] 
+        #usuario correcto pero de periodo antiguo, coordinador nacional o de informatica el periodo no importa
+        if user.periodo != get_periodo_activo().id && user.rol != STR_ROL_COORDINADOR_PREPANET && user.rol != STR_ROL_COORDINADOR_INFORMATICA
+            response = {"tipo_error": 3}
+        else
+          set_credentials(user.nombres, user.cuenta, user.rol, user.campus)
+        end
       #contraseña incorrecta
       else
         response = {"tipo_error": 1}
@@ -100,12 +105,12 @@ class UsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_login_params
-      params.require(:user).permit(:userid, :password)
+      params.require(:user).permit(:cuenta, :contrasena)
     end
 
 
     def user_params
-      params.require(:user).permit(:userid, :password, :campus, :role, :names, :flname, :slname, :email, :phone, :status)
+      params.require(:user).permit(:cuenta, :nomina_matricula, :contrasena, :campus, :rol, :nombres, :apellido_p, :apellido_m, :correo, :telefono, :periodo)
     end
     
     def set_credentials(user, id, role, campus)
