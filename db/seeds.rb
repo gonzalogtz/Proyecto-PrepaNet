@@ -51,7 +51,7 @@ Usuario.create(cuenta: "T08", nomina_matricula: "L00000011", contrasena: "1", ca
 #################### ALUMNOS ####################
 Alumno.create(matricula: "A0000004", nombres: "Paloma", apellido_p: "Martinez", apellido_m: "Osuna", 
                 telefono: "8111111111", correo: "A0000004@itesm.mx")
-Alumno.create(matricula: "A0000005", nombres: "Diana Maria", apellido_p: "Elizalde", apellido_m: "Vilarreal", 
+Alumno.create(matricula: "A0000005", nombres: "Diana Maria", apellido_p: "Elizalde", apellido_m: "Villarreal", 
                 telefono: "8111111111", correo: "A0000005@itesm.mx")
 Alumno.create(matricula: "A0000006", nombres: "Lizette", apellido_p: "Guajardo", apellido_m: "Elizondo", 
                 telefono: "8111111111", correo: "A0000006@itesm.mx")

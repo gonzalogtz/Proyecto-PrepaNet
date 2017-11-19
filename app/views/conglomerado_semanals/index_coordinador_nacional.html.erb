@@ -1,8 +1,10 @@
 <%= render 'topsidebar/navsidebar' %>
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <div class="panel-heading">
-      <h1 class="page-header">Concentrado de Reportes Semanales</h1>
-      <%= select_tag "conglomerado_periodo", options_from_collection_for_select(get_periodos(), :id, :descripcion), class: "selectpicker periodo_select"%>
+      <div class="page-header">
+        <h1>Concentrado de Reportes Semanales</h1>
+        <span class="periodo_header">Periodo de consulta:</span><%= select_tag "conglomerado_periodo", options_from_collection_for_select(get_periodos(), :id, :descripcion), class: "selectpicker periodo_select"%>
+      </div>
     </div>
     
     <div id="periodo_content">

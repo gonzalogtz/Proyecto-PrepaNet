@@ -80,4 +80,14 @@
 
 .filtro {
 	float: left !important;
+	margin-right: 20px;
+	margin-bottom: 30px;
+}
+
+.filtro input[type="checkbox"] {
+	margin-left: 3px;
+}
+
+.filtro_lbl {
+	margin-left: 5px;
 }

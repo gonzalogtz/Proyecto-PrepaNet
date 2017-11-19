@@ -37,7 +37,7 @@ $(document).on('turbolinks:load', function () {
     $(".boton_carousel_reporte_activado").click(function () {
         $(this).closest(".tab-pane").find(".empty_semana").hide();
         id_reporte = $(this).data("link")
-        $("#reporte_" + id_reporte).show("slow").siblings().hide(500);
+        $("#reporte_" + id_reporte).show().siblings().hide();
     });
 
     function cerrar_alerta() {
@@ -157,7 +157,7 @@ $(document).on('turbolinks:load', function () {
     //carga los cursos por tutor en la forma para reportes semanales
     $("#reporte_semanal_tutor, #conglomerado_semanal_tutor").change(function (event) {
         $(event.target).find("option[value='']").attr("disabled", true);
-
+        
         tutor = $(this).val();
         $.ajax({
             type: "GET",
@@ -166,7 +166,7 @@ $(document).on('turbolinks:load', function () {
             data: { tutor_id: tutor },
             success: function (result) {
                 var options = "";
-
+                
                 for (var i = 0; i < result.length; i++) {
                     options += "<option value='" + result[i][0] + "'>" + result[i][1] + "</option>";
                 }

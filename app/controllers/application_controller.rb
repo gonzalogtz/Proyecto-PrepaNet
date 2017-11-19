@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
       periodo_actual = get_periodo_activo()
       
       if ROL == STR_ROL_COORDINADOR_TUTOR
-        tutores = Curso.select("usuarios.cuenta, usuarios.nombres, usuarios.apellido_p, usuarios.apellido_m").where(coordinador_tutores: CUENTA, periodo: periodo_actual.id).joins("INNER JOIN usuarios ON cursos.tutor = usuarios.cuenta").distinct
+        tutores = Curso.select("usuarios.cuenta, usuarios.nombres, usuarios.apellido_p, usuarios.apellido_m, usuarios.nomina_matricula").where(coordinador_tutores: CUENTA, periodo: periodo_actual.id).joins("INNER JOIN usuarios ON cursos.tutor = usuarios.cuenta").distinct
       elsif ROL == STR_ROL_COORDINADOR_CAMPUS
         tutores = Usuario.where(campus: CAMPUS, rol: STR_ROL_TUTOR, periodo: periodo_actual)
       end
@@ -91,8 +91,7 @@ class ApplicationController < ActionController::Base
         curso = Curso.where(grupo: curso).first
       end
       
-      texto = curso.materia + " - Grupo "
-      texto += get_num_grupo(curso.grupo)
+      texto = curso.materia + " - " + curso.grupo
       return texto
     end
     helper_method :get_texto_header_curso
@@ -109,7 +108,8 @@ class ApplicationController < ActionController::Base
     helper_method :get_campus
     
     def get_periodos()
-      periodos = Periodo.select(:descripcion, :id).all.order('inicio_periodo')
+      #orden: primero el activo, después antiguos en orden de calendario
+      periodos = Periodo.select(:descripcion, :id).all.order('activo desc, inicio_periodo')
       return periodos
     end
     helper_method :get_periodos

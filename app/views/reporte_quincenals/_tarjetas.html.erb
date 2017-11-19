@@ -6,8 +6,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 tarjeta_col">
                     <div class="tarjeta alumno_tarjeta">
                         <div class="datos_busqueda">
-                            <div class='tarjeta_texto_grande'><%=alumno.nombres%></div>
-                            <div class='tarjeta_texto_grande'><%=alumno.apellido_p%> <%=alumno.apellido_m%></div>
+                            <div class='tarjeta_texto_nombre'><%=alumno.nombres%> <%=alumno.apellido_p%> <%=alumno.apellido_m%></div>
                             <div class='tarjeta_matricula'><%=alumno.matricula%></div>
                         </div>
                         <% get_reporte_quincenals_by_alumno_and_curso(alumno.alumno, curso.grupo) %>
