@@ -1,8 +1,10 @@
 class Curso < ApplicationRecord
     CSV_MAP = {
         'Campus' => 'campus',
-        'Curso' => 'clave_materia',
+        'Curso' => 'materia',
         'Grupo' => 'grupo',
+        'Tutor' => 'tutor',
+        'Coordinador de Tutores' => 'coordinador_tutores'
     }
 
     def self.import(file)
@@ -13,6 +15,8 @@ class Curso < ApplicationRecord
             attributes = CSV_MAP.each_with_object({}) do |(csv_key, attribute_key), result|
                 result[attribute_key] = row[csv_key]
             end
+            
+            attributes["periodo"] = Periodo.where(activo: 1).first.id
             
             if curso.count == 1
                 curso.first.update_attributes(attributes)
