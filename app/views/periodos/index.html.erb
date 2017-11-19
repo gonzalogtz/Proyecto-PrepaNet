@@ -1,49 +1,40 @@
 <%= render 'topsidebar/navsidebar' %>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <div id="table-cursos">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <center><h3>Periodos</h3></center>
-      </div>
+  <center><h3>Periodos</h3></center>
+  
       <div class="table-responsive">
-        <table class="table table-striped txtCenter">
-          <thead>
+        <table class="table table-striped">
+          <thead class="table_head_custom">
             <tr>
-              <th class="txtCenter">Descripcion</th>
-              <th class="txtCenter">Inicio periodo</th>
-              <th class="txtCenter">Fin periodo</th>
-              <th class="txtCenter">Inicio de inscripcion normal</th>
-              <th class="txtCenter">Fin de inscripcion normal</th>
-              <th class="txtCenter">Fecha de fin de registro</th>
-    
+              <th>Descripción</th>
+              <th>Inscripción</th>
+              <th>Inicio</th>
+              <th>Primer parcial</th>
+              <th>Segundo parcial</th>
+              <th>Tercer parcial</th>
+              <th>Fin</th>
             </tr>
           </thead>
           <tbody>
             <% @periodos.each do |periodo| %>
-              <tr class='pickHover reporte_row' data-link=''>
-                 <td><%= periodo.descripcion %></td>
-                <td><%= periodo.inicio_periodo %></td>
-                <td><%= periodo.fin_periodo %></td>
-                <td><%= periodo.inicio_de_inscripcion_normal %></td>
-                <td><%= periodo.fin_de_inscripcion_normal %></td>
-             
-                <td><%= periodo.fecha_de_fin_de_registro %></td>
-               
-               
-           
+              <tr class='pickHover reporte_row' data-link='periodos/<%=periodo.id%>'>
+                <td><%= periodo.descripcion %></td>
+                <td><%= periodo.inicio_de_inscripcion_normal.strftime(ApplicationController::FORMATO_FECHA) %></td>
+                <td><%= periodo.inicio_periodo.strftime(ApplicationController::FORMATO_FECHA) %></td>
+                <td><%= periodo.fecha_inicial_primer_parcial.strftime(ApplicationController::FORMATO_FECHA) %></td>
+                <td><%= periodo.fecha_inicial_segundo_parcial.strftime(ApplicationController::FORMATO_FECHA) %></td>
+                <td><%= periodo.fecha_inicial_tercer_parcial.strftime(ApplicationController::FORMATO_FECHA) %></td>
+                <td><%= periodo.fin_periodo.strftime(ApplicationController::FORMATO_FECHA) %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
       </div>
+      
       <div class="row"> 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <%= link_to "Nuevo Periodo", new_periodo_path, class: 'btn btn-primary btn-lg', :id => "btnSubmit"%>
-            </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%= link_to "Nuevo periodo", new_periodo_path, class: 'btn btn-primary btn-lg', :id => "btnSubmit"%>
+        </div>
       </div>
-    </div>
-  </div>
+
 </div>
-
-
-

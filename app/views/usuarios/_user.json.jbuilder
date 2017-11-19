@@ -1,2 +1,2 @@
-json.extract! usuario, :id, :cuenta, :nomina_matricula, :contrasena, :campus, :rol, :nombres, :apellido_p, :apellido_m, :correo, :telefono, :estatus, :created_at, :updated_at
+json.extract! usuario, :id, :cuenta, :nomina_matricula, :contrasena, :campus, :rol, :nombres, :apellido_p, :apellido_m, :correo, :telefono, :periodo, :created_at, :updated_at
 json.url usuario_url(usuario, format: :json)

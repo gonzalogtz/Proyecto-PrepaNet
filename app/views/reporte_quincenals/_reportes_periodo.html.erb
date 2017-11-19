@@ -1,0 +1,13 @@
+<% get_campus(periodo).each do |campus| %>
+    <h3 class='reportes_header' id='<%=campus.campus%>'><span><img class='arrow_icon' src="expand_arrow.png"></span><%=campus.campus%></h3>
+    <div class='reportes_content reportes_campus_content padding_inside'>
+        <% get_tutores_by_campus(campus.campus, periodo).each do |tutor| %>
+            <div>
+                <h3 class='reportes_header' id='<%=tutor.cuenta%>'><span><img class='arrow_icon' src="collapse_arrow.png"></span>Tutor: <%=tutor.nombres%> <%=tutor.apellido_p%> <%=tutor.apellido_m%></h3>
+                <div class='reportes_content reportes_tutor_content open padding_inside'>
+                    <%= render 'tarjetas', tutor: tutor.cuenta, periodo: periodo%>
+                </div>
+            </div>
+        <% end %>
+    </div>
+<%end%>

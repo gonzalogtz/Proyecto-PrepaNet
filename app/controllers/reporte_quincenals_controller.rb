@@ -73,6 +73,10 @@ class ReporteQuincenalsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_reportes_by_periodo
+    render '_reportes_periodo', locals: {periodo: params[:periodo_id]}, layout: false
+  end
 
   private
     def verify_show_access(reporte_quincenal)
@@ -117,7 +121,7 @@ class ReporteQuincenalsController < ApplicationController
         #last corresponde al reporte mas reciente
         return get_estatus_tag(@reporte_quincenals_alumnos.last[:estatus])
       else
-        return "<span data-estatus='-1' class='no_reportes'>No existe información</span>".html_safe
+        return "<span data-estatus='-1' class='estatus no_reportes'>No existe información</span>".html_safe
       end
     end
     helper_method :get_ultimo_estatus
@@ -127,7 +131,7 @@ class ReporteQuincenalsController < ApplicationController
         #last corresponde al reporte mas reciente
         return get_localizado_tag(@reporte_quincenals_alumnos.last[:localizado])
       else
-        return "<span data-localizado='-1' class='no_reportes'>No existe información</span>".html_safe
+        return "<span data-localizado='-1' class='localizado no_reportes'>No existe información</span>".html_safe
       end 
     end
     helper_method :get_ultimo_localizado
@@ -144,11 +148,11 @@ class ReporteQuincenalsController < ApplicationController
     
     def get_estatus_tag(estatus)
       if estatus == 0
-        tag = "<span data-estatus='0' class='texto_negativo'>Inactivo</span>"
+        tag = "<span data-estatus='0' class='estatus texto_negativo'>Inactivo</span>"
       elsif estatus == 1
-        tag = "<span data-estatus='1' class='texto_amarillo'>Parcialmente activo</span>"
+        tag = "<span data-estatus='1' class='estatus texto_amarillo'>Parcialmente activo</span>"
       elsif estatus == 2
-        tag = "<span data-estatus='2' class='texto_positivo'>Activo</span>"
+        tag = "<span data-estatus='2' class='estatus texto_positivo'>Activo</span>"
       end
       
       return tag.html_safe
@@ -157,9 +161,9 @@ class ReporteQuincenalsController < ApplicationController
     
     def get_localizado_tag(localizado)
       if localizado == 0
-        tag = "<span data-localizado='0' class='texto_negativo'>No</span>"
+        tag = "<span data-localizado='0' class='localizado texto_negativo'>No</span>"
       elsif localizado == 1
-        tag = "<span data-localizado='1' class='texto_positivo'>Sí</span>"
+        tag = "<span data-localizado='1' class='localizado texto_positivo'>Sí</span>"
       end
       
       return tag.html_safe

@@ -45,6 +45,11 @@ class PeriodosController < ApplicationController
   # PATCH/PUT /periodos/1
   # PATCH/PUT /periodos/1.json
   def update
+    #se desactiva el periodo anterior
+    if periodo_params["activo"] == "1"
+      Periodo.where(activo: 1).update_all(activo: 0)
+    end
+    
     respond_to do |format|
       if @periodo.update(periodo_params)
         format.html { redirect_to @periodo, notice: 'Periodo was successfully updated.' }

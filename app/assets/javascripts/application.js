@@ -21,18 +21,12 @@
 $(document).on('turbolinks:load', function () {
     //activa el popover de notificaciones
     $('[data-toggle="popover"]').popover();
-    //activa tooltips
-    $('[data-toggle="tooltip"]').tooltip();
     //activa picker de calendarios
     $('.datetimepicker1').datetimepicker({format: 'DD-MM-YYYY'});
     
     $(".tutor_header").click(function () {
         var index = $(this).attr('id');
         $(".tutor_content" + index).toggle("fast", function () { });
-    });
-
-    $(".reporte_row, .boton_reporte_activado").click(function () {
-        window.location = $(this).data("link")
     });
     
     $(".materia_tab").click(function (){
@@ -42,7 +36,7 @@ $(document).on('turbolinks:load', function () {
     $(".boton_carousel_reporte_activado").click(function () {
         $(this).closest(".tab-pane").find(".empty_semana").hide();
         id_reporte = $(this).data("link")
-        $("#reporte_" + id_reporte).show("slow").siblings().hide(500);
+        $("#reporte_" + id_reporte).show().siblings().hide();
     });
 
     function cerrar_alerta() {
@@ -148,11 +142,21 @@ $(document).on('turbolinks:load', function () {
             }
         })
     });
+    
+    $(".periodo_select").change(function () {
+        periodo = $(this).val()
+        prefix = $(this).attr('id') //contiene parte del path de la ruta
+        $("#periodo_content").load(prefix + "/get_reportes_by_periodo", {periodo_id: periodo}, function(){
+            bind_header_clicks() //es necesario hacer este bind para que las acciones de expandir/colapsar funcionen
+            bind_boton_reporte_clicks() //y para que los botones/popover de los reportes funcionen
+            reset_filtros_tarjetas_alumnos()
+        })
+    });
 
     //carga los cursos por tutor en la forma para reportes semanales
     $("#reporte_semanal_tutor, #conglomerado_semanal_tutor").change(function (event) {
         $(event.target).find("option[value='']").attr("disabled", true);
-
+        
         tutor = $(this).val();
         $.ajax({
             type: "GET",
@@ -161,7 +165,7 @@ $(document).on('turbolinks:load', function () {
             data: { tutor_id: tutor },
             success: function (result) {
                 var options = "";
-
+                
                 for (var i = 0; i < result.length; i++) {
                     options += "<option value='" + result[i][0] + "'>" + result[i][1] + "</option>";
                 }
@@ -216,6 +220,11 @@ $(document).on('turbolinks:load', function () {
                     //usuario incorrecto
                     else if (result["tipo_error"] == 2) {
                         $("#error_credenciales").html("Usuario inexistente");
+                        $("#error_credenciales").show();
+                        $("#userid").addClass("error_field");
+                    }
+                    else if (result["tipo_error"] == 3) {
+                        $("#error_credenciales").html("Este usuario ya no es valido");
                         $("#error_credenciales").show();
                         $("#userid").addClass("error_field");
                     }
@@ -297,9 +306,7 @@ $(document).on('turbolinks:load', function () {
                 }
             }
         })
-    }
-
-    check_num_notificaciones()
+    } check_num_notificaciones()
 
     function diferencia_fecha(fecha) {
         fecha_actual = new Date()
@@ -317,11 +324,10 @@ $(document).on('turbolinks:load', function () {
             return "Hace " + Math.floor(diff) + " días"
     }
 
-    $(".reportes_header").click(function () {
-        toggle_arrow_icon($(this))
-        $(this).siblings(".reportes_content").toggle();
-    })
-
+    $("#logoPrepa").click(function () {
+        window.location = '/mainmenu'
+    });
+    
     function toggle_arrow_icon(reference_tag) {
         if (reference_tag.find(".arrow_icon").attr("src") == "collapse_arrow.png") {
             reference_tag.find(".arrow_icon").attr("src", "expand_arrow.png");
@@ -330,10 +336,22 @@ $(document).on('turbolinks:load', function () {
             reference_tag.find(".arrow_icon").attr("src", "collapse_arrow.png");
         }
     }
-
-    $("#logoPrepa").click(function () {
-        window.location = '/mainmenu'
-    });
+    
+    function bind_header_clicks() {
+        $(".reportes_header").click(function () {
+            toggle_arrow_icon($(this))
+            $(this).siblings(".reportes_content").toggle();
+        })
+    } bind_header_clicks()
+    
+    function bind_boton_reporte_clicks() {
+        $(".reporte_row, .boton_reporte_activado").click(function () {
+            window.location = $(this).data("link")
+        });
+        
+        //activa tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+    } bind_boton_reporte_clicks()
     
     $("#toggle_expand_tutor").click(function() {
         if ($(this).html() == "Colapsar tutores"){
@@ -383,17 +401,29 @@ $(document).on('turbolinks:load', function () {
         filtrar_tarjetas_alumnos()
     });
     
-    function filtrar_tarjetas_alumnos(filtro_estatus, filtro_localizado, texto) {
-        filtro_estatus = []
+    function reset_filtros_tarjetas_alumnos() {
         $('#filtro_estatus :checkbox').each(function(){
-            if ($(this).is(":checked"))
-                filtro_estatus.push($(this).val())
+            $(this).prop('checked', true);
         })
         
-        filtro_localizado = []
+        $('#filtro_localizado :checkbox').each(function(){
+            $(this).prop('checked', true);
+        })
+        
+        $("#search_alumno").val("")
+    }
+    
+    function filtrar_tarjetas_alumnos() {
+        var filtro_estatus = {"-1": 0, "0": 0, "1": 0, "2": 0}
+        $('#filtro_estatus :checkbox').each(function(){
+            if ($(this).is(":checked"))
+                filtro_estatus[$(this).val()] = 1
+        })
+        
+        filtro_localizado = {"-1": 0, "0": 0, "1": 0}
         $('#filtro_localizado :checkbox').each(function(){
             if ($(this).is(":checked"))
-                filtro_localizado.push($(this).val())
+                filtro_localizado[$(this).val()] = 1
         })
         
         if ($("#search_alumno").val())
@@ -404,20 +434,19 @@ $(document).on('turbolinks:load', function () {
         //esconde todas, despues muestra las que tengan la palomita
         $(".tarjeta_col").hide();
         
-        //para cada combinacion del filtro
-        $.each(filtro_estatus, function(i, val_est) {
-            $.each(filtro_localizado, function(j, val_loc) {
-                $('.div_info').each(function(){
-                    // solo escoger tarjetas que tengan los filtros seleccionados
-                    if ($(this).find('[data-estatus="' + val_est + '"]').length > 0 && $(this).find('[data-localizado="' + val_loc + '"]').length > 0) {
-                        //si hay filtro de texto, aplicarlo
-                        if (texto != "*" && $(this).siblings(".datos_busqueda:caseInsensitiveContains(" + texto + ")").length > 0)
-                            $(this).closest(".tarjeta_col").show()
-                        else if (texto == "*")
-                            $(this).closest(".tarjeta_col").show()
-                    }
-                })
-            });
+        //para cada tarjeta...
+        $('.div_info').each(function() {
+            tarjeta_estatus = $(this).find('.estatus').data('estatus')
+            tarjeta_localizado = $(this).find('.localizado').data('localizado')
+            
+            //checa las banderas de los filtros y solo muestra los que tengan ambas prendidas
+            if (filtro_estatus[tarjeta_estatus] == 1 && filtro_localizado[tarjeta_localizado] == 1) {
+                //si hay busqueda de texto, tambien tomarlo en cuenta
+                if (texto != "*" && $(this).siblings(".datos_busqueda:caseInsensitiveContains(" + texto + ")").length > 0)
+                    $(this).closest(".tarjeta_col").show()
+                else if (texto == "*")
+                    $(this).closest(".tarjeta_col").show()
+            }
         })
     }
 })

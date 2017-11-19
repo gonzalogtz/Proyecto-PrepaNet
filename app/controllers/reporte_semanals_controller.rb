@@ -83,6 +83,10 @@ class ReporteSemanalsController < ApplicationController
       format.js {render :json => {"semanal_count": reportes_semanales_count}}
     end
   end
+  
+  def get_reportes_by_periodo
+    render '_reportes_periodo', locals: {periodo: params[:periodo_id]}, layout: false
+  end
 
   private
     def verify_show_access(reporte_semanal)
@@ -109,8 +113,12 @@ class ReporteSemanalsController < ApplicationController
     end
     helper_method :verify_edit_access
     
-    def get_reporte_semanals_by_tutor_and_curso(tutor_id, curso_id)
+    def read_reporte_semanals_by_tutor_and_curso(tutor_id, curso_id)
       @reporte_semanals_tutor = ReporteSemanal.where(tutor: tutor_id, curso: curso_id).order('semana')
+    end
+    helper_method :read_reporte_semanals_by_tutor_and_curso
+    
+    def get_reporte_semanals_by_tutor_and_curso()
       return @reporte_semanals_tutor
     end
     helper_method :get_reporte_semanals_by_tutor_and_curso

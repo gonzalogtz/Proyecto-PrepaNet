@@ -29,12 +29,12 @@
 	position: relative;
 }
 .tutor_tarjeta {
-	min-height: 250px;
+	min-height: 125px;
 }
 
 .alumno_tarjeta {
     padding-bottom: 10px;
-    min-height: 242px
+    min-height: 187px;
 }
 
 .tarjeta_nombre {
@@ -44,14 +44,14 @@
 	margin-bottom: -10px;
 }
 
-.tarjeta_texto_grande {
-	font-size: 30px;
+.tarjeta_texto_nombre {
+	font-size: 23px;
 	text-align: center;
 	margin-bottom: -10px;
 }
 
 .tarjeta_matricula {
-	font-size: 20px;
+	font-size: 18px;
 	text-align: center;
 	margin-top: 10px;
 }
@@ -95,10 +95,11 @@
 	margin-bottom: 9px;
 	width: 100%;
 	border-bottom: 1px solid #EEEEEE;
+	font-size: 15px;
 }
 
 .contenedor_curso_reportes {
-    margin-bottom: 40px;
+    padding-bottom: 30px;
 }
 
 .footer_no_reportes {
