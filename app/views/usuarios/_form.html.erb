@@ -1,77 +1,114 @@
-<%= form_for(@usuario) do |f| %>
-  <% if @usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= render 'topsidebar/navsidebar' %>
 
-      <ul>
-      <% @usuario.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="col-sm-6 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header titulo">Generar Usuario</h1>
+<div class="alert alert-danger alert-dismissable">
+  <a class="close alert_close" aria-label="close">&times;</a>
+
+</div>
+  
+    <div class="row">
+      <div class="row">
+        <div id="table-cursos" class="" style="margin-top: 20px;">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <center>Usuario</center>
+            </div>
+
+              <%= form_for(@usuario) do |f| %>
+                <% if @usuario.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+                    <ul>
+                    <% @usuario.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-5 margin-bottom margin-top">
+                
+                  <div class="field">
+                    <%= f.label :nombres %>
+                    <%= f.text_field :nombres,class:"form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :apellido_paterno %>
+                    <%= f.text_field :apellido_p,class:"form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :apellido_Materno %>
+                    <%= f.text_field :apellido_m,class:"form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :correo %>
+                    <%= f.text_field :correo,class:"form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :telefono %>
+                    <%= f.text_field :telefono,class:"form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :periodo %>
+                    <%= f.text_field :periodo,class:"form-control" %>
+                  </div>
+
+
+
+
+                </div>
+                <div class="col-sm-5 margin-bottom margin-top">
+                  <div class="field">
+                    <%= f.label :cuenta %>
+                    <%= f.text_field :cuenta, class:"form-control"%>
+                  </div>
+                   
+                  
+                  <div class="field">
+                    <%= f.label :nomina_matricula %>
+                    <%= f.text_field :nomina_matricula,class:"form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :contrasena %>
+                    <%= f.text_field :contrasena,class:"form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :campus %>
+                    <%= f.text_field :campus,class:"form-control" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :titulo %>
+                    <%= f.text_field :titulo, class:"form-control" %>
+                  </div>
+                  
+                  <div class="field">
+                    <%= f.label :rol %>
+                    <br>
+                    <%= f.select(:rol, options_for_select([[ApplicationController::STR_ROL_TUTOR], [ApplicationController::STR_ROL_COORDINADOR_TUTOR], [ApplicationController::STR_ROL_TUTOR_STAFF], [ApplicationController::STR_ROL_COORDINADOR_CAMPUS], [ApplicationController::STR_ROL_COORDINADOR_PREPANET], [ApplicationController::STR_ROL_COORDINADOR_INFORMATICA]]),{},{class: "form-control"}) %>
+                  </div>
+                  
+
+                  
+              
+            </div>
+            <div id="" >
+              <%= f.submit "Guardar Usuario", class:"btn btn-primary btn-lg btnSubmit btnPeriodo"  %>
+                    
+            </div>  
+            <% end %>
+          </div>
+        </div>
+
+      </div>  
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :cuenta %>
-    <%= f.text_field :cuenta %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :nomina_matricula %>
-    <%= f.text_field :nomina_matricula %>
-  </div>
-
-  <div class="field">
-    <%= f.label :contrasena %>
-    <%= f.text_field :contrasena %>
-  </div>
-
-  <div class="field">
-    <%= f.label :campus %>
-    <%= f.text_field :campus %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rol %>
-    <%= f.select(:rol, options_for_select([[ApplicationController::STR_ROL_TUTOR], [ApplicationController::STR_ROL_COORDINADOR_TUTOR], [ApplicationController::STR_ROL_TUTOR_STAFF], [ApplicationController::STR_ROL_COORDINADOR_CAMPUS], [ApplicationController::STR_ROL_COORDINADOR_PREPANET], [ApplicationController::STR_ROL_COORDINADOR_INFORMATICA]])) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :titulo %>
-    <%= f.text_field :titulo %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :nombres %>
-    <%= f.text_field :nombres %>
-  </div>
-
-  <div class="field">
-    <%= f.label :apellido_p %>
-    <%= f.text_field :apellido_p %>
-  </div>
-
-  <div class="field">
-    <%= f.label :apellido_m %>
-    <%= f.text_field :apellido_m %>
-  </div>
-
-  <div class="field">
-    <%= f.label :correo %>
-    <%= f.text_field :correo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :telefono %>
-    <%= f.text_field :telefono %>
-  </div>
-
-  <div class="field">
-    <%= f.label :periodo %>
-    <%= f.text_field :periodo %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
