@@ -1,84 +1,154 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Inicio periodo:</strong>
-  <%= @periodo.inicio_periodo %>
-</p>
+<%= render 'topsidebar/navsidebar' %>
 
-<p>
-  <strong>Fin periodo:</strong>
-  <%= @periodo.fin_periodo %>
-</p>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header titulo">Visualizacion de Periodo</h1>
+<div id="table-cursos">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <center>Periodo</center>
+    </div>
+    <div>
+      
+      
+        <div class="panel-body">
+        <%= form_for(@periodo) do |f| %>
 
-<p>
-  <strong>Inicio de inscripcion normal:</strong>
-  <%= @periodo.inicio_de_inscripcion_normal %>
-</p>
+        <div id="centerDiv">
+              <div class="col-sm-5 margin-bottom margin-top">
 
-<p>
-  <strong>Fin de inscripcion normal:</strong>
-  <%= @periodo.fin_de_inscripcion_normal %>
-</p>
+                  <div class="field">
 
-<p>
-  <strong>Inicio de inscripcion tardia:</strong>
-  <%= @periodo.inicio_de_inscripcion_tardia %>
-</p>
+                    <%= f.label :inicio_periodo, class:"labPad"  %>
+                  
+                
+                    <%= f.text_field :inicio_periodo, class:"datetimepicker1",:readonly => true   %>
+                  </div>
 
-<p>
-  <strong>Fin de inscripcion tardia:</strong>
-  <%= @periodo.fin_de_inscripcion_tardia %>
-</p>
+                  <div class="field">
+                    <%= f.label :fin_periodo, class:"labPad" %>
 
-<p>
-  <strong>Fecha de fin de registro:</strong>
-  <%= @periodo.fecha_de_fin_de_registro %>
-</p>
 
-<p>
-  <strong>Fecha inicial primer parcial:</strong>
-  <%= @periodo.fecha_inicial_primer_parcial %>
-</p>
+                    <%= f.text_field :fin_periodo, class:"datetimepicker1",:readonly => true  %>
+                  </div>
 
-<p>
-  <strong>Fecha final primer parcial:</strong>
-  <%= @periodo.fecha_final_primer_parcial %>
-</p>
+                  <div class="field">
+                    <%= f.label :inicio_de_inscripcion_normal, class:"labPad" %>
+                    <%= f.text_field :inicio_de_inscripcion_normal, class:"datetimepicker1",:readonly => true  %>
+                  </div>
 
-<p>
-  <strong>Fecha inicial segundo parcial:</strong>
-  <%= @periodo.fecha_inicial_segundo_parcial %>
-</p>
+                  <div class="field">
+                    <%= f.label :fin_de_inscripcion_normal, class:"labPad" %>
+                    <%= f.text_field :fin_de_inscripcion_normal, class:"datetimepicker1",:readonly => true  %>
+                  </div>
 
-<p>
-  <strong>Fecha final segundo parcial:</strong>
-  <%= @periodo.fecha_final_segundo_parcial %>
-</p>
+                  <div class="field">
+                    <%= f.label :inicio_de_inscripcion_tardia, class:"labPad" %>
+                    <%= f.text_field :inicio_de_inscripcion_tardia, class:"datetimepicker1",:readonly => true  %>
+                  </div>
 
-<p>
-  <strong>Fecha inicial tercer parcial:</strong>
-  <%= @periodo.fecha_inicial_tercer_parcial %>
-</p>
+                  <div class="field">
+                    <%= f.label :fin_de_inscripcion_tardia, class:"labPad" %>
+                    <%= f.text_field :fin_de_inscripcion_tardia, class:"datetimepicker1",:readonly => true %>
+                  </div>
+                  <div class="field">
+                    <%= f.label :fecha_de_fin_de_registro, class:"labPad" %>
+                    <%= f.text_field :fecha_de_fin_de_registro, class:"datetimepicker1",:readonly => true %>
+                  </div>
+                  <div class="field">
+                    <%= f.label :activo, class:"labPad" %>
+                   
+                    <%= f.check_box :activo, id:"checkboxActivo" %>
+                  </div>
 
-<p>
-  <strong>Fecha final tercer parcial:</strong>
-  <%= @periodo.fecha_final_tercer_parcial %>
-</p>
+      
+           
+              </div>
+                
+              <div class="col-sm-5 margin-bottom margin-top">
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @periodo.descripcion %>
-</p>
+                
 
-<p>
-  <strong>Clasificacion:</strong>
-  <%= @periodo.clasificacion %>
-</p>
+                  <div class="field">
+                    <%= f.label :fecha_inicial_primer_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_inicial_primer_parcial, class:"datetimepicker1",:readonly => true %>
+                  </div>
 
-<p>
-  <strong>Activo:</strong>
-  <%= @periodo.activo %>
-</p>
+                  <div class="field">
+                    <%= f.label :fecha_final_primer_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_final_primer_parcial, class:"datetimepicker1",:readonly => true %>
+                  </div>
 
-<%= link_to 'Edit', edit_periodo_path(@periodo) %> |
-<%= link_to 'Back', periodos_path %>
+                  <div class="field">
+                    <%= f.label :fecha_inicial_segundo_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_inicial_segundo_parcial, class:"datetimepicker1",:readonly => true %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :fecha_final_segundo_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_final_segundo_parcial, class:"datetimepicker1",:readonly => true %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :fecha_inicial_tercer_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_inicial_tercer_parcial, class:"datetimepicker1",:readonly => true %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :fecha_final_tercer_parcial, class:"labPad" %>
+                    <%= f.text_field :fecha_final_tercer_parcial, class:"datetimepicker1",:readonly => true %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :descripcion, class:"labPad" %>
+                    <%= f.text_field :descripcion,:readonly => true %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :clasificacion, class:"labPad" %>
+                    <%= f.text_field :clasificacion,:readonly => true %>
+                  </div>
+                  
+                  
+
+                  
+
+              </div>
+             </div> 
+            
+                     <div id="row" >
+              <div class="col-sm-6">
+                <%= link_to 'Regresar', periodos_path, class:"btn btn-info btn-lg btnEditBack1 " %>
+              </div>
+              <div class="col-sm-6">
+                <%= link_to 'Editar', edit_periodo_path(@periodo),class:"btn btn-success btn-lg btnEditBack1 " %> 
+              </div>
+            
+                    
+            </div> 
+                
+            
+        
+
+
+
+                
+
+                
+
+              <% end %>
+        
+        
+        
+          
+          
+        </div>
+
+
+      
+       
+  </div>
+</div>
+</div>
+
+
