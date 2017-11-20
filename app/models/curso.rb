@@ -1,4 +1,6 @@
 class Curso < ApplicationRecord
+    require 'csv'
+
     CSV_MAP = {
         'Campus' => 'campus',
         'Curso' => 'materia',
@@ -8,7 +10,7 @@ class Curso < ApplicationRecord
     }
 
     def self.import(file)
-        CSV.foreach(file.path, headers:true) do |row|
+        CSV.foreach(file.path, headers:true, encoding: 'iso-8859-1:utf-8') do |row|
             curso_hash = row.to_hash
             curso = Curso.where(grupo: curso_hash["grupo"])
 

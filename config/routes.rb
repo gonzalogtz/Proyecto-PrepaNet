@@ -38,6 +38,14 @@ Rails.application.routes.draw do
   
   #Cursos
   get 'get_cursos_by_tutor', to: 'cursos#send_cursos_by_tutor'
+  resources :cursos do
+    collection { post :import }
+  end
+
+  #Alumnos toma cursos
+  resources :alumno_toma_cursos do
+    collection { post :import }
+  end
   
   #Home page
   get 'mainmenu', to: 'mainmenututor#MenuTutor.html.erb'
