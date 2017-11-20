@@ -30,7 +30,7 @@
         <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%><li><%= link_to 'Concentrados de reportes semanales', conglomerado_semanals_path, class:"blueBack" %></li><% end %>
         <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_INFORMATICA%>
           <li><h4 style="margin-left: 10px;">Administración del sistema</h4></li>
-          <li><%= link_to 'Usuarios', usuarios_path %></li>
+          <li><%= link_to 'Usuarios', usuarios_agregar_path %></li>
           <li><%= link_to 'Periodos', periodos_path %></li>
         <% end %>
       </ul>

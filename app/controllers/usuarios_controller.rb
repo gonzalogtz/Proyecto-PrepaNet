@@ -7,6 +7,10 @@ class UsuariosController < ApplicationController
     @usuarios = Usuario.all
   end
 
+  def agregar
+    
+  end
+
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show

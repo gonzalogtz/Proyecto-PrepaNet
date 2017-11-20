@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   #Usuario
   post 'submit_login', to: 'usuarios#login', as: :submit_login
   get 'logout', to: 'usuarios#logout'
+  get 'usuarios/agregar', to: "usuarios#agregar"
   resources :usuarios do
     collection { post :import }
   end
+
+
 
   #Reporte quincenal
   resources :reporte_quincenals
