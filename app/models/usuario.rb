@@ -17,7 +17,7 @@ class Usuario < ApplicationRecord
     }
 
     def self.import(file)
-        CSV.foreach(file.path, headers:true) do |row|
+        CSV.foreach(file.path, headers:true, encoding: 'iso-8859-1:utf-8') do |row|
             user_hash = row.to_hash
 
             attributes = CSV_MAP.each_with_object({}) do |(csv_key, attribute_key), result|

@@ -11,4 +11,9 @@ class CursosController < ApplicationController
             format.js {render :json => cursos_arr}
         end
     end
+
+    def import
+        Curso.import(params[:file])
+        redirect_to root_url, notice: "Cursos importados."
+     end
 end
