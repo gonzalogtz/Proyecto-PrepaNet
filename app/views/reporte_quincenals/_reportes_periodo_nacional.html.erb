@@ -4,10 +4,10 @@
             <% get_alumnos_by_curso(curso.grupo).each do |alumno| %>
             <% get_reporte_quincenals_by_alumno_and_curso(alumno.alumno, curso.grupo) %>
                 <tr class='pickHover tarjeta_col div_info'>
-                    <td><%=campus.campus%></td>
+                    <td class='datos_busqueda'><%=campus.campus%></td>
                     <td class='datos_busqueda'><%=alumno.matricula%></td>
                     <td class='datos_busqueda'><%=alumno.nombres%> <%=alumno.apellido_p%> <%=alumno.apellido_m%></td>
-                    <td><%=get_texto_header_curso(curso)%></td>
+                    <td class='datos_busqueda'><%=get_texto_header_curso(curso)%></td>
                     <td><%=get_ultimo_estatus%></td>
                     <td><%=get_ultimo_localizado%></td>
                 </tr>

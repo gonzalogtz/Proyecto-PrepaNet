@@ -397,7 +397,7 @@ $(document).on('turbolinks:load', function () {
         filtrar_tarjetas_alumnos()
     });
     
-    $("#search_alumno").on('input', function() {
+    $("#search_bar").on('input', function() {
         filtrar_tarjetas_alumnos()
     });
     
@@ -410,7 +410,7 @@ $(document).on('turbolinks:load', function () {
             $(this).prop('checked', true);
         })
         
-        $("#search_alumno").val("")
+        $("#search_bar").val("")
     }
     
     function filtrar_tarjetas_alumnos() {
@@ -426,8 +426,8 @@ $(document).on('turbolinks:load', function () {
                 filtro_localizado[$(this).val()] = 1
         })
         
-        if ($("#search_alumno").val())
-            var texto = $("#search_alumno").val()
+        if ($("#search_bar").val())
+            var texto = $("#search_bar").val()
         else
             var texto = "*"
         

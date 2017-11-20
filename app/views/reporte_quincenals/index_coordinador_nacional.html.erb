@@ -8,7 +8,7 @@
       <%= render 'filtros' %>
     </div>
 
-    <div class="table-responsive col-md-12">
+    <div class="table-responsive col-md-12 data_table">
       <table class="table table-striped">
         <thead class="table_head_custom">
           <tr>
@@ -16,8 +16,31 @@
             <th>Matrícula</th>
             <th>Nombre</th>
             <th>Materia</th>
-            <th>Estatus</th>
-            <th>Localizado</th>
+            <th>
+              <div class="input-group-btn">
+                <button class="btn btn-default filter_header" type="button">Estatus</button>
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle filter_header filter_header_dropdown" type="button"><span class="caret"></span></button>
+                <ul role="menu" class="dropdown-menu filtro_dropdown" id="filtro_estatus">
+                    <li><input type="checkbox" value="-1" checked><span class="filtro_lbl">Sin información</span></li>
+                    <li class="divider"></li>
+                    <li><input type="checkbox" value="0" checked><span class="filtro_lbl">Inactivo</span></li>
+                    <li><input type="checkbox" value="1" checked><span class="filtro_lbl">Parcialmente activo</span></li>
+                    <li><input type="checkbox" value="2" checked><span class="filtro_lbl">Activo</span></li>
+                </ul>
+              </div>
+            </th>
+            <th>
+              <div class="input-group-btn">
+                <button class="btn btn-default filter_header" type="button">Localizado</button>
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle filter_header filter_header_dropdown" type="button"><span class="caret"></span></button>
+                <ul role="menu" class="dropdown-menu filtro_dropdown" id="filtro_localizado">
+                    <li><input type="checkbox" value="-1" checked><span class="filtro_lbl">Sin información</span></li>
+                    <li class="divider"></li>
+                    <li><input type="checkbox" value="0" checked><span class="filtro_lbl">No</span></li>
+                    <li><input type="checkbox" value="1" checked><span class="filtro_lbl">Sí</span></li>
+                </ul>
+              </div>
+            </th>
           </tr>
         </thead>
         <tbody id="periodo_content">

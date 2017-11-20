@@ -84,10 +84,41 @@
 	margin-bottom: 30px;
 }
 
-.filtro input[type="checkbox"] {
+.filtro_dropdown input[type="checkbox"] {
 	margin-left: 3px;
+}
+
+.filtro_dropdown {
+	font-weight: normal;
 }
 
 .filtro_lbl {
 	margin-left: 5px;
+}
+
+.filter_header {
+	background-color: #4585d4 !important;
+	border-color: #4585d4 !important;
+	color: white;
+	font-weight: bold;
+	padding-left: 0px;
+	padding-bottom: 0px;
+}
+
+.filter_header:hover {
+	color: white;
+	cursor: initial;
+}
+
+.filter_header_dropdown:hover {
+	color: black;
+	cursor: pointer;
+}
+
+.dropdown-menu {
+	color: black;
+}
+
+.data_table {
+	min-height: 170px;
 }
