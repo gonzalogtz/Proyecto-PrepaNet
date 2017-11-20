@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
     def get_usuario_name_by_id(id)
       usuario = Usuario.select(:nombres, :apellido_p, :apellido_m).where(cuenta: id).first
-      return usuario.nombres + " " + usuario.apellido_p
+      return usuario.nombres + " " + usuario.apellido_p + " " + usuario.apellido_m
     end
     helper_method :get_usuario_name_by_id
     

@@ -4,7 +4,7 @@ class PeriodosController < ApplicationController
   # GET /periodos
   # GET /periodos.json
   def index
-    @periodos = Periodo.all
+    @periodos = Periodo.all.order('inicio_de_inscripcion_normal desc')
   end
 
   # GET /periodos/1

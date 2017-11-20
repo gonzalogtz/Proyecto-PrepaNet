@@ -148,7 +148,8 @@ $(document).on('turbolinks:load', function () {
         prefix = $(this).attr('id') //contiene parte del path de la ruta
         $("#periodo_content").load(prefix + "/get_reportes_by_periodo", {periodo_id: periodo}, function(){
             bind_header_clicks() //es necesario hacer este bind para que las acciones de expandir/colapsar funcionen
-            bind_boton_reporte_clicks() //y para que los botones/popover de los reportes funcionen
+            bind_boton_reporte_clicks() //para que los botones/popover de los reportes funcionen
+            bind_modal_row() //para que sigan abriendo los modales
             reset_filtros_tarjetas_alumnos()
         })
     });
@@ -345,13 +346,29 @@ $(document).on('turbolinks:load', function () {
     } bind_header_clicks()
     
     function bind_boton_reporte_clicks() {
-        $(".reporte_row, .boton_reporte_activado").click(function () {
+        $(".reporte_row, .boton_reporte_activado, .usuario_row").click(function () {
             window.location = $(this).data("link")
         });
         
         //activa tooltips
         $('[data-toggle="tooltip"]').tooltip();
     } bind_boton_reporte_clicks()
+    
+    function bind_modal_row() {
+        $(".periodo_row").click(function () {
+            persona = $(this).find('.persona_id_td').data('personaid')
+            curso = $(this).find('.curso_td').data('curso')
+            prefix = $(this).data('reporte') //contiene parte del path de la ruta
+            $(".modal-body").load(prefix + "/get_tarjeta_modal", {persona_id: persona, curso: curso}, function(){
+                bind_boton_reporte_clicks()
+            })
+            $("#modal_tarjeta").modal("show")
+        })
+    } bind_modal_row()
+    
+    $("#btnAgregarUsuario").click(function(){
+        $("#modal_agregar").modal("show")
+    })
     
     $("#toggle_expand_tutor").click(function() {
         if ($(this).html() == "Colapsar tutores"){
@@ -397,7 +414,7 @@ $(document).on('turbolinks:load', function () {
         filtrar_tarjetas_alumnos()
     });
     
-    $("#search_alumno").on('input', function() {
+    $("#search_bar").on('input', function() {
         filtrar_tarjetas_alumnos()
     });
     
@@ -410,39 +427,56 @@ $(document).on('turbolinks:load', function () {
             $(this).prop('checked', true);
         })
         
-        $("#search_alumno").val("")
+        $("#search_bar").val("")
     }
     
     function filtrar_tarjetas_alumnos() {
-        var filtro_estatus = {"-1": 0, "0": 0, "1": 0, "2": 0}
-        $('#filtro_estatus :checkbox').each(function(){
-            if ($(this).is(":checked"))
-                filtro_estatus[$(this).val()] = 1
-        })
-        
-        filtro_localizado = {"-1": 0, "0": 0, "1": 0}
-        $('#filtro_localizado :checkbox').each(function(){
-            if ($(this).is(":checked"))
-                filtro_localizado[$(this).val()] = 1
-        })
-        
-        if ($("#search_alumno").val())
-            var texto = $("#search_alumno").val()
+        search_bar = $("#search_bar")
+        use_filters = false
+        if (search_bar.val())
+            var texto = $("#search_bar").val()
         else
             var texto = "*"
+        
+        if (search_bar.hasClass("quincenal_page")) {
+            use_filters = true
+        }
+        
+        if (use_filters) {
+            var filtro_estatus = {"-1": 0, "0": 0, "1": 0, "2": 0}
+            $('#filtro_estatus :checkbox').each(function(){
+                if ($(this).is(":checked"))
+                    filtro_estatus[$(this).val()] = 1
+            })
+            
+            filtro_localizado = {"-1": 0, "0": 0, "1": 0}
+            $('#filtro_localizado :checkbox').each(function(){
+                if ($(this).is(":checked"))
+                    filtro_localizado[$(this).val()] = 1
+            })
+        }
         
         //esconde todas, despues muestra las que tengan la palomita
         $(".tarjeta_col").hide();
         
         //para cada tarjeta...
-        $('.div_info').each(function() {
-            tarjeta_estatus = $(this).find('.estatus').data('estatus')
-            tarjeta_localizado = $(this).find('.localizado').data('localizado')
+        $('.tarjeta_col').each(function() {
+            if (use_filters) {
+                tarjeta_estatus = $(this).find('.estatus').data('estatus')
+                tarjeta_localizado = $(this).find('.localizado').data('localizado')
+            }
             
             //checa las banderas de los filtros y solo muestra los que tengan ambas prendidas
-            if (filtro_estatus[tarjeta_estatus] == 1 && filtro_localizado[tarjeta_localizado] == 1) {
+            if (use_filters && (filtro_estatus[tarjeta_estatus] == 1 && filtro_localizado[tarjeta_localizado] == 1)) {
                 //si hay busqueda de texto, tambien tomarlo en cuenta
-                if (texto != "*" && $(this).siblings(".datos_busqueda:caseInsensitiveContains(" + texto + ")").length > 0)
+                if (texto != "*" && $(this).find(".datos_busqueda:caseInsensitiveContains(" + texto + ")").length > 0)
+                    $(this).closest(".tarjeta_col").show()
+                else if (texto == "*")
+                    $(this).closest(".tarjeta_col").show()
+            }
+            else if(!use_filters) {
+                //si hay busqueda de texto, tambien tomarlo en cuenta
+                if (texto != "*" && $(this).find(".datos_busqueda:caseInsensitiveContains(" + texto + ")").length > 0)
                     $(this).closest(".tarjeta_col").show()
                 else if (texto == "*")
                     $(this).closest(".tarjeta_col").show()
