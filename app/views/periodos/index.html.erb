@@ -2,39 +2,38 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <center><h3>Periodos</h3></center>
   
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead class="table_head_custom">
-            <tr>
-              <th>Descripción</th>
-              <th>Inscripción</th>
-              <th>Inicio</th>
-              <th>Primer parcial</th>
-              <th>Segundo parcial</th>
-              <th>Tercer parcial</th>
-              <th>Fin</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @periodos.each do |periodo| %>
-              <tr class='pickHover reporte_row' data-link='periodos/<%=periodo.id%>'>
-                <td><%= periodo.descripcion %></td>
-                <td><%= periodo.inicio_de_inscripcion_normal.strftime(ApplicationController::FORMATO_FECHA) %></td>
-                <td><%= periodo.inicio_periodo.strftime(ApplicationController::FORMATO_FECHA) %></td>
-                <td><%= periodo.fecha_inicial_primer_parcial.strftime(ApplicationController::FORMATO_FECHA) %></td>
-                <td><%= periodo.fecha_inicial_segundo_parcial.strftime(ApplicationController::FORMATO_FECHA) %></td>
-                <td><%= periodo.fecha_inicial_tercer_parcial.strftime(ApplicationController::FORMATO_FECHA) %></td>
-                <td><%= periodo.fin_periodo.strftime(ApplicationController::FORMATO_FECHA) %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      
-      <div class="row"> 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <%= link_to "Nuevo periodo", new_periodo_path, class: 'btn btn-primary btn-lg', :id => "btnSubmit"%>
-        </div>
-      </div>
-
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead class="table_head_custom">
+        <tr>
+          <th>Descripción</th>
+          <th>Inscripción</th>
+          <th>Inicio</th>
+          <th>Primer parcial</th>
+          <th>Segundo parcial</th>
+          <th>Tercer parcial</th>
+          <th>Fin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @periodos.each do |periodo| %>
+          <tr class='pickHover reporte_row' data-link='periodos/<%=periodo.id%>'>
+            <td><%= periodo.descripcion %></td>
+            <td><%= periodo.inicio_de_inscripcion_normal.strftime(ApplicationController::FORMATO_FECHA) %></td>
+            <td><%= periodo.inicio_periodo.strftime(ApplicationController::FORMATO_FECHA) %></td>
+            <td><%= periodo.fecha_inicial_primer_parcial.strftime(ApplicationController::FORMATO_FECHA) %></td>
+            <td><%= periodo.fecha_inicial_segundo_parcial.strftime(ApplicationController::FORMATO_FECHA) %></td>
+            <td><%= periodo.fecha_inicial_tercer_parcial.strftime(ApplicationController::FORMATO_FECHA) %></td>
+            <td><%= periodo.fin_periodo.strftime(ApplicationController::FORMATO_FECHA) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="row"> 
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <%= link_to "+", new_periodo_path, class: 'btn btn_circular', :id => "btnSubmitTarjetas"%>
+    </div>
+  </div>
 </div>

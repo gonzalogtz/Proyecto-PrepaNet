@@ -346,7 +346,7 @@ $(document).on('turbolinks:load', function () {
     } bind_header_clicks()
     
     function bind_boton_reporte_clicks() {
-        $(".reporte_row, .boton_reporte_activado").click(function () {
+        $(".reporte_row, .boton_reporte_activado, .usuario_row").click(function () {
             window.location = $(this).data("link")
         });
         
@@ -365,6 +365,10 @@ $(document).on('turbolinks:load', function () {
             $("#modal_tarjeta").modal("show")
         })
     } bind_modal_row()
+    
+    $("#btnAgregarUsuario").click(function(){
+        $("#modal_agregar").modal("show")
+    })
     
     $("#toggle_expand_tutor").click(function() {
         if ($(this).html() == "Colapsar tutores"){
