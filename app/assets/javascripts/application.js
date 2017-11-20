@@ -435,14 +435,14 @@ $(document).on('turbolinks:load', function () {
         $(".tarjeta_col").hide();
         
         //para cada tarjeta...
-        $('.div_info').each(function() {
+        $('.tarjeta_col').each(function() {
             tarjeta_estatus = $(this).find('.estatus').data('estatus')
             tarjeta_localizado = $(this).find('.localizado').data('localizado')
             
             //checa las banderas de los filtros y solo muestra los que tengan ambas prendidas
             if (filtro_estatus[tarjeta_estatus] == 1 && filtro_localizado[tarjeta_localizado] == 1) {
                 //si hay busqueda de texto, tambien tomarlo en cuenta
-                if (texto != "*" && $(this).siblings(".datos_busqueda:caseInsensitiveContains(" + texto + ")").length > 0)
+                if (texto != "*" && $(this).find(".datos_busqueda:caseInsensitiveContains(" + texto + ")").length > 0)
                     $(this).closest(".tarjeta_col").show()
                 else if (texto == "*")
                     $(this).closest(".tarjeta_col").show()

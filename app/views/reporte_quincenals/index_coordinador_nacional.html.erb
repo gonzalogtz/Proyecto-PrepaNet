@@ -7,9 +7,23 @@
       </div>
       <%= render 'filtros' %>
     </div>
-    
-    <div id="periodo_content">
-      <%= render 'reportes_periodo', periodo: get_periodo_activo().id%>
+
+    <div class="table-responsive col-md-12">
+      <table class="table table-striped">
+        <thead class="table_head_custom">
+          <tr>
+            <th>Campus</th>
+            <th>Matrícula</th>
+            <th>Nombre</th>
+            <th>Materia</th>
+            <th>Estatus</th>
+            <th>Localizado</th>
+          </tr>
+        </thead>
+        <tbody id="periodo_content">
+          <%= render 'reportes_periodo_nacional', periodo: get_periodo_activo().id%>
+        </tbody>
+      </table>
     </div>
     
     <div class="row"> 

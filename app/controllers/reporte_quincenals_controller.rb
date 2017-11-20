@@ -75,7 +75,7 @@ class ReporteQuincenalsController < ApplicationController
   end
   
   def get_reportes_by_periodo
-    render '_reportes_periodo', locals: {periodo: params[:periodo_id]}, layout: false
+    render '_reportes_periodo_nacional', locals: {periodo: params[:periodo_id]}, layout: false
   end
 
   private
