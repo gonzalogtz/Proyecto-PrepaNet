@@ -118,6 +118,12 @@ class ConglomeradoSemanalsController < ApplicationController
   def get_reportes_by_periodo
     render '_reportes_periodo_nacional', locals: {periodo: params[:periodo_id]}, layout: false
   end
+  
+  def get_tarjeta_modal
+    @tutor = Usuario.where(cuenta: params[:persona_id]).first
+    @curso = Curso.where(grupo: params[:curso]).first
+    render '_tarjeta_modal', layout: false
+  end
 
   private
     def verify_show_access(conglomerado_semanal)

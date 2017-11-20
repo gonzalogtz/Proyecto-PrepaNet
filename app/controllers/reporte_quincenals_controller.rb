@@ -77,6 +77,12 @@ class ReporteQuincenalsController < ApplicationController
   def get_reportes_by_periodo
     render '_reportes_periodo_nacional', locals: {periodo: params[:periodo_id]}, layout: false
   end
+  
+  def get_tarjeta_modal
+    @alumno = Alumno.where(matricula: params[:persona_id]).first
+    @curso = Curso.where(grupo: params[:curso]).first
+    render '_tarjeta_modal', layout: false
+  end
 
   private
     def verify_show_access(reporte_quincenal)

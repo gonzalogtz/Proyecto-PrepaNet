@@ -5,18 +5,22 @@
         <h1>Reportes Quincenales</h1>
         <span class="periodo_header">Periodo de consulta:</span><%= select_tag "quincenal_periodo", options_from_collection_for_select(get_periodos(), :id, :descripcion), class: "selectpicker periodo_select"%>
       </div>
-      <%= render 'filtros' %>
+      <div class="col-md-12">
+        <div class="form-group col-md-offset-9 col-sm-3 filtro">
+          <input type="text" class="form-control small_search_bar quincenal_page" placeholder="Palabras clave" id="search_bar">
+        </div>
+      </div>
     </div>
 
     <div class="table-responsive col-md-12 data_table">
       <table class="table table-striped">
         <thead class="table_head_custom">
           <tr>
-            <th>Campus</th>
-            <th>Matrícula</th>
-            <th>Nombre</th>
-            <th>Materia</th>
-            <th>
+            <th style="width:20%">Campus</th>
+            <th style="width:20%">Curso</th>
+            <th style="width:10%">Matrícula</th>
+            <th style="width:20%">Nombre</th>
+            <th style="width:10%">
               <div class="input-group-btn">
                 <button class="btn btn-default filter_header" type="button">Estatus</button>
                 <button data-toggle="dropdown" class="btn btn-default dropdown-toggle filter_header filter_header_dropdown" type="button"><span class="caret"></span></button>
@@ -29,7 +33,7 @@
                 </ul>
               </div>
             </th>
-            <th>
+            <th style="width:10%">
               <div class="input-group-btn">
                 <button class="btn btn-default filter_header" type="button">Localizado</button>
                 <button data-toggle="dropdown" class="btn btn-default dropdown-toggle filter_header filter_header_dropdown" type="button"><span class="caret"></span></button>
@@ -56,4 +60,19 @@
     </div>
     
   </div>
+  
+  <!-- Modal -->
+  <div id="modal_tarjeta" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </div>

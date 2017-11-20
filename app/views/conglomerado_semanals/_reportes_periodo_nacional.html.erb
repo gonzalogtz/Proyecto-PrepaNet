@@ -1,11 +1,11 @@
 <% get_campus(periodo).each do |campus| %>
     <% get_tutores_by_campus(campus.campus, periodo).each do |tutor| %>
         <% get_cursos_by_tutor(tutor.cuenta, periodo).each do |curso| %>
-            <tr class='pickHover tarjeta_col div_info'>
-                <td><%=campus.campus%></td>
-                <td class='datos_busqueda'><%=tutor.nomina_matricula%></td>
+            <tr class='pickHover tarjeta_col div_info periodo_row' data-reporte="conglomerado_semanals">
+                <td class='datos_busqueda'><%=campus.campus%></td>
+                <td data-curso="<%=curso.grupo%>" class='datos_busqueda curso_td'><%=get_texto_header_curso(curso)%></td>
+                <td data-personaid="<%=tutor.cuenta%>" class='datos_busqueda persona_id_td'><%=tutor.nomina_matricula%></td>
                 <td class='datos_busqueda'><%=tutor.nombres%> <%=tutor.apellido_p%> <%=tutor.apellido_m%></td>
-                <td><%=get_texto_header_curso(curso)%></td>
             </tr>
         <% end %>
     <% end %>

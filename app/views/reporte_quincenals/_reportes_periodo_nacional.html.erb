@@ -3,11 +3,11 @@
         <% get_cursos_by_tutor(tutor.cuenta, periodo).each do |curso| %>
             <% get_alumnos_by_curso(curso.grupo).each do |alumno| %>
             <% get_reporte_quincenals_by_alumno_and_curso(alumno.alumno, curso.grupo) %>
-                <tr class='pickHover tarjeta_col div_info'>
+                <tr class='pickHover tarjeta_col div_info periodo_row' data-reporte="reporte_quincenals">
                     <td class='datos_busqueda'><%=campus.campus%></td>
-                    <td class='datos_busqueda'><%=alumno.matricula%></td>
+                    <td data-curso="<%=curso.grupo%>" class='datos_busqueda curso_td'><%=get_texto_header_curso(curso)%></td>
+                    <td data-personaid="<%=alumno.matricula%>" class='datos_busqueda persona_id_td'><%=alumno.matricula%></td>
                     <td class='datos_busqueda'><%=alumno.nombres%> <%=alumno.apellido_p%> <%=alumno.apellido_m%></td>
-                    <td class='datos_busqueda'><%=get_texto_header_curso(curso)%></td>
                     <td><%=get_ultimo_estatus%></td>
                     <td><%=get_ultimo_localizado%></td>
                 </tr>
