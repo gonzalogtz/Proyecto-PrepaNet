@@ -1,14 +1,11 @@
 <%= render 'topsidebar/navsidebar' %>
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <div class="panel-heading">
-      <div class="page-header">
-        <h1>Reportes Quincenales</h1>
-        <span class="periodo_header">Periodo de consulta:</span><%= select_tag "quincenal_periodo", options_from_collection_for_select(get_periodos(), :id, :descripcion), class: "selectpicker periodo_select"%>
-      </div>
-      <div class="col-md-12">
-        <div class="form-group col-md-offset-9 col-sm-3 filtro">
-          <input type="text" class="form-control small_search_bar quincenal_page" placeholder="Palabras clave" id="search_bar">
-        </div>
+    <center><h3>Reportes quincenales</h3></center>
+    <center><span class="periodo_header">Periodo de consulta:</span><%= select_tag "quincenal_periodo", options_from_collection_for_select(get_periodos(), :id, :descripcion), class: "selectpicker periodo_select"%></center>
+    
+    <div class="col-md-12">
+      <div class="form-group col-md-offset-9 col-sm-3 filtro">
+        <input type="text" class="form-control small_search_bar quincenal_page" placeholder="Palabras clave" id="search_bar">
       </div>
     </div>
 

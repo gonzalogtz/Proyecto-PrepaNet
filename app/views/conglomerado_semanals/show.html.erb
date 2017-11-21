@@ -168,8 +168,8 @@
         </div>
           
           <h4>Comentarios:</h4>
-          <div contentEditable="false" id="divText" class="scrollDiv">    
-            <%= @conglomerado_semanal.comentarios %>
+          <div contentEditable="false" id="divText" class="scrollDiv">
+            <%if @conglomerado_semanal.comentarios == ""%><div style="color:gray;>">Sin comentarios</div><%else%><%= @conglomerado_semanal.comentarios %><%end%>
           </div>
         </div>
       </div>

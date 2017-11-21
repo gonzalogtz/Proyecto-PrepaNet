@@ -27,15 +27,15 @@
                       
                       <div class="col-sm-3">
                         <h4 class="boldPrint" >Tutor:</h4>
-                        <h4 style="font-weight: normal"><%=get_usuario_name_by_id(@reporte_quincenal.tutor)%></h4>
+                        <h4 style="font-weight: normal"><%=get_usuario_name_by_id(@reporte_quincenal.tutor)%> // <%=@reporte_quincenal.tutor%></h4>
                         <h4 class="boldPrint">Coordinador del Tutor:</h4>
-                        <h4 style="font-weight: normal"><%=get_usuario_name_by_id(@reporte_quincenal.coordinador_tutores)%></h4>
+                        <h4 style="font-weight: normal"><%=get_usuario_name_by_id(@reporte_quincenal.coordinador_tutores)%> // <%=@reporte_quincenal.coordinador_tutores%></h4>
                       </div>
                       
                     <div class="col-sm-6">
                         <h4 class="boldPrint">Comentarios:</h4>
                         <div contentEditable="false" id="divText" class="scrollDiv">
-                          <%= @reporte_quincenal.comentarios %>
+                          <%if @reporte_quincenal.comentarios == ""%><div style="color:gray;>">Sin comentarios</div><%else%><%= @reporte_quincenal.comentarios %><%end%>
                         </div>
                     </div>
                   </div>

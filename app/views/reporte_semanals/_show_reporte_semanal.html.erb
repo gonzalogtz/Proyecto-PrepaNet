@@ -1,5 +1,6 @@
 <div class="row">
           <center><h3><%=get_usuario_name_by_id(reporte_semanal.tutor)%></h3></center>
+          <center><h4><%=reporte_semanal.tutor%></h4></center>
           
           <div style="padding-left: 23px;" class="col-sm-6">
             <h4 style="font-weight: normal">
@@ -31,7 +32,7 @@
           <div style="padding-left: 23px;" class="col-sm-6">
             <h4 style="float: left; padding-right: 1%;">Coordinador de tutores:</h4>
             <h4 style="font-weight: normal">
-              <%= get_usuario_name_by_id(reporte_semanal.coordinador_tutores) %>
+              <%= get_usuario_name_by_id(reporte_semanal.coordinador_tutores)%> // <%=reporte_semanal.coordinador_tutores%>
             </h4>
           </div>
           
@@ -82,7 +83,8 @@
 
           <div class="row col-sm-6">
             <h4>Comentarios:</h4>
-            <div contentEditable="false" id="divText" class="scrollDiv"> <%= reporte_semanal.comentarios %>  
+            <div contentEditable="false" id="divText" class="scrollDiv">
+              <%if reporte_semanal.comentarios == ""%><div style="color:gray;>">Sin comentarios</div><%else%><%= reporte_semanal.comentarios %><%end%>
             </div>
           </div>
         </div>
