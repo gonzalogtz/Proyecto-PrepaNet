@@ -1,10 +1,36 @@
 <%= render 'topsidebar/navsidebar' %>
-<div class="mainContainer col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main txtCenter">
-Estimado Usuario,
+<div class=" introFraseTotal col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ">
+	<div><h3>Hola, <%=ApplicationController::NOMBRE_USUARIO%></h3></div>
 
-El Sistema de Seguimiento a Indicadores de Calidad Académica (SSICA) está diseñado como una interfase hacia la plataforma BB.
+	<% if ApplicationController::ROL == ApplicationController::STR_ROL_TUTOR %>
+		<div>Como tutor, podrás realizar el seguimiento y los reportes de tus alumnos a través de este sitio. 
+		También, podrás ver tu propio desempeño como tutor a través de los reportes que tus coordinadores generan.</div>
+	<% end %>
 
-La intención de este Sistema es permitir que tu función como coordinador de materia o de tutores sea más sencilla y puedas atender y dar seguimiento al desempeño de los indicadores de calidad académica tanto de los tutores de SSC, como de los alumnos de Prepanet sin necesidad de entrar a cada uno de los grupos generados en Blackboard.
+	<% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_TUTOR %>
+		<div>Como coordinador de tutores, podrás verificar el seguimiento de los alumnos encargados a tus tutores, 
+		así como generar reportes para calificar a estos últimos para reportar su desempeño.</div>
+	<% end %>
 
-Estamos seguros de que su uso te será de mucha utilidad para mantener los niveles de excelencia académica que hemos logrado establecer en Prepanet.
+	<% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_CAMPUS %>
+		<div>Como coordinador de campus, podrás verificar el seguimiento de los alumnos de tu campus, 
+		así como seguir el desempeño de los tutores de tu campus.</div>
+	<% end %>
+
+	<% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_PREPANET %>
+		<div>Como coordinador nacional, podrás verificar el seguimiento de todos los alumnos de Prepanet, 
+		así como seguir el desempeño de todos los tutores.</div>
+	<% end %>
+
+	<% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_INFORMATICA %>
+		<div>Como coordinador de informática, podrás verificar el seguimiento de todos los alumnos de Prepanet, 
+		así como seguir el desempeño de todos los tutores. También, podrás dar de alta usuarios y cursos, así como activar periodos acádemicos.</div>
+	<% end %>
+
+	<br>
+	<div>Estamos seguros de que su uso te será de mucha utilidad para mantener los niveles de excelencia académica que hemos logrado establecer en Prepanet.</div>
+
+	<br>
+	<div>Quedamos a tu disposición para cualquier duda, comentario o aclaración,</div>
+	<div>Prepanet</div>
 </div>

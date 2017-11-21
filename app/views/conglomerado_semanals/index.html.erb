@@ -1,39 +1,17 @@
 <%= render 'topsidebar/navsidebar' %>
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <div id="table-cursos">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <center><h3>Conglomerado de Reportes</h3></center>
-      </div>
-      <div class="table-responsive">
-        <table class="table table-striped txtCenter">
-          <thead>
-            <tr>
-              <th class="txtCenter">Tutor</th>
-              <th class="txtCenter">Fecha</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @conglomerado_semanals.each do |conglomerado_semanal| %>
-              <tr class='pickHover reporte_row' data-link='conglomerado_semanals/<%=conglomerado_semanal.id%>'>
-                <td><%=get_usuario_name_by_id(conglomerado_semanal.tutor)%></td>
-                <td><%= conglomerado_semanal.created_at.strftime(ApplicationController::FORMATO_FECHA)%></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div class="row"> 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <%= link_to "Crear Reporte", new_conglomerado_semanal_path, class: 'btn btn-primary btn-lg', :id => "btnSubmit"%>
-            </div>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="panel-heading">
+      <h1 class="page-header">Concentrado de Reportes Semanales</h1>
+    </div>
+    
+    <% get_tutores_encargados.each do |tutor| %>
+      <%= render 'tarjetas', tutor: tutor, periodo: get_periodo_activo().id%>
+    <% end %>
+    
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <%= link_to "+", new_conglomerado_semanal_path, class: 'btn btn_circular', :id => "btnSubmitTarjetas"%>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-

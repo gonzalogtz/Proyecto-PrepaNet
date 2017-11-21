@@ -1,106 +1,38 @@
 <%=verify_show_access(@reporte_semanal)%>
 <%= render 'topsidebar/navsidebar' %>
 
-
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<div id="table-cursos">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <center>Reporte Semanal del Desempeño del Tutor</center>
-    </div>
-    <div id="" class="panel-body">
-      <div>
-      <div class="" id="printID">
-        <div class="row">
-          <center><h3><%=get_usuario_name_by_id(@reporte_semanal.tutor)%></h3></center>
-          
-          <div style="padding-left: 23px;" class="col-sm-12">
-            <h4 style="float: left; padding-right: 1%;">Semana:</h4>
-            <h4 style="font-weight: normal">
-              <%= @reporte_semanal.semana %>
-            </h4>
-          </div>
-          
-          <div style="padding-left: 23px;" class="col-sm-12">
-            <h4 style="float: left; padding-right: 1%;">Fecha de creación:</h4>
-            <h4 style="font-weight: normal">
-              <%= @reporte_semanal.created_at.strftime(ApplicationController::FORMATO_FECHA)%>
-            </h4>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-sm-7">
-            <div class="table-responsive">
-              <table class ="table table-striped">
-                <thead>
-                  <th>Criterio</th>
-                  <th>Calificación</th>
-                </thead>
-                <tr>
-                  <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
-                  <td> <%= @reporte_semanal.califica_en_plazo %>/3</td>
-                </tr>
-                <tr>
-                  <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
-                  <td> <%= @reporte_semanal.califica_con_rubrica %>/1</td>
-                </tr>
-                <tr>
-                  <td> Da retroalimentación clara y específica de actividades y/o exámenes:</td>
-                  <td><%= @reporte_semanal.da_retroalimentacion %>/2</td>
-                </tr>
-                <tr>
-                  <td> Responde mensajes en un lapso no mayor a 24 horas:</td>
-                  <td>  <%= @reporte_semanal.responde_mensajes %>/3</td>
-                </tr>
-                <tr>
-                  <td>Errores de ortografía en mensajes, reportes y retroalimentaciones:</td>
-                  <td><%= @reporte_semanal.errores_ortografia %>/1</td>
-                </tr>
-                <tr>
-                  <td><strong>Total:</strong></td>
-                  <strong><td><%=@reporte_semanal.calificacion_total%>/10</td></strong>
-                </tr>
-
-              </table>
-            </div>
-          </div>
-
-          <div class="row col-sm-4">
-            <h4 style="margin-left: 15%">Comentarios:</h4>
-          
-            <div contentEditable="false" id="divText" class="scrollDiv">    
-                  <%= @reporte_semanal.comentarios %>  
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-        <div class="row " id="noPrint">
-        
-          <div class="col-sm-2">
-            <%= link_to 'Atrás', reporte_semanals_path, class:"btn btn-lg btn-primary", id:"btnChico" %>
-          </div>
-          
-          <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%>
-            <div class="col-sm-2">
-              <%= link_to 'Editar', edit_reporte_semanal_path(@reporte_semanal), class:"btn btn-lg btn-warning", id:"btnChico" %>
+    <div id="table-cursos">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <center>Reporte Semanal del Desempeño del Tutor</center>
             </div>
             
-            <div class="col-sm-2">
-                <%= link_to 'Eliminar', @reporte_semanal, method: :delete, data: {confirm: '¿Estás seguro que quieres borrar este reporte? iNo se podrá recuperar!' }, class:"btn btn-lg btn-danger", id:"btnChico" %>
+            <div class="panel-body">
+                <div>
+                    <div class="" id="printID">
+                        <%= render 'show_reporte_semanal', reporte_semanal: @reporte_semanal %>
+                    </div>
+                    <div class="row" id="noPrint">
+                        <div class="col-sm-2">
+                            <%= link_to 'Atrás', reporte_semanals_path, class:"btn btn-lg btn-primary", id:"btnChico" %>
+                        </div>
+                        
+                        <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%>
+                            <div class="col-sm-2">
+                                <%= link_to 'Editar', edit_reporte_semanal_path(@reporte_semanal), class:"btn btn-lg btn-warning", id:"btnChico" %>
+                            </div>
+                            
+                            <div class="col-sm-2">
+                                <%= link_to 'Eliminar', @reporte_semanal, method: :delete, data: {confirm: '¿Estás seguro que quieres borrar este reporte? iNo se podrá recuperar!' }, class:"btn btn-lg btn-danger", id:"btnChico" %>
+                            </div>
+                        <%end%>
+                        <div class="col-sm-2">
+                            <%= link_to 'Imprimir', @reporte_semanal, :onclick => 'window.print();', class:"btn btn-lg btn-info",id:"btnChico"%>
+                        </div>
+                    </div>
+                </div>
             </div>
-          <%end%>
-          <div class="col-sm-2">
-            <%= link_to 'Imprimir', @reporte_semanal, :onclick => 'window.print();', class:"btn btn-lg btn-info",id:"btnChico"%>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
-</div>
-
-<%= link_to 'Edit', edit_reporte_semanal_path(@reporte_semanal) %> |
-<%= link_to 'Back', reporte_semanals_path %>

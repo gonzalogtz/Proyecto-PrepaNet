@@ -1,0 +1,18 @@
+<div class="tutor_tarjeta">
+    <div class='tarjeta_texto_nombre'><%=@tutor.nombres + " " + @tutor.apellido_p + " " + @tutor.apellido_m%></div>
+    <div class='tarjeta_matricula'><%=@tutor.nomina_matricula%> // <%=@tutor.cuenta%></div>
+    <div class='tarjeta_matricula'><%=@curso.campus%></div>
+    <div class='tarjeta_matricula'><%=@curso.materia%> - <%=@curso.grupo%></div>
+    <div class='tarjeta_matricula'>Coordinador de tutores: <%=get_usuario_name_by_id(@curso.coordinador_tutores)%></div>
+    <div class='contenedor_boton_reportes'>
+        <%read_reporte_semanals_by_tutor_and_curso(@tutor.cuenta, @curso.grupo)%>
+        <div class='contenedor_curso_reportes'>
+            <div class='contenedor_boton_reportes_header'>Reportes</div>
+            <div>
+                <% (1..15).each do |i| %>
+                    <%=get_reporte_semanals_by_semana(i)%>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,11 +5,10 @@ class ReporteQuincenalsController < ApplicationController
   # GET /reporte_quincenals
   # GET /reporte_quincenals.json
   def index
-    if ROL == STR_ROL_TUTOR
-      @alumnos = AlumnoCursaMateria.select("*").where(tutor: CUENTA).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula")
-    elsif ROL == STR_ROL_COORDINADOR_TUTOR
-      @tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
+    if ROL == STR_ROL_COORDINADOR_TUTOR || ROL == STR_ROL_COORDINADOR_CAMPUS
       render "index_coordinador_tutor"
+    elsif ROL == STR_ROL_COORDINADOR_PREPANET || ROL == STR_ROL_COORDINADOR_INFORMATICA
+      render "index_coordinador_nacional"
     end
   end
 
@@ -31,7 +30,13 @@ class ReporteQuincenalsController < ApplicationController
   # POST /reporte_quincenals.json
   def create
     @reporte_quincenal = ReporteQuincenal.new(reporte_quincenal_params)
-    @reporte_quincenal[:tutor] = CUENTA
+    
+    info_curso = Curso.where(grupo: @reporte_quincenal[:curso]).first
+    @reporte_quincenal[:tutor] = info_curso.tutor
+    @reporte_quincenal[:coordinador_tutores] = info_curso.coordinador_tutores
+    @reporte_quincenal[:campus] = info_curso.campus
+    @reporte_quincenal[:periodo] = info_curso.periodo
+    
     @reporte_quincenal[:fecha_correspondiente] = Date.today
 
     respond_to do |format|
@@ -68,33 +73,46 @@ class ReporteQuincenalsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def get_reportes_by_periodo
+    render '_reportes_periodo_nacional', locals: {periodo: params[:periodo_id]}, layout: false
+  end
+  
+  def get_tarjeta_modal
+    @alumno = Alumno.where(matricula: params[:persona_id]).first
+    @curso = Curso.where(grupo: params[:curso]).first
+    render '_tarjeta_modal', layout: false
+  end
 
   private
     def verify_show_access(reporte_quincenal)
       #el reporte lo puede ver el tutor
       if (reporte_quincenal.tutor != CUENTA)
-        coordinador_tutor = UsuarioCoordinaUsuario.where(usuario: reporte_quincenal.tutor).first
-        
         #el coordinador de tutores tambien puede ver los reportes
-        if (coordinador_tutor.coordinador != CUENTA)
-          redirect_to "/mainmenu"
+        if (reporte_quincenal.coordinador_tutores != CUENTA)
+          #el coordinador de campus puede ver los reportes
+          if (ROL == STR_ROL_COORDINADOR_CAMPUS && reporte_quincenal.campus != CAMPUS)
+            redirect_to "/mainmenu"
+          end
         end
       end
     end
     helper_method :verify_show_access
     
-    def get_reporte_quincenals_by_alumno(tutor_id = CUENTA, alumno_id)
-      @reporte_quincenals_alumnos = ReporteQuincenal.where(tutor: tutor_id, alumno: alumno_id).order('fecha_correspondiente')
+    def get_reporte_quincenals_by_alumno_and_curso(alumno_id, curso_id)
+      @reporte_quincenals_alumnos = ReporteQuincenal.where(alumno: alumno_id, curso: curso_id).order('fecha_correspondiente')
     end
-    helper_method :get_reporte_quincenals_by_alumno
+    helper_method :get_reporte_quincenals_by_alumno_and_curso
     
     def get_reporte_quincenals_buttons
       html = ""
+      i = 1
       
       if @reporte_quincenals_alumnos.present?
         @reporte_quincenals_alumnos.each do |reporte|
           html += "<div class='boton_reporte boton_reporte_activado' data-link='reporte_quincenals/" + reporte.id.to_s + "' 
-          data-toggle='tooltip' title='" + reporte.fecha_correspondiente.strftime(ApplicationController::FORMATO_FECHA) + "' data-placement='bottom'></div>"
+          data-toggle='tooltip' title='" + reporte.fecha_correspondiente.strftime(ApplicationController::FORMATO_FECHA) + "' data-placement='bottom'>" + i.to_s + "</div>"
+          i += 1
         end
       else
         html += "<div class='no_reportes footer_no_reportes'>No se tienen reportes para este alumno</div>"
@@ -109,7 +127,7 @@ class ReporteQuincenalsController < ApplicationController
         #last corresponde al reporte mas reciente
         return get_estatus_tag(@reporte_quincenals_alumnos.last[:estatus])
       else
-        return "<span class='no_reportes'>No existe información</span>".html_safe
+        return "<span data-estatus='-1' class='estatus no_reportes'>No existe información</span>".html_safe
       end
     end
     helper_method :get_ultimo_estatus
@@ -119,7 +137,7 @@ class ReporteQuincenalsController < ApplicationController
         #last corresponde al reporte mas reciente
         return get_localizado_tag(@reporte_quincenals_alumnos.last[:localizado])
       else
-        return "<span class='no_reportes'>No existe información</span>".html_safe
+        return "<span data-localizado='-1' class='localizado no_reportes'>No existe información</span>".html_safe
       end 
     end
     helper_method :get_ultimo_localizado
@@ -134,42 +152,27 @@ class ReporteQuincenalsController < ApplicationController
       params.require(:reporte_quincenal).permit(:alumno, :curso, :estatus, :localizado, :comentarios, :fecha_correspondiente)
     end
     
-    def get_alumnos
-      lista_alumnos = []
-      
-      alumnos_tutor = AlumnoCursaMateria.select("*").where(tutor: CUENTA).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula")
-      alumnos_tutor.each do |alumno|
-        nombre_alumno = alumno.nombres + " " + alumno.apellido_p + " " + alumno.apellido_m
-        lista_alumnos.push([nombre_alumno, alumno.matricula])
-      end
-      
-      return lista_alumnos
-    end
-    helper_method :get_alumnos
-    
-    def get_alumnos_by_tutor(tutor_id)
-      alumnos = AlumnoCursaMateria.select("*").where(tutor: tutor_id).joins("INNER JOIN alumnos ON alumno_cursa_materias.alumno = alumnos.matricula").order('alumnos.matricula')
-      return alumnos
-    end
-    helper_method :get_alumnos_by_tutor
-    
     def get_estatus_tag(estatus)
       if estatus == 0
-        return "<span class='texto_negativo'>Inactivo</span>".html_safe
+        tag = "<span data-estatus='0' class='estatus texto_negativo'>Inactivo</span>"
       elsif estatus == 1
-        return "<span class='texto_amarillo'>Parcialmente activo</span>".html_safe
+        tag = "<span data-estatus='1' class='estatus texto_amarillo'>Parcialmente activo</span>"
       elsif estatus == 2
-        return "<span class='texto_positivo'>Activo</span>".html_safe
+        tag = "<span data-estatus='2' class='estatus texto_positivo'>Activo</span>"
       end
+      
+      return tag.html_safe
     end
     helper_method :get_estatus_tag
     
     def get_localizado_tag(localizado)
       if localizado == 0
-        return "<span class='texto_negativo'>No</span>".html_safe
+        tag = "<span data-localizado='0' class='localizado texto_negativo'>No</span>"
       elsif localizado == 1
-        return "<span class='texto_positivo'>Sí</span>".html_safe
+        tag = "<span data-localizado='1' class='localizado texto_positivo'>Sí</span>"
       end
+      
+      return tag.html_safe
     end
     helper_method :get_localizado_tag
 end

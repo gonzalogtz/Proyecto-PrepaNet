@@ -5,7 +5,11 @@ class ConglomeradoSemanalsController < ApplicationController
   # GET /conglomerado_semanals
   # GET /conglomerado_semanals.json
   def index
-    @conglomerado_semanals = ConglomeradoSemanal.where(coordinador_tutores: CUENTA)
+    if ROL == STR_ROL_COORDINADOR_TUTOR
+      @conglomerado_semanals = ConglomeradoSemanal.where(coordinador_tutores: CUENTA)
+    elsif ROL == STR_ROL_COORDINADOR_PREPANET || ROL == STR_ROL_COORDINADOR_INFORMATICA
+      render "index_coordinador_nacional"
+    end
   end
 
   # GET /conglomerado_semanals/1
@@ -26,10 +30,14 @@ class ConglomeradoSemanalsController < ApplicationController
   # POST /conglomerado_semanals.json
   def create
     @conglomerado_semanal = ConglomeradoSemanal.new(conglomerado_semanal_params)
-    @conglomerado_semanal[:coordinador_tutores] =  CUENTA
+    
+    info_curso = Curso.where(grupo: @conglomerado_semanal[:curso]).first
+    @conglomerado_semanal[:periodo] = info_curso.periodo
+    @conglomerado_semanal[:coordinador_tutores] =  info_curso.coordinador_tutores
+    @conglomerado_semanal[:campus] =  info_curso.campus
 
     # Variables calculadas a partir de los reportes semanales
-    reportes_semanales = ReporteSemanal.where(tutor: @conglomerado_semanal[:tutor], coordinador_tutores: CUENTA).order('semana').take(15)
+    reportes_semanales = ReporteSemanal.where(tutor: @conglomerado_semanal[:tutor], curso: @conglomerado_semanal[:curso]).order('semana').take(15)
     
     #Se leen las 15 calificaciones de los reportes semanales
     calif_arr = []
@@ -40,7 +48,14 @@ class ConglomeradoSemanalsController < ApplicationController
     @conglomerado_semanal[:calificaciones_semanales] = calif_arr.to_json()
     @conglomerado_semanal[:promedio] = calif_arr.sum.fdiv(calif_arr.size)
     @conglomerado_semanal[:horas_desempeno_semanal] =  (@conglomerado_semanal[:promedio]*7.5).ceil
-    @conglomerado_semanal[:horas_reportes] = 15
+    
+    reportes_quincenals_count = ReporteQuincenal.where(tutor: @conglomerado_semanal[:tutor], curso: @conglomerado_semanal[:curso]).count
+    if reportes_quincenals_count > 0
+      @conglomerado_semanal[:horas_reportes] = 15/(6/reportes_quincenals_count)
+    else
+      @conglomerado_semanal[:horas_reportes] = 0
+    end
+    
     @conglomerado_semanal[:total_horas] =  @conglomerado_semanal[:horas_desempeno_semanal] + @conglomerado_semanal[:horas_reportes]
 
     respond_to do |format|
@@ -83,14 +98,14 @@ class ConglomeradoSemanalsController < ApplicationController
     response = {"tipo_error": 0}
     
     #primero checa si no hay 15 reportes semanales todavia
-    reportes_semanales = ReporteSemanal.where(tutor: params[:tutor_id], coordinador_tutores: CUENTA).take(15)
-    if reportes_semanales.count < 15
+    reportes_semanales_count = ReporteSemanal.where(tutor: params[:tutor_id], curso: params[:curso_id]).count
+    if reportes_semanales_count < 15
       response = {"tipo_error": 1}
     else
-      conglomerado = ConglomeradoSemanal.where(tutor: params[:tutor_id], coordinador_tutores: CUENTA)
+      conglomerado_count = ConglomeradoSemanal.where(tutor: params[:tutor_id], curso: params[:curso_id]).count
       
       #despues checa si ya hay un conglomerado creado
-      if conglomerado.count > 0
+      if conglomerado_count > 0
         response = {"tipo_error": 2}
       end
     end
@@ -98,6 +113,16 @@ class ConglomeradoSemanalsController < ApplicationController
     respond_to do |format|
       format.js {render :json => response}
     end
+  end
+  
+  def get_reportes_by_periodo
+    render '_reportes_periodo_nacional', locals: {periodo: params[:periodo_id]}, layout: false
+  end
+  
+  def get_tarjeta_modal
+    @tutor = Usuario.where(cuenta: params[:persona_id]).first
+    @curso = Curso.where(grupo: params[:curso]).first
+    render '_tarjeta_modal', layout: false
   end
 
   private
@@ -132,18 +157,19 @@ class ConglomeradoSemanalsController < ApplicationController
       :alumnos_original_aprobaron, :alumnos_final_concluyeron, :total_horas_sugerido)
     end
     
-    def get_tutores
-      lista_tutores = []
+    def get_conglomerado_semanals_button_by_tutor_and_curso(tutor_id, curso_id)
+      conglomerado_semanals_tutor = ConglomeradoSemanal.where(tutor: tutor_id, curso: curso_id).first
       
-      tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
-      tutores.each do |tutor|
-        nombre_tutor = tutor.nombres + " " + tutor.apellido_p + " " + tutor.apellido_m
-        lista_tutores.push([nombre_tutor, tutor.cuenta])
+      html = ""
+      if !conglomerado_semanals_tutor
+        html = "<div class='boton_reporte'></div>"
+      else
+        html = "<div class='boton_reporte boton_reporte_activado' data-link='conglomerado_semanals/" + conglomerado_semanals_tutor.id.to_s + "' ></div>"
       end
       
-      return lista_tutores
+      return html.html_safe
     end
-    helper_method :get_tutores
+    helper_method :get_conglomerado_semanals_button_by_tutor_and_curso
 
     def get_valor(valor)
       if valor == 1

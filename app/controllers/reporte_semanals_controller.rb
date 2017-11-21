@@ -5,19 +5,10 @@ class ReporteSemanalsController < ApplicationController
   # GET /reporte_semanals
   # GET /reporte_semanals.json
   def index
-    if ROL == STR_ROL_COORDINADOR_TUTOR
-      @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA)
-      @tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
-    elsif ROL == STR_ROL_TUTOR
-      @reporte_semanals = ReporteSemanal.where(tutor: CUENTA).order('semana').take(15)
-      
-      calif_arr = []
-      @reporte_semanals.each do |reporte|
-        calif_arr.push(reporte.calificacion_total)
-      end
-      @promedio_actual = calif_arr.sum.fdiv(calif_arr.size).ceil
-      @horas_desempeno_actual = (@promedio_actual*7.5).ceil
+    if ROL == STR_ROL_TUTOR
       render "index_tutor"
+    elsif ROL == STR_ROL_COORDINADOR_PREPANET || ROL == STR_ROL_COORDINADOR_INFORMATICA
+      render "index_coordinador_nacional"
     end
   end
 
@@ -39,12 +30,18 @@ class ReporteSemanalsController < ApplicationController
   # POST /reporte_semanals.json
   def create
     @reporte_semanal = ReporteSemanal.new(reporte_semanal_params)
+    
+    info_curso = Curso.where(grupo: @reporte_semanal[:curso]).first
+    @reporte_semanal[:coordinador_tutores] = info_curso.coordinador_tutores
+    @reporte_semanal[:periodo] = info_curso.periodo
+    @reporte_semanal[:campus] = info_curso.campus
+    
     @reporte_semanal[:calificacion_total] = get_calif_total(@reporte_semanal)
-    @reporte_semanal[:coordinador_tutores] = CUENTA
     
     respond_to do |format|
       if @reporte_semanal.save
-        notificacion = Notificacion.new(usuario: @reporte_semanal[:tutor], mensaje: "Tu coordinador de tutores ha creado tu reporte correspondiente a la semana " + @reporte_semanal[:semana].to_s, liga: "/reporte_semanals/" + @reporte_semanal[:id].to_s)
+        mensaje_notificacion = "Tu coordinador de tutores ha creado tu reporte correspondiente a la semana " + @reporte_semanal[:semana].to_s
+        notificacion = Notificacion.new(usuario: @reporte_semanal[:tutor], mensaje: mensaje_notificacion, liga: "/reporte_semanals/" + @reporte_semanal[:id].to_s, leida: 0)
         notificacion.save
         format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully created.' }
         format.json { render :show, status: :created, location: @reporte_semanal }
@@ -79,22 +76,36 @@ class ReporteSemanalsController < ApplicationController
     end
   end
   
-  def valida_tutor_semana
-    reportes_semanal = ReporteSemanal.where(tutor: params[:tutor_id], semana: params[:semana], coordinador_tutores: CUENTA)
+  def valida_reporte_tutor_curso_semana
+    reportes_semanales_count = ReporteSemanal.where(tutor: params[:tutor_id], curso: params[:curso_id], semana: params[:semana], coordinador_tutores: CUENTA).count
 
     respond_to do |format|
-      format.js {render :json => {"semanal_count": reportes_semanal.count}}
+      format.js {render :json => {"semanal_count": reportes_semanales_count}}
     end
+  end
+  
+  def get_reportes_by_periodo
+    render '_reportes_periodo_nacional', locals: {periodo: params[:periodo_id]}, layout: false
+  end
+  
+  def get_tarjeta_modal
+    @tutor = Usuario.where(cuenta: params[:persona_id]).first
+    @curso = Curso.where(grupo: params[:curso]).first
+    render '_tarjeta_modal', layout: false
   end
 
   private
     def verify_show_access(reporte_semanal)
       #el reporte lo puede ver el coordinador de tutores
       if (reporte_semanal.coordinador_tutores != CUENTA)
-        
         #el tutor tambien puede ver los reportes
         if (reporte_semanal.tutor != CUENTA)
-          redirect_to "/mainmenu"
+          #el coordinador de campus
+          if (reporte_semanal.campus != CAMPUS)
+            if (ROL != STR_ROL_COORDINADOR_INFORMATICA || ROL != STR_ROL_COORDINADOR_PREPANET)
+              redirect_to "/mainmenu"
+            end
+          end
         end
       end
     end
@@ -108,25 +119,45 @@ class ReporteSemanalsController < ApplicationController
     end
     helper_method :verify_edit_access
     
-    def get_reporte_semanals_by_tutor(tutor_id)
-      @reporte_semanals = ReporteSemanal.where(coordinador_tutores: CUENTA, tutor: tutor_id)
+    def read_reporte_semanals_by_tutor_and_curso(tutor_id, curso_id)
+      @reporte_semanals_tutor = ReporteSemanal.where(tutor: tutor_id, curso: curso_id).order('semana')
     end
-    helper_method :get_reporte_semanals_by_tutor
+    helper_method :read_reporte_semanals_by_tutor_and_curso
+    
+    def get_reporte_semanals_by_tutor_and_curso()
+      return @reporte_semanals_tutor
+    end
+    helper_method :get_reporte_semanals_by_tutor_and_curso
     
     def get_reporte_semanals_by_semana(num_semana)
-      @reporte_semanal = @reporte_semanals.where(semana: num_semana).first
+      reporte_semanal = @reporte_semanals_tutor.where(semana: num_semana).first
       
       html = ""
-      if !@reporte_semanal
+      if !reporte_semanal
         html = "<div class='boton_reporte'>" + num_semana.to_s + "</div>"
       else
-        html = "<div class='boton_reporte boton_reporte_activado' data-link='reporte_semanals/" + @reporte_semanal.id.to_s + "' 
-        data-toggle='tooltip' title='" + @reporte_semanal.calificacion_total.to_s + "/10' data-placement='bottom'>" + num_semana.to_s + "</div>"
+        html = "<div class='boton_reporte boton_reporte_activado' data-link='reporte_semanals/" + reporte_semanal.id.to_s + "' 
+        data-toggle='tooltip' title='" + reporte_semanal.calificacion_total.to_s + "/10' data-placement='bottom'>" + num_semana.to_s + "</div>"
       end
       
       return html.html_safe
     end
     helper_method :get_reporte_semanals_by_semana
+    
+    def get_botones_reportes_semanales_carousel(num_semana)
+      reporte_semanal = @reporte_semanals_tutor.where(semana: num_semana).first
+      
+      html = ""
+      if !reporte_semanal
+        html = "<div class='boton_carousel_reporte'>" + num_semana.to_s + "</div>"
+      else
+        html = "<div class='boton_carousel_reporte boton_carousel_reporte_activado' data-link='"+ reporte_semanal.id.to_s + "' 
+        data-toggle='tooltip' title='" + reporte_semanal.calificacion_total.to_s + "/10' data-placement='top'>" + num_semana.to_s + "</div>"
+      end
+      
+      return html.html_safe
+    end
+    helper_method :get_botones_reportes_semanales_carousel
     
     # Use callbacks to share common setup or constraints between actions.
     def set_reporte_semanal
@@ -135,22 +166,9 @@ class ReporteSemanalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reporte_semanal_params
-      params.require(:reporte_semanal).permit(:tutor, :semana, :califica_en_plazo, :califica_con_rubrica, :da_retroalimentacion, :responde_mensajes, 
+      params.require(:reporte_semanal).permit(:tutor, :curso, :semana, :califica_en_plazo, :califica_con_rubrica, :da_retroalimentacion, :responde_mensajes, 
       :errores_ortografia, :comentarios)
     end
-    
-    def get_tutores
-      lista_tutores = []
-      
-      tutores = UsuarioCoordinaUsuario.select("*").where(coordinador: CUENTA).joins("INNER JOIN usuarios ON usuario_coordina_usuarios.usuario = usuarios.cuenta")
-      tutores.each do |tutor|
-        nombre_tutor = tutor.nombres + " " + tutor.apellido_p + " " + tutor.apellido_m
-        lista_tutores.push([nombre_tutor, tutor.cuenta])
-      end
-      
-      return lista_tutores
-    end
-    helper_method :get_tutores
 
     # Hace la sumatoria de puntos de la rubrica para conseguir una calificacion total
     def get_calif_total(reporte)

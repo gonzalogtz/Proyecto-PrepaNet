@@ -4,11 +4,6 @@
 	color: white;
 }
 
-#btnSubmitTarjetas {
-	width: 100%; 
-	color: white;
-}
-
 .btnBack {
 	width: 100%; 
 	margin-top: 10px;
@@ -47,77 +42,8 @@
 	margin: auto;
 }
 
-.tarjeta {
-	background-color: #FBFBFB;
-	width: 400px;
-	box-shadow: -5px 7px 6px -3px rgba(128,128,128,0.78);
-	margin-bottom: 40px;
-	position: relative;
-}
-.tutor_tarjeta {
-	height: 220px;
-}
-
-.alumno_tarjeta {
-	height: 290px;
-}
-
-.tarjeta_nombre {
-	font-size: 40px;
+.empty_desemp, .empty_semana {
 	text-align: center;
-	padding-top: 10px;
-	margin-bottom: -10px;
-}
-
-.tarjeta_apellidos {
-	font-size: 30px;
-	text-align: center;
-}
-
-.tarjeta_matricula {
-	font-size: 20px;
-	text-align: center;
-}
-
-.boton_reporte {
-	background: #D9D9D9;
-	width: 20px;
-	height: 20px;
-	border-radius: 100px;
-	float: left;
-	margin: 0px 3px;
-	text-align: center;
-	cursor: default;
-}
-
-.boton_reporte_activado {
-	background: #4183D7;
-	color: white;
-}
-
-.boton_reporte_activado:hover {
-	cursor: pointer;
-}
-
-.contenedor_boton_reportes {
-	width: 97.5%;
-	margin: 0 auto;
-	position: absolute;
-	bottom: 9px;
-}
-
-.contenedor_boton_reportes_header {
-	font-size: 20px;
-	margin-left: 4px;
-	margin-bottom: 9px;
-	width: 100%;
-	border-bottom: 1px solid #EEEEEE;
-}
-
-.footer_no_reportes {
-	margin-left: 4px;
-}
-
-.tutor_reportes_container {
-	display: none;	
+	color: gray;
+	margin-top: 200px;
 }

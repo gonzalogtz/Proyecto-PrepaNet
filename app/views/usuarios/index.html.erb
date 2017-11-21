@@ -1,63 +1,66 @@
 <%= render 'topsidebar/navsidebar' %>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <div id="table-cursos">
-    <div class="panel panel-primary">
-
-    <div class="panel-heading">
-      <center><h1>Agregar usuarios</h1></center>
+  <center><h3>Usuarios activos</h3></center>
+  <div class="col-md-12">
+    <div class="form-group col-md-offset-9 col-sm-3 filtro">
+      <input type="text" class="form-control small_search_bar" placeholder="Palabras clave" id="search_bar">
     </div>
+  </div>
 
-    <div class="table-responsive" style="display: none;">
-        <table class="table table-striped txtCenter">
-          <thead>
-            <tr>
-              <th class="txtCenter">Cuenta</th>
-              <th class="txtCenter">Nomina/Matricula</th>
-              <th class="txtCenter">Contrasena</th>
-              <th class="txtCenter">Campus</th>
-              <th class="txtCenter">Rol</th>
-              <th class="txtCenter">Titulo</th>
-              <th class="txtCenter">Nombres</th>
-              <th class="txtCenter">Apellido Paterno</th>
-              <th class="txtCenter">Apellido Materno</th>
-              <th class="txtCenter">Correo</th>
-              <th class="txtCenter">Telefono</th>
-              <th class="txtCenter">Estatus</th>
+  <div class="table-responsive col-md-12 data_table">
+    <table class="table table-striped">
+      <thead class="table_head_custom">
+        <tr>
+            <th style="width:15%">Cuenta</th>
+            <th style="width:15%">Nómina/Matricula</th>
+            <th style="width:15%">Nombre</th>
+            <th style="width:15%">Rol</th>
+            <th style="width:15%">Campus</th>
+            <th style="width:15%">Correo</th>
+          </tr>
+      </thead>
+        <tbody>
+          <% @usuarios.each do |usuario| %>
+            <tr class="tarjeta_col pickHover usuario_row" data-link="/usuarios/<%= usuario.id %>">
+              <td class='datos_busqueda'><%= usuario.cuenta %></td>
+              <td class='datos_busqueda'><%= usuario.nomina_matricula %></td>
+              <td class='datos_busqueda'><%= usuario.nombres %> <%= usuario.apellido_p %> <%= usuario.apellido_m %></td>
+              <td class='datos_busqueda'><%= usuario.rol %></td>
+              <td class='datos_busqueda'><%= usuario.campus %></td>
+              <td class='datos_busqueda'><%= usuario.correo %></td>
             </tr>
-          </thead>
-          <tbody>
-            <% @usuarios.each do |user| %>
-              <tr>
-                <td><%= user.cuenta %></td>
-                <td><%= user.nomina_matricula %></td>
-                <td><%= user.contrasena %></td>
-                <td><%= user.campus %></td>
-                <td><%= user.rol %></td>
-                <td><%= user.titulo %></td>
-                <td><%= user.nombres %></td>
-                <td><%= user.apellido_p %></td>
-                <td><%= user.apellido_m %></td>
-                <td><%= user.correo %></td>
-                <td><%= user.telefono %></td>
-                <td><%= user.estatus %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+  
+  <div class="row"> 
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class='btn btn_circular' id="btnAgregarUsuario">+<div/>
+    </div>
+  </div>
+</div>
 
-      <div class="row" id="">
-        <div class="col-md-12"> 
-          <div class="col-sm-6" id="singleUser">
-            <%= link_to 'Agregar un Usuario', new_usuario_path %>
-          </div>
-          <div class="col-sm-6" id="multipleUser">
-            <h2>Agregar Multiples Usuarios</h2>
-            <%= form_tag import_usuarios_path, multipart: true do %>
-              <%= file_field_tag :file, class: "inline"  %>
-              <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
-            <% end %>
-          </div>
+<!-- Modal -->
+<div id="modal_agregar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Selecciona una opción</h4>
+      </div>
+      <div class="modal-body">
+        <div id="singleUser">
+          <h2>Agregar un usuario</h2>
+          <%= link_to 'Agregar usuario', new_usuario_path, class: "btn btn-primary "%>
+        </div>
+        <div id="multipleUser">
+          <h2>Importar archivo de usuarios</h2>
+          <%= form_tag import_usuarios_path, multipart: true do %>
+            <%= file_field_tag :file, class: "inline"  %>
+            <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
+          <% end %>
         </div>
       </div>
     </div>

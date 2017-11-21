@@ -1,0 +1,8 @@
+<% get_campus(periodo).each do |campus| %>
+    <h3 class='reportes_header' id='<%=campus.campus%>'><span><img class='arrow_icon' src="expand_arrow.png"></span><%=campus.campus%></h3>
+    <div class='reportes_content reportes_campus_content padding_inside'>
+        <% get_tutores_by_campus(campus.campus, periodo).each do |tutor| %>
+            <%= render 'tarjetas', tutor: tutor, periodo: periodo%>
+        <% end %>
+    </div>
+<%end%>

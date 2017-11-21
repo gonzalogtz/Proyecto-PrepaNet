@@ -7,6 +7,10 @@ class UsuariosController < ApplicationController
     @usuarios = Usuario.all
   end
 
+  def agregar
+    
+  end
+
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
@@ -32,8 +36,13 @@ class UsuariosController < ApplicationController
     
     if user != nil
       #credenciales correctas
-      if user[:contrasena] == params[:password]
-        set_credentials(user.nombres, user.cuenta, user.rol)
+      if user[:contrasena] == params[:password] 
+        #usuario correcto pero de periodo antiguo, coordinador nacional o de informatica el periodo no importa
+        if user.periodo != get_periodo_activo().id && user.rol != STR_ROL_COORDINADOR_PREPANET && user.rol != STR_ROL_COORDINADOR_INFORMATICA
+            response = {"tipo_error": 3}
+        else
+          set_credentials(user.nombres, user.cuenta, user.rol, user.campus)
+        end
       #contraseña incorrecta
       else
         response = {"tipo_error": 1}
@@ -49,7 +58,7 @@ class UsuariosController < ApplicationController
   end
 
   def logout
-    set_credentials("", "", "")
+    set_credentials("", "", "", "")
   end
 
   # POST /usuarios
@@ -91,14 +100,6 @@ class UsuariosController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  def get_notificaciones
-		notificaciones = Notificacion.where(usuario: CUENTA).order('created_at desc')
-
-		respond_to do |format|
-		format.js {render :json => notificaciones}
-		end
-	end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -108,17 +109,18 @@ class UsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_login_params
-      params.require(:user).permit(:userid, :password)
+      params.require(:user).permit(:cuenta, :contrasena)
     end
 
 
     def user_params
-      params.require(:user).permit(:userid, :password, :campus, :role, :names, :flname, :slname, :email, :phone, :status)
+      params.require(:user).permit(:cuenta, :nomina_matricula, :contrasena, :campus, :rol, :nombres, :apellido_p, :apellido_m, :correo, :telefono, :periodo)
     end
     
-    def set_credentials(user, id, role)
+    def set_credentials(user, id, role, campus)
       NOMBRE_USUARIO.replace user
       CUENTA.replace id
       ROL.replace role
+      CAMPUS.replace campus
     end
 end

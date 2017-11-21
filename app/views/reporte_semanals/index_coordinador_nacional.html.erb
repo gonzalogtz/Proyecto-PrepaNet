@@ -1,0 +1,49 @@
+<%= render 'topsidebar/navsidebar' %>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <center><h3>Reportes semanales</h3></center>
+    <center><span class="periodo_header">Periodo de consulta:</span><%= select_tag "semanal_periodo", options_from_collection_for_select(get_periodos(), :id, :descripcion), class: "selectpicker periodo_select"%></center>
+    
+    <div class="col-md-12">
+      <div class="form-group col-md-offset-9 col-sm-3 filtro">
+        <input type="text" class="form-control small_search_bar" placeholder="Palabras clave" id="search_bar">
+      </div>
+    </div>
+    
+    <div class="table-responsive col-md-12">
+      <table class="table table-striped">
+        <thead class="table_head_custom">
+          <tr>
+            <th style="width:20%">Campus</th>
+            <th style="width:35%">Curso</th>
+            <th style="width:15%">Matrícula</th>
+            <th style="width:30%">Nombre</th>
+          </tr>
+        </thead>
+        <tbody id="periodo_content">
+          <%= render 'reportes_periodo_nacional', periodo: get_periodo_activo().id%>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <%= link_to "+", new_reporte_semanal_path, class: 'btn btn_circular', :id => "btnSubmitTarjetas"%>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div id="modal_tarjeta" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

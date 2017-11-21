@@ -4,24 +4,27 @@
 
 #singleUser{
 	text-align: center;
-	padding-top: 5.2%;
-	border-right: solid 1px black;
-	
-	height: 159px;
-	font-size: 150%;
-	
+	padding-top: 0px;
+	border-bottom: 1px solid #e5e5e5;
+	height: 130px;
+	font-size: 150%;	
 }
 
 #multipleUser{
 	text-align: center;
+	padding-top: 0px;
+	height: 130px;
+}
 
-
-
+.btnEditBack1{
+	width: 100%; 
+	margin-top: 50px;
+	color: white;
+	margin-bottom: 1.5px;
 }
 
 .padd{
-	margin-left: 20px !important;
-	
+	margin-left: 20px !important;	
 	margin-bottom: 20px !important;
 }
 

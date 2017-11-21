@@ -16,6 +16,28 @@
 	text-align: center;
 }
 
+.btn_circular {
+	background-color: #337ab7;
+	border-color: #2e6da4;
+	line-height: 50px;	
+	color: white;
+	text-align: center;
+	display: inline-block;
+	font-size: 40px;
+	border-radius: 100%;
+	width: 70px;
+	height: 70px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px
+}
+
+.btn_circular:hover{
+	background-color: #286090;
+	border-color: #204d74;
+	color: white;
+}
+
 .txtArea {	
 	height: 150px;
 	width: 100%;
@@ -52,18 +74,52 @@
 	margin: auto;
 }
 
-.info_alumno {
-	font-size: 15px;
-	margin-left: 4px;
-	margin-top: 20px;
+.small_search_bar {
+	width: 200px !important;
 }
 
-.tutor_reportes_header {
-	padding-left: 15px;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #EEEEEE;
+.filtro {
+	float: left !important;
+	margin-right: 20px;
+	margin-bottom: 30px;
 }
 
-.tutor_reportes_header:hover {
+.filtro_dropdown input[type="checkbox"] {
+	margin-left: 3px;
+}
+
+.filtro_dropdown {
+	font-weight: normal;
+	min-width: 150px;
+}
+
+.filtro_lbl {
+	margin-left: 5px;
+}
+
+.filter_header {
+	background-color: #4585d4 !important;
+	border-color: #4585d4 !important;
+	color: white;
+	font-weight: bold;
+	padding-left: 0px;
+	padding-bottom: 0px;
+}
+
+.filter_header:hover {
+	color: white;
+	cursor: initial;
+}
+
+.filter_header_dropdown:hover {
+	color: black;
 	cursor: pointer;
+}
+
+.dropdown-menu {
+	color: black;
+}
+
+.data_table {
+	min-height: 170px;
 }

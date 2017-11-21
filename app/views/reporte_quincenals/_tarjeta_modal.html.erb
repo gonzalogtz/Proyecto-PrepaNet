@@ -1,0 +1,19 @@
+<div class="alumno_tarjeta">
+    <div class="datos_busqueda">
+        <div class='tarjeta_texto_nombre'><%=@alumno.nombres + " " + @alumno.apellido_p + " " + @alumno.apellido_m%></div>
+        <div class='tarjeta_matricula'><%=@alumno.matricula%></div>
+        <div class='tarjeta_matricula'><%=@curso.campus%></div>
+        <div class='tarjeta_matricula'><%=@curso.materia%> - <%=@curso.grupo%></div>
+        <div class='tarjeta_matricula'>Tutor: <%=get_usuario_name_by_id(@curso.tutor)%></div>
+        <div class='tarjeta_matricula'>Coordinador de tutores: <%=get_usuario_name_by_id(@curso.coordinador_tutores)%></div>
+    </div>
+    <% get_reporte_quincenals_by_alumno_and_curso(@alumno.matricula, @curso.grupo) %>
+    <div class='div_info'>
+        <div class='info_alumno'><span>Estatus más reciente: </span><%=get_ultimo_estatus%></div>
+        <div class='info_alumno'><span>Localizado recientemente: </span><%=get_ultimo_localizado%></div>
+    </div>
+    <div class='contenedor_boton_reportes'>
+        <div class='contenedor_boton_reportes_header'>Reportes</div>
+        <%=get_reporte_quincenals_buttons%>
+    </div>
+</div>
