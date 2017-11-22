@@ -1,117 +1,94 @@
 <%= render 'topsidebar/navsidebar' %>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header titulo">Visualizacion de Usuario</h1>
-<div class="alert alert-danger alert-dismissable">
-  <a class="close alert_close" aria-label="close">&times;</a>
-
-</div>
-  
- 
-    
-        <div id="table-cursos" class="" style="">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <center>Usuario</center>
+  <h1 class="page-header titulo">Visualizacion de Usuario</h1>
+  <div id="table-cursos" class="" style="">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <center>Usuario</center>
+      </div>
+      
+      <div class="panel-body">
+        <%= form_for(@usuario) do |f| %>
+          <div class="col-sm-1">
+          </div>
+          
+          <div class="col-sm-5 margin-bottom margin-top">
+            <div class="field">
+              <%= f.label :nombres %>
+              <%= f.text_field :nombres,class:"form-control",:readonly => true %>
             </div>
-            <div class="panel-body">
-              <%= form_for(@usuario) do |f| %>
-               
-                <div class="col-sm-1">
-                </div>
-                
-                <div class="col-sm-5 margin-bottom margin-top">
-                
-                  <div class="field">
-                    <%= f.label :nombres %>
-                    <%= f.text_field :nombres,class:"form-control",:readonly => true %>
-                  </div>
 
-                  <div class="field">
-                    <%= f.label :apellido_paterno %>
-                    <%= f.text_field :apellido_p,class:"form-control",:readonly => true %>
-                  </div>
-
-                  <div class="field">
-                    <%= f.label :apellido_Materno %>
-                    <%= f.text_field :apellido_m,class:"form-control",:readonly => true %>
-                  </div>
-
-                  <div class="field">
-                    <%= f.label :correo %>
-                    <%= f.text_field :correo,class:"form-control",:readonly => true %>
-                  </div>
-
-                  <div class="field">
-                    <%= f.label :telefono %>
-                    <%= f.text_field :telefono,class:"form-control",:readonly => true %>
-                  </div>
-
-                  <div class="field">
-                    <%= f.label :periodo %>
-                    <%= f.text_field :periodo,class:"form-control",:readonly => true %>
-                  </div>
-
-
-
-
-                </div>
-                <div class="col-sm-5 margin-bottom margin-top">
-                  <div class="field">
-                    <%= f.label :cuenta %>
-                    <%= f.text_field :cuenta, class:"form-control",:readonly => true%>
-                  </div>
-                   
-                  
-                  <div class="field">
-                    <%= f.label :nomina_matricula %>
-                    <%= f.text_field :nomina_matricula,class:"form-control",:readonly => true %>
-                  </div>
-
-                  <div class="field">
-                    <%= f.label :contrasena %>
-                    <%= f.text_field :contrasena,class:"form-control",:readonly => true %>
-                  </div>
-
-                  <div class="field">
-                    <%= f.label :campus %>
-                    <%= f.text_field :campus,class:"form-control",:readonly => true %>
-                  </div>
-
-                  <div class="field">
-                    <%= f.label :titulo %>
-                    <%= f.text_field :titulo,class:"form-control",:readonly => true %>
-                  </div>
-                  
-                  <div class="field">
-                    <%= f.label :rol %>
-                    <br>
-                    <%= f.select(:rol, options_for_select([[ApplicationController::STR_ROL_TUTOR], [ApplicationController::STR_ROL_COORDINADOR_TUTOR], [ApplicationController::STR_ROL_TUTOR_STAFF], [ApplicationController::STR_ROL_COORDINADOR_CAMPUS], [ApplicationController::STR_ROL_COORDINADOR_PREPANET], [ApplicationController::STR_ROL_COORDINADOR_INFORMATICA]]),{},{class: "form-control",:disabled => true}) %>
-                  </div>
-                  
-                  <% end %>
-                  
-              
+            <div class="field">
+              <%= f.label :apellido_paterno %>
+              <%= f.text_field :apellido_p,class:"form-control",:readonly => true %>
             </div>
-            <div>
 
-            <div id="row" >
-              <div class="col-sm-6">
-                <%= link_to 'Regresar', usuarios_path,class:"btn btn-info btn-lg btnEditBack1 " %>
-              </div>
-              <div class="col-sm-6">
-                <%= link_to 'Editar', edit_usuario_path(@usuario),class:"btn btn-success btn-lg btnEditBack1 " %> 
-              </div>
-            
-                    
-            </div> 
+            <div class="field">
+              <%= f.label :apellido_Materno %>
+              <%= f.text_field :apellido_m,class:"form-control",:readonly => true %>
+            </div>
 
+            <div class="field">
+              <%= f.label :correo %>
+              <%= f.text_field :correo,class:"form-control",:readonly => true %>
+            </div>
+
+            <div class="field">
+              <%= f.label :telefono %>
+              <%= f.text_field :telefono,class:"form-control",:readonly => true %>
+            </div>
+
+            <div class="field">
+              <%= f.label :periodo %>
+              <%= f.text_field :periodo,class:"form-control",:readonly => true %>
+            </div>
+          </div>
+          
+          <div class="col-sm-5 margin-bottom margin-top">
+            <div class="field">
+              <%= f.label :cuenta %>
+              <%= f.text_field :cuenta, class:"form-control",:readonly => true%>
+            </div>
             
+            <div class="field">
+              <%= f.label :nomina_matricula %>
+              <%= f.text_field :nomina_matricula,class:"form-control",:readonly => true %>
+            </div>
+
+            <div class="field">
+              <%= f.label :contrasena %>
+              <%= f.text_field :contrasena,class:"form-control",:readonly => true %>
+            </div>
+
+            <div class="field">
+              <%= f.label :campus %>
+              <%= f.text_field :campus,class:"form-control",:readonly => true %>
+            </div>
+
+            <div class="field">
+              <%= f.label :titulo %>
+              <%= f.text_field :titulo,class:"form-control",:readonly => true %>
+            </div>
+            
+            <div class="field">
+              <%= f.label :rol %>
+              <br>
+              <%= f.select(:rol, options_for_select([[ApplicationController::STR_ROL_TUTOR], [ApplicationController::STR_ROL_COORDINADOR_TUTOR], [ApplicationController::STR_ROL_TUTOR_STAFF], [ApplicationController::STR_ROL_COORDINADOR_CAMPUS], [ApplicationController::STR_ROL_COORDINADOR_PREPANET], [ApplicationController::STR_ROL_COORDINADOR_INFORMATICA]]),{},{class: "form-control",:disabled => true}) %>
+            </div>
+        <% end %>
+      </div>
+      
+      <div>
+        <div id="row" >
+          <div class="col-sm-6">
+            <%= link_to 'Atrás', usuarios_path,class:"btn btn-info btn-lg btnEditBack1 " %>
+          </div>
+          <div class="col-sm-6">
+            <%= link_to 'Editar', edit_usuario_path(@usuario),class:"btn btn-success btn-lg btnEditBack1 " %> 
           </div>
         </div>
-   
-
-   
-
-
-
+      </div>
+    </div>
+  </div>
+</div>

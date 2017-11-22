@@ -167,6 +167,26 @@ class ReporteSemanalsController < ApplicationController
     end
     helper_method :get_botones_reportes_semanales_carousel
     
+    def get_conglomerado_semanals_button_by_tutor_and_curso(tutor_id, curso_id)
+      @conglomerado_semanals_tutor = ConglomeradoSemanal.where(tutor: tutor_id, curso: curso_id).first
+      
+      html = ""
+      if !@conglomerado_semanals_tutor
+        html = "<div class='boton_carousel_reporte'>C</div>"
+      else
+        html = "<div class='boton_carousel_reporte boton_carousel_reporte_activado' data-link='cong_" + @conglomerado_semanals_tutor.id.to_s + "' 
+        data-toggle='tooltip' title='" + @conglomerado_semanals_tutor.promedio.to_s + "/10' data-placement='top'>F</div>"
+      end
+      
+      return html.html_safe
+    end
+    helper_method :get_conglomerado_semanals_button_by_tutor_and_curso
+    
+    def get_conglomerado_semanals()
+      return @conglomerado_semanals_tutor
+    end
+    helper_method :get_conglomerado_semanals
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_reporte_semanal
       @reporte_semanal = ReporteSemanal.find(params[:id])

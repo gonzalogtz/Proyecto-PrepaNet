@@ -4,8 +4,8 @@
         <div class='tarjeta_matricula'><%=@alumno.matricula%></div>
         <div class='tarjeta_matricula'><%=@curso.campus%></div>
         <div class='tarjeta_matricula'><%=@curso.materia%> - <%=@curso.grupo%></div>
-        <div class='tarjeta_matricula'>Tutor: <%=get_usuario_name_by_id(@curso.tutor)%></div>
-        <div class='tarjeta_matricula'>Coordinador de tutores: <%=get_usuario_name_by_id(@curso.coordinador_tutores)%></div>
+        <div class='tarjeta_matricula'>Tutor: <%=get_usuario_name_by_cuenta(@curso.tutor)%></div>
+        <div class='tarjeta_matricula'>Coordinador de tutores: <%=get_usuario_name_by_cuenta(@curso.coordinador_tutores)%></div>
     </div>
     <% get_reporte_quincenals_by_alumno_and_curso(@alumno.matricula, @curso.grupo) %>
     <div class='div_info'>

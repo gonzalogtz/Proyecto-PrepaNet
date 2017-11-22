@@ -1,66 +1,65 @@
+<center><h3><%=get_usuario_name_by_cuenta(reporte_semanal.tutor)%></h3></center>
+<center><h4 style="font-weight: normal"><%=reporte_semanal.tutor%> // <%=get_matricula_by_cuenta(reporte_semanal.tutor)%></h4></center>
+<center><h4 style="font-weight: normal"><%= get_descripcion_periodo(reporte_semanal.periodo) %></h4></center>
+<center><h4 style="font-weight: normal">Semana: <%= reporte_semanal.semana %></h4></center>
+
+<div class="col-sm-6">
+  <h4 class="boldPrint">Campus:</h4>
+  <h4 style="font-weight: normal"><%= reporte_semanal.campus %></h4>
+  
+  <h4 class="boldPrint">Curso:</h4>
+  <h4 style="font-weight: normal"><%= get_texto_header_curso(reporte_semanal.curso) %></h4>
+</div>
+
+<div class="col-sm-6">
+  <h4 class="boldPrint">Fecha del reporte:</h4>
+  <h4 style="font-weight: normal"><%= reporte_semanal.created_at.strftime(ApplicationController::FORMATO_FECHA)%></h4>
+  
+  <h4 class="boldPrint">Coordinador del tutor:</h4>
+  <h4 style="font-weight: normal"><%= get_usuario_name_by_cuenta(reporte_semanal.coordinador_tutores)%></h4>
+  <h4 style="font-weight: normal"><%=reporte_semanal.coordinador_tutores%> // <%=get_matricula_by_cuenta(reporte_semanal.coordinador_tutores)%></h4>
+</div>
+
 <div class="row">
-  <center><h3><%=get_usuario_name_by_id(reporte_semanal.tutor)%></h3></center>
-  <center><h4 style="font-weight: normal"><%=reporte_semanal.tutor%> // <%=get_matricula_by_cuenta(reporte_semanal.tutor)%></h4></center>
-  <center><h4 style="font-weight: normal"><%= get_descripcion_periodo(reporte_semanal.periodo) %></h4></center>
-  
   <div class="col-sm-6">
-    <h4 class="boldPrint">Campus:</h4>
-    <h4 style="font-weight: normal"><%= reporte_semanal.campus %></h4>
-    
-    <h4 class="boldPrint">Curso:</h4>
-    <h4 style="font-weight: normal"><%= get_texto_header_curso(reporte_semanal.curso) %></h4>
-  </div>
-  
-  <div class="col-sm-6">
-    <h4 class="boldPrint">Fecha del reporte:</h4>
-    <h4 style="font-weight: normal"><%= reporte_semanal.created_at.strftime(ApplicationController::FORMATO_FECHA)%></h4>
-    
-    <h4 class="boldPrint">Coordinador del tutor:</h4>
-    <h4 style="font-weight: normal"><%= get_usuario_name_by_id(reporte_semanal.coordinador_tutores)%></h4>
-    <h4 style="font-weight: normal"><%=reporte_semanal.coordinador_tutores%> // <%=get_matricula_by_cuenta(reporte_semanal.coordinador_tutores)%></h4>
-  </div>
-  
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="table-responsive">
-        <table class ="table table-striped">
-          <thead>
-            <th>Criterio</th>
-            <th>Calificación</th>
-          </thead>
-          <tr>
-            <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
-            <td> <%= reporte_semanal.califica_en_plazo %>/3</td>
-          </tr>
-          <tr>
-            <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
-            <td> <%= reporte_semanal.califica_con_rubrica %>/1</td>
-          </tr>
-          <tr>
-            <td> Da retroalimentación clara y específica de actividades y/o exámenes:</td>
-            <td><%= reporte_semanal.da_retroalimentacion %>/2</td>
-          </tr>
-          <tr>
-            <td> Responde mensajes en un lapso no mayor a 24 horas:</td>
-            <td>  <%= reporte_semanal.responde_mensajes %>/3</td>
-          </tr>
-          <tr>
-            <td>Errores de ortografía en mensajes, reportes y retroalimentaciones:</td>
-            <td><%= reporte_semanal.errores_ortografia %>/1</td>
-          </tr>
-          <tr>
-            <td><strong>Total:</strong></td>
-            <strong><td><%=reporte_semanal.calificacion_total%>/10</td></strong>
-          </tr>
-        </table>
-      </div>
+    <div class="table-responsive">
+      <table class ="table table-striped">
+        <thead>
+          <th>Criterio</th>
+          <th>Calificación</th>
+        </thead>
+        <tr>
+          <td> Calificar en un plazo no mayor a 48 horas actividades y/o exámenes</td>
+          <td> <%= reporte_semanal.califica_en_plazo %>/3</td>
+        </tr>
+        <tr>
+          <td> Calificar con base en rúbrica y la envía o especifica el desglose de puntos:</td>
+          <td> <%= reporte_semanal.califica_con_rubrica %>/1</td>
+        </tr>
+        <tr>
+          <td> Da retroalimentación clara y específica de actividades y/o exámenes:</td>
+          <td><%= reporte_semanal.da_retroalimentacion %>/2</td>
+        </tr>
+        <tr>
+          <td> Responde mensajes en un lapso no mayor a 24 horas:</td>
+          <td>  <%= reporte_semanal.responde_mensajes %>/3</td>
+        </tr>
+        <tr>
+          <td>Errores de ortografía en mensajes, reportes y retroalimentaciones:</td>
+          <td><%= reporte_semanal.errores_ortografia %>/1</td>
+        </tr>
+        <tr>
+          <td><strong>Total:</strong></td>
+          <strong><td><%=reporte_semanal.calificacion_total%>/10</td></strong>
+        </tr>
+      </table>
     </div>
-    
-    <div class="row col-sm-6">
-      <h4>Comentarios:</h4>
-      <div contentEditable="false" id="divText" class="scrollDiv">
-        <%if reporte_semanal.comentarios.empty?%><div style="color:gray;>">Sin comentarios</div><%else%><%= reporte_semanal.comentarios %><%end%>
-      </div>
+  </div>
+  
+  <div class="row col-sm-6">
+    <h4>Comentarios:</h4>
+    <div contentEditable="false" id="divText" class="scrollDiv">
+      <%if reporte_semanal.comentarios.empty?%><div style="color:gray;>">Sin comentarios</div><%else%><%= reporte_semanal.comentarios %><%end%>
     </div>
   </div>
 </div>

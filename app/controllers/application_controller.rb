@@ -14,17 +14,17 @@ class ApplicationController < ActionController::Base
   STR_ROL_COORDINADOR_PREPANET = "Director Prepanet Nacional"
   STR_ROL_COORDINADOR_INFORMATICA = "Coordinador Informatica Prepanet"
 
-    def get_usuario_name_by_id(id)
+    def get_usuario_name_by_cuenta(id)
       usuario = Usuario.select(:nombres, :apellido_p, :apellido_m).where(cuenta: id).first
       return usuario.nombres + " " + usuario.apellido_p + " " + usuario.apellido_m
     end
-    helper_method :get_usuario_name_by_id
+    helper_method :get_usuario_name_by_cuenta
     
-    def get_alumno_name_by_id(id)
+    def get_alumno_name_by_matricula(id)
       alumno = Alumno.select(:nombres, :apellido_p, :apellido_m).where(matricula: id).first
       return alumno.nombres + " " + alumno.apellido_p + " " + alumno.apellido_m
     end
-    helper_method :get_alumno_name_by_id
+    helper_method :get_alumno_name_by_matricula
     
     def get_matricula_by_cuenta(cuenta)
       usuario = Usuario.select(:nomina_matricula).where(cuenta: cuenta).first

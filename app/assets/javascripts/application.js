@@ -76,12 +76,12 @@ $(document).on('turbolinks:load', function () {
                         curso_id: curso },
                 success: function (result) {
                     if (result["tipo_error"] == 1) {
-                        $("#alert_text").html("Este tutor no tiene 15 semanales")
+                        $("#alert_text").html("Este tutor aún no tiene los 15 reportes semanales de ese curso. Estos son necesarios para hacer el cálculo de promedio y horas.")
                         $("#btnSubmit").attr("disabled", true);
                         $(".alert").show()
                     }
                     else if (result["tipo_error"] == 2) {
-                        $("#alert_text").html("Este tutor ya tiene reporte")
+                        $("#alert_text").html("Este tutor ya tiene su conglomerado de reportes semanales para ese curso. Si deseas hacer cambios, puedes entrar a editarlo.")
                         $("#btnSubmit").attr("disabled", true);
                         $(".alert").show()
                     }
