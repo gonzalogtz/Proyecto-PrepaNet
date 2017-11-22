@@ -14,17 +14,23 @@ class ApplicationController < ActionController::Base
   STR_ROL_COORDINADOR_PREPANET = "Director Prepanet Nacional"
   STR_ROL_COORDINADOR_INFORMATICA = "Coordinador Informatica Prepanet"
 
-    def get_usuario_name_by_id(id)
+    def get_usuario_name_by_cuenta(id)
       usuario = Usuario.select(:nombres, :apellido_p, :apellido_m).where(cuenta: id).first
       return usuario.nombres + " " + usuario.apellido_p + " " + usuario.apellido_m
     end
-    helper_method :get_usuario_name_by_id
+    helper_method :get_usuario_name_by_cuenta
     
-    def get_alumno_name_by_id(id)
+    def get_alumno_name_by_matricula(id)
       alumno = Alumno.select(:nombres, :apellido_p, :apellido_m).where(matricula: id).first
       return alumno.nombres + " " + alumno.apellido_p + " " + alumno.apellido_m
     end
-    helper_method :get_alumno_name_by_id
+    helper_method :get_alumno_name_by_matricula
+    
+    def get_matricula_by_cuenta(cuenta)
+      usuario = Usuario.select(:nomina_matricula).where(cuenta: cuenta).first
+      return usuario.nomina_matricula
+    end
+    helper_method :get_matricula_by_cuenta
     
     def get_cursos_by_tutor(tutor_id = CUENTA, periodo = get_periodo_activo().id)
       cursos = Curso.where(tutor: tutor_id, periodo: periodo).order('grupo')
@@ -62,6 +68,8 @@ class ApplicationController < ActionController::Base
         tutores = Curso.select("usuarios.cuenta, usuarios.nombres, usuarios.apellido_p, usuarios.apellido_m, usuarios.nomina_matricula").where(coordinador_tutores: CUENTA, periodo: periodo_actual.id).joins("INNER JOIN usuarios ON cursos.tutor = usuarios.cuenta").distinct
       elsif ROL == STR_ROL_COORDINADOR_CAMPUS
         tutores = Usuario.where(campus: CAMPUS, rol: STR_ROL_TUTOR, periodo: periodo_actual)
+      elsif ROL == STR_ROL_COORDINADOR_INFORMATICA || ROL == STR_ROL_COORDINADOR_PREPANET
+        tutores = Usuario.where(periodo: periodo_actual.id, rol: STR_ROL_TUTOR)
       end
       
       return tutores.order('cuenta')
@@ -130,5 +138,12 @@ class ApplicationController < ActionController::Base
         redirect_to "/"
       end
     end
+    
+    def user_is_coordinador_informatica()
+      if (ROL != STR_ROL_COORDINADOR_INFORMATICA)
+        redirect_to "/mainmenu"
+      end
+    end
+    helper_method :user_is_coordinador_informatica
     
 end

@@ -27,13 +27,13 @@
         <li class="blueBackHov"><%= link_to 'Reportes quincenales', reporte_quincenals_path, class:"blueBack" %></li>
         <% if ApplicationController::ROL == ApplicationController::STR_ROL_TUTOR%><li><%= link_to "Mi desempeño semanal", reporte_semanals_path, class:"blueBack" %></li><% end %>
         <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%><li><%= link_to "Reportes semanales", reporte_semanals_path, class:"blueBack" %></li><% end %>
-        <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%><li><%= link_to 'Concentrados de reportes semanales', conglomerado_semanals_path, class:"blueBack" %></li><% end %>
+        <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%><li><%= link_to 'Conglomerado de reportes semanales', conglomerado_semanals_path, class:"blueBack" %></li><% end %>
         <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_INFORMATICA%>
           <li><h4 style="margin-left: 10px;">Administración del sistema</h4></li>
-          <li><%= link_to 'Usuarios', usuarios_agregar_path %></li>
+          <li><%= link_to 'Usuarios', usuarios_path %></li>
           <li><%= link_to 'Periodos', periodos_path %></li>
           <li><%= link_to 'Cursos', cursos_path %></li>
-          <li><%= link_to 'Alumnos en Cursos', alumno_toma_cursos_path %></li>
+          <!--<li><%= link_to 'Alumnos en Cursos', alumno_toma_cursos_path %></li>-->
         <% end %>
       </ul>
     </div>

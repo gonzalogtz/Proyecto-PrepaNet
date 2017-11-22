@@ -106,6 +106,13 @@ class UsuariosController < ApplicationController
     def set_user
       @usuario = Usuario.find(params[:id])
     end
+    
+    def user_coordinador_informatica()
+      if (ROL != STR_ROL_COORDINADOR_INFORMATICA)
+        redirect_to "/mainmenu"
+      end
+    end
+    helper_method :user_coordinador_informatica
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_login_params

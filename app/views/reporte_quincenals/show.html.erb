@@ -1,65 +1,71 @@
-<%=verify_show_access(@reporte_quincenal)%>
+<%verify_show_access(@reporte_quincenal)%>
 <%= render 'topsidebar/navsidebar' %>
-      <div class="row">
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <div id="table-cursos">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <center>Reporte Quincenal de Actividad y Desempeño del Alumno</center>
-              </div>
-              <div class="panel-body">
-                <div class="">
-                  <div class="row" id="printID">
-                      <center><h3 class=""><%=get_alumno_name_by_id(@reporte_quincenal.alumno)%></h3></center>
-                      <center><h4 class="" style="font-weight: normal"><%=@reporte_quincenal.alumno%></h4></center>
-                      <center><h4 class="" style="font-weight: normal"><%=@reporte_quincenal.campus%></h4></center>
-                      <center><h4 class="" style="font-weight: normal"><%=get_texto_header_curso(@reporte_quincenal.curso)%></h4></center>
-                      <center><h4 class="" style="font-weight: normal"><%=get_descripcion_periodo(@reporte_quincenal.periodo)%></h4></center>
-                      <center><h4 class="printPad" style="font-weight: normal">Fecha del reporte: <%=@reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA) %></h4></center>
-                      
-                      <div class="col-sm-3">
-                        <h4 class="boldPrint">Estatus del Alumno:</h4>
-                        <h4 style="font-weight: normal;"><%= get_estatus_tag(@reporte_quincenal.estatus) %></h4>
-                        
-                        <h4 class="boldPrint">Localizado:</h4>
-                        <h4 style="font-weight: normal;"><%= get_localizado_tag(@reporte_quincenal.localizado) %></h4>
-                      </div>
-                      
-                      <div class="col-sm-3">
-                        <h4 class="boldPrint" >Tutor:</h4>
-                        <h4 style="font-weight: normal"><%=get_usuario_name_by_id(@reporte_quincenal.tutor)%></h4>
-                        <h4 class="boldPrint">Coordinador del Tutor:</h4>
-                        <h4 style="font-weight: normal"><%=get_usuario_name_by_id(@reporte_quincenal.coordinador_tutores)%></h4>
-                      </div>
-                      
-                    <div class="col-sm-6">
-                        <h4 class="boldPrint">Comentarios:</h4>
-                        <div contentEditable="false" id="divText" class="scrollDiv">
-                          <%= @reporte_quincenal.comentarios %>
-                        </div>
-                    </div>
-                  </div>
 
-                  <div class="row " style="padding-top: 50px;">
-                    <div class="col-sm-2">
-                      <%= link_to 'Atrás', reporte_quincenals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %>
-                    </div>
-                    
-                    <div class="col-sm-2">
-                      <%= link_to 'Editar', edit_reporte_quincenal_path(@reporte_quincenal), class:"btn btn-lg btn-warning" ,id:"btnChico" %>
-                    </div>
-                    
-                    <div class="col-sm-2">
-                        <%= link_to 'Eliminar', @reporte_quincenal, method: :delete, data: { confirm: '¿Estás seguro que quieres borrar este reporte? iNo se podrá recuperar!' }, class:"btn btn-lg btn-danger", id:"btnChico" %>
-                    </div>
-                    
-                    <div class="col-sm-2">
-                      <%= link_to 'Imprimir', @reporte_quincenal, :onclick => 'window.print();', class:"btn btn-lg btn-info",id:"btnChico"%>
-                    </div>
-                  </div>
+<div class="row">
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div id="table-cursos">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <center>Reporte Quincenal de Actividad y Desempeño del Alumno</center>
+        </div>
+        <div class="panel-body">
+          <div>
+            <div class="row" id="printID">
+                <center><h3><%=get_alumno_name_by_matricula(@reporte_quincenal.alumno)%></h3></center>
+                <center><h4 style="font-weight: normal"><%=@reporte_quincenal.alumno%></h4></center>
+                <center><h4 style="font-weight: normal"><%=get_descripcion_periodo(@reporte_quincenal.periodo)%></h4></center>
+                <center><h4 style="font-weight: normal"><%=@reporte_quincenal.campus%></h4></center>
+                <center><h4 style="font-weight: normal"><%=get_texto_header_curso(@reporte_quincenal.curso)%></h4></center>
+                
+                <div class="col-sm-3">
+                  <h4 class="boldPrint">Fecha del reporte:</h4>
+                  <h4 style="font-weight: normal"><%=@reporte_quincenal.created_at.strftime(ApplicationController::FORMATO_FECHA) %></h4>
+                  
+                  <h4 class="boldPrint">Estatus del alumno:</h4>
+                  <h4 style="font-weight: normal;"><%= get_estatus_tag(@reporte_quincenal.estatus) %></h4>
+                  
+                  <h4 class="boldPrint">Localizado:</h4>
+                  <h4 style="font-weight: normal;"><%= get_localizado_tag(@reporte_quincenal.localizado) %></h4>
                 </div>
+                
+                <div class="col-sm-3">
+                  <h4 class="boldPrint">Tutor:</h4>
+                  <h4 style="font-weight: normal"><%=get_usuario_name_by_cuenta(@reporte_quincenal.tutor)%></h4>
+                  <h4 style="font-weight: normal"><%=@reporte_quincenal.tutor%> // <%=get_matricula_by_cuenta(@reporte_quincenal.tutor)%></h4>
+                  
+                  <h4 class="boldPrint">Coordinador del tutor:</h4>
+                  <h4 style="font-weight: normal"><%=get_usuario_name_by_cuenta(@reporte_quincenal.coordinador_tutores)%></h4>
+                  <h4 style="font-weight: normal"><%=@reporte_quincenal.coordinador_tutores%> // <%=get_matricula_by_cuenta(@reporte_quincenal.coordinador_tutores)%></h4>
+                </div>
+                
+              <div class="col-sm-6">
+                  <h4 class="boldPrint">Comentarios:</h4>
+                  <div contentEditable="false" id="divText" class="scrollDiv">
+                    <%if @reporte_quincenal.comentarios.empty?%><div style="color:gray;>">Sin comentarios</div><%else%><%= @reporte_quincenal.comentarios %><%end%>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row" style="padding-top: 50px;">
+              <div class="col-sm-2">
+                <%= link_to 'Atrás', reporte_quincenals_path, class:"btn btn-lg btn-primary" ,id: "btnChico" %>
+              </div>
+              
+              <div class="col-sm-2">
+                <%= link_to 'Editar', edit_reporte_quincenal_path(@reporte_quincenal), class: "btn btn-lg btn-warning", id: "btnChico" %>
+              </div>
+              
+              <div class="col-sm-2">
+                  <%= link_to 'Eliminar', @reporte_quincenal, method: :delete, data: { confirm: '¿Estás seguro que quieres borrar este reporte? iNo se podrá recuperar!' }, class: "btn btn-lg btn-danger", id: "btnChico" %>
+              </div>
+              
+              <div class="col-sm-2">
+                <%= link_to 'Imprimir', @reporte_quincenal, :onclick => 'window.print();', class: "btn btn-lg btn-info", id: "btnChico"%>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>

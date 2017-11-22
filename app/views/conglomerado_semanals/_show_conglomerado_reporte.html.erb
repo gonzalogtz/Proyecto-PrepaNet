@@ -1,0 +1,165 @@
+<center><h3><%=get_usuario_name_by_cuenta(conglomerado_semanal.tutor)%></h3></center>
+<center><h4 style="font-weight: normal"><%=conglomerado_semanal.tutor%> // <%=get_matricula_by_cuenta(conglomerado_semanal.tutor)%></h4></center>
+<center><h4 style="font-weight: normal"><%= get_descripcion_periodo(conglomerado_semanal.periodo) %></h4></center>
+
+<div style="padding-left: 23px;" class="col-sm-6">
+    <h4 class="boldPrint">Campus:</h4>
+    <h4 style="font-weight: normal"><%= conglomerado_semanal.campus %></h4>
+</div>
+
+<div style="padding-left: 23px;" class="col-sm-6">
+    <h4 class="boldPrint">Fecha del reporte:</h4>
+    <h4 style="font-weight: normal"><%= conglomerado_semanal.created_at.strftime(ApplicationController::FORMATO_FECHA) %></h4>
+</div>
+
+<div style="padding-left: 23px;" class="col-sm-6">
+    <h4 class="boldPrint">Curso:</h4>
+    <h4 style="font-weight: normal"><%= get_texto_header_curso(conglomerado_semanal.curso) %></h4>
+</div>
+
+<div style="padding-left: 23px;" class="col-sm-6">
+    <h4 style="font-weight: normal">
+        <h4 class="boldPrint">Coordinador del tutor:</h4>
+        <h4 style="font-weight: normal"><%= get_usuario_name_by_cuenta(conglomerado_semanal.coordinador_tutores) %> - 
+            <%=conglomerado_semanal.coordinador_tutores%> // <%=get_matricula_by_cuenta(conglomerado_semanal.coordinador_tutores)%></h4>
+    </h4>
+</div>
+
+<div class="panel-body">
+    <table class="table table-striped" style="text-align: center;">
+        <thead>
+        <tr>
+            <th style="text-align: center;">Semana</th>
+            <th style="text-align: center;">1</th>
+            <th style="text-align: center;">2</th>
+            <th style="text-align: center;">3</th>
+            <th style="text-align: center;">4</th>
+            <th style="text-align: center;">5</th>
+            <th style="text-align: center;">6</th>
+            <th style="text-align: center;">7</th>
+            <th style="text-align: center;">8</th>
+            <th style="text-align: center;">9</th>
+            <th style="text-align: center;">10</th>
+            <th style="text-align: center;">11</th>
+            <th style="text-align: center;">12</th>
+            <th style="text-align: center;">13</th>
+            <th style="text-align: center;">14</th>
+            <th style="text-align: center;">15</th>
+            <th style="text-align: center;">Promedio</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Calificación</td>
+                    <%JSON.parse(conglomerado_semanal.calificaciones_semanales).each do |calificacion|%>
+                        <td class="calif"><%=calificacion.to_s%></td>
+                    <%end%>
+                <td id="promedio"><%= conglomerado_semanal.promedio %></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <p><b>Horas a acreditadar</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%= conglomerado_semanal.total_horas%>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <p><b>Horas a acreditadar sugeridas</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%= conglomerado_semanal.total_horas_sugerido%>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <p><b>Porcentaje de alumnos que completaron curso</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <%= conglomerado_semanal.alumnos_original_acabaron%>%
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <p><b>Porcentaje de alumnos del grupo original que aprobaron</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%= conglomerado_semanal.alumnos_original_aprobaron%>%
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <p><b>Porcentaje de alumnos del grupo final que concluyeron el curso</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <%= conglomerado_semanal.alumnos_final_concluyeron%>%
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <p><b>¿Invitó a sus alumnos a sus asesorías presenciales?</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%if conglomerado_semanal.invitacion_asesorias == 1%>Sí<%else%>No<%end%>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <p><b>¿Realizó los reportes parciales de desempeño de alumnos?</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%if conglomerado_semanal.reporte_parcial == 1%>Sí<%else%>No<%end%>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <p><b>¿Realizó el reporte final de alumno?</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%if conglomerado_semanal.reporte_final == 1%>Sí<%else%>No<%end%>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <p><b>¿Envió actividad de cierre?</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%if conglomerado_semanal.actividad_cierre == 1%>Sí<%else%>No<%end%>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <p><b>¿Lo recomendaría para reingresar?</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%if conglomerado_semanal.recomendacion_reingreso == 1%>Sí<%else%>No<%end%>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <p><b>¿Lo recomendaría como coordinador de tutores?</b></p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <%if conglomerado_semanal.recomendacion_coordinador == 1%>Sí<%else%>No<%end%>
+        </div>
+    </div>
+
+    <h4>Comentarios:</h4>
+    <div contentEditable="false" id="divText" class="scrollDiv">
+        <%if conglomerado_semanal.comentarios.empty?%><div style="color:gray;>">Sin comentarios</div><%else%><%= conglomerado_semanal.comentarios %><%end%>
+    </div>
+</div>

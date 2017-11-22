@@ -127,22 +127,34 @@ class ConglomeradoSemanalsController < ApplicationController
 
   private
     def verify_show_access(conglomerado_semanal)
-      #el reporte lo puede ver el coordinador de tutores
-      if (conglomerado_semanal.coordinador_tutores != CUENTA)
-        
-        #el tutor tambien puede ver los reportes
-        if (conglomerado_semanal.tutor != CUENTA)
-          redirect_to "/mainmenu"
-        end
+      if (ROL == STR_ROL_TUTOR && conglomerado_semanal.tutor == CUENTA)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_TUTOR && conglomerado_semanal.coordinador_tutores == CUENTA)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_CAMPUS && conglomerado_semanal.campus == CAMPUS)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_PREPANET)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_INFORMATICA)
+        return true
       end
+      
+      redirect_to "/mainmenu"
     end
     helper_method :verify_show_access
     
     def verify_edit_access(conglomerado_semanal)
-      #el reporte lo puede editar el coordinador de tutores
-      if (conglomerado_semanal.coordinador_tutores != CUENTA)
-        redirect_to "/mainmenu"
+      if (ROL == STR_ROL_COORDINADOR_TUTOR && conglomerado_semanal.coordinador_tutores == CUENTA)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_CAMPUS && conglomerado_semanal.campus == CAMPUS)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_PREPANET)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_INFORMATICA)
+        return true
       end
+      
+      redirect_to "/mainmenu"
     end
     helper_method :verify_edit_access
     # Use callbacks to share common setup or constraints between actions.

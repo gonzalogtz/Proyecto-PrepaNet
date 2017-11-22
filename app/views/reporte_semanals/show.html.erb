@@ -1,16 +1,16 @@
-<%=verify_show_access(@reporte_semanal)%>
+<%verify_show_access(@reporte_semanal)%>
 <%= render 'topsidebar/navsidebar' %>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <div id="table-cursos">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <center>Reporte Semanal del Desempeño del Tutor</center>
+                <center>Reporte semanal del desempeño del tutor</center>
             </div>
             
             <div class="panel-body">
                 <div>
-                    <div class="" id="printID">
+                    <div id="printID">
                         <%= render 'show_reporte_semanal', reporte_semanal: @reporte_semanal %>
                     </div>
                     <div class="row" id="noPrint">
