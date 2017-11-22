@@ -26,6 +26,12 @@ class ApplicationController < ActionController::Base
     end
     helper_method :get_alumno_name_by_id
     
+    def get_matricula_by_cuenta(cuenta)
+      usuario = Usuario.select(:nomina_matricula).where(cuenta: cuenta).first
+      return usuario.nomina_matricula
+    end
+    helper_method :get_matricula_by_cuenta
+    
     def get_cursos_by_tutor(tutor_id = CUENTA, periodo = get_periodo_activo().id)
       cursos = Curso.where(tutor: tutor_id, periodo: periodo).order('grupo')
       return cursos
@@ -62,6 +68,8 @@ class ApplicationController < ActionController::Base
         tutores = Curso.select("usuarios.cuenta, usuarios.nombres, usuarios.apellido_p, usuarios.apellido_m, usuarios.nomina_matricula").where(coordinador_tutores: CUENTA, periodo: periodo_actual.id).joins("INNER JOIN usuarios ON cursos.tutor = usuarios.cuenta").distinct
       elsif ROL == STR_ROL_COORDINADOR_CAMPUS
         tutores = Usuario.where(campus: CAMPUS, rol: STR_ROL_TUTOR, periodo: periodo_actual)
+      elsif ROL == STR_ROL_COORDINADOR_INFORMATICA || ROL == STR_ROL_COORDINADOR_PREPANET
+        tutores = Usuario.where(periodo: periodo_actual.id, rol: STR_ROL_TUTOR)
       end
       
       return tutores.order('cuenta')
