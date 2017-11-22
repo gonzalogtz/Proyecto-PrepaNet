@@ -139,4 +139,11 @@ class ApplicationController < ActionController::Base
       end
     end
     
+    def user_is_coordinador_informatica()
+      if (ROL != STR_ROL_COORDINADOR_INFORMATICA)
+        redirect_to "/mainmenu"
+      end
+    end
+    helper_method :user_is_coordinador_informatica
+    
 end

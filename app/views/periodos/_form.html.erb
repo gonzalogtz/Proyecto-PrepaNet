@@ -16,38 +16,38 @@
         <div id="centerDiv">
           <div class="col-sm-5 margin-bottom margin-top">
             <div class="field">
-              <%= f.label "Inicio del periodo", class:"labPad" %>
-              <%= f.text_field :inicio_periodo, value: f.object.inicio_periodo.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.label :inicio_periodo, class:"labPad" %>
+              <%= f.text_field :inicio_periodo, class:"datetimepicker1"%>
             </div>
             
             <div class="field">
               <%= f.label :fin_periodo, class:"labPad" %>
-              <%= f.text_field :fin_periodo, value: f.object.fin_periodo.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.text_field :fin_periodo, class:"datetimepicker1"%>
             </div>
 
             <div class="field">
-              <%= f.label :inicio_de_inscripcion_normal, class:"labPad" %>
-              <%= f.text_field :inicio_de_inscripcion_normal, value: f.object.inicio_de_inscripcion_normal.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.label "Inicio de inscripción normal", class:"labPad" %>
+              <%= f.text_field :inicio_de_inscripcion_normal, class:"datetimepicker1"%>
             </div>
 
             <div class="field">
-              <%= f.label :fin_de_inscripcion_normal, class:"labPad" %>
-              <%= f.text_field :fin_de_inscripcion_normal, value: f.object.fin_de_inscripcion_normal.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.label "Fin de inscripción normal", class:"labPad" %>
+              <%= f.text_field :fin_de_inscripcion_normal, class:"datetimepicker1"%>
             </div>
 
             <div class="field">
-              <%= f.label :inicio_de_inscripcion_tardia, class:"labPad" %>
-              <%= f.text_field :inicio_de_inscripcion_tardia, value: f.object.inicio_de_inscripcion_tardia.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.label "Inicio de inscripción tardía", class:"labPad" %>
+              <%= f.text_field :inicio_de_inscripcion_tardia, class:"datetimepicker1"%>
             </div>
 
             <div class="field">
-              <%= f.label :fin_de_inscripcion_tardia, class:"labPad" %>
-              <%= f.text_field :fin_de_inscripcion_tardia, value: f.object.fin_de_inscripcion_tardia.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.label "Fin de inscripción tardía", class:"labPad" %>
+              <%= f.text_field :fin_de_inscripcion_tardia, class:"datetimepicker1"%>
             </div>
             
             <div class="field">
               <%= f.label :fecha_de_fin_de_registro, class:"labPad" %>
-              <%= f.text_field :fecha_de_fin_de_registro, value: f.object.fecha_de_fin_de_registro.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.text_field :fecha_de_fin_de_registro, class:"datetimepicker1"%>
             </div>
             
             <div class="field">
@@ -59,48 +59,49 @@
           <div class="col-sm-5 margin-bottom margin-top">
             <div class="field">
               <%= f.label :fecha_inicial_primer_parcial, class:"labPad" %>
-              <%= f.text_field :fecha_inicial_primer_parcial, value: f.object.fecha_inicial_primer_parcial.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.text_field :fecha_inicial_primer_parcial, class:"datetimepicker1"%>
             </div>
 
             <div class="field">
               <%= f.label :fecha_final_primer_parcial, class:"labPad" %>
-              <%= f.text_field :fecha_final_primer_parcial, value: f.object.fecha_final_primer_parcial.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.text_field :fecha_final_primer_parcial, class:"datetimepicker1"%>
             </div>
 
             <div class="field">
               <%= f.label :fecha_inicial_segundo_parcial, class:"labPad" %>
-              <%= f.text_field :fecha_inicial_segundo_parcial, value: f.object.fecha_inicial_segundo_parcial.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.text_field :fecha_inicial_segundo_parcial, class:"datetimepicker1"%>
             </div>
 
             <div class="field">
               <%= f.label :fecha_final_segundo_parcial, class:"labPad" %>
-              <%= f.text_field :fecha_final_segundo_parcial, value: f.object.fecha_final_segundo_parcial.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.text_field :fecha_final_segundo_parcial, class:"datetimepicker1"%>
             </div>
 
             <div class="field">
               <%= f.label :fecha_inicial_tercer_parcial, class:"labPad" %>
-              <%= f.text_field :fecha_inicial_tercer_parcial, value: f.object.fecha_inicial_tercer_parcial.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.text_field :fecha_inicial_tercer_parcial, class:"datetimepicker1"%>
             </div>
 
             <div class="field">
               <%= f.label :fecha_final_tercer_parcial, class:"labPad" %>
-              <%= f.text_field :fecha_final_tercer_parcial, value: f.object.fecha_final_tercer_parcial.strftime(ApplicationController::FORMATO_FECHA)%>
+              <%= f.text_field :fecha_final_tercer_parcial, class:"datetimepicker1"%>
             </div>
 
             <div class="field">
-              <%= f.label :descripcion, class:"labPad" %>
+              <%= f.label "Descripción", class:"labPad" %>
               <%= f.text_field :descripcion %>
             </div>
 
             <div class="field">
-              <%= f.label :clasificacion, class:"labPad" %>
+              <%= f.label "Clasificación", class:"labPad" %>
               <%= f.text_field :clasificacion %>
             </div>
           </div>
         </div>
         
         <div>
-          <%= f.submit "Guardar reporte", class:"btn btn-primary btn-lg btnSubmit btnPeriodo"  %>
+          <%= f.submit "Guardar reporte", class:"btn btn-primary btn-lg btnSubmit"%>
+          <%= link_to "Atrás", periodos_path, class: "btn btn-primary btn-lg btnBack"%>
         </div>
       <% end %>
     </div>

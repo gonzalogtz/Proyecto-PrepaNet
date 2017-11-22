@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', function () {
     //activa el popover de notificaciones
     $('[data-toggle="popover"]').popover();
     //activa picker de calendarios
-    $('.datetimepicker1').datetimepicker({format: 'DD-MM-YYYY'});
+    $('.datetimepicker1').datetimepicker({format: 'YYYY-MM-DD'});
     
     $(".tutor_header").click(function () {
         var index = $(this).attr('id');

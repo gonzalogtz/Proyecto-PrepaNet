@@ -1,7 +1,7 @@
 <%= render 'topsidebar/navsidebar' %>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h1 class="page-header titulo">Visualizacion de Periodo</h1>
+  <h1 class="page-header titulo">Visualización de Periodo</h1>
   <div id="table-cursos">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -23,22 +23,22 @@
                 </div>
                 
                 <div class="field">
-                  <%= f.label :inicio_de_inscripcion_normal, class:"labPad" %>
+                  <%= f.label "Inicio de inscripción normal", class:"labPad" %>
                   <%= f.text_field :inicio_de_inscripcion_normal, value: f.object.inicio_de_inscripcion_normal.strftime(ApplicationController::FORMATO_FECHA), :readonly => true %>
                 </div>
 
                 <div class="field">
-                  <%= f.label :fin_de_inscripcion_normal, class:"labPad" %>
+                  <%= f.label "Fin de inscripción normal", class:"labPad" %>
                   <%= f.text_field :fin_de_inscripcion_normal, value: f.object.fin_de_inscripcion_normal.strftime(ApplicationController::FORMATO_FECHA), :readonly => true %>
                 </div>
 
                 <div class="field">
-                  <%= f.label :inicio_de_inscripcion_tardia, class:"labPad" %>
+                  <%= f.label "Inicio de inscripción tardía", class:"labPad" %>
                   <%= f.text_field :inicio_de_inscripcion_tardia, value: f.object.inicio_de_inscripcion_tardia.strftime(ApplicationController::FORMATO_FECHA), :readonly => true %>
                 </div>
 
                 <div class="field">
-                  <%= f.label :fin_de_inscripcion_tardia, class:"labPad" %>
+                  <%= f.label  "Fin de inscripción tardía", class:"labPad" %>
                   <%= f.text_field :fin_de_inscripcion_tardia, value: f.object.fin_de_inscripcion_tardia.strftime(ApplicationController::FORMATO_FECHA), :readonly => true %>
                 </div>
                 
@@ -49,7 +49,7 @@
                 
                 <div class="field">
                   <%= f.label :activo, class:"labPad" %>
-                  <%= f.check_box :activo, id:"checkboxActivo" %>
+                  <%= f.check_box :activo, id:"checkboxActivo", :disabled => true%>
                 </div>
               </div>
               
@@ -85,12 +85,12 @@
                 </div>
 
                 <div class="field">
-                  <%= f.label :descripcion, class:"labPad" %>
+                  <%= f.label "Descripción", class:"labPad" %>
                   <%= f.text_field :descripcion, :readonly => true %>
                 </div>
 
                 <div class="field">
-                  <%= f.label :clasificacion, class:"labPad" %>
+                  <%= f.label "Clasificación", class:"labPad" %>
                   <%= f.text_field :clasificacion, :readonly => true %>
                 </div>
               </div>
