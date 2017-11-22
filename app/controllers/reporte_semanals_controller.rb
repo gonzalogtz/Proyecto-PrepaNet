@@ -77,7 +77,7 @@ class ReporteSemanalsController < ApplicationController
   end
   
   def valida_reporte_tutor_curso_semana
-    reportes_semanales_count = ReporteSemanal.where(tutor: params[:tutor_id], curso: params[:curso_id], semana: params[:semana], coordinador_tutores: CUENTA).count
+    reportes_semanales_count = ReporteSemanal.where(tutor: params[:tutor_id], curso: params[:curso_id], semana: params[:semana]).count
 
     respond_to do |format|
       format.js {render :json => {"semanal_count": reportes_semanales_count}}
@@ -96,26 +96,34 @@ class ReporteSemanalsController < ApplicationController
 
   private
     def verify_show_access(reporte_semanal)
-      #el reporte lo puede ver el coordinador de tutores
-      if (reporte_semanal.coordinador_tutores != CUENTA)
-        #el tutor tambien puede ver los reportes
-        if (reporte_semanal.tutor != CUENTA)
-          #el coordinador de campus
-          if (reporte_semanal.campus != CAMPUS)
-            if (ROL != STR_ROL_COORDINADOR_INFORMATICA || ROL != STR_ROL_COORDINADOR_PREPANET)
-              redirect_to "/mainmenu"
-            end
-          end
-        end
+      if (ROL == STR_ROL_TUTOR && reporte_semanal.tutor == CUENTA)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_TUTOR && reporte_semanal.coordinador_tutores == CUENTA)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_CAMPUS && reporte_semanal.campus == CAMPUS)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_PREPANET)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_INFORMATICA)
+        return true
       end
+        
+      redirect_to "/mainmenu"
     end
     helper_method :verify_show_access
     
     def verify_edit_access(reporte_semanal)
-      #el reporte lo puede editar el coordinador de tutores
-      if (reporte_semanal.coordinador_tutores != CUENTA)
-        redirect_to "/mainmenu"
+      if (ROL == STR_ROL_COORDINADOR_TUTOR && reporte_semanal.coordinador_tutores == CUENTA)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_CAMPUS && reporte_semanal.campus == CAMPUS)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_PREPANET)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_INFORMATICA)
+        return true
       end
+        
+      redirect_to "/mainmenu"
     end
     helper_method :verify_edit_access
     
@@ -158,6 +166,26 @@ class ReporteSemanalsController < ApplicationController
       return html.html_safe
     end
     helper_method :get_botones_reportes_semanales_carousel
+    
+    def get_conglomerado_semanals_button_by_tutor_and_curso(tutor_id, curso_id)
+      @conglomerado_semanals_tutor = ConglomeradoSemanal.where(tutor: tutor_id, curso: curso_id).first
+      
+      html = ""
+      if !@conglomerado_semanals_tutor
+        html = "<div class='boton_carousel_reporte'>C</div>"
+      else
+        html = "<div class='boton_carousel_reporte boton_carousel_reporte_activado' data-link='cong_" + @conglomerado_semanals_tutor.id.to_s + "' 
+        data-toggle='tooltip' title='" + @conglomerado_semanals_tutor.promedio.to_s + "/10' data-placement='top'>F</div>"
+      end
+      
+      return html.html_safe
+    end
+    helper_method :get_conglomerado_semanals_button_by_tutor_and_curso
+    
+    def get_conglomerado_semanals()
+      return @conglomerado_semanals_tutor
+    end
+    helper_method :get_conglomerado_semanals
     
     # Use callbacks to share common setup or constraints between actions.
     def set_reporte_semanal

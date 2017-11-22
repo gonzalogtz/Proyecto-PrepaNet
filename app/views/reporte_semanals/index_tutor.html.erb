@@ -19,6 +19,7 @@
           <% (1..15).each do |i| %>
             <%=get_botones_reportes_semanales_carousel(i)%>
           <% end %>
+          <%=get_conglomerado_semanals_button_by_tutor_and_curso(ApplicationController::CUENTA, curso.grupo)%>
         </div>
         <div class='reporte_carousel_content'>
           <% get_reporte_semanals_by_tutor_and_curso().each do |reporte_semanal|%>
@@ -26,10 +27,14 @@
               <%= render 'show_reporte_semanal', reporte_semanal: reporte_semanal %>
             </div>
           <%end%>
+          <% if get_conglomerado_semanals() != nil%>
+            <div id='reporte_cong_<%=get_conglomerado_semanals().id%>' class='reporte_semanal_carousel'>
+              <%= render 'conglomerado_semanals/show_conglomerado_reporte', conglomerado_semanal: get_conglomerado_semanals() %>
+            </div>
+          <%end%>
         </div>
         <div class="empty_semana">Elige una semana para ver su reporte correspondiente</div>
       </div>
     <%end%>
   </div>
-  
 </div>

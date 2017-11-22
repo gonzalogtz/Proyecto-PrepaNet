@@ -86,16 +86,19 @@ class ReporteQuincenalsController < ApplicationController
 
   private
     def verify_show_access(reporte_quincenal)
-      #el reporte lo puede ver el tutor
-      if (reporte_quincenal.tutor != CUENTA)
-        #el coordinador de tutores tambien puede ver los reportes
-        if (reporte_quincenal.coordinador_tutores != CUENTA)
-          #el coordinador de campus puede ver los reportes
-          if (ROL == STR_ROL_COORDINADOR_CAMPUS && reporte_quincenal.campus != CAMPUS)
-            redirect_to "/mainmenu"
-          end
-        end
+      if (ROL == STR_ROL_TUTOR && reporte_quincenal.tutor == CUENTA)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_TUTOR && reporte_quincenal.coordinador_tutores == CUENTA)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_CAMPUS && reporte_quincenal.campus == CAMPUS)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_PREPANET)
+        return true
+      elsif (ROL == STR_ROL_COORDINADOR_INFORMATICA)
+        return true
       end
+      
+      redirect_to "/mainmenu"
     end
     helper_method :verify_show_access
     

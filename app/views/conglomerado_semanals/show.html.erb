@@ -1,196 +1,34 @@
-<%=verify_show_access(@conglomerado_semanal)%>
+<%verify_show_access(@conglomerado_semanal)%>
 <%= render 'topsidebar/navsidebar' %>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<div id="table-cursos">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <center>Evaluación Tetramestral del Tutor</center>
+  <div id="table-cursos">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <center>Evaluación final del tutor</center>
+      </div>
+      <div>
+        <div id="printID">
+          <%= render 'show_conglomerado_reporte', conglomerado_semanal: @conglomerado_semanal %>
+        </div>
+          <div class="row" style="padding-bottom: 15px; padding-left: 15px;">
+            <div class="col-sm-2">
+              <%= link_to 'Atrás', conglomerado_semanals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %> 
+            </div>
+            
+            <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%>
+              <div class="col-sm-2">
+                <%= link_to 'Editar', edit_conglomerado_semanal_path(@conglomerado_semanal) , class:"btn btn-lg btn-warning" ,id:"btnChico" %>
+              </div>
+              <div class="col-sm-2">
+                  <%= link_to 'Eliminar', @conglomerado_semanal, method: :delete, data: { confirm: 'Estás seguro que quieres borrar este reporte? No se podrá recuperar!' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
+              </div>
+            <%end%>
+            
+            <div class="col-sm-2">
+                <%= link_to 'Imprimir', @reporte_quincenal, :onclick => 'window.print();', class:"btn btn-lg btn-info",id:"btnChico"%>
+            </div>
+          </div>
     </div>
-    <div>
-      <div id="printID">
-      
-      <center><h3><%=get_usuario_name_by_id(@conglomerado_semanal.tutor)%></h3></center>
-
-      <div style="padding-left: 23px;" class="col-sm-6">
-        <h4 style="font-weight: normal">
-          <%= @conglomerado_semanal.campus %>
-        </h4>
-      </div>
-      
-      <div style="padding-left: 23px;" class="col-sm-6">
-        <h4 style="font-weight: normal">
-          <%= get_descripcion_periodo(@conglomerado_semanal.periodo) %>
-        </h4>
-      </div>
-      
-      <div style="padding-left: 23px;" class="col-sm-6">
-        <h4 style="font-weight: normal">
-          <%= get_texto_header_curso(@conglomerado_semanal.curso) %>
-        </h4>
-      </div>
-      
-      <div style="padding-left: 23px;" class="col-sm-6">
-        <h4 style="font-weight: normal">
-          Coordinador de tutores: <%= get_usuario_name_by_id(@conglomerado_semanal.coordinador_tutores) %>
-        </h4>
-      </div>
-      
-        <div class="panel-body">
-        <table class="table table-striped" style="text-align: center;">
-          <thead>
-            <tr>
-              <th style="text-align: center;">Semana</th>
-              <th style="text-align: center;">1</th>
-              <th style="text-align: center;">2</th>
-              <th style="text-align: center;">3</th>
-              <th style="text-align: center;">4</th>
-              <th style="text-align: center;">5</th>
-              <th style="text-align: center;">6</th>
-              <th style="text-align: center;">7</th>
-              <th style="text-align: center;">8</th>
-              <th style="text-align: center;">9</th>
-              <th style="text-align: center;">10</th>
-              <th style="text-align: center;">11</th>
-              <th style="text-align: center;">12</th>
-              <th style="text-align: center;">13</th>
-              <th style="text-align: center;">14</th>
-              <th style="text-align: center;">15</th>
-              <th style="text-align: center;">Promedio</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Calificación</td>
-              <%= get_calificaciones(@conglomerado_semanal.calificaciones_semanales) %>
-              <td id="promedio"><%= @conglomerado_semanal.promedio %></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <p><b>Horas a acreditadar</b></p>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              <%= @conglomerado_semanal.total_horas%>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <p><b>Horas a acreditadar sugeridas</b></p>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              <%= @conglomerado_semanal.total_horas_sugerido%>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <p><b>Porcentaje de alumnos que completaron curso</b></p>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-             <%= @conglomerado_semanal.alumnos_original_acabaron%>%
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <p><b>Porcentaje de alumnos del grupo original que aprobaron</b></p>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              <%= @conglomerado_semanal.alumnos_original_aprobaron%>%
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <p><b>Porcentaje de alumnos del grupo final que concluyeron el curso</b></p>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-             <%= @conglomerado_semanal.alumnos_final_concluyeron%>%
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <p><b>¿Invitó a sus alumnos a sus asesorías presenciales?</b></p>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <%= get_valor(@conglomerado_semanal.invitacion_asesorias) %>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <p><b>¿Realizó los reportes parciales de desempeño de alumnos?</b></p>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <%= get_valor(@conglomerado_semanal.reporte_parcial) %>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <p><b>¿Realizó el reporte final de alumno?</b></p>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <%= get_valor(@conglomerado_semanal.reporte_final) %>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <p><b>¿Envió actividad de cierre?</b></p>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <%= get_valor(@conglomerado_semanal.actividad_cierre) %>
-          </div>
-        </div>
-
-          <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              <p><b>¿Lo recomendaría para reingresar?</b></p>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              <%= get_valor(@conglomerado_semanal.recomendacion_reingreso) %>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              <p><b>¿Lo recomendaría como coordinador de tutores?</b></p>
-            </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <%= get_valor(@conglomerado_semanal.recomendacion_coordinador) %>
-          </div>
-        </div>
-          
-          <h4>Comentarios:</h4>
-          <div contentEditable="false" id="divText" class="scrollDiv">
-            <%if @conglomerado_semanal.comentarios == ""%><div style="color:gray;>">Sin comentarios</div><%else%><%= @conglomerado_semanal.comentarios %><%end%>
-          </div>
-        </div>
-      </div>
-        <div class="row" style="padding-bottom: 15px; padding-left: 15px;">
-          <div class="col-sm-2">
-            <%= link_to 'Atras', conglomerado_semanals_path, class:"btn btn-lg btn-primary" ,id:"btnChico" %> 
-          </div>
-          
-          <% if ApplicationController::ROL != ApplicationController::STR_ROL_TUTOR%>
-            <div class="col-sm-2">
-              <%= link_to 'Editar', edit_conglomerado_semanal_path(@conglomerado_semanal) , class:"btn btn-lg btn-warning" ,id:"btnChico" %>
-            </div>
-            <div class="col-sm-2">
-                <%= link_to 'Eliminar', @conglomerado_semanal, method: :delete, data: { confirm: 'Estás seguro que quieres borrar este reporte? No se podrá recuperar!' } , class:"btn btn-lg btn-danger",id:"btnChico" %>
-            </div>
-          <%end%>
-          
-          <div class="col-sm-2">
-              <%= link_to 'Imprimir', @reporte_quincenal, :onclick => 'window.print();', class:"btn btn-lg btn-info",id:"btnChico"%>
-          </div>
-        </div>
   </div>
-</div>
 </div>

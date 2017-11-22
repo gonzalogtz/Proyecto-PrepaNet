@@ -1,4 +1,6 @@
 class PeriodosController < ApplicationController
+  before_action :user_is_logged_in
+  before_action :user_is_coordinador_informatica
   before_action :set_periodo, only: [:show, :edit, :update, :destroy]
 
   # GET /periodos
@@ -33,7 +35,7 @@ class PeriodosController < ApplicationController
 
     respond_to do |format|
       if @periodo.save
-        format.html { redirect_to @periodo, notice: 'Periodo was successfully created.' }
+        format.html { render :show}
         format.json { render :show, status: :created, location: @periodo }
       else
         format.html { render :new }
@@ -52,7 +54,7 @@ class PeriodosController < ApplicationController
     
     respond_to do |format|
       if @periodo.update(periodo_params)
-        format.html { redirect_to @periodo, notice: 'Periodo was successfully updated.' }
+        format.html { render :show}
         format.json { render :show, status: :ok, location: @periodo }
       else
         format.html { render :edit }

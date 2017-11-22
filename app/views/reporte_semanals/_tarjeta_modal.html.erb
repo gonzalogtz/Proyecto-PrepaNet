@@ -3,7 +3,7 @@
     <div class='tarjeta_matricula'><%=@tutor.nomina_matricula%> // <%=@tutor.cuenta%></div>
     <div class='tarjeta_matricula'><%=@curso.campus%></div>
     <div class='tarjeta_matricula'><%=@curso.materia%> - <%=@curso.grupo%></div>
-    <div class='tarjeta_matricula'>Coordinador de tutores: <%=get_usuario_name_by_id(@curso.coordinador_tutores)%></div>
+    <div class='tarjeta_matricula'>Coordinador de tutores: <%=get_usuario_name_by_cuenta(@curso.coordinador_tutores)%></div>
     <div class='contenedor_boton_reportes'>
         <%read_reporte_semanals_by_tutor_and_curso(@tutor.cuenta, @curso.grupo)%>
         <div class='contenedor_curso_reportes'>
