@@ -1,5 +1,5 @@
 class UsuariosController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
   # GET /usuarios
   # GET /usuarios.json
@@ -8,7 +8,6 @@ class UsuariosController < ApplicationController
   end
 
   def agregar
-    
   end
 
   # GET /usuarios/1
@@ -64,11 +63,12 @@ class UsuariosController < ApplicationController
   # POST /usuarios
   # POST /usuarios.json
   def create
-    @usuario = Usuario.new(user_params)
+    @usuario = Usuario.new(usuario_params)
+    @usuario[:periodo] = get_periodo_activo().id
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to @usuario, notice: 'User was successfully created.' }
+        format.html { render :show}
         format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new }
@@ -81,8 +81,8 @@ class UsuariosController < ApplicationController
   # PATCH/PUT /usuarios/1.json
   def update
     respond_to do |format|
-      if @usuario.update(user_params)
-        format.html { redirect_to @usuario, notice: 'User was successfully updated.' }
+      if @usuario.update(usuario_params)
+        format.html { render :show}
         format.json { render :show, status: :ok, location: @usuario }
       else
         format.html { render :edit }
@@ -103,7 +103,7 @@ class UsuariosController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
+    def set_usuario
       @usuario = Usuario.find(params[:id])
     end
     
@@ -115,13 +115,13 @@ class UsuariosController < ApplicationController
     helper_method :user_coordinador_informatica
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def user_login_params
-      params.require(:user).permit(:cuenta, :contrasena)
+    def usuario_login_params
+      params.require(:usuario).permit(:cuenta, :contrasena)
     end
 
 
-    def user_params
-      params.require(:user).permit(:cuenta, :nomina_matricula, :contrasena, :campus, :rol, :nombres, :apellido_p, :apellido_m, :correo, :telefono, :periodo)
+    def usuario_params
+      params.require(:usuario).permit(:cuenta, :nomina_matricula, :contrasena, :campus, :rol, :nombres, :apellido_p, :apellido_m, :correo, :telefono, :periodo)
     end
     
     def set_credentials(user, id, role, campus)

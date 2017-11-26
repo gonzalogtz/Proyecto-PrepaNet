@@ -128,6 +128,10 @@ class ApplicationController < ActionController::Base
     helper_method :get_periodo_activo
     
     def get_descripcion_periodo(periodo_id)
+      if periodo_id == -1
+        periodo_id = get_periodo_activo.id
+      end
+      
       descripcion = Periodo.find(periodo_id)
       return descripcion.descripcion
     end

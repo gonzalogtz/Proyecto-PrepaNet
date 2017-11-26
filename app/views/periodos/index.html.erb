@@ -17,7 +17,7 @@
       </thead>
       <tbody>
         <% @periodos.each do |periodo| %>
-          <tr class='pickHover reporte_row' data-link='periodos/<%=periodo.id%>'>
+          <tr class='pickHover reporte_row activo_<%=periodo.activo%>' data-link='periodos/<%=periodo.id%>'>
             <td><%= periodo.descripcion %></td>
             <td><%= periodo.inicio_de_inscripcion_normal.strftime(ApplicationController::FORMATO_FECHA) %></td>
             <td><%= periodo.inicio_periodo.strftime(ApplicationController::FORMATO_FECHA) %></td>

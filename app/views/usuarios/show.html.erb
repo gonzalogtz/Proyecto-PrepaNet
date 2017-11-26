@@ -2,7 +2,7 @@
 <%= render 'topsidebar/navsidebar' %>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h1 class="page-header titulo">Visualización de Usuario</h1>
+  <h1 class="page-header titulo">Visualización de usuario</h1>
   <div id="table-cursos" class="" style="">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -31,18 +31,18 @@
             </div>
 
             <div class="field">
-              <%= f.label :correo %>
+              <%= f.label "Correo electrónico" %>
               <%= f.text_field :correo,class:"form-control",:readonly => true %>
             </div>
 
             <div class="field">
-              <%= f.label :telefono %>
+              <%= f.label "Teléfono" %>
               <%= f.text_field :telefono,class:"form-control",:readonly => true %>
             </div>
 
             <div class="field">
               <%= f.label :periodo %>
-              <%= f.text_field :periodo,class:"form-control",:readonly => true %>
+              <%= f.text_field :periodo,class:"form-control",:value=>get_descripcion_periodo(f.object.periodo), :readonly => true %>
             </div>
           </div>
           
@@ -53,12 +53,12 @@
             </div>
             
             <div class="field">
-              <%= f.label :nomina_matricula %>
+              <%= f.label "Nómina/Matrícula" %>
               <%= f.text_field :nomina_matricula,class:"form-control",:readonly => true %>
             </div>
 
             <div class="field">
-              <%= f.label :contrasena %>
+              <%= f.label "Contraseña" %>
               <%= f.text_field :contrasena,class:"form-control",:readonly => true %>
             </div>
 
@@ -75,7 +75,7 @@
             <div class="field">
               <%= f.label :rol %>
               <br>
-              <%= f.select(:rol, options_for_select([[ApplicationController::STR_ROL_TUTOR], [ApplicationController::STR_ROL_COORDINADOR_TUTOR], [ApplicationController::STR_ROL_TUTOR_STAFF], [ApplicationController::STR_ROL_COORDINADOR_CAMPUS], [ApplicationController::STR_ROL_COORDINADOR_PREPANET], [ApplicationController::STR_ROL_COORDINADOR_INFORMATICA]]),{},{class: "form-control",:disabled => true}) %>
+              <%= f.text_field :rol,class:"form-control",:value=>f.object.rol, :readonly => true %>
             </div>
         <% end %>
       </div>
