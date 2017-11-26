@@ -41,6 +41,8 @@ class ReporteQuincenalsController < ApplicationController
 
     respond_to do |format|
       if @reporte_quincenal.save
+        mensaje = "<b>" + get_usuario_name_by_cuenta(@reporte_quincenal[:tutor]) + "</b> ha creado un reporte quincenal de <b>" + get_alumno_name_by_matricula(@reporte_quincenal[:alumno]) + "</b> para <b>" + @reporte_quincenal[:curso]+ "</b>"
+        Notificacion.crear_notificacion(@reporte_quincenal[:coordinador_tutores], mensaje, "/reporte_quincenals/" + @reporte_quincenal[:id].to_s)
         format.html { redirect_to reporte_quincenal_url(@reporte_quincenal), notice: 'Reporte quincenal was successfully created.' }
         format.json { render :show, status: :created, location: @reporte_quincenal }
       else

@@ -50,8 +50,9 @@ class ConglomeradoSemanalsController < ApplicationController
     @conglomerado_semanal[:horas_desempeno_semanal] =  (@conglomerado_semanal[:promedio]*7.5).ceil
     
     reportes_quincenals_count = ReporteQuincenal.where(tutor: @conglomerado_semanal[:tutor], curso: @conglomerado_semanal[:curso]).count
+    alumnos_count = Curso.select("*").where(tutor: @conglomerado_semanal[:tutor], grupo: @conglomerado_semanal[:curso]).joins("INNER JOIN alumno_toma_cursos ON alumno_toma_cursos.curso = cursos.grupo").count
     if reportes_quincenals_count > 0
-      @conglomerado_semanal[:horas_reportes] = 15/(6/reportes_quincenals_count)
+      @conglomerado_semanal[:horas_reportes] = 15/((6*alumnos_count)/reportes_quincenals_count)
     else
       @conglomerado_semanal[:horas_reportes] = 0
     end
@@ -60,7 +61,9 @@ class ConglomeradoSemanalsController < ApplicationController
 
     respond_to do |format|
       if @conglomerado_semanal.save
-        format.html { redirect_to conglomerado_semanal_url(@conglomerado_semanal), notice: 'Conglomerado quincenal was successfully created.' }
+        mensaje = "<b>" + get_usuario_name_by_cuenta(@conglomerado_semanal[:coordinador_tutores]) + "</b> ha creado tu reporte <b>final</b> para <b>" + @conglomerado_semanal[:curso] + "</b>"
+        Notificacion.crear_notificacion(@conglomerado_semanal[:tutor], mensaje, "/conglomerado_semanals/" + @conglomerado_semanal[:id].to_s)
+        format.html { redirect_to conglomerado_semanal_url(@conglomerado_semanal), notice: 'Conglomerado semanal was successfully created.' }
         format.json { render :show, status: :created, location: @conglomerado_semanal }
       else
         format.html { render :new }

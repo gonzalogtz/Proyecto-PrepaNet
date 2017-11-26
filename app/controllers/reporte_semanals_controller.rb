@@ -40,9 +40,8 @@ class ReporteSemanalsController < ApplicationController
     
     respond_to do |format|
       if @reporte_semanal.save
-        mensaje_notificacion = "Tu coordinador de tutores ha creado tu reporte correspondiente a la semana " + @reporte_semanal[:semana].to_s
-        notificacion = Notificacion.new(usuario: @reporte_semanal[:tutor], mensaje: mensaje_notificacion, liga: "/reporte_semanals/" + @reporte_semanal[:id].to_s, leida: 0)
-        notificacion.save
+        mensaje = "<b>" + get_usuario_name_by_cuenta(@reporte_semanal[:coordinador_tutores]) + "</b> ha creado tu reporte de la semana <b>" + @reporte_semanal[:semana].to_s + "</b> para <b>" + @reporte_semanal[:curso] + "</b>"
+        Notificacion.crear_notificacion(@reporte_semanal[:tutor], mensaje, "/reporte_semanals/" + @reporte_semanal[:id].to_s)
         format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully created.' }
         format.json { render :show, status: :created, location: @reporte_semanal }
       else
@@ -175,7 +174,7 @@ class ReporteSemanalsController < ApplicationController
         html = "<div class='boton_carousel_reporte'>C</div>"
       else
         html = "<div class='boton_carousel_reporte boton_carousel_reporte_activado' data-link='cong_" + @conglomerado_semanals_tutor.id.to_s + "' 
-        data-toggle='tooltip' title='" + @conglomerado_semanals_tutor.promedio.to_s + "/10' data-placement='top'>F</div>"
+        data-toggle='tooltip' title='" + @conglomerado_semanals_tutor.promedio.to_s + "/10' data-placement='top'>C</div>"
       end
       
       return html.html_safe
