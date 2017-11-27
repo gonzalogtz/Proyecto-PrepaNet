@@ -371,43 +371,31 @@ $(document).on('turbolinks:load', function () {
     })
     
     $("#toggle_expand_tutor").click(function() {
-        if ($(this).html() == "Colapsar tutores"){
-            var nuevo_texto = "Expandir tutores"
-            $(".reportes_tutor_content").hide();
-        }
-        else {
-            var nuevo_texto = "Colapsar tutores"
-            $(".reportes_tutor_content").show();
-        }
-        
-        $(this).html(nuevo_texto)
+        toggle_expand_button("Colapsar tutores", "Expandir tutores", ".reportes_tutor_content", $(this))
     });
     
     $("#toggle_expand_grupo").click(function() {
-        if ($(this).html() == "Colapsar grupos"){
-            var nuevo_texto = "Expandir grupos"
-            $(".reportes_curso_content").hide();
-        }
-        else {
-            var nuevo_texto = "Colapsar grupos"
-            $(".reportes_curso_content").show();
-        }
-        
-        $(this).html(nuevo_texto)
+        toggle_expand_button("Colapsar grupos", "Expandir grupos", ".reportes_curso_content", $(this))
     });
     
     $("#toggle_expand_campus").click(function() {
-        if ($(this).html() == "Colapsar campus"){
-            var nuevo_texto = "Expandir campus"
-            $(".reportes_campus_content").hide();
+        toggle_expand_button("Colapsar campus", "Expandir campus", ".reportes_campus_content", $(this))
+    });
+    
+    function toggle_expand_button(colapsar_texto, expandir_texto, content_tag, button_tag) {
+        if (button_tag.html() == colapsar_texto){
+            var nuevo_texto = expandir_texto
+            $(content_tag).hide();
+            $(content_tag).siblings(".reportes_header").find(".arrow_icon").attr("src", "expand_arrow.png");
         }
         else {
-            var nuevo_texto = "Colapsar campus"
-            $(".reportes_campus_content").show();
+            var nuevo_texto = colapsar_texto
+            $(content_tag).show();
+            $(content_tag).siblings(".reportes_header").find(".arrow_icon").attr("src", "collapse_arrow.png");
         }
         
-        $(this).html(nuevo_texto)
-    });
+        button_tag.html(nuevo_texto)
+    }
     
     //filtro en reportes quincenales
     $('#filtro_estatus :checkbox, #filtro_localizado :checkbox').change(function() {

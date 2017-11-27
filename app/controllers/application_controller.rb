@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
 
     def get_alumnos_by_curso(curso_id)
       alumnos = AlumnoTomaCurso.select("*").where(curso: curso_id).joins("INNER JOIN alumnos ON alumno_toma_cursos.alumno = alumnos.matricula")
-      return alumnos
+      return alumnos.order('matricula')
     end
     helper_method :get_alumnos_by_curso
     
@@ -78,7 +78,7 @@ class ApplicationController < ActionController::Base
     
     def get_tutores_by_campus(campus_id, periodo)
       tutores = Usuario.where(campus: campus_id, rol: STR_ROL_TUTOR, periodo: periodo)
-      return tutores
+      return tutores.order('cuenta')
     end
     helper_method :get_tutores_by_campus
     
@@ -111,14 +111,14 @@ class ApplicationController < ActionController::Base
     
     def get_campus(periodo_id)
       campus = Curso.select('DISTINCT campus').where(periodo: periodo_id)
-      return campus
+      return campus.order('campus')
     end
     helper_method :get_campus
     
     def get_periodos()
       #orden: primero el activo, después antiguos en orden de calendario
-      periodos = Periodo.select(:descripcion, :id).all.order('activo desc, inicio_periodo')
-      return periodos
+      periodos = Periodo.select(:descripcion, :id).all
+      return periodos.order('activo desc, inicio_periodo')
     end
     helper_method :get_periodos
     

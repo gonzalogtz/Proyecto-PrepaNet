@@ -14,7 +14,7 @@
         <li><a><%= ApplicationController::NOMBRE_USUARIO%></a></li>
         <li><a><%=DateTime.now.strftime(ApplicationController::FORMATO_FECHA)%></a></li>
         <li tabindex="0" data-trigger="focus" data-toggle="popover" data-placement="bottom" title="Notificaciones" id='notificaciones' class='nav_icon'><%= image_tag("notification_icon.png", :id => 'notif_icon') %></li>
-        <li id="cerrar_sesion" class='nav_icon' data-toggle="tooltip" title="Cerrar Sesión" data-placement="bottom"><%= image_tag("logout_icon.png") %></li>
+        <li id="cerrar_sesion" class='nav_icon' data-toggle="tooltip" title="Cerrar sesión" data-placement="bottom"><%= image_tag("logout_icon.png") %></li>
       </ul>
     </div>
   </div>
@@ -33,7 +33,6 @@
           <li><%= link_to 'Usuarios', usuarios_path %></li>
           <li><%= link_to 'Periodos', periodos_path %></li>
           <li><%= link_to 'Cursos', cursos_path %></li>
-          <!--<li><%= link_to 'Alumnos en Cursos', alumno_toma_cursos_path %></li>-->
         <% end %>
       </ul>
     </div>
