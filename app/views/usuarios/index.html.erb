@@ -53,15 +53,29 @@
         <h4 class="modal-title">Selecciona una opción</h4>
       </div>
       <div class="modal-body">
+        <%if (@periodo_activo == -1)%>
+          <div class="alert alert-danger" style="display: block">
+            <strong>Alerta. </strong> No hay ningún periodo activo, por lo que no podrás agregar usuarios.
+          </div>
+        <%end%>
         <div id="singleUser">
           <h2>Agregar un usuario</h2>
-          <%= link_to 'Agregar usuario', new_usuario_path, class: "btn btn-primary "%>
+          <%if (@periodo_activo == -1)%>
+            <%= link_to 'Agregar usuario', usuarios_path, class: "btn btn-primary", disabled: true%>
+          <%else%>
+            <%= link_to 'Agregar usuario', new_usuario_path, class: "btn btn-primary "%>
+          <%end%>
         </div>
         <div id="multipleUser">
           <h2>Importar archivo de usuarios</h2>
           <%= form_tag import_usuarios_path, multipart: true do %>
-            <%= file_field_tag :file, class: "inline"  %>
-            <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
+            <%if (@periodo_activo == -1)%>
+              <%= file_field_tag :file, class: "inline", disabled: true%>
+              <%= submit_tag "Importar", class: "btn btn-primary padd inline", disabled: true %>
+            <%else%>
+              <%= file_field_tag :file, class: "inline" %>
+              <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
+            <%end%>
           <% end %>
         </div>
       </div>

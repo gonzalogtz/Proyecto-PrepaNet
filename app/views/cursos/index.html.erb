@@ -1,5 +1,11 @@
 <%= render 'topsidebar/navsidebar' %>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <%if (@periodo_activo == -1)%>
+    <div class="alert alert-danger" style="display: block">
+      <strong>Alerta. </strong> No hay ningún periodo activo, por lo que no podrás agregar cursos.
+    </div>
+  <%end%>
+  
   <div id="table-cursos">
     <div class="panel panel-primary">
 
@@ -12,15 +18,25 @@
           <div class="col-sm-6" id="multipleUser" style="margin-right:">
             <h2>Inscribir alumnos a cursos</h2>
             <%= form_tag import_alumno_toma_cursos_path, multipart: true do %>
-              <%= file_field_tag :file, class: "inline"  %>
-              <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
+              <%if (@periodo_activo == -1)%>
+                <%= file_field_tag :file, class: "inline", disabled: true%>
+                <%= submit_tag "Importar", class: "btn btn-primary padd inline", disabled: true %>
+              <%else%>
+                <%= file_field_tag :file, class: "inline"  %>
+                <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
+              <%end%>
             <% end %>
           </div>
           <div class="col-sm-6" id="multipleUser">
             <h2>Importar cursos</h2>
             <%= form_tag import_cursos_path, multipart: true do %>
-              <%= file_field_tag :file, class: "inline"  %>
-              <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
+              <%if (@periodo_activo == -1)%>
+                <%= file_field_tag :file, class: "inline", disabled: true%>
+                <%= submit_tag "Importar", class: "btn btn-primary padd inline", disabled: true %>
+              <%else%>
+                <%= file_field_tag :file, class: "inline"  %>
+                <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
+              <%end%>
             <% end %>
           </div>
         </div>

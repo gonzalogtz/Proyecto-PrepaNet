@@ -2,10 +2,12 @@
 <%= render 'topsidebar/navsidebar' %>
 
 <div class="col-sm-6 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <%if (@periodo_activo == -1)%>
+    <div class="alert alert-danger" style="display: block">
+      <strong>Alerta. </strong> No hay ningún periodo activo, por lo que no podrás agregar usuarios.
+    </div>
+  <%end%>
   <h1 class="page-header titulo">Generar usuario</h1>
-  <div class="alert alert-danger alert-dismissable">
-    <a class="close alert_close" aria-label="close">&times;</a>
-  </div>
   
   <div id="table-cursos" class="" style="margin-top: 20px;">
     <div class="panel panel-primary">
@@ -82,7 +84,11 @@
           </div>
         </div>
         <div id="" >
-          <%= f.submit "Guardar Usuario", class:"btn btn-primary btn-lg btnSubmit btnPeriodo" %>
+          <%if (@periodo_activo == -1)%>
+            <%= f.submit "Guardar Usuario", class:"btn btn-primary btn-lg btnSubmit btnPeriodo", disabled: true %>
+          <%else%>
+            <%= f.submit "Guardar Usuario", class:"btn btn-primary btn-lg btnSubmit btnPeriodo" %>
+          <%end%>
         </div>
       <% end %>
     </div>

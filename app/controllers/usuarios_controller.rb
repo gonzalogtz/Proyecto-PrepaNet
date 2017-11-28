@@ -4,7 +4,8 @@ class UsuariosController < ApplicationController
   # GET /usuarios
   # GET /usuarios.json
   def index
-    @usuarios = Usuario.all
+    @usuarios = Usuario.all.order('cuenta')
+    @periodo_activo = get_periodo_activo()
   end
 
   def agregar
@@ -23,6 +24,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
+    @periodo_activo = get_periodo_activo()
   end
 
   # GET /usuarios/1/edit
@@ -37,7 +39,7 @@ class UsuariosController < ApplicationController
       #credenciales correctas
       if user[:contrasena] == params[:password] 
         #usuario correcto pero de periodo antiguo, coordinador nacional o de informatica el periodo no importa
-        if user.periodo != get_periodo_activo().id && user.rol != STR_ROL_COORDINADOR_PREPANET && user.rol != STR_ROL_COORDINADOR_INFORMATICA
+        if (user.rol != STR_ROL_COORDINADOR_PREPANET && user.rol != STR_ROL_COORDINADOR_INFORMATICA) && user.periodo != get_periodo_activo()
             response = {"tipo_error": 3}
         else
           set_credentials(user.nombres, user.cuenta, user.rol, user.campus)
@@ -64,7 +66,7 @@ class UsuariosController < ApplicationController
   # POST /usuarios.json
   def create
     @usuario = Usuario.new(usuario_params)
-    @usuario[:periodo] = get_periodo_activo().id
+    @usuario[:periodo] = get_periodo_activo()
 
     respond_to do |format|
       if @usuario.save

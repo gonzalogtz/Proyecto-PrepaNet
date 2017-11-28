@@ -5,7 +5,7 @@
     </div>
     
     <% get_tutores_encargados.each do |tutor| %>
-      <%= render 'tarjetas', tutor: tutor, periodo: get_periodo_activo().id%>
+      <%= render 'tarjetas', tutor: tutor, periodo: get_periodo_activo()%>
     <% end %>
     
     <div class="row">
