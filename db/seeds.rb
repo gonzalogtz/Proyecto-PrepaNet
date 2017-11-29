@@ -24,7 +24,7 @@ Usuario.create(cuenta: "T01", nomina_matricula: "A00000001", contrasena: "1", ca
 Usuario.create(cuenta: "T02", nomina_matricula: "A00000002", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Tutor", titulo: "", nombres: "Armando", apellido_p: "Galván", apellido_m: "Sánchez",
                 correo: "A00000002@itesm.mx", telefono: "8111111111", periodo: 1)
-Usuario.create(cuenta: "T03", nomina_matricula: "A00000003", contrasena: "1", campus: "Campus Monterrey",
+Usuario.create(cuenta: "T03", nomina_matricula: "A00000003", contrasena: "1", campus: "Campus Aguascalientes",
                 rol: "Tutor", titulo: "", nombres: "David", apellido_p: "Valles", apellido_m: "Sánchez",
                 correo: "A00000003@itesm.mx", telefono: "8111111111", periodo: 1)
                 
@@ -32,13 +32,16 @@ Usuario.create(cuenta: "T03", nomina_matricula: "A00000003", contrasena: "1", ca
 Usuario.create(cuenta: "T04", nomina_matricula: "A00000004", contrasena: "1", campus: "Campus Monterrey",
                 rol: "Coordinador de Tutores", titulo: "", nombres: "Ana Sofía", apellido_p: "Cantú", apellido_m: "Sánchez",
                 correo: "A00000004@itesm.mx", telefono: "8111111111", periodo: 1)
-Usuario.create(cuenta: "T05", nomina_matricula: "A00000008", contrasena: "1", campus: "Campus Monterrey",
+Usuario.create(cuenta: "T05", nomina_matricula: "A00000005", contrasena: "1", campus: "Campus Aguascalientes",
                 rol: "Coordinador de Tutores", titulo: "", nombres: "Natalia", apellido_p: "García", apellido_m: "García",
                 correo: "A00000008@itesm.mx", telefono: "8111111111", periodo: 1)
                 
 #################### coordinadores de campus ####################
-Usuario.create(cuenta: "T06", nomina_matricula: "L00000009", contrasena: "1", campus: "Campus Monterrey",
-                rol: "Coordinador Prepanet Campus", titulo: "", nombres: "David", apellido_p: "Garza", apellido_m: "Garza",
+Usuario.create(cuenta: "T06", nomina_matricula: "L00000006", contrasena: "1", campus: "Campus Monterrey",
+                rol: "Coordinador Prepanet Campus", titulo: "", nombres: "Ramiro", apellido_p: "Garza", apellido_m: "Garza",
+                correo: "A00000009@itesm.mx", telefono: "8111111111", periodo: 1)
+Usuario.create(cuenta: "T09", nomina_matricula: "L00000009", contrasena: "1", campus: "Campus Aguascalientes",
+                rol: "Coordinador Prepanet Campus", titulo: "", nombres: "Pedro", apellido_p: "Garza", apellido_m: "Garza",
                 correo: "A00000009@itesm.mx", telefono: "8111111111", periodo: 1)
                 
 #################### coordinador informatica ####################
@@ -64,6 +67,8 @@ Alumno.create(matricula: "A0000008", nombres: "Gabriel", apellido_p: "Gómez", a
                 telefono: "8111111111", correo: "A0000008@itesm.mx")
 Alumno.create(matricula: "A0000009", nombres: "Marcelo", apellido_p: "Lozano", apellido_m: "Madrigal", 
                 telefono: "8111111111", correo: "A0000009@itesm.mx")
+Alumno.create(matricula: "A0000010", nombres: "Juan", apellido_p: "Farías", apellido_m: "Garza", 
+                telefono: "8111111111", correo: "A0000010@itesm.mx")
                 
 #################### MATERIAS (NO USADA) ####################
 Materia.create(clave: "M00", nombre: "Matematicas I")
@@ -76,6 +81,7 @@ Curso.create(materia: "Matemáticas I", tutor: "T00", coordinador_tutores: "T04"
 Curso.create(materia: "Matemáticas II", tutor: "T00", coordinador_tutores: "T04", grupo: "PRN.PC4019L.1773.MTY.1", campus: "Campus Monterrey", periodo: 1)
 Curso.create(materia: "Matemáticas III", tutor: "T01", coordinador_tutores: "T04",  grupo: "PRN.PC4020L.1773.MTY.1", campus: "Campus Monterrey", periodo: 1)
 Curso.create(materia: "Matemáticas IV", tutor: "T02", coordinador_tutores: "T04",  grupo: "PRN.PC4021L.1773.MTY.1", campus: "Campus Monterrey", periodo: 1)
+Curso.create(materia: "Matemáticas IV", tutor: "T03", coordinador_tutores: "T05",  grupo: "PRN.PC4021L.1773.AGS.1", campus: "Campus Aguascalientes", periodo: 1)
 
 #################### RELACION ALUMNO - CURSO ####################
 AlumnoTomaCurso.create(alumno: "A0000004", curso: "PRN.PC4018L.1773.MTY.1")
@@ -85,6 +91,7 @@ AlumnoTomaCurso.create(alumno: "A0000006", curso: "PRN.PC4019L.1773.MTY.1")
 AlumnoTomaCurso.create(alumno: "A0000007", curso: "PRN.PC4019L.1773.MTY.1")
 AlumnoTomaCurso.create(alumno: "A0000008", curso: "PRN.PC4020L.1773.MTY.1")
 AlumnoTomaCurso.create(alumno: "A0000009", curso: "PRN.PC4021L.1773.MTY.1")
+AlumnoTomaCurso.create(alumno: "A0000010", curso: "PRN.PC4021L.1773.AGS.1")
 
 #################### REPORTES SEMANALES ####################
 for i in 1..15
