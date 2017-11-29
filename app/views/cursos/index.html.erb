@@ -13,9 +13,7 @@
       <center><h1>Agregar Cursos</h1></center>
     </div>
 
-      <div class="row" id="">
-        <div class="col-md-12"> 
-          <div class="col-sm-6" id="multipleUser" style="margin-right:">
+          <div id="multipleUser" class="topPart">
             <h2>Inscribir alumnos a cursos</h2>
             <%= link_to 'Descargar plantilla', 'plantilla_alumnos_cursos.csv', download: '' %>
             <%= form_tag import_alumno_toma_cursos_path, multipart: true do %>
@@ -28,21 +26,23 @@
               <%end%>
             <% end %>
           </div>
-          <div class="col-sm-6" id="multipleUser">
-            <h2>Importar cursos</h2>
-            <%= link_to 'Descargar plantilla', 'plantilla_cursos.csv', download: '' %>
-            <%= form_tag import_cursos_path, multipart: true do %>
-              <%if (@periodo_activo == -1)%>
-                <%= file_field_tag :file, class: "inline", disabled: true%>
-                <%= submit_tag "Importar", class: "btn btn-primary padd inline", disabled: true %>
-              <%else%>
-                <%= file_field_tag :file, class: "inline"  %>
-                <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
-              <%end%>
-            <% end %>
-          </div>
-        </div>
-      </div>
+       
+         
+            <div id="multipleUser">
+              <h2>Importar cursos</h2>
+              <%= link_to 'Descargar plantilla', 'plantilla_cursos.csv', download: '' %>
+              <%= form_tag import_cursos_path, multipart: true do %>
+                <%if (@periodo_activo == -1)%>
+                  <%= file_field_tag :file, class: "inline", disabled: true%>
+                  <%= submit_tag "Importar", class: "btn btn-primary padd inline", disabled: true %>
+                <%else%>
+                  <%= file_field_tag :file, class: "inline"  %>
+                  <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
+                <%end%>
+              <% end %>
+            </div>
+        
+          
     </div>
   </div>
 </div>
