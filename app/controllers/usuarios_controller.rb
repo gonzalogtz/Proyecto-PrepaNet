@@ -17,8 +17,8 @@ class UsuariosController < ApplicationController
   end
 
   def import
-    Usuario.import(params[:file])
-    redirect_to root_url, notice: "Usuarios importados."
+    summary = Usuario.import(params[:file])
+    render 'summary_import', locals: {summary: summary}
  end
 
   # GET /usuarios/new
@@ -33,7 +33,7 @@ class UsuariosController < ApplicationController
 
   def login
     response = {"tipo_error": 0}
-    user = Usuario.where('lower(cuenta) = ?', params[:user].downcase).first
+    user = Usuario.where('upper(cuenta) = ?', params[:user].upcase).first
     
     if user != nil
       #credenciales correctas
@@ -67,6 +67,7 @@ class UsuariosController < ApplicationController
   def create
     @usuario = Usuario.new(usuario_params)
     @usuario[:periodo] = get_periodo_activo()
+    @usuario[:cuenta] = @usuario[:cuenta].upcase
 
     respond_to do |format|
       if @usuario.save

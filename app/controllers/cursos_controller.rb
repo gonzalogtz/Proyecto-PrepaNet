@@ -20,7 +20,7 @@ class CursosController < ApplicationController
     end
 
     def import
-        Curso.import(params[:file])
-        redirect_to root_url, notice: "Cursos importados."
+        summary = Curso.import(params[:file])
+        render 'summary_import', locals: {summary: summary}
      end
 end

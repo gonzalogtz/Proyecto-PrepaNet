@@ -1,0 +1,15 @@
+<%= render 'topsidebar/navsidebar' %>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h2>Nuevos</h2>
+    <%summary["nuevos"].each do |grupo_nuevo|%>
+        <%=grupo_nuevo%>
+    <%end%>
+    <h2>Repetidos</h2>
+    <%summary["repetidos"].each do |grupo_repetidos|%>
+        <%=grupo_repetidos%>
+    <%end%>
+    <h2>Errores</h2>
+    <%summary["errores"].each do |grupo_error|%>
+        <%=grupo_error%>
+    <%end%>
+</div>

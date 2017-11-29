@@ -3,11 +3,11 @@ class Usuario < ApplicationRecord
 
     CSV_MAP = {
        'Cuenta' => 'cuenta',
-       'Nómina/Matrícula' => 'nomina_matricula' ,
-       'Contraseña' => 'contrasena',
+       'Nomina/Matricula' => 'nomina_matricula' ,
+       'Contrasena' => 'contrasena',
        'Campus' => 'campus', 
        'Rol' => 'rol',
-       'Título' => 'titulo',
+       'Titulo' => 'titulo',
        'Nombres' => 'nombres',
        'A.Paterno' => 'apellido_p',
        'A.Materno' => 'apellido_m',
@@ -17,6 +17,8 @@ class Usuario < ApplicationRecord
     }
 
     def self.import(file)
+        summary_hash = {"nuevos" => [], "editados" => []}
+        periodo_activo = Periodo.where(activo: 1).first.id
         CSV.foreach(file.path, headers:true, encoding: 'iso-8859-1:utf-8') do |row|
             user_hash = row.to_hash
 
@@ -24,14 +26,19 @@ class Usuario < ApplicationRecord
                 result[attribute_key] = row[csv_key]
             end
             
-            user = Usuario.where(cuenta: attributes["cuenta"])
-            attributes["periodo"] = Periodo.where(activo: 1).first.id
+            attributes["cuenta"] = attributes["cuenta"].upcase
+            user = Usuario.where('upper(cuenta) = ?', attributes["cuenta"])
+            attributes["periodo"] = periodo_activo
             
             if user.count == 1
+                summary_hash["editados"].push(attributes["cuenta"])
                 user.first.update_attributes(attributes)
             else
+                summary_hash["nuevos"].push(attributes["cuenta"])
                 Usuario.create!(attributes)
             end
         end
+        
+        return summary_hash
     end
 end
