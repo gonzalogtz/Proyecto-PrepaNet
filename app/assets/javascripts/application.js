@@ -326,7 +326,7 @@ $(document).on('turbolinks:load', function () {
                 }
             }
         })
-    } check_num_notificaciones()
+    } //check_num_notificaciones()
 
     function diferencia_fecha(fecha) {
         fecha_actual = new Date()

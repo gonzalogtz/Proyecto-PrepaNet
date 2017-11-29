@@ -171,15 +171,32 @@ class ReporteSemanalsController < ApplicationController
       
       html = ""
       if !@conglomerado_semanals_tutor
-        html = "<div class='boton_carousel_reporte'>C</div>"
+        html = "<div class='boton_carousel_reporte' data-toggle='tooltip' title='Promedio actual: " + get_promedio_actual(tutor_id, curso_id).to_s + "/10' data-placement='top'>F</div>"
       else
         html = "<div class='boton_carousel_reporte boton_carousel_reporte_activado' data-link='cong_" + @conglomerado_semanals_tutor.id.to_s + "' 
-        data-toggle='tooltip' title='" + @conglomerado_semanals_tutor.promedio.to_s + "/10' data-placement='top'>C</div>"
+        data-toggle='tooltip' title='" + @conglomerado_semanals_tutor.promedio.to_s + "/10' data-placement='top'>F</div>"
       end
       
       return html.html_safe
     end
     helper_method :get_conglomerado_semanals_button_by_tutor_and_curso
+    
+    def get_promedio_actual(tutor_id, curso_id)
+      reportes_semanales = ReporteSemanal.where(tutor: tutor_id, curso: curso_id)
+      
+      calif_arr = []
+      reportes_semanales.each do |reporte|
+          calif_arr.push(reporte.calificacion_total)
+      end
+      
+      if (calif_arr.length > 0)
+        promedio = calif_arr.sum.fdiv(calif_arr.size)
+      else
+        promedio = 0
+      end
+      
+      return promedio.ceil
+    end
     
     def get_conglomerado_semanals()
       return @conglomerado_semanals_tutor

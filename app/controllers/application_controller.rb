@@ -158,6 +158,17 @@ class ApplicationController < ActionController::Base
       return descripcion.descripcion
     end
     helper_method :get_descripcion_periodo
+    
+    def get_notificacion_icon()
+        num_notificaciones = Notificacion.where(usuario: CUENTA, leida: 0).count
+        
+        if num_notificaciones > 0
+            return "new_notification_icon.png"
+        else
+            return "notification_icon.png"
+        end
+	  end
+	  helper_method :get_notificacion_icon
   
     def user_is_logged_in()
       if (NOMBRE_USUARIO == "" && !current_page?("/"))
