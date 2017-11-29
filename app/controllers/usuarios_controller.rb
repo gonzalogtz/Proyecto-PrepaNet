@@ -126,7 +126,7 @@ class UsuariosController < ApplicationController
     
     def user_coordinador_informatica()
       if (ROL != STR_ROL_COORDINADOR_INFORMATICA)
-        redirect_to "/mainmenu"
+        redirect_to "/menuerror"
       end
     end
     helper_method :user_coordinador_informatica

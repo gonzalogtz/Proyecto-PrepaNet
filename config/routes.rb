@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   
   #Home page
   get 'mainmenu', to: 'mainmenututor#MenuTutor.html.erb'
+  get 'menuerror', to: 'mainmenututor#error.html.erb'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -100,7 +100,7 @@ class ReporteQuincenalsController < ApplicationController
         return true
       end
       
-      redirect_to "/mainmenu"
+      redirect_to "/menuerror"
     end
     helper_method :verify_show_access
     
