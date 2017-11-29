@@ -68,6 +68,7 @@
         </div>
         <div id="multipleUser">
           <h2>Importar archivo de usuarios</h2>
+          <%= link_to 'Descargar plantilla', 'plantilla_usuarios.csv', download: '' %>
           <%= form_tag import_usuarios_path, multipart: true do %>
             <%if (@periodo_activo == -1)%>
               <%= file_field_tag :file, class: "inline", disabled: true%>
