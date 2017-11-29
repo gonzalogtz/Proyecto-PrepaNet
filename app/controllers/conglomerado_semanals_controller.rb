@@ -63,6 +63,11 @@ class ConglomeradoSemanalsController < ApplicationController
       if @conglomerado_semanal.save
         mensaje = "<b>" + get_usuario_name_by_cuenta(@conglomerado_semanal[:coordinador_tutores]) + "</b> ha creado tu reporte <b>final</b> para <b>" + @conglomerado_semanal[:curso] + "</b>"
         Notificacion.crear_notificacion(@conglomerado_semanal[:tutor], mensaje, "/conglomerado_semanals/" + @conglomerado_semanal[:id].to_s)
+        
+        coordinador_campus = Usuario.select(:cuenta).where(campus: @conglomerado_semanal[:campus], rol: STR_ROL_COORDINADOR_CAMPUS).first
+        mensaje = "<b>" + get_usuario_name_by_cuenta(@conglomerado_semanal[:coordinador_tutores]) + "</b> ha creado el reporte <b>final</b> de <b>" + get_usuario_name_by_cuenta(@conglomerado_semanal[:tutor]) + "</b> para <b>" + @conglomerado_semanal[:curso] + "</b>"
+        Notificacion.crear_notificacion(coordinador_campus.cuenta, mensaje, "/conglomerado_semanals/" + @conglomerado_semanal[:id].to_s)
+        
         format.html { redirect_to conglomerado_semanal_url(@conglomerado_semanal), notice: 'Conglomerado semanal was successfully created.' }
         format.json { render :show, status: :created, location: @conglomerado_semanal }
       else

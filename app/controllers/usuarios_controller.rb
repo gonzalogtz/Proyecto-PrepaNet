@@ -61,6 +61,20 @@ class UsuariosController < ApplicationController
   def logout
     set_credentials("", "", "", "")
   end
+  
+  def valida_cuenta_disponible
+    user = Usuario.where('upper(cuenta) = ?', params[:cuenta].upcase).first
+    
+    if user
+      response = {"disponible": 0}
+    else
+      response = {"disponible": 1}
+    end
+
+    respond_to do |format|
+      format.js {render :json => response}
+    end
+  end
 
   # POST /usuarios
   # POST /usuarios.json

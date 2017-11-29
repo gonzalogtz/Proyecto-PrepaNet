@@ -249,6 +249,25 @@ $(document).on('turbolinks:load', function () {
             }
         })
     });
+    
+    $("#usuario_cuenta").change(function() {
+        $.ajax({
+            type: "GET",
+            url: "valida_cuenta_disponible",
+            dataType: "JSON",
+            data: { cuenta: $("#usuario_cuenta").val() },
+            success: function (result) {
+                if (result["disponible"] == 0) {
+                    $(".btnSubmit").attr("disabled", true);
+                    $("#cuenta_ocupada").show()
+                }
+                else if (result["disponible"] == 1){
+                    $(".btnSubmit").removeAttr("disabled");
+                    $("#cuenta_ocupada").hide()
+                }
+            }
+        })
+    });
 
     $("#userid, #password").focus(function () {
         $("#error_credenciales").hide();
