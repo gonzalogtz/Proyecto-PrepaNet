@@ -27,6 +27,7 @@ class Usuario < ApplicationRecord
             end
             
             attributes["cuenta"] = attributes["cuenta"].upcase
+            attributes["nomina_matricula"] = attributes["nomina_matricula"].upcase
             user = Usuario.where('upper(cuenta) = ?', attributes["cuenta"])
             attributes["periodo"] = periodo_activo
             

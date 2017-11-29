@@ -20,6 +20,8 @@ class Curso < ApplicationRecord
             end
             
             attributes["grupo"] = attributes["grupo"].upcase
+            attributes["tutor"] = attributes["tutor"].upcase
+            attributes["coordinador_tutores"] = attributes["coordinador_tutores"].upcase
             curso = Curso.where('upper(grupo) = ?', attributes["grupo"])
             attributes["periodo"] = periodo_activo
             
