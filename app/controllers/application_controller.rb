@@ -22,7 +22,12 @@ class ApplicationController < ActionController::Base
     
     def get_alumno_name_by_matricula(id)
       alumno = Alumno.select(:nombres, :apellido_p, :apellido_m).where(matricula: id).first
-      return alumno.nombres + " " + alumno.apellido_p + " " + alumno.apellido_m
+      
+      if alumno
+        return alumno.nombres + " " + alumno.apellido_p + " " + alumno.apellido_m
+      else
+        return "<b style='color: #C03A2B'>Alumno inexistente</b>".html_safe
+      end
     end
     helper_method :get_alumno_name_by_matricula
     
@@ -103,6 +108,17 @@ class ApplicationController < ActionController::Base
       return texto
     end
     helper_method :get_texto_header_curso
+    
+    def get_nombre_curso(curso)
+      curso = Curso.select(:materia).where(grupo: curso).first
+      
+      if curso
+        return curso.materia
+      else
+        return "<b style='color: #C03A2B'>Materia inexistente</b>".html_safe
+      end
+    end
+    helper_method :get_nombre_curso
     
     def get_num_grupo(clave_grupo)
       partes_grupo = clave_grupo.split('.')
