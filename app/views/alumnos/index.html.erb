@@ -10,13 +10,13 @@
     <div class="panel panel-primary">
 
     <div class="panel-heading">
-      <center><h1>Agregar Cursos</h1></center>
+      <center><h1>Agregar Alumnos</h1></center>
     </div>
     
           <div id="multipleUser" class="topPart">
-            <h2>Inscribir alumnos a cursos</h2>
+            <h2>Dar de alta alumnos al sistema.</h2>
             <%= link_to 'Descargar plantilla', 'plantilla_alumnos_cursos.csv', download: '' %>
-            <%= form_tag import_alumno_toma_cursos_path, multipart: true do %>
+            <%= form_tag alumnos_path, multipart: true do %>
               <%if (@periodo_activo == -1)%>
                 <%= file_field_tag :file, class: "inline", disabled: true%>
                 <%= submit_tag "Importar", class: "btn btn-primary padd inline", disabled: true %>
@@ -26,23 +26,6 @@
               <%end%>
             <% end %>
           </div>
-       
-         
-            <div id="multipleUser">
-              <h2>Importar cursos</h2>
-              <%= link_to 'Descargar plantilla', 'plantilla_cursos.csv', download: '' %>
-              <%= form_tag import_cursos_path, multipart: true do %>
-                <%if (@periodo_activo == -1)%>
-                  <%= file_field_tag :file, class: "inline", disabled: true%>
-                  <%= submit_tag "Importar", class: "btn btn-primary padd inline", disabled: true %>
-                <%else%>
-                  <%= file_field_tag :file, class: "inline"  %>
-                  <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
-                <%end%>
-              <% end %>
-            </div>
-        
-          
     </div>
   </div>
 </div>

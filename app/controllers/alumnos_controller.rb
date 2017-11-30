@@ -12,4 +12,10 @@ class AlumnosController < ApplicationController
             format.js {render :json => alumnos_arr}
         end
     end
+
+    def import
+        summary = Alumno.import(params[:file])
+        render 'summary_import', locals: {summary: summary}
+    end
+
 end

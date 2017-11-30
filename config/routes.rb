@@ -40,7 +40,11 @@ Rails.application.routes.draw do
   
   #Alumnos
   get 'get_alumnos_by_curso', to: 'alumnos#send_alumnos_by_curso'
-  
+  resources :alumnos do
+    collection { post :import }
+  end
+
+
   #Cursos
   get 'get_cursos_by_tutor', to: 'cursos#send_cursos_by_tutor'
   resources :cursos do
