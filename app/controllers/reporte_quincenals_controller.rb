@@ -5,9 +5,9 @@ class ReporteQuincenalsController < ApplicationController
   # GET /reporte_quincenals
   # GET /reporte_quincenals.json
   def index
-    if ROL == STR_ROL_COORDINADOR_TUTOR || ROL == STR_ROL_COORDINADOR_CAMPUS
+    if session[:rol] == STR_ROL_COORDINADOR_TUTOR || session[:rol] == STR_ROL_COORDINADOR_CAMPUS
       render "index_coordinador_tutor"
-    elsif ROL == STR_ROL_COORDINADOR_PREPANET || ROL == STR_ROL_COORDINADOR_INFORMATICA
+    elsif session[:rol] == STR_ROL_COORDINADOR_PREPANET || session[:rol] == STR_ROL_COORDINADOR_INFORMATICA
       render "index_coordinador_nacional"
     end
   end
@@ -88,15 +88,15 @@ class ReporteQuincenalsController < ApplicationController
 
   private
     def verify_show_access(reporte_quincenal)
-      if (ROL == STR_ROL_TUTOR && reporte_quincenal.tutor == CUENTA)
+      if (session[:rol] == STR_ROL_TUTOR && reporte_quincenal.tutor == session[:cuenta])
         return true
-      elsif (ROL == STR_ROL_COORDINADOR_TUTOR && reporte_quincenal.coordinador_tutores == CUENTA)
+      elsif (session[:rol] == STR_ROL_COORDINADOR_TUTOR && reporte_quincenal.coordinador_tutores == session[:cuenta])
         return true
-      elsif (ROL == STR_ROL_COORDINADOR_CAMPUS && reporte_quincenal.campus == CAMPUS)
+      elsif (session[:rol] == STR_ROL_COORDINADOR_CAMPUS && reporte_quincenal.campus == session[:campus])
         return true
-      elsif (ROL == STR_ROL_COORDINADOR_PREPANET)
+      elsif (session[:rol] == STR_ROL_COORDINADOR_PREPANET)
         return true
-      elsif (ROL == STR_ROL_COORDINADOR_INFORMATICA)
+      elsif (session[:rol] == STR_ROL_COORDINADOR_INFORMATICA)
         return true
       end
       

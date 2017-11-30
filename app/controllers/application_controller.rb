@@ -2,10 +2,6 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::UrlHelper
   protect_from_forgery with: :exception
 
-  NOMBRE_USUARIO = ""
-  CUENTA = ""
-  ROL = ""
-  CAMPUS = ""
   FORMATO_FECHA = "%-d/%-m/%Y"
   STR_ROL_TUTOR = "Tutor"
   STR_ROL_COORDINADOR_TUTOR = "Coordinador de Tutores"
@@ -37,7 +33,7 @@ class ApplicationController < ActionController::Base
     end
     helper_method :get_matricula_by_cuenta
     
-    def get_cursos_by_tutor(tutor_id = CUENTA, periodo = get_periodo_activo())
+    def get_cursos_by_tutor(tutor_id = session[:cuenta], periodo = get_periodo_activo())
       cursos = Curso.where(tutor: tutor_id, periodo: periodo).order('grupo')
       return cursos
     end
@@ -46,13 +42,13 @@ class ApplicationController < ActionController::Base
     def get_cursos_encargados()
       periodo_actual = get_periodo_activo()
       
-      if ROL == STR_ROL_TUTOR
-        cursos = Curso.where(tutor: CUENTA, periodo: periodo_actual)
-      elsif ROL == STR_ROL_COORDINADOR_TUTOR
-        cursos = Curso.where(coordinador_tutores: CUENTA, periodo: periodo_actual)
-      elsif ROL == STR_ROL_COORDINADOR_CAMPUS
-        cursos = Curso.where(campus: CAMPUS, periodo: periodo_actual)
-      elsif ROL == STR_ROL_COORDINADOR_INFORMATICA || ROL == STR_ROL_COORDINADOR_PREPANET
+      if session[:rol] == STR_ROL_TUTOR
+        cursos = Curso.where(tutor: session[:cuenta], periodo: periodo_actual)
+      elsif session[:rol] == STR_ROL_COORDINADOR_TUTOR
+        cursos = Curso.where(coordinador_tutores: session[:cuenta], periodo: periodo_actual)
+      elsif session[:rol] == STR_ROL_COORDINADOR_CAMPUS
+        cursos = Curso.where(campus: session[:campus], periodo: periodo_actual)
+      elsif session[:rol] == STR_ROL_COORDINADOR_INFORMATICA || session[:rol] == STR_ROL_COORDINADOR_PREPANET
         cursos = Curso.where(periodo: periodo_actual)
       end
       
@@ -69,11 +65,11 @@ class ApplicationController < ActionController::Base
     def get_tutores_encargados()
       periodo_actual = get_periodo_activo()
       
-      if ROL == STR_ROL_COORDINADOR_TUTOR
-        tutores = Curso.select("usuarios.cuenta, usuarios.nombres, usuarios.apellido_p, usuarios.apellido_m, usuarios.nomina_matricula").where(coordinador_tutores: CUENTA, periodo: periodo_actual).joins("INNER JOIN usuarios ON cursos.tutor = usuarios.cuenta").distinct
-      elsif ROL == STR_ROL_COORDINADOR_CAMPUS
-        tutores = Usuario.where(campus: CAMPUS, rol: STR_ROL_TUTOR, periodo: periodo_actual)
-      elsif ROL == STR_ROL_COORDINADOR_INFORMATICA || ROL == STR_ROL_COORDINADOR_PREPANET
+      if session[:rol] == STR_ROL_COORDINADOR_TUTOR
+        tutores = Curso.select("usuarios.cuenta, usuarios.nombres, usuarios.apellido_p, usuarios.apellido_m, usuarios.nomina_matricula").where(coordinador_tutores: session[:cuenta], periodo: periodo_actual).joins("INNER JOIN usuarios ON cursos.tutor = usuarios.cuenta").distinct
+      elsif session[:rol] == STR_ROL_COORDINADOR_CAMPUS
+        tutores = Usuario.where(campus: session[:campus], rol: STR_ROL_TUTOR, periodo: periodo_actual)
+      elsif session[:rol] == STR_ROL_COORDINADOR_INFORMATICA || session[:rol] == STR_ROL_COORDINADOR_PREPANET
         tutores = Usuario.where(periodo: periodo_actual, rol: STR_ROL_TUTOR)
       end
       
@@ -160,7 +156,7 @@ class ApplicationController < ActionController::Base
     helper_method :get_descripcion_periodo
     
     def get_notificacion_icon()
-        num_notificaciones = Notificacion.where(usuario: CUENTA, leida: 0).count
+        num_notificaciones = Notificacion.where(usuario: session[:cuenta], leida: 0).count
         
         if num_notificaciones > 0
             return "new_notification_icon.png"
@@ -171,13 +167,13 @@ class ApplicationController < ActionController::Base
 	  helper_method :get_notificacion_icon
   
     def user_is_logged_in()
-      if (NOMBRE_USUARIO == "" && !current_page?("/"))
+      if (!session[:nombre_usuario] && !current_page?("/"))
         redirect_to "/"
       end
     end
     
     def user_is_coordinador_informatica()
-      if (ROL != STR_ROL_COORDINADOR_INFORMATICA)
+      if (session[:rol] != STR_ROL_COORDINADOR_INFORMATICA)
         redirect_to "/menuerror"
       end
     end

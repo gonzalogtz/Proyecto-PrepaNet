@@ -125,7 +125,7 @@ class UsuariosController < ApplicationController
     end
     
     def user_coordinador_informatica()
-      if (ROL != STR_ROL_COORDINADOR_INFORMATICA)
+      if (session[:rol] != STR_ROL_COORDINADOR_INFORMATICA)
         redirect_to "/menuerror"
       end
     end
@@ -142,9 +142,9 @@ class UsuariosController < ApplicationController
     end
     
     def set_credentials(user, id, role, campus)
-      NOMBRE_USUARIO.replace user
-      CUENTA.replace id
-      ROL.replace role
-      CAMPUS.replace campus
+      session[:nombre_usuario] = user
+      session[:cuenta] = id
+      session[:rol] = role
+      session[:campus] = campus
     end
 end

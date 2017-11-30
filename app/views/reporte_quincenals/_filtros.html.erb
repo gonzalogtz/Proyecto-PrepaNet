@@ -1,9 +1,9 @@
 <div class='col-md-12'>
-    <% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_TUTOR || ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_CAMPUS%>
+    <% if session[:rol] == ApplicationController::STR_ROL_COORDINADOR_TUTOR || session[:rol] == ApplicationController::STR_ROL_COORDINADOR_CAMPUS%>
         <button type='button' id='toggle_expand_tutor' class='btn-sm btn-primary col-sm-2 filtro'>Colapsar tutores</button>
     <% end %>
 
-    <% if ApplicationController::ROL != ApplicationController::STR_ROL_COORDINADOR_PREPANET && ApplicationController::ROL != ApplicationController::STR_ROL_COORDINADOR_INFORMATICA %>
+    <% if session[:rol] != ApplicationController::STR_ROL_COORDINADOR_PREPANET && session[:rol] != ApplicationController::STR_ROL_COORDINADOR_INFORMATICA %>
         <button type='button' id='toggle_expand_grupo' class='btn-sm btn-primary col-sm-2 filtro'>Colapsar grupos</button>
     <% end %>
     
@@ -11,7 +11,7 @@
         <input type="text" class="form-control small_search_bar quincenal_page" placeholder="Palabras clave" id="search_bar">
     </div>
 
-    <% if ApplicationController::ROL != ApplicationController::STR_ROL_COORDINADOR_PREPANET && ApplicationController::ROL != ApplicationController::STR_ROL_COORDINADOR_INFORMATICA %>
+    <% if session[:rol] != ApplicationController::STR_ROL_COORDINADOR_PREPANET && session[:rol] != ApplicationController::STR_ROL_COORDINADOR_INFORMATICA %>
         <div class="input-group col-sm-2 filtro">
             <div class="input-group-btn">
                 <button class="btn btn-default unclickable_button" type="button">Estatus</button>
