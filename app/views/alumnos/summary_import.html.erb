@@ -1,13 +1,11 @@
 <%= render 'topsidebar/navsidebar' %>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <div class="alert alert-info" style="display: block">
-            <strong>Archivo csv leído exitosamente. </strong> (<%=summary["nuevos"].length%>) inscripciones nuevas, (<%=summary["repetidos"].length%>) inscripciones repetidas
-            y (<%=summary["errores"].length%>) inscripciones con error.
+            <strong>Archivo csv leído exitosamente. </strong> (<%=summary["nuevos"].length%>) inscripciones nuevas, (<%=summary["repetidos"].length%>) e inscripciones repetidas.
     </div>
     <ul class="nav nav-pills nav-justified">
         <li class="active"><a data-toggle="tab" href="#nuevos">Nuevas</a></li>
         <li><a data-toggle="tab" href="#repetidos">Repetidas</a></li>
-        <li><a data-toggle="tab" href="#errores">Errores</a></li>
     </ul>
   
     <div class="tab-content">
@@ -18,12 +16,14 @@
                     <thead class="table_head_custom">
                     <tr>
                         <th style="width:25%; text-align:center">Matrícula</th>
-                        <th style="width:25%; text-align:center">Alumno</th>
+                        <th style="width:25%; text-align:center">Nombre</th>
                     </tr>
                     </thead>
                     <tbody>
-                        <%summary["nuevos"].each do |grupo_nuevo|%>
+                        <%summary["nuevos"].each do |alumno_nuevo|%>
                             <tr>
+                            <td style="text-align:center"><%=alumno_nuevo%></td>
+                            <td style="text-align:center"><%=get_alumno_name_by_matricula(alumno_nuevo)%></td>
                             </tr>
                         <%end%>
                     </tbody>
@@ -37,32 +37,14 @@
                     <thead class="table_head_custom">
                     <tr>
                         <th style="width:25%; text-align:center">Matrícula</th>
-                        <th style="width:25%; text-align:center">Alumno</th>
+                        <th style="width:25%; text-align:center">Nombre</th>
                     </tr>
                     </thead>
                     <tbody>
-                        <%summary["repetidos"].each do |grupo_repetidos|%>
+                        <%summary["repetidos"].each do |alumno_repetidos|%>
                             <tr>
-                            </tr>
-                        <%end%>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div id="errores" class="tab-pane fade">
-            <center><h3>Inscripciones con error</h3></center>
-            <center><h5>Verificar error en el formato</h5></center>
-            <div class="table-responsive col-md-12">
-                <table class="table table-striped">
-                    <thead class="table_head_custom">
-                    <tr>
-                        <th style="width:25%; text-align:center">Matrícula</th>
-                        <th style="width:25%; text-align:center">Alumno</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <%summary["errores"].each do |grupo_error|%>
-                            <tr>
+                            <td style="text-align:center"><%=alumno_repetidos%></td>
+                            <td style="text-align:center"><%=get_alumno_name_by_matricula(alumno_repetidos)%></td>
                             </tr>
                         <%end%>
                     </tbody>
