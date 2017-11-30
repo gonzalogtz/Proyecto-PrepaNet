@@ -12,7 +12,6 @@ class Alumno < ApplicationRecord
     
         def self.import(file)
             summary_hash = {"nuevos" => [], "editados" => []}
-            periodo_activo = Periodo.where(activo: 1).first.id
             CSV.foreach(file.path, headers:true, encoding: 'iso-8859-1:utf-8') do |row|
                 user_hash = row.to_hash
     
@@ -22,7 +21,6 @@ class Alumno < ApplicationRecord
                 
                 attributes["matricula"] = attributes["matricula"].upcase
                 user = Alumno.where('upper(matricula) = ?', attributes["matricula"])
-                attributes["periodo"] = periodo_activo
                 
                 if user.count == 1
                     summary_hash["editados"].push(attributes["matricula"])
