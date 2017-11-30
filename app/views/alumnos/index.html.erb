@@ -1,0 +1,31 @@
+<%= render 'topsidebar/navsidebar' %>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <%if (@periodo_activo == -1)%>
+    <div class="alert alert-danger" style="display: block">
+      <strong>Alerta. </strong> No hay ningún periodo activo, por lo que no podrás agregar cursos.
+    </div>
+  <%end%>
+  
+  <div id="table-cursos">
+    <div class="panel panel-primary">
+
+    <div class="panel-heading">
+      <center><h1>Agregar Alumnos</h1></center>
+    </div>
+    
+          <div id="multipleUser" class="topPart">
+            <h2>Dar de alta alumnos al sistema.</h2>
+            <%= link_to 'Descargar plantilla', 'plantilla_alumnos_cursos.csv', download: '' %>
+            <%= form_tag alumnos_path, multipart: true do %>
+              <%if (@periodo_activo == -1)%>
+                <%= file_field_tag :file, class: "inline", disabled: true%>
+                <%= submit_tag "Importar", class: "btn btn-primary padd inline", disabled: true %>
+              <%else%>
+                <%= file_field_tag :file, class: "inline"  %>
+                <%= submit_tag "Importar", class: "btn btn-primary padd inline" %>
+              <%end%>
+            <% end %>
+          </div>
+    </div>
+  </div>
+</div>
