@@ -14,12 +14,12 @@
   <div class="tab-content">
     <% get_cursos_by_tutor().each do |curso| %>
       <div id="<%= curso.grupo.parameterize %>" class="tab-pane fade">
-        <%read_reporte_semanals_by_tutor_and_curso(ApplicationController::CUENTA, curso.grupo)%>
+        <%read_reporte_semanals_by_tutor_and_curso(session[:cuenta], curso.grupo)%>
         <div class="carousel_nav">
           <% (1..15).each do |i| %>
             <%=get_botones_reportes_semanales_carousel(i)%>
           <% end %>
-          <%=get_conglomerado_semanals_button_by_tutor_and_curso(ApplicationController::CUENTA, curso.grupo)%>
+          <%=get_conglomerado_semanals_button_by_tutor_and_curso(session[:cuenta], curso.grupo)%>
         </div>
         <div class='reporte_carousel_content'>
           <% get_reporte_semanals_by_tutor_and_curso().each do |reporte_semanal|%>

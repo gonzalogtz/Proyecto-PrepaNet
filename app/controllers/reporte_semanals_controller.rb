@@ -5,9 +5,9 @@ class ReporteSemanalsController < ApplicationController
   # GET /reporte_semanals
   # GET /reporte_semanals.json
   def index
-    if ROL == STR_ROL_TUTOR
+    if session[:rol] == STR_ROL_TUTOR
       render "index_tutor"
-    elsif ROL == STR_ROL_COORDINADOR_PREPANET || ROL == STR_ROL_COORDINADOR_INFORMATICA
+    elsif session[:rol] == STR_ROL_COORDINADOR_PREPANET || session[:rol] == STR_ROL_COORDINADOR_INFORMATICA
       render "index_coordinador_nacional"
     end
   end
@@ -95,15 +95,15 @@ class ReporteSemanalsController < ApplicationController
 
   private
     def verify_show_access(reporte_semanal)
-      if (ROL == STR_ROL_TUTOR && reporte_semanal.tutor == CUENTA)
+      if (session[:rol] == STR_ROL_TUTOR && reporte_semanal.tutor == session[:cuenta])
         return true
-      elsif (ROL == STR_ROL_COORDINADOR_TUTOR && reporte_semanal.coordinador_tutores == CUENTA)
+      elsif (session[:rol] == STR_ROL_COORDINADOR_TUTOR && reporte_semanal.coordinador_tutores == session[:cuenta])
         return true
-      elsif (ROL == STR_ROL_COORDINADOR_CAMPUS && reporte_semanal.campus == CAMPUS)
+      elsif (session[:rol] == STR_ROL_COORDINADOR_CAMPUS && reporte_semanal.campus == session[:campus])
         return true
-      elsif (ROL == STR_ROL_COORDINADOR_PREPANET)
+      elsif (session[:rol] == STR_ROL_COORDINADOR_PREPANET)
         return true
-      elsif (ROL == STR_ROL_COORDINADOR_INFORMATICA)
+      elsif (session[:rol] == STR_ROL_COORDINADOR_INFORMATICA)
         return true
       end
         
@@ -112,13 +112,13 @@ class ReporteSemanalsController < ApplicationController
     helper_method :verify_show_access
     
     def verify_edit_access(reporte_semanal)
-      if (ROL == STR_ROL_COORDINADOR_TUTOR && reporte_semanal.coordinador_tutores == CUENTA)
+      if (session[:rol] == STR_ROL_COORDINADOR_TUTOR && reporte_semanal.coordinador_tutores == session[:cuenta])
         return true
-      elsif (ROL == STR_ROL_COORDINADOR_CAMPUS && reporte_semanal.campus == CAMPUS)
+      elsif (session[:rol] == STR_ROL_COORDINADOR_CAMPUS && reporte_semanal.campus == session[:campus])
         return true
-      elsif (ROL == STR_ROL_COORDINADOR_PREPANET)
+      elsif (session[:rol] == STR_ROL_COORDINADOR_PREPANET)
         return true
-      elsif (ROL == STR_ROL_COORDINADOR_INFORMATICA)
+      elsif (session[:rol] == STR_ROL_COORDINADOR_INFORMATICA)
         return true
       end
         

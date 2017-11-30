@@ -1,28 +1,28 @@
 <%= render 'topsidebar/navsidebar' %>
 <div class=" introFraseTotal col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ">
-	<div><h3>Hola, <%=ApplicationController::NOMBRE_USUARIO%></h3></div>
+	<div><h3>Hola, <%=session[:nombre_usuario]%></h3></div>
 
-	<% if ApplicationController::ROL == ApplicationController::STR_ROL_TUTOR %>
+	<% if session[:rol] == ApplicationController::STR_ROL_TUTOR %>
 		<div>Como tutor, podrás realizar el seguimiento y los reportes de tus alumnos a través de este sitio. 
 		También, podrás ver tu propio desempeño como tutor a través de los reportes que tus coordinadores generan.</div>
 	<% end %>
 
-	<% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_TUTOR %>
+	<% if session[:rol] == ApplicationController::STR_ROL_COORDINADOR_TUTOR %>
 		<div>Como coordinador de tutores, podrás verificar el seguimiento de los alumnos encargados a tus tutores, 
 		así como generar reportes para calificar a estos últimos para reportar su desempeño.</div>
 	<% end %>
 
-	<% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_CAMPUS %>
+	<% if session[:rol] == ApplicationController::STR_ROL_COORDINADOR_CAMPUS %>
 		<div>Como coordinador de campus, podrás verificar el seguimiento de los alumnos de tu campus, 
 		así como seguir el desempeño de los tutores de tu campus.</div>
 	<% end %>
 
-	<% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_PREPANET %>
+	<% if session[:rol] == ApplicationController::STR_ROL_COORDINADOR_PREPANET %>
 		<div>Como coordinador nacional, podrás verificar el seguimiento de todos los alumnos de Prepanet, 
 		así como seguir el desempeño de todos los tutores.</div>
 	<% end %>
 
-	<% if ApplicationController::ROL == ApplicationController::STR_ROL_COORDINADOR_INFORMATICA %>
+	<% if session[:rol] == ApplicationController::STR_ROL_COORDINADOR_INFORMATICA %>
 		<div>Como coordinador de informática, podrás verificar el seguimiento de todos los alumnos de Prepanet, 
 		así como seguir el desempeño de todos los tutores. También, podrás dar de alta usuarios y cursos, así como activar periodos acádemicos.</div>
 	<% end %>
