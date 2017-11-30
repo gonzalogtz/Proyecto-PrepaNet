@@ -1,11 +1,11 @@
 <%= render 'topsidebar/navsidebar' %>
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <div class="panel-heading">
-      <h1 class="page-header">Reportes Semanales</h1>
+      <h1 class="page-header">Reportes semanales</h1>
     </div>
     
     <% get_tutores_encargados.each do |tutor| %>
-      <%= render 'tarjetas', tutor: tutor, periodo: get_periodo_activo().id%>
+      <%= render 'tarjetas', tutor: tutor, periodo: get_periodo_activo()%>
     <% end %>
     
     <div class="row">

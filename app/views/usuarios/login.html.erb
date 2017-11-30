@@ -35,13 +35,12 @@
             <p class="descripcion_sistema">Sistema de Seguimiento y Monitoreo de Tutores</p>
 
             <div class="form-signin">
-              <h2 class="form-signin-heading">Iniciar Sesión</h2>
               <%= text_field_tag :userid, "", class: "form-control", placeholder: "Cuenta", required: true %>
               <br>
               <%= password_field_tag :password, "", class: "form-control", placeholder: "Contraseña", required: true  %>
               <p id="error_credenciales"></p>
               <br>
-              <%= submit_tag "Iniciar Sesión", class: "btn btn-lg btn-default btn-block", id: "login_button" %>
+              <%= submit_tag "Iniciar sesión", class: "btn btn-lg btn-default btn-block", id: "login_button" %>
             </div>
 
           </div>

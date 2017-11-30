@@ -22,7 +22,12 @@ class ApplicationController < ActionController::Base
     
     def get_alumno_name_by_matricula(id)
       alumno = Alumno.select(:nombres, :apellido_p, :apellido_m).where(matricula: id).first
-      return alumno.nombres + " " + alumno.apellido_p + " " + alumno.apellido_m
+      
+      if alumno
+        return alumno.nombres + " " + alumno.apellido_p + " " + alumno.apellido_m
+      else
+        return "<b style='color: #C03A2B'>Alumno inexistente</b>".html_safe
+      end
     end
     helper_method :get_alumno_name_by_matricula
     
@@ -32,7 +37,7 @@ class ApplicationController < ActionController::Base
     end
     helper_method :get_matricula_by_cuenta
     
-    def get_cursos_by_tutor(tutor_id = CUENTA, periodo = get_periodo_activo().id)
+    def get_cursos_by_tutor(tutor_id = CUENTA, periodo = get_periodo_activo())
       cursos = Curso.where(tutor: tutor_id, periodo: periodo).order('grupo')
       return cursos
     end
@@ -42,13 +47,13 @@ class ApplicationController < ActionController::Base
       periodo_actual = get_periodo_activo()
       
       if ROL == STR_ROL_TUTOR
-        cursos = Curso.where(tutor: CUENTA, periodo: periodo_actual.id)
+        cursos = Curso.where(tutor: CUENTA, periodo: periodo_actual)
       elsif ROL == STR_ROL_COORDINADOR_TUTOR
-        cursos = Curso.where(coordinador_tutores: CUENTA, periodo: periodo_actual.id)
+        cursos = Curso.where(coordinador_tutores: CUENTA, periodo: periodo_actual)
       elsif ROL == STR_ROL_COORDINADOR_CAMPUS
-        cursos = Curso.where(campus: CAMPUS, periodo: periodo_actual.id)
+        cursos = Curso.where(campus: CAMPUS, periodo: periodo_actual)
       elsif ROL == STR_ROL_COORDINADOR_INFORMATICA || ROL == STR_ROL_COORDINADOR_PREPANET
-        cursos = Curso.where(periodo: periodo_actual.id)
+        cursos = Curso.where(periodo: periodo_actual)
       end
       
       return cursos.order('grupo')
@@ -57,7 +62,7 @@ class ApplicationController < ActionController::Base
 
     def get_alumnos_by_curso(curso_id)
       alumnos = AlumnoTomaCurso.select("*").where(curso: curso_id).joins("INNER JOIN alumnos ON alumno_toma_cursos.alumno = alumnos.matricula")
-      return alumnos
+      return alumnos.order('matricula')
     end
     helper_method :get_alumnos_by_curso
     
@@ -65,11 +70,11 @@ class ApplicationController < ActionController::Base
       periodo_actual = get_periodo_activo()
       
       if ROL == STR_ROL_COORDINADOR_TUTOR
-        tutores = Curso.select("usuarios.cuenta, usuarios.nombres, usuarios.apellido_p, usuarios.apellido_m, usuarios.nomina_matricula").where(coordinador_tutores: CUENTA, periodo: periodo_actual.id).joins("INNER JOIN usuarios ON cursos.tutor = usuarios.cuenta").distinct
+        tutores = Curso.select("usuarios.cuenta, usuarios.nombres, usuarios.apellido_p, usuarios.apellido_m, usuarios.nomina_matricula").where(coordinador_tutores: CUENTA, periodo: periodo_actual).joins("INNER JOIN usuarios ON cursos.tutor = usuarios.cuenta").distinct
       elsif ROL == STR_ROL_COORDINADOR_CAMPUS
         tutores = Usuario.where(campus: CAMPUS, rol: STR_ROL_TUTOR, periodo: periodo_actual)
       elsif ROL == STR_ROL_COORDINADOR_INFORMATICA || ROL == STR_ROL_COORDINADOR_PREPANET
-        tutores = Usuario.where(periodo: periodo_actual.id, rol: STR_ROL_TUTOR)
+        tutores = Usuario.where(periodo: periodo_actual, rol: STR_ROL_TUTOR)
       end
       
       return tutores.order('cuenta')
@@ -78,7 +83,7 @@ class ApplicationController < ActionController::Base
     
     def get_tutores_by_campus(campus_id, periodo)
       tutores = Usuario.where(campus: campus_id, rol: STR_ROL_TUTOR, periodo: periodo)
-      return tutores
+      return tutores.order('cuenta')
     end
     helper_method :get_tutores_by_campus
     
@@ -104,6 +109,17 @@ class ApplicationController < ActionController::Base
     end
     helper_method :get_texto_header_curso
     
+    def get_nombre_curso(curso)
+      curso = Curso.select(:materia).where(grupo: curso).first
+      
+      if curso
+        return curso.materia
+      else
+        return "<b style='color: #C03A2B'>Materia inexistente</b>".html_safe
+      end
+    end
+    helper_method :get_nombre_curso
+    
     def get_num_grupo(clave_grupo)
       partes_grupo = clave_grupo.split('.')
       return partes_grupo[-1]
@@ -111,27 +127,48 @@ class ApplicationController < ActionController::Base
     
     def get_campus(periodo_id)
       campus = Curso.select('DISTINCT campus').where(periodo: periodo_id)
-      return campus
+      return campus.order('campus')
     end
     helper_method :get_campus
     
     def get_periodos()
       #orden: primero el activo, después antiguos en orden de calendario
-      periodos = Periodo.select(:descripcion, :id).all.order('activo desc, inicio_periodo')
-      return periodos
+      periodos = Periodo.select(:descripcion, :id).all
+      return periodos.order('activo desc, inicio_periodo')
     end
     helper_method :get_periodos
     
     def get_periodo_activo()
       periodo_actual = Periodo.where(activo: 1).first
+      
+      if !periodo_actual
+        return -1
+      else
+        return periodo_actual.id
+      end
     end
     helper_method :get_periodo_activo
     
     def get_descripcion_periodo(periodo_id)
+      if periodo_id == -1
+        return "Sin periodo"
+      end
+      
       descripcion = Periodo.find(periodo_id)
       return descripcion.descripcion
     end
     helper_method :get_descripcion_periodo
+    
+    def get_notificacion_icon()
+        num_notificaciones = Notificacion.where(usuario: CUENTA, leida: 0).count
+        
+        if num_notificaciones > 0
+            return "new_notification_icon.png"
+        else
+            return "notification_icon.png"
+        end
+	  end
+	  helper_method :get_notificacion_icon
   
     def user_is_logged_in()
       if (NOMBRE_USUARIO == "" && !current_page?("/"))
@@ -141,7 +178,7 @@ class ApplicationController < ActionController::Base
     
     def user_is_coordinador_informatica()
       if (ROL != STR_ROL_COORDINADOR_INFORMATICA)
-        redirect_to "/mainmenu"
+        redirect_to "/menuerror"
       end
     end
     helper_method :user_is_coordinador_informatica

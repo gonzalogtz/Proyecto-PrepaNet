@@ -123,3 +123,7 @@
 .data_table {
 	min-height: 170px;
 }
+
+.unclickable_button:hover {
+	cursor: default;
+}

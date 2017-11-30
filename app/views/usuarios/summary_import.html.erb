@@ -1,0 +1,55 @@
+<%= render 'topsidebar/navsidebar' %>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="alert alert-info" style="display: block">
+            <strong>Archivo csv leído exitosamente. </strong> (<%=summary["nuevos"].length%>) usuarios nuevos y (<%=summary["editados"].length%>) usuarios editados.
+    </div>
+    <ul class="nav nav-pills nav-justified">
+        <li class="active"><a data-toggle="tab" href="#nuevos">Nuevos</a></li>
+        <li><a data-toggle="tab" href="#editados">Editados</a></li>
+    </ul>
+    
+    <div class="tab-content">
+        <div id="nuevos" class="tab-pane fade in active">
+            <center><h3>Usuarios nuevos</h3></center>
+            <div class="table-responsive col-md-12">
+                <table class="table table-striped">
+                    <thead class="table_head_custom">
+                    <tr>
+                        <th style="width:50%; text-align:center">Cuenta</th>
+                        <th style="width:50%; text-align:center">Nombre</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <%summary["nuevos"].each do |usuario_nuevo|%>
+                            <tr>
+                                <td style="text-align:center"><%=usuario_nuevo%></td>
+                                <td style="text-align:center"><%=get_usuario_name_by_cuenta(usuario_nuevo)%></td>
+                            </tr>
+                        <%end%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="editados" class="tab-pane fade">
+            <center><h3>Usuarios editados</h3></center>
+            <div class="table-responsive col-md-12">
+                <table class="table table-striped">
+                    <thead class="table_head_custom">
+                    <tr>
+                        <th style="width:50%; text-align:center">Cuenta</th>
+                        <th style="width:50%; text-align:center">Nombre</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <%summary["editados"].each do |usuario_editado|%>
+                            <tr>
+                                <td style="text-align:center"><%=usuario_editado%></td>
+                                <td style="text-align:center"><%=get_usuario_name_by_cuenta(usuario_editado)%></td>
+                            </tr>
+                        <%end%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

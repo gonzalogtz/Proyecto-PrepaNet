@@ -1,6 +1,6 @@
 <% get_cursos_by_tutor(tutor, periodo).each do |curso| %>
     <div>
-        <h3 class="reportes_header" id='<%=curso.grupo%>'><span><img class='arrow_icon' src="expand_arrow.png"></span><%=get_texto_header_curso(curso)%></h3>
+        <h3 class="reportes_header" id='<%=curso.grupo%>'><span><img class='arrow_icon' src="collapse_arrow.png"></span><%=get_texto_header_curso(curso)%></h3>
         <div class='reportes_content open reportes_curso_content padding_inside col-md-12'>
             <% get_alumnos_by_curso(curso.grupo).each do |alumno| %>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 tarjeta_col">

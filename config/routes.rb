@@ -7,11 +7,10 @@ Rails.application.routes.draw do
   post 'submit_login', to: 'usuarios#login', as: :submit_login
   get 'logout', to: 'usuarios#logout'
   get 'usuarios/agregar', to: "usuarios#agregar"
+  get 'usuarios/valida_cuenta_disponible', to: "usuarios#valida_cuenta_disponible"
   resources :usuarios do
     collection { post :import }
   end
-
-
 
   #Reporte quincenal
   resources :reporte_quincenals
@@ -41,7 +40,11 @@ Rails.application.routes.draw do
   
   #Alumnos
   get 'get_alumnos_by_curso', to: 'alumnos#send_alumnos_by_curso'
-  
+  resources :alumnos do
+    collection { post :import }
+  end
+
+
   #Cursos
   get 'get_cursos_by_tutor', to: 'cursos#send_cursos_by_tutor'
   resources :cursos do
@@ -55,6 +58,7 @@ Rails.application.routes.draw do
   
   #Home page
   get 'mainmenu', to: 'mainmenututor#MenuTutor.html.erb'
+  get 'menuerror', to: 'mainmenututor#error.html.erb'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

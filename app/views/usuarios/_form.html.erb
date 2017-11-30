@@ -2,10 +2,16 @@
 <%= render 'topsidebar/navsidebar' %>
 
 <div class="col-sm-6 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h1 class="page-header titulo">Generar Usuario</h1>
-  <div class="alert alert-danger alert-dismissable">
+  <%if (@periodo_activo == -1)%>
+    <div class="alert alert-danger" style="display: block">
+      <strong>Alerta. </strong> No hay ningún periodo activo, por lo que no podrás agregar usuarios.
+    </div>
+  <%end%>
+  <div class="alert alert-danger alert-dismissable" id="cuenta_ocupada">
     <a class="close alert_close" aria-label="close">&times;</a>
+      <strong>Alerta. </strong> Esta cuenta ya existe.
   </div>
+  <h1 class="page-header titulo">Generar usuario</h1>
   
   <div id="table-cursos" class="" style="margin-top: 20px;">
     <div class="panel panel-primary">
@@ -30,69 +36,63 @@
         <div class="col-sm-5 margin-bottom margin-top">
           <div class="field">
             <%= f.label :nombres %>
-            <%= f.text_field :nombres,class:"form-control" %>
+            <%= f.text_field :nombres, class:"form-control", required: true%>
           </div>
 
           <div class="field">
             <%= f.label :apellido_paterno %>
-            <%= f.text_field :apellido_p,class:"form-control" %>
+            <%= f.text_field :apellido_p, class:"form-control", required: true%>
           </div>
 
           <div class="field">
             <%= f.label :apellido_Materno %>
-            <%= f.text_field :apellido_m,class:"form-control" %>
+            <%= f.text_field :apellido_m, class:"form-control", required: true%>
           </div>
 
           <div class="field">
-            <%= f.label :correo %>
-            <%= f.text_field :correo,class:"form-control" %>
+            <%= f.label "Correo electrónico" %>
+            <%= f.text_field :correo, class:"form-control", required: true%>
           </div>
 
           <div class="field">
-            <%= f.label :telefono %>
-            <%= f.text_field :telefono,class:"form-control" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :periodo %>
-            <%= f.text_field :periodo,class:"form-control" %>
+            <%= f.label "Teléfono" %>
+            <%= f.text_field :telefono, class:"form-control", required: true%>
           </div>
         </div>
         
         <div class="col-sm-5 margin-bottom margin-top">
           <div class="field">
             <%= f.label :cuenta %>
-            <%= f.text_field :cuenta, class:"form-control"%>
+            <%= f.text_field :cuenta, class:"form-control", required: true%>
           </div>
           
           <div class="field">
-            <%= f.label :nomina_matricula %>
-            <%= f.text_field :nomina_matricula,class:"form-control" %>
+            <%= f.label "Nómina/Matrícula" %>
+            <%= f.text_field :nomina_matricula, class:"form-control", required: true%>
           </div>
           
           <div class="field">
-            <%= f.label :contrasena %>
-            <%= f.text_field :contrasena,class:"form-control" %>
+            <%= f.label "Contraseña" %>
+            <%= f.text_field :contrasena, class:"form-control", required: true%>
           </div>
           
           <div class="field">
             <%= f.label :campus %>
-            <%= f.text_field :campus,class:"form-control" %>
-          </div>
-          
-          <div class="field">
-            <%= f.label :titulo %>
-            <%= f.text_field :titulo, class:"form-control" %>
+            <%= f.text_field :campus, class:"form-control", required: true%>
           </div>
           
           <div class="field">
             <%= f.label :rol %>
             <br>
-            <%= f.select(:rol, options_for_select([[ApplicationController::STR_ROL_TUTOR], [ApplicationController::STR_ROL_COORDINADOR_TUTOR], [ApplicationController::STR_ROL_TUTOR_STAFF], [ApplicationController::STR_ROL_COORDINADOR_CAMPUS], [ApplicationController::STR_ROL_COORDINADOR_PREPANET], [ApplicationController::STR_ROL_COORDINADOR_INFORMATICA]]),{},{class: "form-control"}) %>
+            <%= f.select(:rol, options_for_select([[ApplicationController::STR_ROL_TUTOR], [ApplicationController::STR_ROL_COORDINADOR_TUTOR], [ApplicationController::STR_ROL_COORDINADOR_CAMPUS], [ApplicationController::STR_ROL_COORDINADOR_PREPANET], [ApplicationController::STR_ROL_COORDINADOR_INFORMATICA]],f.object.rol),{},{class: "form-control"}) %>
           </div>
         </div>
         <div id="" >
-          <%= f.submit "Guardar Usuario", class:"btn btn-primary btn-lg btnSubmit btnPeriodo" %>
+          <%if (@periodo_activo == -1)%>
+            <%= f.submit "Guardar usuario", class:"btn btn-primary btn-lg btnSubmit btnPeriodo", disabled: true %>
+          <%else%>
+            <%= f.submit "Guardar usuario", class:"btn btn-primary btn-lg btnSubmit btnPeriodo" %>
+          <%end%>
         </div>
       <% end %>
     </div>

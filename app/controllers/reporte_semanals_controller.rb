@@ -40,9 +40,8 @@ class ReporteSemanalsController < ApplicationController
     
     respond_to do |format|
       if @reporte_semanal.save
-        mensaje_notificacion = "Tu coordinador de tutores ha creado tu reporte correspondiente a la semana " + @reporte_semanal[:semana].to_s
-        notificacion = Notificacion.new(usuario: @reporte_semanal[:tutor], mensaje: mensaje_notificacion, liga: "/reporte_semanals/" + @reporte_semanal[:id].to_s, leida: 0)
-        notificacion.save
+        mensaje = "<b>" + get_usuario_name_by_cuenta(@reporte_semanal[:coordinador_tutores]) + "</b> ha creado tu reporte de la semana <b>" + @reporte_semanal[:semana].to_s + "</b> para <b>" + @reporte_semanal[:curso] + "</b>"
+        Notificacion.crear_notificacion(@reporte_semanal[:tutor], mensaje, "/reporte_semanals/" + @reporte_semanal[:id].to_s)
         format.html { redirect_to reporte_semanals_path, notice: 'Reporte semanal was successfully created.' }
         format.json { render :show, status: :created, location: @reporte_semanal }
       else
@@ -108,7 +107,7 @@ class ReporteSemanalsController < ApplicationController
         return true
       end
         
-      redirect_to "/mainmenu"
+      redirect_to "/menuerror"
     end
     helper_method :verify_show_access
     
@@ -123,7 +122,7 @@ class ReporteSemanalsController < ApplicationController
         return true
       end
         
-      redirect_to "/mainmenu"
+      redirect_to "/menuerror"
     end
     helper_method :verify_edit_access
     
@@ -172,7 +171,7 @@ class ReporteSemanalsController < ApplicationController
       
       html = ""
       if !@conglomerado_semanals_tutor
-        html = "<div class='boton_carousel_reporte'>C</div>"
+        html = "<div class='boton_carousel_reporte' data-toggle='tooltip' title='Promedio actual: " + get_promedio_actual(tutor_id, curso_id).to_s + "/10' data-placement='top'>F</div>"
       else
         html = "<div class='boton_carousel_reporte boton_carousel_reporte_activado' data-link='cong_" + @conglomerado_semanals_tutor.id.to_s + "' 
         data-toggle='tooltip' title='" + @conglomerado_semanals_tutor.promedio.to_s + "/10' data-placement='top'>F</div>"
@@ -181,6 +180,23 @@ class ReporteSemanalsController < ApplicationController
       return html.html_safe
     end
     helper_method :get_conglomerado_semanals_button_by_tutor_and_curso
+    
+    def get_promedio_actual(tutor_id, curso_id)
+      reportes_semanales = ReporteSemanal.where(tutor: tutor_id, curso: curso_id)
+      
+      calif_arr = []
+      reportes_semanales.each do |reporte|
+          calif_arr.push(reporte.calificacion_total)
+      end
+      
+      if (calif_arr.length > 0)
+        promedio = calif_arr.sum.fdiv(calif_arr.size)
+      else
+        promedio = 0
+      end
+      
+      return promedio.ceil
+    end
     
     def get_conglomerado_semanals()
       return @conglomerado_semanals_tutor

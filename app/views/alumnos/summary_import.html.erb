@@ -1,0 +1,55 @@
+<%= render 'topsidebar/navsidebar' %>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="alert alert-info" style="display: block">
+            <strong>Archivo csv leído exitosamente. </strong> (<%=summary["nuevos"].length%>) alumnos nuevos, (<%=summary["repetidos"].length%>) alumnos editados.
+    </div>
+    <ul class="nav nav-pills nav-justified">
+        <li class="active"><a data-toggle="tab" href="#nuevos">Nuevos</a></li>
+        <li><a data-toggle="tab" href="#repetidos">Editados</a></li>
+    </ul>
+  
+    <div class="tab-content">
+        <div id="nuevos" class="tab-pane fade in active">
+            <center><h3>Alumnos nuevos</h3></center>
+            <div class="table-responsive col-md-12">
+                <table class="table table-striped">
+                    <thead class="table_head_custom">
+                    <tr>
+                        <th style="width:25%; text-align:center">Matrícula</th>
+                        <th style="width:25%; text-align:center">Nombre</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <%summary["nuevos"].each do |alumno_nuevo|%>
+                            <tr>
+                            <td style="text-align:center"><%=alumno_nuevo%></td>
+                            <td style="text-align:center"><%=get_alumno_name_by_matricula(alumno_nuevo)%></td>
+                            </tr>
+                        <%end%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="repetidos" class="tab-pane fade">
+            <center><h3>Alumnos editados</h3></center>
+            <div class="table-responsive col-md-12">
+                <table class="table table-striped">
+                    <thead class="table_head_custom">
+                    <tr>
+                        <th style="width:25%; text-align:center">Matrícula</th>
+                        <th style="width:25%; text-align:center">Nombre</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <%summary["repetidos"].each do |alumno_repetidos|%>
+                            <tr>
+                            <td style="text-align:center"><%=alumno_repetidos%></td>
+                            <td style="text-align:center"><%=get_alumno_name_by_matricula(alumno_repetidos)%></td>
+                            </tr>
+                        <%end%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
