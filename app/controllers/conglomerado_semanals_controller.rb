@@ -36,18 +36,7 @@ class ConglomeradoSemanalsController < ApplicationController
     @conglomerado_semanal[:coordinador_tutores] =  info_curso.coordinador_tutores
     @conglomerado_semanal[:campus] =  info_curso.campus
 
-    # Variables calculadas a partir de los reportes semanales
-    reportes_semanales = ReporteSemanal.where(tutor: @conglomerado_semanal[:tutor], curso: @conglomerado_semanal[:curso]).order('semana').take(15)
-    
-    #Se leen las 15 calificaciones de los reportes semanales
-    calif_arr = []
-    reportes_semanales.each do |reporte|
-        calif_arr.push(reporte.calificacion_total)
-    end
-      
-    @conglomerado_semanal[:calificaciones_semanales] = calif_arr.to_json()
-    @conglomerado_semanal[:promedio] = calif_arr.sum.fdiv(calif_arr.size)
-    @conglomerado_semanal[:horas_desempeno_semanal] =  (@conglomerado_semanal[:promedio]*7.5).ceil
+    @conglomerado_semanal.calcular_datos_semanal()
     
     reportes_quincenals_count = ReporteQuincenal.where(tutor: @conglomerado_semanal[:tutor], curso: @conglomerado_semanal[:curso]).count
     alumnos_count = Curso.select("*").where(tutor: @conglomerado_semanal[:tutor], grupo: @conglomerado_semanal[:curso]).joins("INNER JOIN alumno_toma_cursos ON alumno_toma_cursos.curso = cursos.grupo").count
@@ -57,7 +46,7 @@ class ConglomeradoSemanalsController < ApplicationController
       @conglomerado_semanal[:horas_reportes] = 0
     end
     
-    @conglomerado_semanal[:total_horas] =  @conglomerado_semanal[:horas_desempeno_semanal] + @conglomerado_semanal[:horas_reportes]
+    @conglomerado_semanal.calcular_horas()
 
     respond_to do |format|
       if @conglomerado_semanal.save

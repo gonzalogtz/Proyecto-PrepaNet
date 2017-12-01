@@ -2,7 +2,7 @@
 <%= render 'topsidebar/navsidebar' %>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <center><h3>Usuarios activos</h3></center>
+  <center><h3>Usuarios</h3></center>
   <div class="col-md-12">
     <div class="form-group col-md-offset-9 col-sm-3 filtro">
       <input type="text" class="form-control small_search_bar" placeholder="Palabras clave" id="search_bar">
@@ -59,11 +59,11 @@
           </div>
         <%end%>
         <div id="singleUser">
-          <h2>Agregar un usuario</h2>
+          <h2>Agregar un solo usuario</h2>
           <%if (@periodo_activo == -1)%>
-            <%= link_to 'Agregar usuario', usuarios_path, class: "btn btn-primary", disabled: true%>
+            <%= link_to 'Llenar datos', usuarios_path, class: "btn btn-primary", disabled: true%>
           <%else%>
-            <%= link_to 'Agregar usuario', new_usuario_path, class: "btn btn-primary "%>
+            <%= link_to 'Llenar datos', new_usuario_path, class: "btn btn-primary "%>
           <%end%>
         </div>
         <div id="multipleUser">
