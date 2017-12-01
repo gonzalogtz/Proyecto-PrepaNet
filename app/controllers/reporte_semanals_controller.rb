@@ -36,7 +36,7 @@ class ReporteSemanalsController < ApplicationController
     @reporte_semanal[:periodo] = info_curso.periodo
     @reporte_semanal[:campus] = info_curso.campus
     
-    @reporte_semanal[:calificacion_total] = get_calif_total(@reporte_semanal)
+    @reporte_semanal.calcular_calif_total()
     
     respond_to do |format|
       if @reporte_semanal.save
@@ -54,8 +54,19 @@ class ReporteSemanalsController < ApplicationController
   # PATCH/PUT /reporte_semanals/1
   # PATCH/PUT /reporte_semanals/1.json
   def update
+    @reporte_semanal.update(reporte_semanal_params)
+    @reporte_semanal.calcular_calif_total()
     respond_to do |format|
-      if(@reporte_semanal.update(reporte_semanal_params) && @reporte_semanal.update_attribute(:calificacion_total, get_calif_total(@reporte_semanal)))
+      if @reporte_semanal.save
+        
+        # actualizar calificacion/horas si ya hay un conglomerado
+        conglomerado = ConglomeradoSemanal.where(tutor: @reporte_semanal[:tutor], curso: @reporte_semanal[:curso]).first
+        if conglomerado != nil
+          conglomerado.calcular_datos_semanal()
+          conglomerado.calcular_horas()
+          conglomerado.save
+        end
+        
         format.html { redirect_to reporte_semanal_url(@reporte_semanal), notice: 'Reporte semanal was successfully updated.' }
         format.json { render :show, status: :ok, location: @reporte_semanal }
       else
@@ -213,10 +224,4 @@ class ReporteSemanalsController < ApplicationController
       params.require(:reporte_semanal).permit(:tutor, :curso, :semana, :califica_en_plazo, :califica_con_rubrica, :da_retroalimentacion, :responde_mensajes, 
       :errores_ortografia, :comentarios)
     end
-
-    # Hace la sumatoria de puntos de la rubrica para conseguir una calificacion total
-    def get_calif_total(reporte)
-      return reporte.califica_en_plazo + reporte.califica_con_rubrica + reporte.da_retroalimentacion + reporte.responde_mensajes + reporte.errores_ortografia
-    end
-    helper_method :get_calif_total
 end

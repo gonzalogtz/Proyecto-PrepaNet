@@ -89,10 +89,11 @@
         </div>
         <div id="" >
           <%if (@periodo_activo == -1)%>
-            <%= f.submit "Guardar usuario", class:"btn btn-primary btn-lg btnSubmit btnPeriodo", disabled: true %>
+            <%= f.submit "Guardar usuario", class:"btn btn-primary btn-lg btnSubmit", disabled: true %>
           <%else%>
-            <%= f.submit "Guardar usuario", class:"btn btn-primary btn-lg btnSubmit btnPeriodo" %>
+            <%= f.submit "Guardar usuario", class:"btn btn-primary btn-lg btnSubmit" %>
           <%end%>
+            <%= link_to 'Atrás', usuarios_path, class:"btn btn-primary btn-lg btnBack" %>
         </div>
       <% end %>
     </div>
